@@ -272,8 +272,7 @@
   .nexen-logo-wrapper {
     position: relative;
     display: inline-block;
-    overflow: visible;
-    cursor: pointer;
+    overflow: hidden;
   }
 
   .nexen-logo-wrapper > span {
@@ -305,49 +304,6 @@
     }
     100% {
       left: 150%;
-    }
-  }
-
-  /* Wave hover animation - creates a flowing wave effect */
-  .nexen-logo-wrapper:hover .logo-wave-1,
-  .group:hover .logo-wave-1 {
-    animation: wave-flow-1 1.5s ease-in-out infinite;
-  }
-
-  .nexen-logo-wrapper:hover .logo-wave-2,
-  .group:hover .logo-wave-2 {
-    animation: wave-flow-2 1.5s ease-in-out infinite 0.2s;
-  }
-
-  .nexen-logo-wrapper:hover .logo-wave-3,
-  .group:hover .logo-wave-3 {
-    animation: wave-flow-3 1.5s ease-in-out infinite 0.4s;
-  }
-
-  @keyframes wave-flow-1 {
-    0%, 100% {
-      transform: translateY(-6px) rotate(-2deg);
-    }
-    50% {
-      transform: translateY(-12px) rotate(-5deg);
-    }
-  }
-
-  @keyframes wave-flow-2 {
-    0%, 100% {
-      transform: scale(1.15) rotate(-5deg) translateY(-8px);
-    }
-    50% {
-      transform: scale(1.2) rotate(-8deg) translateY(-14px);
-    }
-  }
-
-  @keyframes wave-flow-3 {
-    0%, 100% {
-      transform: translateY(-6px) rotate(2deg);
-    }
-    50% {
-      transform: translateY(-12px) rotate(5deg);
     }
   }
   
