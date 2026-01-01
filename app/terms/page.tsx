@@ -134,8 +134,8 @@ export default function TermsPage() {
             </p>
             <p className="text-white text-lg leading-relaxed">
               <strong className="text-white">Email:</strong>{" "}
-              <a href="mailto:verdungimre@nexensites.hu" className="text-[#7C5CFF] hover:text-[#50AEDF] underline transition-colors">
-                verdungimre@nexensites.hu
+              <a href="mailto:info@nexensites.hu" className="text-[#7C5CFF] hover:text-[#50AEDF] underline transition-colors">
+                info@nexensites.hu
               </a>
               <br />
               <strong className="text-white">Telefon:</strong> +36 70 576 7845

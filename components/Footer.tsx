@@ -67,8 +67,8 @@ export default function Footer() {
               <li className="font-medium">Nexen Sites</li>
               <li>Kecskemét</li>
               <li>
-                <a href="mailto:verdungimre@nexensites.hu" className="hover:text-[#7C5CFF] transition-colors">
-                  verdungimre@nexensites.hu
+                <a href="mailto:info@nexensites.hu" className="hover:text-[#7C5CFF] transition-colors">
+                  info@nexensites.hu
                 </a>
               </li>
               <li>

@@ -30,8 +30,8 @@ export default function PrivacyPage() {
               <strong className="text-white">Székhely:</strong> Kecskemét
               <br />
               <strong className="text-white">Email:</strong>{" "}
-              <a href="mailto:verdungimre@nexensites.hu" className="text-[#7C5CFF] hover:text-[#50AEDF] underline transition-colors">
-                verdungimre@nexensites.hu
+              <a href="mailto:info@nexensites.hu" className="text-[#7C5CFF] hover:text-[#50AEDF] underline transition-colors">
+                info@nexensites.hu
               </a>
               <br />
               <strong className="text-white">Telefon:</strong> +36 70 576 7845
@@ -92,8 +92,8 @@ export default function PrivacyPage() {
             </ul>
             <p className="text-white text-lg leading-relaxed">
               Jogait gyakorolhatja az{" "}
-              <a href="mailto:verdungimre@nexensites.hu" className="text-[#7C5CFF] hover:text-[#50AEDF] underline transition-colors font-semibold">
-                verdungimre@nexensites.hu
+              <a href="mailto:info@nexensites.hu" className="text-[#7C5CFF] hover:text-[#50AEDF] underline transition-colors font-semibold">
+                info@nexensites.hu
               </a>{" "}
               email címen keresztül, vagy panaszt tehet az adatvédelmi hatóságnál (Nemzeti Adatvédelmi és Információszabadság Hatóság, NAIH).
             </p>
@@ -106,8 +106,8 @@ export default function PrivacyPage() {
             </p>
             <p className="text-white text-lg leading-relaxed">
               <strong className="text-white">Email:</strong>{" "}
-              <a href="mailto:verdungimre@nexensites.hu" className="text-[#7C5CFF] hover:text-[#50AEDF] underline transition-colors">
-                verdungimre@nexensites.hu
+              <a href="mailto:info@nexensites.hu" className="text-[#7C5CFF] hover:text-[#50AEDF] underline transition-colors">
+                info@nexensites.hu
               </a>
               <br />
               <strong className="text-white">Telefon:</strong> +36 70 576 7845

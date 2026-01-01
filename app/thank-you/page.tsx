@@ -49,8 +49,8 @@ export default function ThankYouPage() {
           </h1>
           <p className="text-lg text-gray-700 mb-8">
             Ha gyorsítani akarsz: írd meg röviden, milyen weboldalt szeretnél, és küldd el e-mailben{" "}
-            <a href="mailto:verdungimre@nexensites.hu" className="text-primary-500 hover:underline">
-              verdungimre@nexensites.hu
+            <a href="mailto:info@nexensites.hu" className="text-primary-500 hover:underline">
+              info@nexensites.hu
             </a>
           </p>
 

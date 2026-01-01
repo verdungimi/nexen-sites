@@ -123,7 +123,7 @@ ${description ? `Leírás:\n${description}` : ""}
     console.log("=".repeat(50));
     console.log("EMAIL KÜLDÉS");
     console.log("=".repeat(50));
-    console.log("Címzett:", "verdungimre@nexensites.hu");
+    console.log("Címzett:", "info@nexensites.hu");
     console.log("Tárgy:", emailSubject);
     console.log("Tartalom (text):");
     console.log(emailBodyText);
@@ -137,7 +137,7 @@ ${description ? `Leírás:\n${description}` : ""}
     const resend = new Resend(process.env.RESEND_API_KEY);
     const { data, error } = await resend.emails.send({
       from: "onboarding@resend.dev", // Change this to your verified domain
-      to: "verdungimre@nexensites.hu",
+      to: "info@nexensites.hu",
       subject: emailSubject,
       text: emailBodyText,
       html: emailBodyHtml,
