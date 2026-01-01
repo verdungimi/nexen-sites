@@ -160,65 +160,7 @@ A globális stílusok az `app/globals.css`-ben találhatók. Tailwind utility os
 
 ## Deployment
 
-### Automatikus Deployment GitHub Actions-szel (Ajánlott)
-
-A projekt tartalmaz egy GitHub Actions workflow-t (`.github/workflows/deploy.yml`), ami automatikusan deployol a weboldalra, amikor változtatásokat push-olsz a `main` vagy `master` branch-re.
-
-#### Első beállítás:
-
-1. **Git repository inicializálása** (ha még nincs):
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   ```
-
-2. **GitHub repository létrehozása és push**:
-   ```bash
-   git remote add origin <your-github-repo-url>
-   git branch -M main
-   git push -u origin main
-   ```
-
-3. **Vercel projekt létrehozása**:
-   - Menj a [Vercel Dashboard](https://vercel.com/dashboard)-ra
-   - Import-old a GitHub repository-t
-   - Vercel automatikusan létrehoz egy projektet
-
-4. **Vercel Secrets beállítása GitHub-ban**:
-   - Menj a GitHub repository Settings → Secrets and variables → Actions
-   - Add hozzá a következő secrets-eket:
-     - `VERCEL_TOKEN`: Vercel API Token (Settings → Tokens a Vercel-en)
-     - `VERCEL_ORG_ID`: Vercel Organization ID (Project Settings → General)
-     - `VERCEL_PROJECT_ID`: Vercel Project ID (Project Settings → General)
-
-5. **Automatikus deployment**:
-   - Mostantól bármikor push-olsz változtatásokat a `main` branch-re, a GitHub Actions automatikusan buildeli és deployolja a weboldalt
-   - A deployment státusza látható a GitHub repository "Actions" fülén
-
-#### Könnyű deployment helper script
-
-A projekt tartalmaz helper scripteket, ami megkönnyíti a változtatások commitolását és pusholását:
-
-**Node.js script (minden platform):**
-```bash
-npm run deploy
-```
-
-**PowerShell script (Windows):**
-```powershell
-.\scripts\deploy.ps1
-```
-
-Ez a script:
-- Megmutatja az összes változtatást
-- Bekéri a commit üzenetet
-- Automatikusan hozzáadja a változtatásokat (`git add .`)
-- Létrehozza a commitot a megadott üzenettel
-- Pusholja a változtatásokat a remote repository-ba
-- Így azonnal elindul az automatikus deployment
-
-### Manuális Vercel Deployment
+### Vercel (ajánlott)
 
 1. Push-old a kódot egy Git repository-ba
 2. Import-old a projektet Vercel-en
