@@ -103,7 +103,7 @@ export default function Footer() {
             {/* Social Media Icons */}
             <div className="flex items-center gap-4">
               <a 
-                href="https://facebook.com" 
+                href="https://www.facebook.com/profile.php?id=61585984076838" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-400 hover:text-[#7C5CFF] transition-colors"
