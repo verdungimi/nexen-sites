@@ -241,10 +241,7 @@
   }
   
   .nexen-logo-x {
-    background: linear-gradient(135deg, #7C5CFF 0%, #ED5096 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
     position: relative;
     display: inline-block;
     transform: scale(1.1) rotate(-5deg);
@@ -260,63 +257,28 @@
   }
   
   .nexen-logo-ne {
-    background: linear-gradient(90deg, #50AEDF 0%, #7C5CFF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
     transition: transform 0.3s ease;
   }
   
   .nexen-logo-en {
-    color: #ED5096;
+    color: #ffffff;
     transition: transform 0.3s ease;
   }
 
   .nexen-logo-x {
+    color: #ffffff;
     transition: transform 0.3s ease;
   }
 
-  /* Logo Wave Animation - Clean Up and Down */
-  @keyframes logo-wave {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-6px);
-    }
-  }
-
-  @keyframes logo-wave-x {
-    0%, 100% {
-      transform: scale(1.1) rotate(-5deg) translateY(0);
-    }
-    50% {
-      transform: scale(1.1) rotate(-5deg) translateY(-6px);
-    }
-  }
-
-  @keyframes logo-spin-x {
-    from {
-      transform: scale(1.1) rotate(-5deg);
-    }
-    to {
-      transform: scale(1.1) rotate(355deg);
-    }
-  }
-
-  .group:hover .logo-wave-1 {
-    animation: logo-wave 0.8s ease-in-out;
-    animation-delay: 0s;
+  /* Simple hover animation */
+  .group:hover .logo-wave-1,
+  .group:hover .logo-wave-3 {
+    transform: translateY(-3px);
   }
 
   .group:hover .logo-wave-2 {
-    animation: logo-spin-x 0.6s ease-in-out;
-    animation-delay: 0.2s;
-  }
-
-  .group:hover .logo-wave-3 {
-    animation: logo-wave 0.8s ease-in-out;
-    animation-delay: 0.4s;
+    transform: scale(1.1) rotate(-5deg) translateY(-3px);
   }
   
   .bg-gradient-primary {
