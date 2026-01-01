@@ -236,7 +236,7 @@ export default function HomePage() {
           <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(255,255,255,0.2)]">
             <h3 className="text-xl font-bold mb-2 text-[#EAF0FF]">Kezdő</h3>
             <div className="text-3xl font-bold mb-4 text-[#EAF0FF]">
-              299,000 Ft
+              299 000 Ft
             </div>
             <p className="text-[#A8B3C7] mb-6 text-sm">1 oldalas landing</p>
             <ul className="space-y-2 mb-6">
@@ -270,7 +270,7 @@ export default function HomePage() {
             <div className="text-center mb-6">
               <h3 className="text-3xl font-bold mb-3 text-[#EAF0FF]">Standard</h3>
               <div className="text-5xl font-bold mb-3 text-[#EAF0FF]">
-                499,000 Ft
+                499 000 Ft
               </div>
               <p className="text-[#A8B3C7] text-sm">3-5 oldal</p>
             </div>
@@ -311,7 +311,7 @@ export default function HomePage() {
           <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(255,255,255,0.2)]">
             <h3 className="text-xl font-bold mb-2 text-[#EAF0FF]">Pro</h3>
             <div className="text-3xl font-bold mb-4 text-[#EAF0FF]">
-              799,000 Ft
+              799 000 Ft
             </div>
             <p className="text-[#A8B3C7] mb-6 text-sm">Teljes weboldal + extrák</p>
             <ul className="space-y-2 mb-6">
