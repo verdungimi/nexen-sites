@@ -268,11 +268,10 @@
     display: inline-block;
   }
 
-  /* Logo shadow sweep animation */
+  /* Logo text animation - only on the text itself */
   .nexen-logo-wrapper {
     position: relative;
     display: inline-block;
-    overflow: hidden;
   }
 
   .nexen-logo-wrapper > span {
@@ -280,30 +279,29 @@
     z-index: 1;
   }
 
-  .nexen-logo-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 60%;
-    height: 100%;
+  /* Gradient sweep animation directly on the text */
+  .nexen-logo-ne,
+  .nexen-logo-x,
+  .nexen-logo-en {
     background: linear-gradient(90deg, 
-      transparent 0%, 
-      rgba(0, 0, 0, 0.6) 30%, 
-      rgba(0, 0, 0, 0.6) 70%, 
-      transparent 100%);
-    z-index: 2;
-    pointer-events: none;
-    animation: shadow-sweep 3s ease-in-out infinite;
-    transform: skewX(-20deg);
+      #ffffff 0%, 
+      #ffffff 45%,
+      rgba(124, 92, 255, 0.8) 50%,
+      rgba(80, 174, 223, 0.8) 55%,
+      #ffffff 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: text-gradient-sweep 3s ease-in-out infinite;
   }
 
-  @keyframes shadow-sweep {
+  @keyframes text-gradient-sweep {
     0% {
-      left: -100%;
+      background-position: 200% 0;
     }
     100% {
-      left: 150%;
+      background-position: -200% 0;
     }
   }
   
