@@ -279,31 +279,31 @@
     z-index: 1;
   }
 
-  /* Gradient shadow sweep directly on the text letters */
+  /* Gradient shadow sweep - moves left to right, letter by letter */
   .nexen-logo-ne,
   .nexen-logo-x,
   .nexen-logo-en {
     background: linear-gradient(90deg, 
       #ffffff 0%,
-      #ffffff 45%,
-      rgba(0, 0, 0, 0.4) 48%,
+      #ffffff 40%,
+      rgba(0, 0, 0, 0.4) 45%,
       rgba(0, 0, 0, 0.5) 50%,
-      rgba(0, 0, 0, 0.4) 52%,
-      #ffffff 55%,
+      rgba(0, 0, 0, 0.4) 55%,
+      #ffffff 60%,
       #ffffff 100%);
-    background-size: 300% 100%;
+    background-size: 200% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: text-shadow-sweep 3s ease-in-out infinite;
+    animation: text-shadow-sweep 1.5s ease-in-out infinite;
   }
 
   .nexen-logo-x {
-    animation-delay: 0s;
+    animation-delay: 0.5s;
   }
 
   .nexen-logo-en {
-    animation-delay: 0s;
+    animation-delay: 1s;
   }
 
   @keyframes text-shadow-sweep {
