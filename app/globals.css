@@ -279,32 +279,31 @@
     z-index: 1;
   }
 
-  /* Single fade sweep animation - overlay method */
-  .nexen-logo-wrapper > span::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
+  /* Fade sweep animation - only visible on text, gray to white fade */
+  .nexen-logo-ne,
+  .nexen-logo-x,
+  .nexen-logo-en {
     background: linear-gradient(90deg, 
-      transparent 0%,
-      rgba(255, 255, 255, 0.4) 45%,
-      rgba(255, 255, 255, 0.6) 50%,
-      rgba(255, 255, 255, 0.4) 55%,
-      transparent 100%);
-    z-index: 2;
-    pointer-events: none;
-    animation: single-fade-sweep 3s ease-in-out infinite;
-    mix-blend-mode: overlay;
+      #ffffff 0%,
+      #ffffff 40%,
+      rgba(200, 200, 200, 0.8) 45%,
+      rgba(150, 150, 150, 0.6) 50%,
+      rgba(200, 200, 200, 0.8) 55%,
+      #ffffff 60%,
+      #ffffff 100%);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: text-fade-sweep 3s ease-in-out infinite;
   }
 
-  @keyframes single-fade-sweep {
+  @keyframes text-fade-sweep {
     0% {
-      left: -100%;
+      background-position: 200% 0;
     }
     100% {
-      left: 100%;
+      background-position: -100% 0;
     }
   }
   
