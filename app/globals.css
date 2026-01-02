@@ -279,32 +279,24 @@
     z-index: 1;
   }
 
-  /* Fade sweep animation - right to left, letter by letter */
-  .nexen-logo-ne,
-  .nexen-logo-x,
-  .nexen-logo-en {
+  /* Single fade sweep animation across entire logo text */
+  .nexen-logo-wrapper > span {
     background: linear-gradient(90deg, 
       rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 40%,
       rgba(255, 255, 255, 0.3) 45%,
       rgba(255, 255, 255, 0.1) 50%,
       rgba(255, 255, 255, 0.3) 55%,
+      rgba(255, 255, 255, 1) 60%,
       rgba(255, 255, 255, 1) 100%);
-    background-size: 200% 100%;
+    background-size: 300% 100%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: text-fade-sweep 1.5s ease-in-out infinite;
+    animation: single-fade-sweep 3s ease-in-out infinite;
   }
 
-  .nexen-logo-en {
-    animation-delay: 0.5s;
-  }
-
-  .nexen-logo-x {
-    animation-delay: 1s;
-  }
-
-  @keyframes text-fade-sweep {
+  @keyframes single-fade-sweep {
     0% {
       background-position: 200% 0;
     }
