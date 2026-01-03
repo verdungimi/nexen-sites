@@ -116,7 +116,7 @@ export default function PackagesPage() {
                   Landing Page Csomag
                 </h3>
                 <div className="text-4xl font-bold mb-2 text-[#EAF0FF] group-hover:text-[#50AEDF] transition-colors">
-                  Ár: Egyedi ajánlat
+                  350 000 Ft
                 </div>
                 <p className="text-[#A8B3C7] mb-8 text-lg">
                   Konverzióra optimalizált, egyoldalas landing page
@@ -150,10 +150,6 @@ export default function PackagesPage() {
                   <li className="flex items-start gap-3">
                     <span className="text-[#50AEDF] font-bold text-lg">✓</span>
                     <span className="text-[#EAF0FF] text-base">Kapcsolatfelvételi űrlap</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#50AEDF] font-bold text-lg">✓</span>
-                    <span className="text-[#EAF0FF] text-base">SEO optimalizálás</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-[#50AEDF] font-bold text-lg">✓</span>
