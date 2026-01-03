@@ -15,27 +15,17 @@ export default function ProcessTimeline() {
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Calculate progress based on how much of the section has been scrolled through
+      // Calculate progress from section top entering viewport to section bottom leaving viewport
       const sectionTop = rect.top;
       const sectionHeight = rect.height;
       
-      // When section top reaches viewport center, progress starts
-      // When section bottom passes viewport center, progress completes
-      const viewportCenter = windowHeight / 2;
-      const sectionStart = sectionTop;
-      const sectionEnd = sectionTop + sectionHeight;
+      // Progress calculation: section starts when it enters viewport, ends when it leaves
+      const scrollStart = windowHeight; // When section top reaches viewport bottom
+      const scrollEnd = -sectionHeight; // When section bottom reaches viewport top
+      const scrollRange = scrollStart - scrollEnd;
+      const scrolled = scrollStart - sectionTop;
       
-      let progress = 0;
-      
-      if (sectionEnd < viewportCenter) {
-        // Section has completely passed the viewport center
-        progress = 1;
-      } else if (sectionStart < viewportCenter) {
-        // Section is currently passing through viewport center
-        const scrollableDistance = sectionHeight + (viewportCenter - sectionStart);
-        const scrolled = viewportCenter - sectionStart;
-        progress = Math.max(0, Math.min(1, scrolled / scrollableDistance));
-      }
+      const progress = Math.max(0, Math.min(1, scrolled / scrollRange));
 
       setScrollProgress(progress);
     };
@@ -58,13 +48,13 @@ export default function ProcessTimeline() {
     <div ref={sectionRef} className="relative">
       <div ref={timelineRef} className="space-y-12 relative">
         {/* Scroll progress line - single vertical line for entire timeline */}
-        <div className="absolute left-6 top-10 bottom-0 w-0.5 bg-[#7C5CFF]/20 hidden md:block">
+        <div className="absolute left-6 top-10 bottom-0 w-1 bg-[#7C5CFF]/30 hidden md:block rounded-full">
           {/* Progress fill */}
           <div
-            className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] transition-all duration-100 ease-out"
+            className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] transition-all duration-75 ease-out rounded-full"
             style={{
               height: `${scrollProgress * 100}%`,
-              boxShadow: '0 0 10px rgba(124, 92, 255, 0.5)',
+              boxShadow: '0 0 15px rgba(124, 92, 255, 0.8), 0 0 30px rgba(80, 174, 223, 0.6)',
             }}
           />
         </div>
