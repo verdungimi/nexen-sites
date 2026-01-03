@@ -31,16 +31,16 @@ export default function PackagesPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Exclusive Package */}
-            <div className="group relative bg-gradient-to-br from-[#0F1620] to-[#1a1f2e] border-2 border-[rgba(255,215,0,0.4)] rounded-3xl p-10 transition-all duration-500 hover:-translate-y-2 hover:border-[#FFD700] hover:shadow-[0_0_60px_rgba(255,215,0,0.4),0_0_120px_rgba(255,215,0,0.2)]">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 via-[#FFA500]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute -top-4 right-4 bg-gradient-to-r from-[#FFD700] to-[#FFA500] text-[#0a0a0a] text-xs font-bold px-4 py-2 rounded-full shadow-lg">
+            <div className="group relative bg-gradient-to-br from-[#1a0a0a] to-[#2a1a1a] border-2 border-[rgba(220,20,60,0.5)] rounded-3xl p-10 transition-all duration-500 hover:-translate-y-2 hover:border-[#DC143C] hover:shadow-[0_0_60px_rgba(220,20,60,0.5),0_0_120px_rgba(255,215,0,0.3)]">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#DC143C]/10 via-[#FFD700]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute -top-4 right-4 bg-gradient-to-r from-[#DC143C] to-[#FFD700] text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">
                 EXCLUSIVE
               </div>
               <div className="relative z-10">
-                <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent">
+                <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#DC143C] to-[#FFD700] bg-clip-text text-transparent">
                   Exclusive Csomag
                 </h3>
-                <div className="text-2xl font-bold mb-2 bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent">
+                <div className="text-2xl font-bold mb-2 bg-gradient-to-r from-[#DC143C] to-[#FFD700] bg-clip-text text-transparent">
                   Ár: Egyedi ajánlat
                 </div>
                 <p className="text-[#A8B3C7] mb-8 text-lg">
@@ -49,55 +49,55 @@ export default function PackagesPage() {
                 
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start gap-3">
-                    <span className="text-[#FFD700] font-bold text-lg">✓</span>
+                    <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
                     <span className="text-[#EAF0FF] text-base">Korlátlan oldalszám</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#FFD700] font-bold text-lg">✓</span>
+                    <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
                     <span className="text-[#EAF0FF] text-base">Teljes egyedi design és UX</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#FFD700] font-bold text-lg">✓</span>
+                    <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
                     <span className="text-[#EAF0FF] text-base">Prémium animációk és interakciók</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#FFD700] font-bold text-lg">✓</span>
+                    <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
                     <span className="text-[#EAF0FF] text-base">Teljes SEO optimalizálás</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#FFD700] font-bold text-lg">✓</span>
+                    <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
                     <span className="text-[#EAF0FF] text-base">Egyedi integrációk (CRM, payment, stb.)</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#FFD700] font-bold text-lg">✓</span>
+                    <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
                     <span className="text-[#EAF0FF] text-base">Teljes tartalomkezelési rendszer</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#FFD700] font-bold text-lg">✓</span>
+                    <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
                     <span className="text-[#EAF0FF] text-base">E-commerce funkcionalitás</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#FFD700] font-bold text-lg">✓</span>
+                    <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
                     <span className="text-[#EAF0FF] text-base">Multi-language támogatás</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#FFD700] font-bold text-lg">✓</span>
+                    <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
                     <span className="text-[#EAF0FF] text-base">Prémium analytics és tracking</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#FFD700] font-bold text-lg">✓</span>
+                    <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
                     <span className="text-[#EAF0FF] text-base">24/7 prioritásos támogatás</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#FFD700] font-bold text-lg">✓</span>
+                    <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
                     <span className="text-[#EAF0FF] text-base">Havi karbantartás és frissítések</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#FFD700] font-bold text-lg">✓</span>
+                    <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
                     <span className="text-[#EAF0FF] text-base">Egyedi fejlesztési igények</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="text-[#FFD700] font-bold text-lg">✓</span>
+                    <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
                     <span className="text-[#EAF0FF] text-base">Garantált határidő</span>
                   </li>
                 </ul>
