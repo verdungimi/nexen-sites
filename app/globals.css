@@ -45,9 +45,12 @@
     letter-spacing: -0.02em;
   }
   
-  .hero-title,
+  .hero-title {
+    font-family: var(--font-space-grotesk) !important;
+  }
+  
   .hero-subtitle {
-    font-family: 'Space Grotesk', var(--font-space-grotesk), sans-serif !important;
+    font-family: var(--font-space-grotesk) !important;
   }
   
   p, span, li, div, a {
