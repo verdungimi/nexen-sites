@@ -598,8 +598,13 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     position: relative;
-    transition: -webkit-line-clamp 0.5s ease-in-out, max-height 0.5s ease-in-out;
     max-height: calc(1.7em * 3);
+    transition: max-height 0.5s ease-in-out, -webkit-line-clamp 0.5s ease-in-out;
+    mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+    transition: max-height 0.5s ease-in-out, mask-image 0.5s ease-in-out, -webkit-mask-image 0.5s ease-in-out;
   }
   
   .blog-excerpt-wrapper::after {
@@ -621,9 +626,21 @@
     -webkit-line-clamp: unset;
     max-height: 1000px;
     display: block;
+    mask-image: linear-gradient(to bottom, black 0%, black 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 100%);
   }
   
   .blog-card:hover .blog-excerpt-wrapper::after {
     opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  /* Non-hover state - ensure smooth fade out */
+  .blog-excerpt-text {
+    transition: max-height 0.5s ease-in-out, mask-image 0.5s ease-in-out, -webkit-mask-image 0.5s ease-in-out;
+  }
+  
+  .blog-excerpt-wrapper::after {
+    transition: opacity 0.5s ease-in-out;
   }
 }
