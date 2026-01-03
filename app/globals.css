@@ -284,16 +284,19 @@
     z-index: 1;
   }
 
-  /* Logo hover animation with fade in/out */
+  /* Logo hover animation with fade in/out - same colors as hero premium text */
   .nexen-logo-wrapper:hover .nexen-logo-ne,
+  .nexen-logo-wrapper:hover .nexen-logo-x,
   .nexen-logo-wrapper:hover .nexen-logo-en {
     transform: translateY(-2px);
-    color: #7C5CFF;
+    background: linear-gradient(to right, #ffffff, #9ca3af, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .nexen-logo-wrapper:hover .nexen-logo-x {
     transform: scale(1.15) rotate(-8deg) translateY(-2px);
-    color: #50AEDF;
   }
   
   .bg-gradient-primary {
