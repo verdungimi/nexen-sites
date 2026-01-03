@@ -4,6 +4,7 @@ import CTAButton from "@/components/CTAButton";
 import FAQAccordion from "@/components/FAQAccordion";
 import TestimonialCard from "@/components/TestimonialCard";
 import FinAIHero from "@/components/FinAIHero";
+import ProcessTimeline from "@/components/ProcessTimeline";
 
 export const metadata: Metadata = {
   title: "Weboldal 10 nap alatt | Nexen Sites",
@@ -273,31 +274,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="relative">
-            <div className="space-y-12">
-              {[
-                { day: "1", title: "1. nap: Kickoff + anyagok", desc: "Összegyűjtjük az igényeket, begyűjtjük a márkaanyagokat, és felállítjuk a projekt infrastruktúráját." },
-                { day: "2-3", title: "2-3. nap: Vázlat + szöveg", desc: "Először a struktúra és a tartalom. Vázlatokat készítünk és finomhangoljuk a szövegeket, mielőtt a design elkezdődne." },
-                { day: "4-6", title: "4-6. nap: Vizuális design", desc: "Vizuális design fázis egy javítási körrel, hogy tökéletesítsük a megjelenést és az érzést." },
-                { day: "7-9", title: "7-9. nap: Fejlesztés + tesztelés", desc: "Fejlesztés, tesztelés különböző eszközökön, és végső finomhangolás, hogy minden tökéletesen működjön." },
-                { day: "10", title: "10. nap: Indítás + átadás", desc: "Végső ellenőrzés, telepítés és átadás. A weboldalad élő lesz, időben, minden alkalommal." },
-              ].map((step, idx, array) => (
-                <div key={idx} className="flex gap-6 items-start relative">
-                  {/* Timeline line - csak ha nem az utolsó elem */}
-                  {idx < array.length - 1 && (
-                    <div className="absolute left-6 top-10 bottom-0 w-0.5 bg-gradient-to-b from-[#7C5CFF] via-[#7C5CFF]/60 to-[#7C5CFF]/30 hidden md:block" style={{ height: 'calc(100% + 3rem)' }}></div>
-                  )}
-                  <div className="flex-shrink-0 w-10 h-10 bg-[#7C5CFF] rounded-full flex items-center justify-center text-white font-bold text-xs shadow-[0_0_15px_rgba(124,92,255,0.4)] z-10 border-2 border-[#0a0a0a]">
-                    {step.day}
-                  </div>
-                  <div className="flex-1 bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 transition-all duration-300 hover:border-[rgba(255,255,255,0.2)]">
-                    <h3 className="text-xl font-bold mb-2 text-[#EAF0FF]">{step.title}</h3>
-                    <p className="text-[#A8B3C7] leading-relaxed">{step.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <ProcessTimeline />
         </div>
       </Section>
 
