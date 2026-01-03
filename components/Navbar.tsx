@@ -50,6 +50,9 @@ export default function Navbar() {
             <Link href="/blog" className="px-5 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg">
               Blog
             </Link>
+            <Link href="/about" className="px-5 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg">
+              Rólunk
+            </Link>
             <a href="/#faq" className="px-5 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e) => {
               e.preventDefault();
               const currentPath = window.location.pathname;
@@ -147,6 +150,9 @@ export default function Navbar() {
             </a>
             <Link href="/blog" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
               Blog
+            </Link>
+            <Link href="/about" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
+              Rólunk
             </Link>
             <a href="/#faq" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e) => {
               e.preventDefault();
