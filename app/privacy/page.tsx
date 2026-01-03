@@ -34,7 +34,10 @@ export default function PrivacyPage() {
                 info@nexensites.hu
               </a>
               <br />
-              <strong className="text-white">Telefon:</strong> +36 70 576 7845
+              <strong className="text-white">Telefon:</strong>{" "}
+              <a href="tel:+36705767845" className="text-[#7C5CFF] hover:text-[#50AEDF] underline transition-colors">
+                +36 70 576 7845
+              </a>
             </p>
           </section>
 
@@ -110,7 +113,10 @@ export default function PrivacyPage() {
                 info@nexensites.hu
               </a>
               <br />
-              <strong className="text-white">Telefon:</strong> +36 70 576 7845
+              <strong className="text-white">Telefon:</strong>{" "}
+              <a href="tel:+36705767845" className="text-[#7C5CFF] hover:text-[#50AEDF] underline transition-colors">
+                +36 70 576 7845
+              </a>
             </p>
           </section>
 
