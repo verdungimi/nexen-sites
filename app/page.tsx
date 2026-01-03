@@ -105,13 +105,13 @@ export default function HomePage() {
                   A látogatók megjelennek a weboldalon, de nem válthatók leadekké.
                 </p>
                 <div className="pt-4 border-t border-[rgba(255,255,255,0.1)]">
-                  <div className="flex items-center gap-3 flex-wrap">
-                    <span className="inline-block px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap">
+                  <div className="flex items-baseline gap-3 flex-wrap">
+                    <span className="inline-flex px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap items-center">
                       Megoldás:
                     </span>
-                    <p className="text-[#EAF0FF] font-semibold leading-relaxed text-base m-0">
+                    <span className="text-[#EAF0FF] font-semibold leading-relaxed text-base flex-1">
                       Konverziós struktúra, ami egyértelmű cselekvésre vezeti a látogatókat.
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -135,13 +135,13 @@ export default function HomePage() {
                   A hirdetések pénzt hoznak, de a weboldal nem zárja le a forgalmat.
                 </p>
                 <div className="pt-4 border-t border-[rgba(255,255,255,0.1)]">
-                  <div className="flex items-center gap-3 flex-wrap">
-                    <span className="inline-block px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap">
+                  <div className="flex items-baseline gap-3 flex-wrap">
+                    <span className="inline-flex px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap items-center">
                       Megoldás:
                     </span>
-                    <p className="text-[#EAF0FF] font-semibold leading-relaxed text-base m-0">
+                    <span className="text-[#EAF0FF] font-semibold leading-relaxed text-base flex-1">
                       Landing page logika, ami kifejezetten a fizetett forgalom támogatására épül.
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -165,13 +165,13 @@ export default function HomePage() {
                   A weboldal átlagos vagy elavult, alacsony minőségű leadeket és árfigyelőket vonz.
                 </p>
                 <div className="pt-4 border-t border-[rgba(255,255,255,0.1)]">
-                  <div className="flex items-center gap-3 flex-wrap">
-                    <span className="inline-block px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap">
+                  <div className="flex items-baseline gap-3 flex-wrap">
+                    <span className="inline-flex px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap items-center">
                       Megoldás:
                     </span>
-                    <p className="text-[#EAF0FF] font-semibold leading-relaxed text-base m-0">
+                    <span className="text-[#EAF0FF] font-semibold leading-relaxed text-base flex-1">
                       Prémium design és pozicionálás, ami kiszűri a nem minősített érdeklődőket.
-                    </p>
+                    </span>
                   </div>
                 </div>
               </div>
