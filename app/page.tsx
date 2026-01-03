@@ -27,26 +27,20 @@ export default function HomePage() {
             {/* Left side info - Hidden on mobile, visible on lg+ */}
             <div className="hidden lg:block lg:col-span-3 space-y-6">
               <div className="backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 shadow-lg hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.3)] transition-all duration-500">
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center gap-3">
                   <svg className="w-6 h-6 text-[#50AEDF] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                   </svg>
                   <h3 className="text-lg font-bold text-white">Mobilbarát</h3>
                 </div>
-                <p className="text-sm text-[#A8B3C7] leading-relaxed">
-                  Minden eszközön tökéletesen működik, mobil, tablet, desktop.
-                </p>
               </div>
               <div className="backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 shadow-lg hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.3)] transition-all duration-500">
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center gap-3">
                   <svg className="w-6 h-6 text-[#7C5CFF] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                   <h3 className="text-lg font-bold text-white">Gyors betöltés</h3>
                 </div>
-                <p className="text-sm text-[#A8B3C7] leading-relaxed">
-                  Optimalizált teljesítmény, gyors betöltési idő, jobb felhasználói élmény.
-                </p>
               </div>
             </div>
 
@@ -103,26 +97,20 @@ export default function HomePage() {
             {/* Right side info - Hidden on mobile, visible on lg+ */}
             <div className="hidden lg:block lg:col-span-3 space-y-6">
               <div className="backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 shadow-lg hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.3)] transition-all duration-500">
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center gap-3">
                   <svg className="w-6 h-6 text-[#7C5CFF] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                   <h3 className="text-lg font-bold text-white">SEO kész</h3>
                 </div>
-                <p className="text-sm text-[#A8B3C7] leading-relaxed">
-                  Alapból keresőoptimalizált, jobb láthatóság a Google-ben.
-                </p>
               </div>
               <div className="backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 shadow-lg hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.3)] transition-all duration-500">
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center gap-3">
                   <svg className="w-6 h-6 text-[#50AEDF] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <h3 className="text-lg font-bold text-white">24/7 támogatás</h3>
                 </div>
-                <p className="text-sm text-[#A8B3C7] leading-relaxed">
-                  Folyamatos segítség és karbantartás az átadás után is.
-                </p>
               </div>
             </div>
           </div>
