@@ -13,15 +13,11 @@ interface FAQAccordionProps {
 
 export default function FAQAccordion({ items }: FAQAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
 
   return (
     <div className="space-y-4">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
-        const isFocused = focusedIndex === index;
-        // Show ring if open (regardless of focus), or if focused and not closed yet
-        const showRing = isOpen || isFocused;
 
         return (
           <div
@@ -30,23 +26,10 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
           >
             <button
               onClick={() => setOpenIndex(isOpen ? null : index)}
-              onFocus={() => setFocusedIndex(index)}
-              onBlur={() => {
-                // Only remove focus if the item is closed
-                if (!isOpen) {
-                  setFocusedIndex(null);
-                }
-              }}
-              onMouseLeave={() => {
-                // Only remove focus if the item is closed
-                if (!isOpen) {
-                  setFocusedIndex(null);
-                }
-              }}
               className={`w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/10 transition-all duration-300 focus:outline-none rounded-t-xl ${
-                showRing
-                  ? "ring-2 ring-[#7C5CFF] ring-inset"
-                  : "ring-0"
+                isOpen
+                  ? "ring-4 ring-[#7C5CFF] ring-inset shadow-[0_0_0_4px_rgba(124,92,255,0.3)]"
+                  : ""
               }`}
               aria-expanded={isOpen}
             >
