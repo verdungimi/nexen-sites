@@ -9,28 +9,32 @@ export default function ProcessTimeline() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!sectionRef.current || !timelineRef.current) return;
+      if (!sectionRef.current) return;
 
       const section = sectionRef.current;
-      const timeline = timelineRef.current;
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      // Calculate when section enters viewport
+      // Calculate progress based on how much of the section has been scrolled through
       const sectionTop = rect.top;
       const sectionHeight = rect.height;
-
-      // Progress from 0 to 1 as user scrolls through the section
+      
+      // When section top reaches viewport center, progress starts
+      // When section bottom passes viewport center, progress completes
+      const viewportCenter = windowHeight / 2;
+      const sectionStart = sectionTop;
+      const sectionEnd = sectionTop + sectionHeight;
+      
       let progress = 0;
       
-      if (sectionTop <= windowHeight && sectionTop + sectionHeight >= 0) {
-        // Section is in viewport
-        const viewportStart = Math.max(0, windowHeight - sectionTop);
-        const viewportEnd = Math.min(sectionHeight, windowHeight - sectionTop + windowHeight);
-        progress = Math.max(0, Math.min(1, viewportStart / sectionHeight));
-      } else if (sectionTop + sectionHeight <= 0) {
-        // Section is above viewport - completed
+      if (sectionEnd < viewportCenter) {
+        // Section has completely passed the viewport center
         progress = 1;
+      } else if (sectionStart < viewportCenter) {
+        // Section is currently passing through viewport center
+        const scrollableDistance = sectionHeight + (viewportCenter - sectionStart);
+        const scrolled = viewportCenter - sectionStart;
+        progress = Math.max(0, Math.min(1, scrolled / scrollableDistance));
       }
 
       setScrollProgress(progress);
@@ -54,7 +58,7 @@ export default function ProcessTimeline() {
     <div ref={sectionRef} className="relative">
       <div ref={timelineRef} className="space-y-12 relative">
         {/* Scroll progress line - single vertical line for entire timeline */}
-        <div className="absolute left-6 top-10 w-0.5 bg-[#7C5CFF]/20 hidden md:block" style={{ bottom: '0' }}>
+        <div className="absolute left-6 top-10 bottom-0 w-0.5 bg-[#7C5CFF]/20 hidden md:block">
           {/* Progress fill */}
           <div
             className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] transition-all duration-100 ease-out"
