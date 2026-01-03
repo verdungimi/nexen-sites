@@ -64,8 +64,8 @@ export default function HomePage() {
                 <div className="text-sm md:text-base text-[#EAF0FF] font-semibold">Prémium minőség</div>
                 <div className="text-xs text-[#7C5CFF] mt-2 font-medium">Professzionális kivitelezés</div>
               </div>
-              <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#ED5096]/50 hover:shadow-[0_0_30px_rgba(237,80,150,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-2 group">
-                <div className="text-4xl md:text-5xl font-black text-white mb-2 group-hover:text-[#ED5096] transition-colors duration-500 group-hover:scale-110 transition-transform duration-300">3</div>
+              <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-2 group">
+                <div className="text-4xl md:text-5xl font-black text-white mb-2 group-hover:text-[#7C5CFF] transition-colors duration-500 group-hover:scale-110 transition-transform duration-300">3</div>
                 <div className="text-sm md:text-base text-[#EAF0FF] font-semibold">Ügyfél havonta</div>
                 <div className="text-xs text-[#7C5CFF] mt-2 font-medium">Korlátozott kapacitás</div>
               </div>
