@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, DM_Sans } from "next/font/google";
+import { Poppins, DM_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,6 +15,13 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-dm-sans",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({ 
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
@@ -42,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hu">
-      <body className={`${poppins.variable} ${dmSans.variable} font-sans flex flex-col min-h-screen`} style={{ backgroundColor: '#0a0a0a', color: '#ffffff', position: 'relative' }}>
+      <body className={`${poppins.variable} ${dmSans.variable} ${spaceGrotesk.variable} font-sans flex flex-col min-h-screen`} style={{ backgroundColor: '#0a0a0a', color: '#ffffff', position: 'relative' }}>
         <Navbar />
         <main className="flex-grow relative z-10">{children}</main>
         <Footer />

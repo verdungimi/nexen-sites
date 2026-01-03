@@ -25,7 +25,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
           <div className="text-center max-w-5xl mx-auto">
             {/* Large Typography - Fin AI Style */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 leading-[0.95] tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 leading-[0.95] tracking-tight" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
               <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-fade-in">
                 Prémium
               </span>
@@ -38,7 +38,7 @@ export default function HomePage() {
             </h1>
 
             {/* Subheadline - Minimal */}
-            <p className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-delay-2">
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-delay-2" style={{ fontFamily: 'var(--font-space-grotesk)' }}>
               Modern weboldal, ami működik. 10 nap, fix határidő, prémium eredmény.
             </p>
 
