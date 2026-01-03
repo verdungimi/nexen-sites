@@ -160,7 +160,7 @@ export default function BlogPage() {
             {blogPosts.map((post) => (
               <article
                 key={post.slug}
-                className="bg-[#0F1620]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 transition-all duration-300 hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] hover:-translate-y-1 group flex flex-col"
+                className="bg-[#0F1620]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 transition-all duration-300 hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] hover:-translate-y-1 group flex flex-col blog-card"
               >
                 {/* Category Badge */}
                 <div className="mb-4">
@@ -188,7 +188,7 @@ export default function BlogPage() {
                 </h2>
 
                 {/* Excerpt */}
-                <div className="relative mb-6 blog-excerpt-wrapper group/excerpt">
+                <div className="relative mb-6 blog-excerpt-wrapper">
                   <p className="text-[#A8B3C7] leading-relaxed break-words overflow-wrap-anywhere blog-excerpt-text">
                     {post.excerpt}
                   </p>
