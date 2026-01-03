@@ -222,15 +222,6 @@
 }
 
 @layer components {
-  /* Hero section font overrides */
-  .hero-title {
-    font-family: var(--font-space-grotesk) !important;
-  }
-  
-  .hero-subtitle {
-    font-family: var(--font-space-grotesk) !important;
-  }
-  
   .container-custom {
     @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
   }
