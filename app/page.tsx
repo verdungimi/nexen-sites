@@ -47,7 +47,7 @@ export default function HomePage() {
               <div className="mb-6 animate-fade-in flex justify-center">
                 <div className="inline-flex items-center justify-center px-5 py-3 bg-gradient-to-r from-[#ED5096]/30 via-[#ED5096]/40 to-[#ED5096]/30 border-2 border-[#ED5096] rounded-xl shadow-[0_0_30px_rgba(237,80,150,0.6)]">
                   <span className="text-lg md:text-xl font-bold text-white">3</span>
-                  <span className="text-lg md:text-xl font-bold text-white mx-1">ügyfél</span>
+                  <span className="text-lg md:text-xl font-bold text-white mx-1.5">ügyfél</span>
                   <span className="text-lg md:text-xl font-bold text-white">havonta</span>
                 </div>
               </div>
