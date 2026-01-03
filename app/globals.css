@@ -258,19 +258,19 @@
   
   .nexen-logo-ne {
     color: #ffffff;
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
     display: inline-block;
   }
   
   .nexen-logo-en {
     color: #ffffff;
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
     display: inline-block;
   }
 
   .nexen-logo-x {
     color: #ffffff;
-    transition: all 0.4s ease;
+    transition: all 0.5s ease;
   }
 
   /* Logo text animation - shadow sweep directly on text, left to right */
