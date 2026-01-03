@@ -47,7 +47,7 @@
   
   .hero-title,
   .hero-subtitle {
-    font-family: var(--font-space-grotesk), sans-serif !important;
+    font-family: 'Space Grotesk', var(--font-space-grotesk), sans-serif !important;
   }
   
   p, span, li, div, a {
