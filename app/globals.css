@@ -258,14 +258,19 @@
   
   .nexen-logo-ne {
     color: #ffffff;
-    transition: transform 0.3s ease;
+    transition: all 0.4s ease;
     display: inline-block;
   }
   
   .nexen-logo-en {
     color: #ffffff;
-    transition: transform 0.3s ease;
+    transition: all 0.4s ease;
     display: inline-block;
+  }
+
+  .nexen-logo-x {
+    color: #ffffff;
+    transition: all 0.4s ease;
   }
 
   /* Logo text animation - shadow sweep directly on text, left to right */
@@ -277,21 +282,18 @@
   .nexen-logo-wrapper > span {
     position: relative;
     z-index: 1;
-    transition: all 0.3s ease;
   }
 
-  /* Logo hover animation */
+  /* Logo hover animation with fade in/out */
   .nexen-logo-wrapper:hover .nexen-logo-ne,
   .nexen-logo-wrapper:hover .nexen-logo-en {
     transform: translateY(-2px);
     color: #7C5CFF;
-    transition: all 0.3s ease;
   }
 
   .nexen-logo-wrapper:hover .nexen-logo-x {
     transform: scale(1.15) rotate(-8deg) translateY(-2px);
     color: #50AEDF;
-    transition: all 0.3s ease;
   }
   
   .bg-gradient-primary {
