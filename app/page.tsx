@@ -23,7 +23,35 @@ export default function HomePage() {
         <FinAIHero />
         
         <div className="max-w-7xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
-          <div className="text-center max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left side info - Hidden on mobile, visible on lg+ */}
+            <div className="hidden lg:block lg:col-span-3 space-y-6">
+              <div className="backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 shadow-lg hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.3)] transition-all duration-500">
+                <div className="flex items-center gap-3 mb-3">
+                  <svg className="w-6 h-6 text-[#50AEDF] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  </svg>
+                  <h3 className="text-lg font-bold text-white">Mobilbarát</h3>
+                </div>
+                <p className="text-sm text-[#A8B3C7] leading-relaxed">
+                  Minden eszközön tökéletesen működik, mobil, tablet, desktop.
+                </p>
+              </div>
+              <div className="backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 shadow-lg hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.3)] transition-all duration-500">
+                <div className="flex items-center gap-3 mb-3">
+                  <svg className="w-6 h-6 text-[#7C5CFF] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  <h3 className="text-lg font-bold text-white">Gyors betöltés</h3>
+                </div>
+                <p className="text-sm text-[#A8B3C7] leading-relaxed">
+                  Optimalizált teljesítmény, gyors betöltési idő, jobb felhasználói élmény.
+                </p>
+              </div>
+            </div>
+
+            {/* Center content */}
+            <div className="lg:col-span-6 text-center">
             {/* Large Typography - Fin AI Style */}
             <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 leading-[0.95] tracking-tight">
               <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-fade-in">
