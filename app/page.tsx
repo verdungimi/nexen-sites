@@ -291,27 +291,27 @@ export default function HomePage() {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Starter */}
-          <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(255,255,255,0.2)]">
-            <h3 className="text-xl font-bold mb-2 text-[#EAF0FF]">Kezdő</h3>
-            <div className="text-3xl font-bold mb-4 text-[#EAF0FF]">
+          <div className="group bg-[#0F1620] border border-[#50AEDF]/30 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#50AEDF] hover:shadow-[0_0_30px_rgba(80,174,223,0.3)]">
+            <h3 className="text-xl font-bold mb-2 text-[#EAF0FF] group-hover:text-[#50AEDF] transition-colors">Kezdő</h3>
+            <div className="text-3xl font-bold mb-4 text-[#EAF0FF] group-hover:text-[#50AEDF] transition-colors">
               299 000 Ft
             </div>
             <p className="text-[#A8B3C7] mb-6 text-sm">1 oldalas landing</p>
             <ul className="space-y-2 mb-6">
               <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
+                <span className="text-[#50AEDF] font-bold">✓</span>
                 <span className="text-[#A8B3C7] text-sm">Egy oldalas design</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
+                <span className="text-[#50AEDF] font-bold">✓</span>
                 <span className="text-[#A8B3C7] text-sm">Mobilbarát</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
+                <span className="text-[#50AEDF] font-bold">✓</span>
                 <span className="text-[#A8B3C7] text-sm">Kapcsolati űrlap</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
+                <span className="text-[#50AEDF] font-bold">✓</span>
                 <span className="text-[#A8B3C7] text-sm">10 napos szállítás</span>
               </li>
             </ul>
@@ -366,41 +366,44 @@ export default function HomePage() {
           </div>
 
           {/* Pro */}
-          <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[rgba(255,255,255,0.2)]">
-            <h3 className="text-xl font-bold mb-2 text-[#EAF0FF]">Pro</h3>
-            <div className="text-3xl font-bold mb-4 text-[#EAF0FF]">
-              799 000 Ft
+          <div className="group relative bg-[#0F1620] border border-[rgba(255,215,0,0.3)] rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2 hover:border-[#FFD700] hover:shadow-[0_0_50px_rgba(255,215,0,0.5),0_0_100px_rgba(255,215,0,0.3)]">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 via-[#FFA500]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative z-10">
+              <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent group-hover:from-[#FFD700] group-hover:to-[#FFA500] transition-all">Pro</h3>
+              <div className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent group-hover:from-[#FFD700] group-hover:to-[#FFA500] transition-all">
+                799 000 Ft
+              </div>
+              <p className="text-[#A8B3C7] mb-6 text-sm">Teljes weboldal + extrák</p>
+              <ul className="space-y-2 mb-6">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#FFD700] font-bold group-hover:text-[#FFA500] transition-colors">✓</span>
+                  <span className="text-[#A8B3C7] text-sm">7-10 oldalas design</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#FFD700] font-bold group-hover:text-[#FFA500] transition-colors">✓</span>
+                  <span className="text-[#A8B3C7] text-sm">Teljes SEO optimalizálás</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#FFD700] font-bold group-hover:text-[#FFA500] transition-colors">✓</span>
+                  <span className="text-[#A8B3C7] text-sm">Egyedi integrációk</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#FFD700] font-bold group-hover:text-[#FFA500] transition-colors">✓</span>
+                  <span className="text-[#A8B3C7] text-sm">Prémium animációk</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#FFD700] font-bold group-hover:text-[#FFA500] transition-colors">✓</span>
+                  <span className="text-[#A8B3C7] text-sm">Folyamatos támogatás</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#FFD700] font-bold group-hover:text-[#FFA500] transition-colors">✓</span>
+                  <span className="text-[#A8B3C7] text-sm">10 napos szállítás</span>
+                </li>
+              </ul>
+              <CTAButton href="/book" variant="secondary" className="w-full text-sm">
+                Kezdjük el
+              </CTAButton>
             </div>
-            <p className="text-[#A8B3C7] mb-6 text-sm">Teljes weboldal + extrák</p>
-            <ul className="space-y-2 mb-6">
-              <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">7-10 oldalas design</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">Teljes SEO optimalizálás</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">Egyedi integrációk</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">Prémium animációk</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">Folyamatos támogatás</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">10 napos szállítás</span>
-              </li>
-            </ul>
-            <CTAButton href="/book" variant="secondary" className="w-full text-sm">
-              Kezdjük el
-            </CTAButton>
           </div>
         </div>
         <div className="mt-8 text-center">
