@@ -74,7 +74,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Problem-Solution Cards */}
+      {/* Problems */}
       <Section>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -101,21 +101,9 @@ export default function HomePage() {
                 <h2 className="text-2xl md:text-3xl font-black text-white mb-5 leading-tight">
                   Elveszett bevétel
                 </h2>
-                <p className="text-[#A8B3C7] mb-5 leading-relaxed text-base">
+                <p className="text-[#A8B3C7] leading-relaxed text-base">
                   A látogatók megjelennek a weboldalon, de nem válthatók leadekké.
                 </p>
-                <div className="pt-6 mt-6 border-t-2 border-[rgba(255,255,255,0.15)]">
-                  <div className="bg-gradient-to-r from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 rounded-2xl p-5 border border-[rgba(124,92,255,0.3)]">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="inline-flex px-4 py-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white text-sm font-black rounded-xl whitespace-nowrap items-center shadow-lg shadow-[#7C5CFF]/30">
-                        ✨ Megoldás
-                      </span>
-                    </div>
-                    <p className="text-white font-bold leading-relaxed text-lg">
-                      Konverziós struktúra, ami egyértelmű cselekvésre vezeti a látogatókat.
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -133,21 +121,9 @@ export default function HomePage() {
                 <h2 className="text-2xl md:text-3xl font-black text-white mb-5 leading-tight">
                   Elpazarolt hirdetési költség
                 </h2>
-                <p className="text-[#A8B3C7] mb-5 leading-relaxed text-base">
+                <p className="text-[#A8B3C7] leading-relaxed text-base">
                   A hirdetések pénzt hoznak, de a weboldal nem zárja le a forgalmat.
                 </p>
-                <div className="pt-6 mt-6 border-t-2 border-[rgba(255,255,255,0.15)]">
-                  <div className="bg-gradient-to-r from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 rounded-2xl p-5 border border-[rgba(124,92,255,0.3)]">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="inline-flex px-4 py-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white text-sm font-black rounded-xl whitespace-nowrap items-center shadow-lg shadow-[#7C5CFF]/30">
-                        ✨ Megoldás
-                      </span>
-                    </div>
-                    <p className="text-white font-bold leading-relaxed text-lg">
-                      Landing page logika, ami kifejezetten a fizetett forgalom támogatására épül.
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -165,21 +141,85 @@ export default function HomePage() {
                 <h2 className="text-2xl md:text-3xl font-black text-white mb-5 leading-tight">
                   Alacsony megbízhatóság
                 </h2>
-                <p className="text-[#A8B3C7] mb-5 leading-relaxed text-base">
+                <p className="text-[#A8B3C7] leading-relaxed text-base">
                   A weboldal átlagos vagy elavult, alacsony minőségű leadeket és árfigyelőket vonz.
                 </p>
-                <div className="pt-6 mt-6 border-t-2 border-[rgba(255,255,255,0.15)]">
-                  <div className="bg-gradient-to-r from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 rounded-2xl p-5 border border-[rgba(124,92,255,0.3)]">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="inline-flex px-4 py-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white text-sm font-black rounded-xl whitespace-nowrap items-center shadow-lg shadow-[#7C5CFF]/30">
-                        ✨ Megoldás
-                      </span>
-                    </div>
-                    <p className="text-white font-bold leading-relaxed text-lg">
-                      Prémium design és pozicionálás, ami kiszűri a nem minősített érdeklődőket.
-                    </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Solutions */}
+      <Section>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
+              A megoldás
+            </h2>
+            <p className="text-lg text-[#A8B3C7] max-w-2xl mx-auto">
+              Így oldjuk meg ezeket a problémákat
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {/* Solution 1 */}
+            <div className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-3xl p-8 md:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#7C5CFF]/10 via-transparent to-transparent rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#7C5CFF] to-[#50AEDF] rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-[#7C5CFF]/40">
+                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                   </div>
                 </div>
+                <h2 className="text-2xl md:text-3xl font-black text-white mb-5 leading-tight">
+                  Konverziós struktúra
+                </h2>
+                <p className="text-white font-semibold leading-relaxed text-base">
+                  Egyértelmű cselekvésre vezeti a látogatókat, így több leadet hoz.
+                </p>
+              </div>
+            </div>
+
+            {/* Solution 2 */}
+            <div className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-3xl p-8 md:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#7C5CFF]/10 via-transparent to-transparent rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#7C5CFF] to-[#50AEDF] rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-[#7C5CFF]/40">
+                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-black text-white mb-5 leading-tight">
+                  Landing page logika
+                </h2>
+                <p className="text-white font-semibold leading-relaxed text-base">
+                  Kifejezetten a fizetett forgalom támogatására épül, maximális ROI-val.
+                </p>
+              </div>
+            </div>
+
+            {/* Solution 3 */}
+            <div className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-3xl p-8 md:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#7C5CFF]/10 via-transparent to-transparent rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#7C5CFF] to-[#50AEDF] rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-[#7C5CFF]/40">
+                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                  </div>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-black text-white mb-5 leading-tight">
+                  Prémium design
+                </h2>
+                <p className="text-white font-semibold leading-relaxed text-base">
+                  Kiszűri a nem minősített érdeklődőket, magasabb minőségű leadeket hoz.
+                </p>
               </div>
             </div>
           </div>
