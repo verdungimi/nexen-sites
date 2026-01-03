@@ -20,7 +20,8 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
       {items.map((item, index) => {
         const isOpen = openIndex === index;
         const isFocused = focusedIndex === index;
-        const showRing = isOpen && isFocused;
+        // Show ring if open (regardless of focus), or if focused and not closed yet
+        const showRing = isOpen || isFocused;
 
         return (
           <div
@@ -30,8 +31,14 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
             <button
               onClick={() => setOpenIndex(isOpen ? null : index)}
               onFocus={() => setFocusedIndex(index)}
-              onBlur={() => setFocusedIndex(null)}
+              onBlur={() => {
+                // Only remove focus if the item is closed
+                if (!isOpen) {
+                  setFocusedIndex(null);
+                }
+              }}
               onMouseLeave={() => {
+                // Only remove focus if the item is closed
                 if (!isOpen) {
                   setFocusedIndex(null);
                 }
