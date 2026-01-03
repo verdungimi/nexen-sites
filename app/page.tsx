@@ -44,11 +44,6 @@ export default function HomePage() {
             <div className="lg:col-span-6 text-center">
             {/* Large Typography - Fin AI Style */}
             <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 leading-[0.95] tracking-tight">
-              <div className="mb-4 animate-fade-in text-center">
-                <div className="inline-flex items-center justify-center px-4 py-2 bg-gradient-to-r from-[#ED5096]/20 to-[#ED5096]/30 border border-[#ED5096] rounded-xl shadow-[0_0_20px_rgba(237,80,150,0.4)]">
-                  <span className="text-base md:text-lg font-bold text-white whitespace-normal">3 ügyfél havonta</span>
-                </div>
-              </div>
               <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-fade-in">
                 Prémium
               </span>
