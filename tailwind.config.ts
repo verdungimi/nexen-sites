@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'space-grotesk': ['var(--font-space-grotesk)', 'sans-serif'],
+      },
       colors: {
         primary: {
           50: "#e6f5fd",
