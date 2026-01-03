@@ -414,11 +414,9 @@ export default function HomePage() {
             </p>
           </div>
           <div>
-            <Link href="/packages">
-              <CTAButton variant="secondary" className="text-base px-8 py-4">
-                További csomagok megtekintése
-              </CTAButton>
-            </Link>
+            <CTAButton href="/packages" variant="secondary" className="text-base px-8 py-4">
+              További csomagok megtekintése
+            </CTAButton>
           </div>
         </div>
       </Section>
