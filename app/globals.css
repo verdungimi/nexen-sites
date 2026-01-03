@@ -46,6 +46,12 @@
     letter-spacing: -0.02em;
   }
   
+  /* Hero section uses Space Grotesk */
+  .hero-section h1,
+  .hero-section p {
+    font-family: var(--font-space-grotesk) !important;
+  }
+  
   p, span, li, div, a {
     font-family: var(--font-dm-sans);
     word-wrap: break-word;
