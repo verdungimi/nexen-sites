@@ -104,15 +104,17 @@ export default function HomePage() {
                 <p className="text-[#A8B3C7] mb-5 leading-relaxed text-base">
                   A látogatók megjelennek a weboldalon, de nem válthatók leadekké.
                 </p>
-                <div className="pt-4 border-t border-[rgba(255,255,255,0.1)] flex flex-col">
-                  <div className="flex items-baseline gap-3 flex-wrap mb-3">
-                    <span className="inline-flex px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap items-center h-6">
-                      Megoldás:
-                    </span>
+                <div className="pt-6 mt-6 border-t-2 border-[rgba(255,255,255,0.15)]">
+                  <div className="bg-gradient-to-r from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 rounded-2xl p-5 border border-[rgba(124,92,255,0.3)]">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="inline-flex px-4 py-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white text-sm font-black rounded-xl whitespace-nowrap items-center shadow-lg shadow-[#7C5CFF]/30">
+                        ✨ Megoldás
+                      </span>
+                    </div>
+                    <p className="text-white font-bold leading-relaxed text-lg">
+                      Konverziós struktúra, ami egyértelmű cselekvésre vezeti a látogatókat.
+                    </p>
                   </div>
-                  <p className="text-[#EAF0FF] font-semibold leading-relaxed text-base">
-                    Konverziós struktúra, ami egyértelmű cselekvésre vezeti a látogatókat.
-                  </p>
                 </div>
               </div>
             </div>
@@ -134,15 +136,17 @@ export default function HomePage() {
                 <p className="text-[#A8B3C7] mb-5 leading-relaxed text-base">
                   A hirdetések pénzt hoznak, de a weboldal nem zárja le a forgalmat.
                 </p>
-                <div className="pt-4 border-t border-[rgba(255,255,255,0.1)] flex flex-col">
-                  <div className="flex items-baseline gap-3 flex-wrap mb-3">
-                    <span className="inline-flex px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap items-center h-6">
-                      Megoldás:
-                    </span>
+                <div className="pt-6 mt-6 border-t-2 border-[rgba(255,255,255,0.15)]">
+                  <div className="bg-gradient-to-r from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 rounded-2xl p-5 border border-[rgba(124,92,255,0.3)]">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="inline-flex px-4 py-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white text-sm font-black rounded-xl whitespace-nowrap items-center shadow-lg shadow-[#7C5CFF]/30">
+                        ✨ Megoldás
+                      </span>
+                    </div>
+                    <p className="text-white font-bold leading-relaxed text-lg">
+                      Landing page logika, ami kifejezetten a fizetett forgalom támogatására épül.
+                    </p>
                   </div>
-                  <p className="text-[#EAF0FF] font-semibold leading-relaxed text-base">
-                    Landing page logika, ami kifejezetten a fizetett forgalom támogatására épül.
-                  </p>
                 </div>
               </div>
             </div>
@@ -164,15 +168,17 @@ export default function HomePage() {
                 <p className="text-[#A8B3C7] mb-5 leading-relaxed text-base">
                   A weboldal átlagos vagy elavult, alacsony minőségű leadeket és árfigyelőket vonz.
                 </p>
-                <div className="pt-4 border-t border-[rgba(255,255,255,0.1)] flex flex-col">
-                  <div className="flex items-baseline gap-3 flex-wrap mb-3">
-                    <span className="inline-flex px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap items-center h-6">
-                      Megoldás:
-                    </span>
+                <div className="pt-6 mt-6 border-t-2 border-[rgba(255,255,255,0.15)]">
+                  <div className="bg-gradient-to-r from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 rounded-2xl p-5 border border-[rgba(124,92,255,0.3)]">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="inline-flex px-4 py-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white text-sm font-black rounded-xl whitespace-nowrap items-center shadow-lg shadow-[#7C5CFF]/30">
+                        ✨ Megoldás
+                      </span>
+                    </div>
+                    <p className="text-white font-bold leading-relaxed text-lg">
+                      Prémium design és pozicionálás, ami kiszűri a nem minősített érdeklődőket.
+                    </p>
                   </div>
-                  <p className="text-[#EAF0FF] font-semibold leading-relaxed text-base">
-                    Prémium design és pozicionálás, ami kiszűri a nem minősített érdeklődőket.
-                  </p>
                 </div>
               </div>
             </div>
