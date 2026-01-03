@@ -26,17 +26,17 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left side info - Hidden on mobile, visible on lg+ */}
             <div className="hidden lg:flex lg:col-span-3 flex-col justify-center items-end space-y-8 pr-4">
-              <div className="relative flex items-center justify-center w-64 h-64">
-                <svg className="absolute inset-0 w-full h-full text-[#50AEDF] drop-shadow-[0_0_20px_rgba(80,174,223,0.8)]" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <div className="relative flex items-center justify-center w-40 h-40">
+                <svg className="absolute inset-0 w-full h-full text-[#50AEDF] drop-shadow-[0_0_15px_rgba(80,174,223,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
-                <h3 className="relative z-10 text-base font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">Mobilbarát</h3>
+                <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">Mobilbarát</h3>
               </div>
-              <div className="relative flex items-center justify-center w-64 h-64">
-                <svg className="absolute inset-0 w-full h-full text-[#7C5CFF] drop-shadow-[0_0_20px_rgba(124,92,255,0.8)]" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <div className="relative flex items-center justify-center w-40 h-40">
+                <svg className="absolute inset-0 w-full h-full text-[#7C5CFF] drop-shadow-[0_0_15px_rgba(124,92,255,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-                <h3 className="relative z-10 text-base font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">Gyors betöltés</h3>
+                <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">Gyors betöltés</h3>
               </div>
             </div>
 
@@ -94,17 +94,17 @@ export default function HomePage() {
 
             {/* Right side info - Hidden on mobile, visible on lg+ */}
             <div className="hidden lg:flex lg:col-span-3 flex-col justify-center items-start space-y-8 pl-4">
-              <div className="relative flex items-center justify-center w-64 h-64">
-                <svg className="absolute inset-0 w-full h-full text-[#7C5CFF] drop-shadow-[0_0_20px_rgba(124,92,255,0.8)]" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <div className="relative flex items-center justify-center w-40 h-40">
+                <svg className="absolute inset-0 w-full h-full text-[#7C5CFF] drop-shadow-[0_0_15px_rgba(124,92,255,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
-                <h3 className="relative z-10 text-base font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">SEO kész</h3>
+                <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">SEO kész</h3>
               </div>
-              <div className="relative flex items-center justify-center w-64 h-64">
-                <svg className="absolute inset-0 w-full h-full text-[#50AEDF] drop-shadow-[0_0_20px_rgba(80,174,223,0.8)]" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
+              <div className="relative flex items-center justify-center w-40 h-40">
+                <svg className="absolute inset-0 w-full h-full text-[#50AEDF] drop-shadow-[0_0_15px_rgba(80,174,223,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <h3 className="relative z-10 text-base font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]">24/7 támogatás</h3>
+                <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">24/7 támogatás</h3>
               </div>
             </div>
           </div>
