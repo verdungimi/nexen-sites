@@ -104,15 +104,15 @@ export default function HomePage() {
                 <p className="text-[#A8B3C7] mb-5 leading-relaxed text-base">
                   A látogatók megjelennek a weboldalon, de nem válthatók leadekké.
                 </p>
-                <div className="pt-4 border-t border-[rgba(255,255,255,0.1)]">
-                  <div className="flex items-baseline gap-3 flex-wrap">
-                    <span className="inline-flex px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap items-center">
+                <div className="pt-4 border-t border-[rgba(255,255,255,0.1)] flex flex-col">
+                  <div className="flex items-baseline gap-3 flex-wrap mb-3">
+                    <span className="inline-flex px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap items-center h-6">
                       Megoldás:
                     </span>
-                    <span className="text-[#EAF0FF] font-semibold leading-relaxed text-base flex-1">
-                      Konverziós struktúra, ami egyértelmű cselekvésre vezeti a látogatókat.
-                    </span>
                   </div>
+                  <p className="text-[#EAF0FF] font-semibold leading-relaxed text-base">
+                    Konverziós struktúra, ami egyértelmű cselekvésre vezeti a látogatókat.
+                  </p>
                 </div>
               </div>
             </div>
@@ -134,15 +134,15 @@ export default function HomePage() {
                 <p className="text-[#A8B3C7] mb-5 leading-relaxed text-base">
                   A hirdetések pénzt hoznak, de a weboldal nem zárja le a forgalmat.
                 </p>
-                <div className="pt-4 border-t border-[rgba(255,255,255,0.1)]">
-                  <div className="flex items-baseline gap-3 flex-wrap">
-                    <span className="inline-flex px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap items-center">
+                <div className="pt-4 border-t border-[rgba(255,255,255,0.1)] flex flex-col">
+                  <div className="flex items-baseline gap-3 flex-wrap mb-3">
+                    <span className="inline-flex px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap items-center h-6">
                       Megoldás:
                     </span>
-                    <span className="text-[#EAF0FF] font-semibold leading-relaxed text-base flex-1">
-                      Landing page logika, ami kifejezetten a fizetett forgalom támogatására épül.
-                    </span>
                   </div>
+                  <p className="text-[#EAF0FF] font-semibold leading-relaxed text-base">
+                    Landing page logika, ami kifejezetten a fizetett forgalom támogatására épül.
+                  </p>
                 </div>
               </div>
             </div>
@@ -164,15 +164,15 @@ export default function HomePage() {
                 <p className="text-[#A8B3C7] mb-5 leading-relaxed text-base">
                   A weboldal átlagos vagy elavult, alacsony minőségű leadeket és árfigyelőket vonz.
                 </p>
-                <div className="pt-4 border-t border-[rgba(255,255,255,0.1)]">
-                  <div className="flex items-baseline gap-3 flex-wrap">
-                    <span className="inline-flex px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap items-center">
+                <div className="pt-4 border-t border-[rgba(255,255,255,0.1)] flex flex-col">
+                  <div className="flex items-baseline gap-3 flex-wrap mb-3">
+                    <span className="inline-flex px-3 py-1 bg-gradient-to-r from-[#ED5096] to-[#ED5096]/80 text-white text-xs font-bold rounded-lg whitespace-nowrap items-center h-6">
                       Megoldás:
                     </span>
-                    <span className="text-[#EAF0FF] font-semibold leading-relaxed text-base flex-1">
-                      Prémium design és pozicionálás, ami kiszűri a nem minősített érdeklődőket.
-                    </span>
                   </div>
+                  <p className="text-[#EAF0FF] font-semibold leading-relaxed text-base">
+                    Prémium design és pozicionálás, ami kiszűri a nem minősített érdeklődőket.
+                  </p>
                 </div>
               </div>
             </div>
