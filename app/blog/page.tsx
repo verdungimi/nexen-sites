@@ -188,8 +188,8 @@ export default function BlogPage() {
                 </h2>
 
                 {/* Excerpt */}
-                <div className="relative mb-6 blog-excerpt-wrapper">
-                  <p className="text-[#A8B3C7] leading-relaxed break-words overflow-wrap-anywhere">
+                <div className="relative mb-6 blog-excerpt-wrapper group/excerpt">
+                  <p className="text-[#A8B3C7] leading-relaxed break-words overflow-wrap-anywhere blog-excerpt-text">
                     {post.excerpt}
                   </p>
                 </div>
