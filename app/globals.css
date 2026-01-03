@@ -53,13 +53,13 @@
     font-family: var(--font-space-grotesk) !important;
   }
   
-  p, span, li, div, a {
+  p:not(.hero-subtitle), span, li, div, a {
     font-family: var(--font-dm-sans);
     word-wrap: break-word;
     overflow-wrap: anywhere;
   }
   
-  p {
+  p:not(.hero-subtitle) {
     line-height: 1.7;
     font-weight: 400;
     word-wrap: break-word;
