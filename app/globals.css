@@ -39,10 +39,15 @@
   }
 
   
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6:not(.hero-title) {
     font-family: var(--font-poppins);
     font-weight: 700;
     letter-spacing: -0.02em;
+  }
+  
+  .hero-title,
+  .hero-subtitle {
+    font-family: var(--font-space-grotesk), sans-serif !important;
   }
   
   p, span, li, div, a {
