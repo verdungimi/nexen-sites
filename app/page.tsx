@@ -46,7 +46,6 @@ export default function HomePage() {
             <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 leading-[0.95] tracking-tight">
               <div className="mb-4 animate-fade-in">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#ED5096]/20 to-[#ED5096]/30 border border-[#ED5096] rounded-xl shadow-[0_0_20px_rgba(237,80,150,0.4)]">
-                  <span className="text-lg md:text-xl font-bold text-[#ED5096]">⚠️</span>
                   <span className="text-base md:text-lg font-bold text-white">3 ügyfél havonta</span>
                 </div>
               </div>
