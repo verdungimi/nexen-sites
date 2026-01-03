@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 import FAQAccordion from "@/components/FAQAccordion";
@@ -406,11 +407,18 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="mt-8 text-center">
+        <div className="mt-8 text-center space-y-6">
           <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 inline-block">
             <p className="text-[#A8B3C7]">
               <strong className="text-[#EAF0FF]">10 napos szállítási garancia</strong> — ha lemaradunk a határidőről, 20%-ot visszatérítünk.
             </p>
+          </div>
+          <div>
+            <Link href="/packages">
+              <CTAButton variant="secondary" className="text-base px-8 py-4">
+                További csomagok megtekintése
+              </CTAButton>
+            </Link>
           </div>
         </div>
       </Section>
