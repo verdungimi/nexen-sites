@@ -46,6 +46,12 @@
     letter-spacing: -0.02em;
   }
   
+  /* Override h1 and p font for hero section */
+  .hero-title,
+  .hero-subtitle {
+    font-family: var(--font-space-grotesk) !important;
+  }
+  
   p, span, li, div, a {
     font-family: var(--font-dm-sans);
     word-wrap: break-word;
