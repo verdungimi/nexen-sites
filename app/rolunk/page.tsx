@@ -50,7 +50,7 @@ export default function RolunkPage() {
               készítjük el, prémium design-nal és tökéletes működéssel. Hiszünk abban, hogy a gyorsaság és a minőség együtt járhat.
             </p>
             <p className="text-lg text-[#A8B3C7] leading-relaxed">
-              Ma már több mint 50 elégedett ügyfelünk van, akik büszkén mutathatják be modern, gyors és konverzióra optimalizált weboldalukat.
+              Ma már számos elégedett ügyfelünk van, akik büszkén mutathatják be modern, gyors és konverzióra optimalizált weboldalukat.
             </p>
           </div>
         </div>
@@ -167,7 +167,7 @@ export default function RolunkPage() {
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center">
               <div className="text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent">
-                50+
+                Számos
               </div>
               <p className="text-[#A8B3C7] text-sm md:text-base">Elégedett ügyfél</p>
             </div>
