@@ -123,6 +123,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/cookies" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                  Cookie tájékoztató
+                </Link>
+              </li>
+              <li>
                 <Link href="/terms" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
                   ÁSZF
                 </Link>
