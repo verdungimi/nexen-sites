@@ -22,11 +22,11 @@ export default function RolunkPage() {
         
         <div className="max-w-4xl mx-auto relative z-10 text-center" style={{ pointerEvents: 'auto' }}>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
-            <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-fade-in">
               Rólunk
             </span>
           </h1>
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-delay">
             A Nexen Sites egy fiatal, dinamikus csapat, amely a modern weboldal fejlesztésben specializálódott. 
             Célunk, hogy minden vállalkozó számára elérhetővé tegyük a prémium minőségű online jelenlétet.
           </p>
@@ -36,10 +36,10 @@ export default function RolunkPage() {
       {/* Story Section */}
       <Section id="story">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-[#EAF0FF]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-[#EAF0FF] animate-fade-in">
             Történetünk
           </h2>
-          <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-12 mb-12">
+          <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-12 mb-12 animate-slide-up hover:border-[#7C5CFF]/30 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] transition-all duration-500">
             <p className="text-lg text-[#A8B3C7] leading-relaxed mb-6">
               A Nexen Sites 2024-ben jött létre azzal a céllal, hogy forradalmasítsa a weboldal fejlesztés világát. 
               Láttuk, hogy sok vállalkozó hónapokig vár egy egyszerű weboldalra, miközben a modern technológiák lehetővé teszik, 
@@ -59,28 +59,28 @@ export default function RolunkPage() {
       {/* Team Values Section */}
       <Section id="values">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#EAF0FF]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#EAF0FF] animate-fade-in">
             Értékeink
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] transition-all duration-300">
-              <div className="text-4xl mb-4">⚡</div>
+            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] transition-all duration-300 animate-float-up group">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">⚡</div>
               <h3 className="text-xl font-bold mb-4 text-[#EAF0FF]">Gyorsaság</h3>
               <p className="text-[#A8B3C7] leading-relaxed">
                 10 nap alatt kész weboldal, fix határidővel. Nincs várakozás, nincs késés. 
                 Amikor azt mondjuk 10 nap, akkor 10 nap.
               </p>
             </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.2)] transition-all duration-300">
-              <div className="text-4xl mb-4">✨</div>
+            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.2)] transition-all duration-300 animate-float-up-delay-1 group">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">✨</div>
               <h3 className="text-xl font-bold mb-4 text-[#EAF0FF]">Minőség</h3>
               <p className="text-[#A8B3C7] leading-relaxed">
                 Prémium design, modern technológiák (Next.js, React, TypeScript), 
                 és tökéletes működés minden eszközön - mobil, tablet, desktop.
               </p>
             </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] transition-all duration-300">
-              <div className="text-4xl mb-4">🤝</div>
+            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] transition-all duration-300 animate-float-up-delay-2 group">
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🤝</div>
               <h3 className="text-xl font-bold mb-4 text-[#EAF0FF]">Megbízhatóság</h3>
               <p className="text-[#A8B3C7] leading-relaxed">
                 Átlátható kommunikáció, tiszta határidők, és folyamatos támogatás. 
@@ -94,13 +94,13 @@ export default function RolunkPage() {
       {/* Why Choose Us Section */}
       <Section id="why-us">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#EAF0FF]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#EAF0FF] animate-fade-in">
             Miért válassz minket?
           </h2>
           <div className="space-y-6">
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8">
+            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 animate-slide-up hover:border-[#7C5CFF]/30 hover:shadow-[0_0_20px_rgba(124,92,255,0.2)] transition-all duration-500 group">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
                   ✓
                 </div>
                 <div>
@@ -112,9 +112,9 @@ export default function RolunkPage() {
                 </div>
               </div>
             </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8">
+            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 animate-slide-up hover:border-[#50AEDF]/30 hover:shadow-[0_0_20px_rgba(80,174,223,0.2)] transition-all duration-500 group" style={{ animationDelay: '0.1s', opacity: 0 }}>
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
                   ✓
                 </div>
                 <div>
@@ -126,9 +126,9 @@ export default function RolunkPage() {
                 </div>
               </div>
             </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8">
+            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 animate-slide-up hover:border-[#7C5CFF]/30 hover:shadow-[0_0_20px_rgba(124,92,255,0.2)] transition-all duration-500 group" style={{ animationDelay: '0.2s', opacity: 0 }}>
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
                   ✓
                 </div>
                 <div>
@@ -140,9 +140,9 @@ export default function RolunkPage() {
                 </div>
               </div>
             </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8">
+            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 animate-slide-up hover:border-[#50AEDF]/30 hover:shadow-[0_0_20px_rgba(80,174,223,0.2)] transition-all duration-500 group" style={{ animationDelay: '0.3s', opacity: 0 }}>
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] rounded-full flex items-center justify-center text-white font-bold text-lg group-hover:scale-110 transition-transform duration-300">
                   ✓
                 </div>
                 <div>
@@ -161,30 +161,30 @@ export default function RolunkPage() {
       {/* Stats Section */}
       <Section id="stats">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#EAF0FF]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#EAF0FF] animate-fade-in">
             Számokban
           </h2>
           <div className="grid md:grid-cols-4 gap-6">
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center">
-              <div className="text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent">
+            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center animate-float-up hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] transition-all duration-500 group">
+              <div className="text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
                 Számos
               </div>
               <p className="text-[#A8B3C7] text-sm md:text-base">Elégedett ügyfél</p>
             </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center">
-              <div className="text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent">
+            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center animate-float-up-delay-1 hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.2)] transition-all duration-500 group">
+              <div className="text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
                 10
               </div>
               <p className="text-[#A8B3C7] text-sm md:text-base">Napos szállítás</p>
             </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center">
-              <div className="text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent">
+            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center animate-float-up-delay-2 hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] transition-all duration-500 group">
+              <div className="text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
                 100%
               </div>
               <p className="text-[#A8B3C7] text-sm md:text-base">Garantált minőség</p>
             </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center">
-              <div className="text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent">
+            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center animate-float-up hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.2)] transition-all duration-500 group" style={{ animationDelay: '0.3s', opacity: 0 }}>
+              <div className="text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
                 24/7
               </div>
               <p className="text-[#A8B3C7] text-sm md:text-base">Támogatás</p>
@@ -196,14 +196,14 @@ export default function RolunkPage() {
       {/* CTA Section */}
       <Section id="cta">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#EAF0FF]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#EAF0FF] animate-fade-in">
             Készen állsz a weboldaladra?
           </h2>
-          <p className="text-lg text-[#A8B3C7] mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-[#A8B3C7] mb-8 max-w-2xl mx-auto animate-fade-in-delay">
             Foglalj időpontot még ma, és 10 nap múlva már élő lesz a prémium weboldalad. 
             Ne várj tovább, kezdjük el még ma!
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-delay-2">
             <CTAButton href="/book" variant="primary" className="text-base px-10 py-5">
               Időpont Foglalása
             </CTAButton>
