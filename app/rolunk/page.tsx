@@ -21,6 +21,15 @@ export default function RolunkPage() {
         <FinAIHero />
         
         <div className="max-w-4xl mx-auto relative z-10 text-center" style={{ pointerEvents: 'auto' }}>
+          {/* Badge */}
+          <div className="mb-6 animate-fade-in flex justify-center">
+            <div className="inline-flex items-center justify-center px-5 py-3 bg-gradient-to-r from-[#FFD700]/30 via-[#FFD700]/40 to-[#FFD700]/30 border-2 border-[#FFD700] rounded-xl shadow-[0_0_30px_rgba(255,215,0,0.6)]">
+              <span className="text-lg md:text-xl font-bold text-white tracking-wide">Prémium minőség</span>
+              <span className="text-lg md:text-xl font-bold text-white mx-1.5 tracking-wide">•</span>
+              <span className="text-lg md:text-xl font-bold text-white tracking-wide">10 nap alatt</span>
+            </div>
+          </div>
+
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
             <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-fade-in">
               Rólunk
@@ -30,6 +39,32 @@ export default function RolunkPage() {
             A Nexen Sites egy fiatal, dinamikus csapat, amely a modern weboldal fejlesztésben specializálódott. 
             Célunk, hogy minden vállalkozó számára elérhetővé tegyük a prémium minőségű online jelenlétet.
           </p>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-fade-in-delay-2">
+            <CTAButton href="/book" variant="primary" className="text-base px-10 py-5 min-w-[200px]">
+              Időpont Foglalása
+            </CTAButton>
+            <CTAButton href="/packages" variant="secondary" className="text-base px-10 py-5 min-w-[200px]">
+              Csomagok Megtekintése
+            </CTAButton>
+          </div>
+
+          {/* Trust badges */}
+          <div className="flex flex-wrap justify-center gap-6 md:gap-12 mt-20">
+            <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#FFD700]/50 hover:shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:scale-105 transition-all duration-500 animate-float-up group">
+              <div className="text-4xl md:text-5xl font-black text-[#FFD700] mb-2 group-hover:scale-110 transition-transform duration-300">10</div>
+              <div className="text-sm md:text-base text-[#EAF0FF] font-semibold">Napos szállítás</div>
+            </div>
+            <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#FFD700]/50 hover:shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
+              <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">100%</div>
+              <div className="text-sm md:text-base text-[#EAF0FF] font-semibold">Prémium minőség</div>
+            </div>
+            <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#FFD700]/50 hover:shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-2 group">
+              <div className="text-4xl md:text-5xl font-black text-[#FFD700] mb-2 group-hover:scale-110 transition-transform duration-300">24/7</div>
+              <div className="text-sm md:text-base text-[#EAF0FF] font-semibold">Támogatás</div>
+            </div>
+          </div>
         </div>
       </section>
 
