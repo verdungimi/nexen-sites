@@ -1,14 +1,12 @@
-// This route is kept for backward compatibility
-// New bookings should use /api/booking instead
 import { NextRequest, NextResponse } from "next/server";
-import { sendEmail, formatBookingEmail } from "@/lib/email";
 import { validateBookingData, sanitizeString, sanitizeText } from "@/lib/validation";
+import { sendEmail, formatBookingEmail } from "@/lib/email";
 
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
 
-    // Sanitize and format data
+    // Sanitize input data
     const bookingData = {
       name: sanitizeString(data.name || ""),
       company: sanitizeText(data.company),
@@ -19,14 +17,15 @@ export async function POST(request: NextRequest) {
       description: sanitizeText(data.description),
       selectedDate: data.selectedDate || undefined,
       selectedTime: data.selectedTime || undefined,
+      privacyAccepted: data.privacyAccepted === true,
     };
 
-    // Validate
+    // Validate data
     const validation = validateBookingData({
       name: bookingData.name,
       email: bookingData.email,
       phone: bookingData.phone,
-      privacyAccepted: true, // Assume accepted for backward compatibility
+      privacyAccepted: bookingData.privacyAccepted,
     });
 
     if (!validation.isValid) {
@@ -59,23 +58,53 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // TODO: Save to database when database is set up
+    // await saveBookingToDatabase(bookingData);
+
     return NextResponse.json(
       {
         success: true,
-        message: "Email sikeresen elküldve",
+        message: "Időpontfoglalás sikeresen elküldve",
         messageId: emailResult.messageId,
       },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("Error processing booking:", error);
     return NextResponse.json(
       {
         success: false,
-        error: "Hiba történt az email küldése során",
+        error: "Hiba történt a feldolgozás során",
         details: error instanceof Error ? error.message : "Unknown error",
       },
       { status: 500 }
     );
   }
 }
+
+// GET endpoint to retrieve bookings (for admin - add authentication later)
+export async function GET(request: NextRequest) {
+  try {
+    // TODO: Add authentication
+    // TODO: Fetch from database
+    
+    return NextResponse.json(
+      {
+        success: true,
+        bookings: [],
+        message: "Database integration pending",
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error fetching bookings:", error);
+    return NextResponse.json(
+      {
+        success: false,
+        error: "Hiba történt az adatok lekérése során",
+      },
+      { status: 500 }
+    );
+  }
+}
+
