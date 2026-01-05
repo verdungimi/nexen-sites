@@ -537,6 +537,22 @@
     animation: slide-up 0.8s ease-out forwards;
   }
 
+  /* Cookie banner slide up from bottom */
+  @keyframes slideUpFromBottom {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-cookie-banner {
+    animation: slideUpFromBottom 0.6s ease-out forwards;
+  }
+
   /* Animated gradient background */
   @keyframes gradient-bg {
     0%, 100% {
