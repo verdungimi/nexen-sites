@@ -211,7 +211,7 @@ export default function RolunkPage() {
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center animate-float-up hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] transition-all duration-500 group">
               <div className="text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                Számos
+                50+
               </div>
               <p className="text-[#A8B3C7] text-sm md:text-base">Elégedett ügyfél</p>
             </div>
