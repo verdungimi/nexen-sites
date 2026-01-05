@@ -63,29 +63,38 @@ export default function RolunkPage() {
             Értékeink
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] transition-all duration-300 animate-float-up group">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">⚡</div>
-              <h3 className="text-xl font-bold mb-4 text-[#EAF0FF]">Gyorsaság</h3>
-              <p className="text-[#A8B3C7] leading-relaxed">
-                10 nap alatt kész weboldal, fix határidővel. Nincs várakozás, nincs késés. 
-                Amikor azt mondjuk 10 nap, akkor 10 nap.
-              </p>
+            <div className="relative overflow-hidden rounded-2xl p-8 text-center border border-[rgba(255,215,0,0.3)] hover:border-[rgba(255,215,0,0.6)] hover:shadow-[0_0_40px_rgba(255,215,0,0.4)] transition-all duration-300 animate-float-up group gold-gradient-bg">
+              <div className="absolute inset-0 opacity-30 gold-shine-overlay"></div>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">⚡</div>
+                <h3 className="text-xl font-bold mb-4 text-[#FFD700]">Gyorsaság</h3>
+                <p className="text-[#EAF0FF] leading-relaxed">
+                  10 nap alatt kész weboldal, fix határidővel. Nincs várakozás, nincs késés. 
+                  Amikor azt mondjuk 10 nap, akkor 10 nap.
+                </p>
+              </div>
             </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.2)] transition-all duration-300 animate-float-up-delay-1 group">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">✨</div>
-              <h3 className="text-xl font-bold mb-4 text-[#EAF0FF]">Minőség</h3>
-              <p className="text-[#A8B3C7] leading-relaxed">
-                Prémium design, modern technológiák (Next.js, React, TypeScript), 
-                és tökéletes működés minden eszközön - mobil, tablet, desktop.
-              </p>
+            <div className="relative overflow-hidden rounded-2xl p-8 text-center border border-[rgba(255,215,0,0.3)] hover:border-[rgba(255,215,0,0.6)] hover:shadow-[0_0_40px_rgba(255,215,0,0.4)] transition-all duration-300 animate-float-up-delay-1 group gold-gradient-bg" style={{ animationDelay: '0.5s' }}>
+              <div className="absolute inset-0 opacity-30 gold-shine-overlay" style={{ animationDelay: '0.5s' }}></div>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">✨</div>
+                <h3 className="text-xl font-bold mb-4 text-[#FFD700]">Minőség</h3>
+                <p className="text-[#EAF0FF] leading-relaxed">
+                  Prémium design, modern technológiák (Next.js, React, TypeScript), 
+                  és tökéletes működés minden eszközön - mobil, tablet, desktop.
+                </p>
+              </div>
             </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] transition-all duration-300 animate-float-up-delay-2 group">
-              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🤝</div>
-              <h3 className="text-xl font-bold mb-4 text-[#EAF0FF]">Megbízhatóság</h3>
-              <p className="text-[#A8B3C7] leading-relaxed">
-                Átlátható kommunikáció, tiszta határidők, és folyamatos támogatás. 
-                Nem csak a weboldalt adjuk át, hanem segítünk a sikerben is.
-              </p>
+            <div className="relative overflow-hidden rounded-2xl p-8 text-center border border-[rgba(255,215,0,0.3)] hover:border-[rgba(255,215,0,0.6)] hover:shadow-[0_0_40px_rgba(255,215,0,0.4)] transition-all duration-300 animate-float-up-delay-2 group gold-gradient-bg" style={{ animationDelay: '1s' }}>
+              <div className="absolute inset-0 opacity-30 gold-shine-overlay" style={{ animationDelay: '1s' }}></div>
+              <div className="relative z-10">
+                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🤝</div>
+                <h3 className="text-xl font-bold mb-4 text-[#FFD700]">Megbízhatóság</h3>
+                <p className="text-[#EAF0FF] leading-relaxed">
+                  Átlátható kommunikáció, tiszta határidők, és folyamatos támogatás. 
+                  Nem csak a weboldalt adjuk át, hanem segítünk a sikerben is.
+                </p>
+              </div>
             </div>
           </div>
         </div>

@@ -354,6 +354,28 @@
   .animate-shimmer {
     animation: shimmer 8s infinite linear;
   }
+
+  /* Gold shimmer effect for values section */
+  @keyframes gold-shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .gold-gradient-bg {
+    background: linear-gradient(135deg, rgba(255,215,0,0.15) 0%, rgba(255,223,0,0.1) 50%, rgba(255,215,0,0.15) 100%);
+    background-size: 200% 200%;
+    animation: gold-shimmer 3s ease-in-out infinite;
+  }
+
+  .gold-shine-overlay {
+    background: linear-gradient(45deg, transparent 30%, rgba(255,215,0,0.3) 50%, transparent 70%);
+    background-size: 200% 200%;
+    animation: gold-shimmer 4s ease-in-out infinite;
+  }
   
   /* Floating animation */
   @keyframes float {
