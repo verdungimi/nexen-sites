@@ -10,6 +10,8 @@ interface EmailData {
 export async function sendEmail(data: EmailData): Promise<{ success: boolean; messageId?: string; error?: string }> {
   // Use Resend if API key is available (works in both development and production)
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
+  // Use onboarding@resend.dev as default - this always works with Resend
+  // If you have a verified domain, set EMAIL_FROM in environment variables
   const EMAIL_FROM = process.env.EMAIL_FROM || "onboarding@resend.dev";
   
   if (RESEND_API_KEY) {
