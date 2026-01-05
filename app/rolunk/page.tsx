@@ -45,7 +45,7 @@ export default function RolunkPage() {
             <CTAButton href="/book" variant="primary" className="text-base px-10 py-5 min-w-[200px]">
               Időpont Foglalása
             </CTAButton>
-            <CTAButton href="/packages" variant="secondary" className="text-base px-10 py-5 min-w-[200px]">
+            <CTAButton href="/#pricing" variant="secondary" className="text-base px-10 py-5 min-w-[200px]">
               Csomagok Megtekintése
             </CTAButton>
           </div>
