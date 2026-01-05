@@ -160,11 +160,68 @@ A globális stílusok az `app/globals.css`-ben találhatók. Tailwind utility os
 
 ## Deployment
 
-### Vercel (ajánlott)
+### Automatikus Deployment beállítása (Vercel)
 
-1. Push-old a kódot egy Git repository-ba
-2. Import-old a projektet Vercel-en
-3. Vercel automatikusan felismeri a Next.js projektet és buildeli
+A weboldal automatikusan frissül, amikor push-olsz a GitHub repository-ba. Két módszer közül választhatsz:
+
+#### 1. Vercel GitHub Integration (Ajánlott - Legegyszerűbb)
+
+1. Menj a [Vercel Dashboard](https://vercel.com/dashboard)-ra
+2. Válaszd ki a `nexen-sites` projektet
+3. Menj a **Settings** → **Git** menüpontra
+4. Győződj meg róla, hogy a GitHub repository össze van kötve
+5. Ha nincs összekötve, kattints az **Connect Git Repository** gombra
+6. Válaszd ki a `verdungimi/nexen-sites` repository-t
+7. A Vercel automatikusan deployol minden push után a `main` branch-re
+
+**Kész!** Mostantól minden alkalommal, amikor push-olsz a GitHub-ba, a Vercel automatikusan frissíti a weboldalt.
+
+#### 2. GitHub Actions használata (Alternatíva)
+
+Ha a Vercel GitHub Integration nem működik, használhatod a GitHub Actions workflow-t:
+
+1. Menj a [Vercel Dashboard](https://vercel.com/dashboard)-ra
+2. Válaszd ki a projektet → **Settings** → **General**
+3. Másold ki a következő értékeket:
+   - **Vercel Token** (Settings → Tokens)
+   - **Org ID** (Settings → General)
+   - **Project ID** (Settings → General)
+
+4. Menj a GitHub repository-hoz → **Settings** → **Secrets and variables** → **Actions**
+5. Add hozzá a következő Secrets-eket:
+   - `VERCEL_TOKEN` - A Vercel token
+   - `VERCEL_ORG_ID` - Az Organization ID
+   - `VERCEL_PROJECT_ID` - A Project ID
+
+6. Mostantól minden push a `main` branch-re automatikusan deployolni fogja a weboldalt.
+
+### Helyi változtatások deployolása
+
+#### PowerShell használatával (Windows):
+
+```powershell
+.\scripts\deploy.ps1
+```
+
+#### Node.js használatával:
+
+```bash
+npm run deploy
+```
+
+Ez a script:
+1. Ellenőrzi a változtatásokat
+2. Commit-olja a változtatásokat
+3. Push-olja a GitHub-ba
+4. A Vercel automatikusan deployol
+
+#### Manuális deployment:
+
+```bash
+git add .
+git commit -m "Változtatások leírása"
+git push
+```
 
 ### Egyéb platformok
 
