@@ -4,12 +4,24 @@ import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 
 export const metadata: Metadata = {
-  title: "Rólunk | Nexen Sites",
-  description: "Ismerd meg a Nexen Sites csapatát, értékeinket és küldetésünket. Modern weboldal fejlesztés 10 nap alatt.",
+  title: "Rólunk | Nexen Sites - Weboldal Készítés",
+  description: "Ismerd meg a Nexen Sites csapatát, értékeinket és küldetésünket. Nexen weboldal készítés - Modern weboldal fejlesztés 10 nap alatt. Weboldalak készítése vállalkozásoknak.",
+  keywords: [
+    "nexen",
+    "nexen weboldal",
+    "weboldal készítés",
+    "weboldalak készítése",
+    "rolunk",
+    "nexen sites",
+  ],
   openGraph: {
-    title: "Rólunk | Nexen Sites",
+    title: "Rólunk | Nexen Sites - Weboldal Készítés",
     description: "Ismerd meg a Nexen Sites csapatát, értékeinket és küldetésünket. Modern weboldal fejlesztés 10 nap alatt.",
     type: "website",
+    url: "https://nexensites.hu/rolunk",
+  },
+  alternates: {
+    canonical: "https://nexensites.hu/rolunk",
   },
 };
 

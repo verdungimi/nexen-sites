@@ -6,20 +6,54 @@ import FAQAccordion from "@/components/FAQAccordion";
 import TestimonialCard from "@/components/TestimonialCard";
 import FinAIHero from "@/components/FinAIHero";
 import ProcessTimeline from "@/components/ProcessTimeline";
+import HomePageStructuredData from "@/components/HomePageStructuredData";
 
 export const metadata: Metadata = {
-  title: "Weboldal 10 nap alatt | Nexen Sites",
-  description: "Prémium, gyors, mobilbarát weboldal — olyan vállalkozóknak, akiknek most kell online jelenlét. 10 napos szállítási rendszer.",
+  title: "Nexen Weboldal - Weboldal Készítés 10 Nap Alatt | Prémium Weboldalak",
+  description: "Nexen Sites - Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak. Weboldal készítés Budapest, weboldal fejlesztés. Nexen weboldal szolgáltatások.",
+  keywords: [
+    "nexen",
+    "nexen weboldal",
+    "weboldal készítés",
+    "weboldalak készítése",
+    "weboldal fejlesztés",
+    "weboldal készítés budapest",
+    "weboldal készítés 10 nap",
+    "prémium weboldal",
+    "modern weboldal",
+    "mobilbarát weboldal",
+    "nexen sites",
+  ],
   openGraph: {
-    title: "Weboldal 10 nap alatt | Nexen Sites",
-    description: "Prémium, gyors, mobilbarát weboldal — olyan vállalkozóknak, akiknek most kell online jelenlét.",
+    title: "Nexen Weboldal - Weboldal Készítés 10 Nap Alatt",
+    description: "Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
     type: "website",
+    url: "https://nexensites.hu",
+    siteName: "Nexen Sites",
+    images: [
+      {
+        url: "https://nexensites.hu/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Nexen Sites - Weboldal Készítés",
+      },
+    ],
+    locale: "hu_HU",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nexen Weboldal - Weboldal Készítés 10 Nap Alatt",
+    description: "Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak.",
+  },
+  alternates: {
+    canonical: "https://nexensites.hu",
   },
 };
 
 export default function HomePage() {
   return (
     <>
+      <HomePageStructuredData />
       {/* Hero Section - Fin AI Style */}
       <section className="min-h-screen flex items-center justify-center relative pt-24 pb-16 px-4 overflow-hidden">
         <FinAIHero />
@@ -66,7 +100,7 @@ export default function HomePage() {
 
             {/* Subheadline - Minimal */}
             <p className="hero-subtitle text-lg md:text-xl lg:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-delay-2">
-              Modern weboldal, ami működik. 10 nap, fix határidő, prémium eredmény.
+              Nexen weboldal készítés - Modern weboldal, ami működik. 10 nap, fix határidő, prémium eredmény. Weboldalak készítése vállalkozásoknak.
             </p>
 
             {/* CTAs - Minimal */}

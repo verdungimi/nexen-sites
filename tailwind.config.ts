@@ -36,6 +36,10 @@ const config: Config = {
           800: "#60203c",
           900: "#31101e",
         },
+        zoldhaz: {
+          dark: "#435936",
+          light: "#86FD22",
+        },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

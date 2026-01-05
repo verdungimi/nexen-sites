@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import StructuredData from "@/components/StructuredData";
 
 const poppins = Poppins({ 
   subsets: ["latin"],
@@ -27,20 +28,70 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nexensites.hu"),
   title: {
-    default: "Nexen Sites - Weboldal 10 nap alatt",
+    default: "Nexen Sites - Weboldal Készítés 10 Nap Alatt | Prémium Weboldalak",
     template: "%s | Nexen Sites",
   },
-  description: "Prémium, gyors, mobilbarát weboldal — olyan vállalkozóknak, akiknek most kell online jelenlét.",
+  description: "Nexen Sites - Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak. Weboldal készítés Budapest, weboldal fejlesztés. Nexen weboldal szolgáltatások.",
+  keywords: [
+    "nexen",
+    "nexen weboldal",
+    "weboldal készítés",
+    "weboldalak készítése",
+    "weboldal fejlesztés",
+    "weboldal készítés budapest",
+    "weboldal készítés 10 nap",
+    "prémium weboldal",
+    "modern weboldal",
+    "mobilbarát weboldal",
+    "weboldal design",
+    "next.js weboldal",
+    "react weboldal",
+    "weboldal szolgáltatás",
+    "weboldal fejlesztő",
+    "weboldal készítő",
+  ],
+  authors: [{ name: "Nexen Sites" }],
+  creator: "Nexen Sites",
+  publisher: "Nexen Sites",
   openGraph: {
     type: "website",
     locale: "hu_HU",
+    url: "https://nexensites.hu",
     siteName: "Nexen Sites",
+    title: "Nexen Sites - Weboldal Készítés 10 Nap Alatt",
+    description: "Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak. Nexen weboldal szolgáltatások.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Nexen Sites - Weboldal Készítés",
+      },
+    ],
   },
-  // Analytics placeholder - uncomment and add your tracking ID
-  // verification: {
-  //   google: "your-google-verification-code",
-  // },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nexen Sites - Weboldal Készítés 10 Nap Alatt",
+    description: "Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://nexensites.hu",
+  },
+  category: "Weboldal készítés",
 };
 
 export default function RootLayout({
@@ -51,6 +102,7 @@ export default function RootLayout({
   return (
     <html lang="hu">
       <body className={`${poppins.variable} ${dmSans.variable} ${spaceGrotesk.variable} font-sans flex flex-col min-h-screen`} style={{ backgroundColor: '#0a0a0a', color: '#ffffff', position: 'relative' }}>
+        <StructuredData />
         <Navbar />
         <main className="flex-grow relative z-10">{children}</main>
         <Footer />
