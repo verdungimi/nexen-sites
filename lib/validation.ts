@@ -11,9 +11,12 @@ export function validateEmail(email: string): boolean {
 }
 
 export function validatePhone(phone: string): boolean {
-  // Hungarian phone number validation (basic)
-  const phoneRegex = /^(\+36|06)[\s-]?[1-9][\d\s-]{7,9}$/;
-  return phoneRegex.test(phone.replace(/\s/g, ""));
+  // More flexible phone number validation
+  // Accepts: +36, 06, or international format
+  const cleaned = phone.replace(/[\s-]/g, "");
+  // At least 8 digits, can start with +, 00, or 06
+  const phoneRegex = /^(\+?36|00?36|06)?[1-9]\d{7,9}$/;
+  return phoneRegex.test(cleaned) && cleaned.length >= 8;
 }
 
 export function validateBookingData(data: {

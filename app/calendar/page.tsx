@@ -35,33 +35,43 @@ export default function CalendarPage() {
     }
 
     try {
+      const payload = {
+        ...bookingData,
+        selectedDate,
+        selectedTime,
+      };
+
+      console.log("Sending booking request:", payload);
+
       const response = await fetch("/api/send-booking-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...bookingData,
-          selectedDate,
-          selectedTime,
-        }),
+        body: JSON.stringify(payload),
       });
 
+      console.log("Response status:", response.status, response.statusText);
+
       const result = await response.json();
+      console.log("Response data:", result);
 
       if (!response.ok || !result.success) {
         // Handle validation errors
         if (result.errors) {
           setErrors(result.errors);
         } else {
+          const errorMessage = result.error || result.details || result.message || "Hiba történt az email küldése során. Kérjük, próbáld újra.";
+          console.error("Booking error:", errorMessage);
           setErrors({ 
-            submit: result.error || result.message || "Hiba történt az email küldése során. Kérjük, próbáld újra." 
+            submit: errorMessage
           });
         }
         setIsSubmitting(false);
         return;
       }
 
+      console.log("Booking successful!");
       setIsSuccess(true);
       // Clear localStorage after successful submission
       localStorage.removeItem("bookingData");
@@ -72,10 +82,11 @@ export default function CalendarPage() {
       }, 3000);
     } catch (error) {
       console.error("Error submitting date:", error);
+      const errorMessage = error instanceof Error 
+        ? error.message 
+        : "Hiba történt. Kérjük, próbáld újra.";
       setErrors({ 
-        submit: error instanceof Error 
-          ? error.message 
-          : "Hiba történt. Kérjük, próbáld újra." 
+        submit: errorMessage
       });
       setIsSubmitting(false);
     }

@@ -53,7 +53,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: "Hiba történt az email küldése során",
+          error: emailResult.error || "Hiba történt az email küldése során",
+          details: emailResult.error,
         },
         { status: 500 }
       );

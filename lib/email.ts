@@ -15,32 +15,57 @@ export async function sendEmail(data: EmailData): Promise<{ success: boolean; me
   if (RESEND_API_KEY) {
     try {
       // Using Resend API
+      const emailPayload = {
+        from: EMAIL_FROM,
+        to: data.to,
+        subject: data.subject,
+        text: data.text,
+        html: data.html,
+      };
+
+      console.log("Sending email via Resend to:", data.to);
+      console.log("From:", EMAIL_FROM);
+
       const response = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Authorization": `Bearer ${RESEND_API_KEY}`,
         },
-        body: JSON.stringify({
-          from: EMAIL_FROM,
-          to: data.to,
-          subject: data.subject,
-          text: data.text,
-          html: data.html,
-        }),
+        body: JSON.stringify(emailPayload),
       });
 
       const result = await response.json();
 
       if (!response.ok) {
-        console.error("Resend API error:", result);
-        return { success: false, error: result.message || "Email sending failed" };
+        console.error("Resend API error:", {
+          status: response.status,
+          statusText: response.statusText,
+          error: result,
+        });
+        
+        // Provide more detailed error message
+        let errorMessage = "Email küldési hiba";
+        if (result.message) {
+          errorMessage = result.message;
+        } else if (result.error) {
+          errorMessage = result.error;
+        }
+        
+        return { 
+          success: false, 
+          error: errorMessage || `Resend API hiba: ${response.status} ${response.statusText}` 
+        };
       }
 
+      console.log("Email sent successfully via Resend:", result.id);
       return { success: true, messageId: result.id };
     } catch (error) {
       console.error("Error sending email via Resend:", error);
-      return { success: false, error: error instanceof Error ? error.message : "Unknown error" };
+      return { 
+        success: false, 
+        error: error instanceof Error ? error.message : "Ismeretlen hiba az email küldése során" 
+      };
     }
   } else {
     // Development mode - log to console
