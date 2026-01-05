@@ -19,11 +19,11 @@ export default function Navbar() {
           </Link>
           
           {/* Desktop Menu - Centered */}
-          <div className="hidden md:flex items-center space-x-2 flex-1 justify-center absolute left-1/2 transform -translate-x-1/2">
-            <Link href="/" className="px-5 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg">
+          <div className="hidden md:flex items-center space-x-1.5 flex-1 justify-center absolute left-1/2 transform -translate-x-1/2 flex-nowrap">
+            <Link href="/" className="px-3 py-2 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-xs font-semibold shadow-lg whitespace-nowrap">
               Kezdőlap
             </Link>
-            <a href="#process" className="px-5 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e) => {
+            <a href="#process" className="px-3 py-2 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-xs font-semibold shadow-lg whitespace-nowrap" onClick={(e) => {
               e.preventDefault();
               const target = document.getElementById('process');
               if (target) {
@@ -35,7 +35,7 @@ export default function Navbar() {
             }}>
               Folyamat
             </a>
-            <a href="#pricing" className="px-5 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e) => {
+            <a href="#pricing" className="px-3 py-2 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-xs font-semibold shadow-lg whitespace-nowrap" onClick={(e) => {
               e.preventDefault();
               const target = document.getElementById('pricing');
               if (target) {
@@ -47,13 +47,13 @@ export default function Navbar() {
             }}>
               Árazás
             </a>
-            <Link href="/blog" className="px-5 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg">
+            <Link href="/blog" className="px-3 py-2 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-xs font-semibold shadow-lg whitespace-nowrap">
               Blog
             </Link>
-            <Link href="/rolunk" className="px-5 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg">
+            <Link href="/rolunk" className="px-3 py-2 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-xs font-semibold shadow-lg whitespace-nowrap">
               Rólunk
             </Link>
-            <a href="/#faq" className="px-5 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e) => {
+            <a href="/#faq" className="px-3 py-2 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-xs font-semibold shadow-lg whitespace-nowrap" onClick={(e) => {
               e.preventDefault();
               const currentPath = window.location.pathname;
               if (currentPath === '/' || currentPath === '') {
@@ -72,7 +72,7 @@ export default function Navbar() {
             }}>
               GYIK
             </a>
-            <a href="/#contact" className="px-5 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e) => {
+            <a href="/#contact" className="px-3 py-2 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-xs font-semibold shadow-lg whitespace-nowrap" onClick={(e) => {
               e.preventDefault();
               const currentPath = window.location.pathname;
               if (currentPath === '/' || currentPath === '') {
