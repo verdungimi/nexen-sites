@@ -85,7 +85,7 @@ export default function RolunkPage() {
               készítjük el, prémium design-nal és tökéletes működéssel. Hiszünk abban, hogy a gyorsaság és a minőség együtt járhat.
             </p>
             <p className="text-lg text-[#A8B3C7] leading-relaxed">
-              Ma már számos elégedett ügyfelünk van, akik büszkén mutathatják be modern, gyors és konverzióra optimalizált weboldalukat.
+              Ma már több mint 50 elégedett ügyfelünk van, akik büszkén mutathatják be modern, gyors és konverzióra optimalizált weboldalukat.
             </p>
           </div>
         </div>
