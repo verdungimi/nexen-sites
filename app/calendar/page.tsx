@@ -47,8 +47,19 @@ export default function CalendarPage() {
         }),
       });
 
-      if (!response.ok) {
-        throw new Error("Hiba történt az email küldése során");
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        // Handle validation errors
+        if (result.errors) {
+          setErrors(result.errors);
+        } else {
+          setErrors({ 
+            submit: result.error || result.message || "Hiba történt az email küldése során. Kérjük, próbáld újra." 
+          });
+        }
+        setIsSubmitting(false);
+        return;
       }
 
       setIsSuccess(true);
@@ -61,7 +72,11 @@ export default function CalendarPage() {
       }, 3000);
     } catch (error) {
       console.error("Error submitting date:", error);
-      setErrors({ submit: "Hiba történt. Kérjük, próbáld újra." });
+      setErrors({ 
+        submit: error instanceof Error 
+          ? error.message 
+          : "Hiba történt. Kérjük, próbáld újra." 
+      });
       setIsSubmitting(false);
     }
   };

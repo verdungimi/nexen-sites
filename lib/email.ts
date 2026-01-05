@@ -8,11 +8,11 @@ interface EmailData {
 }
 
 export async function sendEmail(data: EmailData): Promise<{ success: boolean; messageId?: string; error?: string }> {
-  // In production, use Resend or another email service
+  // Use Resend if API key is available (works in both development and production)
   const RESEND_API_KEY = process.env.RESEND_API_KEY;
   const EMAIL_FROM = process.env.EMAIL_FROM || "onboarding@resend.dev";
   
-  if (RESEND_API_KEY && process.env.NODE_ENV === "production") {
+  if (RESEND_API_KEY) {
     try {
       // Using Resend API
       const response = await fetch("https://api.resend.com/emails", {
