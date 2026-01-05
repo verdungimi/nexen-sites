@@ -36,7 +36,8 @@ export default function CookieBanner() {
     localStorage.setItem("cookieConsent", "accepted");
     localStorage.setItem("cookiePreferences", JSON.stringify(allAccepted));
     setShowBanner(false);
-    // Initialize analytics/marketing scripts here if needed
+    // Reload page to initialize analytics scripts
+    window.location.reload();
   };
 
   const acceptNecessary = () => {
@@ -56,7 +57,10 @@ export default function CookieBanner() {
     localStorage.setItem("cookiePreferences", JSON.stringify(cookiePreferences));
     setShowBanner(false);
     setShowSettings(false);
-    // Initialize analytics/marketing scripts based on preferences
+    // Reload page to initialize/remove analytics scripts based on preferences
+    if (cookiePreferences.analytics || cookiePreferences.marketing) {
+      window.location.reload();
+    }
   };
 
   const togglePreference = (key: "analytics" | "marketing") => {

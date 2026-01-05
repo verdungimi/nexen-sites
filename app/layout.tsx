@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import StructuredData from "@/components/StructuredData";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const poppins = Poppins({ 
   subsets: ["latin"],
@@ -92,6 +93,21 @@ export const metadata: Metadata = {
     canonical: "https://nexensites.hu",
   },
   category: "Weboldal készítés",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+      }
+    : undefined,
 };
 
 export default function RootLayout({
@@ -102,6 +118,7 @@ export default function RootLayout({
   return (
     <html lang="hu">
       <body className={`${poppins.variable} ${dmSans.variable} ${spaceGrotesk.variable} font-sans flex flex-col min-h-screen`} style={{ backgroundColor: '#0a0a0a', color: '#ffffff', position: 'relative' }}>
+        <GoogleAnalytics />
         <StructuredData />
         <Navbar />
         <main className="flex-grow relative z-10">{children}</main>
