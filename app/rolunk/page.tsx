@@ -80,7 +80,7 @@ export default function RolunkPage() {
                 <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">✨</div>
                 <h3 className="text-xl font-bold mb-4 text-[#FFD700]">Minőség</h3>
                 <p className="text-[#EAF0FF] leading-relaxed">
-                  Prémium design, modern technológiák (Next.js, React, TypeScript), 
+                  Prémium design, modern technológiák, 
                   és tökéletes működés minden eszközön - mobil, tablet, desktop.
                 </p>
               </div>
