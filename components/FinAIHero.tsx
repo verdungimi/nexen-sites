@@ -99,7 +99,7 @@ export default function FinAIHero() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 w-full h-full pointer-events-none"
-      style={{ zIndex: 1, position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh' }}
+      style={{ zIndex: 0, position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh' }}
     />
   );
 }
