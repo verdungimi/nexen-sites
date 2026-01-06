@@ -12,14 +12,17 @@ export default function FinAIHero() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     const setCanvasSize = () => {
       // Reduce resolution for better performance on mobile
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       canvas.width = window.innerWidth * dpr;
       canvas.height = window.innerHeight * dpr;
-      ctx.scale(dpr, dpr);
       canvas.style.width = window.innerWidth + 'px';
       canvas.style.height = window.innerHeight + 'px';
+      // Scale context only once
+      if (!ctx.getTransform || ctx.getTransform().a !== dpr) {
+        ctx.scale(dpr, dpr);
+      }
     };
 
     setCanvasSize();
