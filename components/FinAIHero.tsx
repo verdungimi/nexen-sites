@@ -1,33 +1,40 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function FinAIHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Detect mobile device
+    const checkMobile = () => {
+      return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+    };
+    
+    const mobile = checkMobile();
+    setIsMobile(mobile);
+
+    // On mobile, use CSS gradient instead of canvas
+    if (mobile) {
+      return;
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Detect mobile device and reduce DPR for better performance
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
-    const dpr = isMobile ? Math.min(window.devicePixelRatio || 1, 1) : Math.min(window.devicePixelRatio || 1, 1.5);
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     
     const setCanvasSize = () => {
-      // Reduce resolution for better performance on mobile
-      const currentIsMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
-      const currentDPR = currentIsMobile ? Math.min(window.devicePixelRatio || 1, 1) : Math.min(window.devicePixelRatio || 1, 1.5);
-      
-      // Use viewport dimensions
       const width = window.innerWidth;
       const height = window.innerHeight;
       
       // Set canvas internal size
-      canvas.width = width * currentDPR;
-      canvas.height = height * currentDPR;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
       
       // Set canvas display size
       canvas.style.width = width + 'px';
@@ -35,7 +42,7 @@ export default function FinAIHero() {
       
       // Reset transform and scale
       ctx.setTransform(1, 0, 0, 1, 0, 0);
-      ctx.scale(currentDPR, currentDPR);
+      ctx.scale(dpr, dpr);
     };
 
     setCanvasSize();
@@ -157,23 +164,51 @@ export default function FinAIHero() {
     };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none"
-      style={{ 
-        zIndex: 0, 
-        position: 'fixed', 
-        top: 0, 
-        left: 0, 
-        right: 0,
-        bottom: 0,
-        width: '100vw', 
-        height: '100vh',
-        maxWidth: '100%',
-        maxHeight: '100%'
-      }}
-    />
-  );
-}
+    // On mobile, return a static gradient div instead of canvas
+    if (isMobile) {
+      return (
+        <div 
+          className="fixed inset-0 w-full h-full pointer-events-none"
+          style={{ 
+            zIndex: 0, 
+            position: 'fixed', 
+            top: 0, 
+            left: 0, 
+            right: 0,
+            bottom: 0,
+            width: '100vw', 
+            height: '100vh',
+            background: `
+              radial-gradient(circle at 20% 30%, rgba(124, 92, 255, 0.25) 0%, transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(80, 174, 223, 0.22) 0%, transparent 50%),
+              radial-gradient(circle at 50% 50%, rgba(124, 92, 255, 0.18) 0%, transparent 50%),
+              #0a0a0a
+            `,
+            backgroundSize: '100% 100%',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+      );
+    }
+
+    return (
+      <canvas
+        ref={canvasRef}
+        className="fixed inset-0 w-full h-full pointer-events-none hidden md:block"
+        style={{ 
+          zIndex: 0, 
+          position: 'fixed', 
+          top: 0, 
+          left: 0, 
+          right: 0,
+          bottom: 0,
+          width: '100vw', 
+          height: '100vh',
+          maxWidth: '100%',
+          maxHeight: '100%'
+        }}
+      />
+    );
+  }
 

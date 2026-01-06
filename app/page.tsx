@@ -58,7 +58,8 @@ export default function HomePage() {
       <HomePageStructuredData />
       {/* Hero Section - Fin AI Style */}
       <section className="min-h-screen flex items-center justify-center relative pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-6 overflow-hidden">
-        <div className="fixed inset-0 w-full h-full" style={{ zIndex: 1, pointerEvents: 'none' }}>
+        {/* DarkVeil - Only on desktop */}
+        <div className="hidden md:block fixed inset-0 w-full h-full" style={{ zIndex: 1, pointerEvents: 'none' }}>
           <DarkVeil
             hueShift={0}
             noiseIntensity={0}
