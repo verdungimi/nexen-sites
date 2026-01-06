@@ -63,8 +63,9 @@ export default function CalendarPage() {
         } else {
           const errorMessage = result.error || result.details || result.message || "Hiba történt az email küldése során. Kérjük, próbáld újra.";
           console.error("Booking error:", errorMessage);
+          console.error("Full error response:", result);
           setErrors({ 
-            submit: errorMessage
+            submit: `Email küldési hiba: ${errorMessage}. Kérjük, ellenőrizd a konfigurációt vagy próbáld újra később.`
           });
         }
         setIsSubmitting(false);

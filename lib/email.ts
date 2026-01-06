@@ -37,7 +37,18 @@ export async function sendEmail(data: EmailData): Promise<{ success: boolean; me
         body: JSON.stringify(emailPayload),
       });
 
-      const result = await response.json();
+      let result;
+      try {
+        result = await response.json();
+      } catch (e) {
+        // If response is not JSON, get text
+        const text = await response.text();
+        console.error("Resend API non-JSON error:", text);
+        return { 
+          success: false, 
+          error: `Resend API hiba: ${response.status} ${response.statusText} - ${text}` 
+        };
+      }
 
       if (!response.ok) {
         console.error("Resend API error:", {
@@ -51,7 +62,9 @@ export async function sendEmail(data: EmailData): Promise<{ success: boolean; me
         if (result.message) {
           errorMessage = result.message;
         } else if (result.error) {
-          errorMessage = result.error;
+          errorMessage = typeof result.error === 'string' ? result.error : JSON.stringify(result.error);
+        } else if (result.errors && Array.isArray(result.errors) && result.errors.length > 0) {
+          errorMessage = result.errors.map((e: any) => e.message || e).join(", ");
         }
         
         return { 

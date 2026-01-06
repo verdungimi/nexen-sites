@@ -72,10 +72,6 @@ export default function RolunkPage() {
               <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">100%</div>
               <div className="text-sm md:text-base text-[#EAF0FF] font-semibold">Prémium minőség</div>
             </div>
-            <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#FFD700]/50 hover:shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-2 group">
-              <div className="text-4xl md:text-5xl font-black text-[#FFD700] mb-2 group-hover:scale-110 transition-transform duration-300">24/7</div>
-              <div className="text-sm md:text-base text-[#EAF0FF] font-semibold">Támogatás</div>
-            </div>
           </div>
         </div>
       </section>
@@ -238,12 +234,6 @@ export default function RolunkPage() {
                 100%
               </div>
               <p className="text-[#A8B3C7] text-sm md:text-base">Garantált minőség</p>
-            </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center animate-float-up hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.2)] transition-all duration-500 group" style={{ animationDelay: '0.3s', opacity: 0 }}>
-              <div className="text-4xl md:text-5xl font-black mb-2 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                24/7
-              </div>
-              <p className="text-[#A8B3C7] text-sm md:text-base">Támogatás</p>
             </div>
           </div>
         </div>

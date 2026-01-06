@@ -86,10 +86,6 @@ export default function PackagesPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
-                    <span className="text-[#EAF0FF] text-base">24/7 prioritásos támogatás</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-[#FFD700] font-bold text-lg group-hover:text-[#DC143C] transition-colors">✓</span>
                     <span className="text-[#EAF0FF] text-base">Havi karbantartás és frissítések</span>
                   </li>
                   <li className="flex items-start gap-3">

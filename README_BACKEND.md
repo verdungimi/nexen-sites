@@ -12,6 +12,12 @@ A weboldal backend rendszere Next.js API Routes-t használ, amelyek a következ�
 
 ## API Endpoints
 
+### 0. Test Endpoints
+
+**GET `/api/email-status`** - Email konfiguráció ellenőrzése
+
+**GET `/api/test-booking`** - Teszt email küldése (booking formátumban)
+
 ### 1. Booking API (`/api/booking`)
 
 **POST** - Új időpontfoglalás létrehozása

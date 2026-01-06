@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import ZoldhazLogo from "./ZoldhazLogo";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,23 +10,22 @@ export default function Navbar() {
   return (
     <nav className="sticky top-4 z-50 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center h-14 px-4 md:px-6 gap-3 relative">
-          <Link href="/" className="group flex-shrink-0 nexen-logo-wrapper">
-            <span className="text-2xl md:text-3xl font-black inline-flex">
-              <span className="nexen-logo-ne logo-wave-1 inline-block">NE</span>
-              <span className="nexen-logo-x logo-wave-2 inline-block">X</span>
-              <span className="nexen-logo-en logo-wave-3 inline-block">EN</span>
-            </span>
-          </Link>
+        {/* Navbar background with blur */}
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl"></div>
+        <div className="flex items-center h-16 px-4 md:px-6 gap-3 relative">
+          <ZoldhazLogo variant="navbar" />
           
           {/* Desktop Menu - Centered */}
           <div className="hidden md:flex items-center space-x-2 flex-1 justify-center absolute left-1/2 transform -translate-x-1/2 flex-nowrap">
-            <Link href="/" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap">
+            <Link href="/" className="px-4 py-2.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg text-white hover:text-[#86FD22] hover:bg-white/10 hover:border-[#86FD22]/30 transition-all duration-300 text-sm font-semibold whitespace-nowrap">
               Kezdőlap
             </Link>
-            <a href="#process" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap" onClick={(e) => {
+            <Link href="/termekek" className="px-4 py-2.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg text-white hover:text-[#86FD22] hover:bg-white/10 hover:border-[#86FD22]/30 transition-all duration-300 text-sm font-semibold whitespace-nowrap">
+              Termékek
+            </Link>
+            <a href="#szolgaltatasok" className="px-4 py-2.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg text-white hover:text-[#86FD22] hover:bg-white/10 hover:border-[#86FD22]/30 transition-all duration-300 text-sm font-semibold whitespace-nowrap" onClick={(e) => {
               e.preventDefault();
-              const target = document.getElementById('process');
+              const target = document.getElementById('szolgaltatasok');
               if (target) {
                 const offset = 100;
                 const elementPosition = target.getBoundingClientRect().top;
@@ -33,11 +33,11 @@ export default function Navbar() {
                 window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
               }
             }}>
-              Folyamat
+              Szolgáltatások
             </a>
-            <a href="#pricing" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap" onClick={(e) => {
+            <a href="#munkaink" className="px-4 py-2.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg text-white hover:text-[#86FD22] hover:bg-white/10 hover:border-[#86FD22]/30 transition-all duration-300 text-sm font-semibold whitespace-nowrap" onClick={(e) => {
               e.preventDefault();
-              const target = document.getElementById('pricing');
+              const target = document.getElementById('munkaink');
               if (target) {
                 const offset = 100;
                 const elementPosition = target.getBoundingClientRect().top;
@@ -45,20 +45,13 @@ export default function Navbar() {
                 window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
               }
             }}>
-              Árazás
+              Munkáink
             </a>
-            <Link href="/blog" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap">
-              Blog
-            </Link>
-            <Link href="/rolunk" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap">
-              Rólunk
-            </Link>
-            <a href="/#faq" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap" onClick={(e) => {
+            <a href="#kapcsolat" className="px-4 py-2.5 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg text-white hover:text-[#86FD22] hover:bg-white/10 hover:border-[#86FD22]/30 transition-all duration-300 text-sm font-semibold whitespace-nowrap" onClick={(e) => {
               e.preventDefault();
               const currentPath = window.location.pathname;
               if (currentPath === '/' || currentPath === '') {
-                // Ha a főoldalon vagyunk, görgessünk a faq szekcióhoz
-                const target = document.getElementById('faq');
+                const target = document.getElementById('kapcsolat');
                 if (target) {
                   const offset = 100;
                   const elementPosition = target.getBoundingClientRect().top;
@@ -66,27 +59,7 @@ export default function Navbar() {
                   window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                 }
               } else {
-                // Ha más oldalon vagyunk, navigáljunk a főoldalra a faq szekcióval
-                window.location.href = '/#faq';
-              }
-            }}>
-              GYIK
-            </a>
-            <a href="/#contact" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap" onClick={(e) => {
-              e.preventDefault();
-              const currentPath = window.location.pathname;
-              if (currentPath === '/' || currentPath === '') {
-                // Ha a főoldalon vagyunk, görgessünk a contact szekcióhoz
-                const target = document.getElementById('contact');
-                if (target) {
-                  const offset = 100;
-                  const elementPosition = target.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - offset;
-                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                }
-              } else {
-                // Ha más oldalon vagyunk, navigáljunk a főoldalra a contact szekcióval
-                window.location.href = '/#contact';
+                window.location.href = '/#kapcsolat';
               }
             }}>
               Kapcsolat
@@ -95,9 +68,23 @@ export default function Navbar() {
 
           {/* CTA Button - Right */}
           <div className="hidden md:block flex-shrink-0 ml-auto">
-            <Link href="/book" className="px-7 py-3 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white rounded-xl hover:shadow-[0_0_30px_rgba(124,92,255,0.7)] hover:scale-105 transition-all duration-300 font-semibold text-base shadow-lg">
-              Időpont Foglalása
-            </Link>
+            <a href="#kapcsolat" className="px-7 py-3 bg-[#435936] hover:bg-[#4a6540] text-white rounded-lg transition-all duration-300 font-semibold text-base shadow-lg" onClick={(e) => {
+              e.preventDefault();
+              const currentPath = window.location.pathname;
+              if (currentPath === '/' || currentPath === '') {
+                const target = document.getElementById('kapcsolat');
+                if (target) {
+                  const offset = 100;
+                  const elementPosition = target.getBoundingClientRect().top;
+                  const offsetPosition = elementPosition + window.pageYOffset - offset;
+                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                }
+              } else {
+                window.location.href = '/#kapcsolat';
+              }
+            }}>
+              Ajánlatkérés
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -118,14 +105,17 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-3 mt-4">
-            <Link href="/" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
+          <div className="md:hidden py-4 space-y-3 mt-4 bg-black/60 backdrop-blur-md border border-white/10 rounded-xl px-4">
+            <Link href="/" className="block px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white hover:text-[#86FD22] hover:bg-white/10 transition-all duration-300 text-sm font-semibold" onClick={() => setIsOpen(false)}>
               Kezdőlap
             </Link>
-            <a href="#process" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e) => {
+            <Link href="/termekek" className="block px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white hover:text-[#86FD22] hover:bg-white/10 transition-all duration-300 text-sm font-semibold" onClick={() => setIsOpen(false)}>
+              Termékek
+            </Link>
+            <a href="#szolgaltatasok" className="block px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white hover:text-[#86FD22] hover:bg-white/10 transition-all duration-300 text-sm font-semibold" onClick={(e) => {
               e.preventDefault();
               setIsOpen(false);
-              const target = document.getElementById('process');
+              const target = document.getElementById('szolgaltatasok');
               if (target) {
                 const offset = 100;
                 const elementPosition = target.getBoundingClientRect().top;
@@ -133,12 +123,12 @@ export default function Navbar() {
                 window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
               }
             }}>
-              Folyamat
+              Szolgáltatások
             </a>
-            <a href="#pricing" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e) => {
+            <a href="#munkaink" className="block px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white hover:text-[#86FD22] hover:bg-white/10 transition-all duration-300 text-sm font-semibold" onClick={(e) => {
               e.preventDefault();
               setIsOpen(false);
-              const target = document.getElementById('pricing');
+              const target = document.getElementById('munkaink');
               if (target) {
                 const offset = 100;
                 const elementPosition = target.getBoundingClientRect().top;
@@ -146,22 +136,15 @@ export default function Navbar() {
                 window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
               }
             }}>
-              Árazás
+              Munkáink
             </a>
-            <Link href="/blog" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
-              Blog
-            </Link>
-            <Link href="/rolunk" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
-              Rólunk
-            </Link>
-            <a href="/#faq" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e) => {
+            <a href="#kapcsolat" className="block px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-white hover:text-[#86FD22] hover:bg-white/10 transition-all duration-300 text-sm font-semibold" onClick={(e) => {
               e.preventDefault();
               setIsOpen(false);
               const currentPath = window.location.pathname;
               if (currentPath === '/' || currentPath === '') {
-                // Ha a főoldalon vagyunk, görgessünk a faq szekcióhoz
                 setTimeout(() => {
-                  const target = document.getElementById('faq');
+                  const target = document.getElementById('kapcsolat');
                   if (target) {
                     const offset = 100;
                     const elementPosition = target.getBoundingClientRect().top;
@@ -170,37 +153,31 @@ export default function Navbar() {
                   }
                 }, 100);
               } else {
-                // Ha más oldalon vagyunk, navigáljunk a főoldalra a faq szekcióval
-                window.location.href = '/#faq';
-              }
-            }}>
-              GYIK
-            </a>
-            <a href="/#contact" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e) => {
-              e.preventDefault();
-              setIsOpen(false);
-              const currentPath = window.location.pathname;
-              if (currentPath === '/' || currentPath === '') {
-                // Ha a főoldalon vagyunk, görgessünk a contact szekcióhoz
-                setTimeout(() => {
-                  const target = document.getElementById('contact');
-                  if (target) {
-                    const offset = 100;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset;
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                  }
-                }, 100);
-              } else {
-                // Ha más oldalon vagyunk, navigáljunk a főoldalra a contact szekcióval
-                window.location.href = '/#contact';
+                window.location.href = '/#kapcsolat';
               }
             }}>
               Kapcsolat
             </a>
-            <Link href="/book" className="block px-5 py-2.5 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white rounded-xl hover:shadow-[0_0_25px_rgba(124,92,255,0.6)] hover:scale-105 transition-all duration-300 font-medium text-xs text-center shadow-lg" onClick={() => setIsOpen(false)}>
-              Időpont Foglalása
-            </Link>
+            <a href="#kapcsolat" className="block px-5 py-2.5 bg-[#435936] hover:bg-[#4a6540] text-white rounded-lg transition-all duration-300 font-medium text-sm text-center" onClick={(e) => {
+              e.preventDefault();
+              setIsOpen(false);
+              const currentPath = window.location.pathname;
+              if (currentPath === '/' || currentPath === '') {
+                setTimeout(() => {
+                  const target = document.getElementById('kapcsolat');
+                  if (target) {
+                    const offset = 100;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - offset;
+                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                  }
+                }, 100);
+              } else {
+                window.location.href = '/#kapcsolat';
+              }
+            }}>
+              Ajánlatkérés
+            </a>
           </div>
         )}
       </div>

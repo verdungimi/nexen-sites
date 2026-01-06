@@ -77,10 +77,6 @@ export default function ZoldhazEnergyPage() {
                 <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-[#86FD22] to-[#435936] bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">100%</div>
                 <div className="text-sm md:text-base text-gray-300 font-semibold">Elégedett ügyfél</div>
               </div>
-              <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(67,89,54,0.2)] border border-[#86FD22]/30 rounded-2xl shadow-lg hover:border-[#86FD22] hover:shadow-[0_0_30px_rgba(134,253,34,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-2 group">
-                <div className="text-4xl md:text-5xl font-black text-[#86FD22] mb-2 group-hover:scale-110 transition-transform duration-300">24/7</div>
-                <div className="text-sm md:text-base text-gray-300 font-semibold">Rendelkezésre állás</div>
-              </div>
             </div>
           </div>
         </div>
