@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import StarBorder from "@/components/StarBorder";
 import "@/components/StarBorder.css";
+import { MouseEvent } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,7 @@ export default function Navbar() {
             <StarBorder thickness={2.5} speed="3.5s" color="white" as={Link} href="/" className="text-sm font-semibold whitespace-nowrap">
               Kezdőlap
             </StarBorder>
-            <StarBorder thickness={2.5} speed="3.5s" color="white" as="a" href="#process" className="text-sm font-semibold whitespace-nowrap" onClick={(e) => {
+            <StarBorder thickness={2.5} speed="3.5s" color="white" as="a" href="#process" className="text-sm font-semibold whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               const target = document.getElementById('process');
               if (target) {
@@ -37,7 +38,7 @@ export default function Navbar() {
             }}>
               Folyamat
             </StarBorder>
-            <StarBorder thickness={2.5} speed="3.5s" color="white" as="a" href="#pricing" className="text-sm font-semibold whitespace-nowrap" onClick={(e) => {
+            <StarBorder thickness={2.5} speed="3.5s" color="white" as="a" href="#pricing" className="text-sm font-semibold whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               const target = document.getElementById('pricing');
               if (target) {
@@ -55,7 +56,7 @@ export default function Navbar() {
             <StarBorder thickness={2.5} speed="3.5s" color="white" as={Link} href="/rolunk" className="text-sm font-semibold whitespace-nowrap">
               Rólunk
             </StarBorder>
-            <StarBorder thickness={2.5} speed="3.5s" color="white" as="a" href="/#faq" className="text-sm font-semibold whitespace-nowrap" onClick={(e) => {
+            <StarBorder thickness={2.5} speed="3.5s" color="white" as="a" href="/#faq" className="text-sm font-semibold whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               const currentPath = window.location.pathname;
               if (currentPath === '/' || currentPath === '') {
@@ -72,7 +73,7 @@ export default function Navbar() {
             }}>
               GYIK
             </StarBorder>
-            <StarBorder thickness={2.5} speed="3.5s" color="white" as="a" href="/#contact" className="text-sm font-semibold whitespace-nowrap" onClick={(e) => {
+            <StarBorder thickness={2.5} speed="3.5s" color="white" as="a" href="/#contact" className="text-sm font-semibold whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               const currentPath = window.location.pathname;
               if (currentPath === '/' || currentPath === '') {
@@ -120,7 +121,7 @@ export default function Navbar() {
             <Link href="/" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
               Kezdőlap
             </Link>
-            <a href="#process" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e) => {
+            <a href="#process" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               setIsOpen(false);
               const target = document.getElementById('process');
@@ -133,7 +134,7 @@ export default function Navbar() {
             }}>
               Folyamat
             </a>
-            <a href="#pricing" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e) => {
+            <a href="#pricing" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               setIsOpen(false);
               const target = document.getElementById('pricing');
@@ -152,7 +153,7 @@ export default function Navbar() {
             <Link href="/rolunk" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
               Rólunk
             </Link>
-            <a href="/#faq" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e) => {
+            <a href="/#faq" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               setIsOpen(false);
               const currentPath = window.location.pathname;
@@ -174,7 +175,7 @@ export default function Navbar() {
             }}>
               GYIK
             </a>
-            <a href="/#contact" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e) => {
+            <a href="/#contact" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               setIsOpen(false);
               const currentPath = window.location.pathname;
