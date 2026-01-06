@@ -57,8 +57,7 @@ export default function HomePage() {
       <HomePageStructuredData />
       {/* Hero Section - Fin AI Style */}
       <section className="min-h-screen flex items-center justify-center relative pt-24 pb-16 px-4 overflow-hidden">
-        <FinAIHero />
-        <div className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
+        <div className="absolute inset-0 w-full h-full" style={{ zIndex: 1 }}>
           <DarkVeil
             hueShift={0}
             noiseIntensity={0}
@@ -69,6 +68,7 @@ export default function HomePage() {
             resolutionScale={1}
           />
         </div>
+        <FinAIHero />
         
         <div className="max-w-7xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">

@@ -33,8 +33,9 @@ export default function DarkVeil({
     const setCanvasSize = () => {
       const container = canvas.parentElement;
       if (container) {
-        canvas.width = container.clientWidth * resolutionScale;
-        canvas.height = container.clientHeight * resolutionScale;
+        const rect = container.getBoundingClientRect();
+        canvas.width = rect.width * resolutionScale;
+        canvas.height = rect.height * resolutionScale;
       } else {
         canvas.width = window.innerWidth * resolutionScale;
         canvas.height = window.innerHeight * resolutionScale;
