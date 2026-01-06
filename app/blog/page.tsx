@@ -3,28 +3,57 @@ import Link from "next/link";
 import FinAIHero from "@/components/FinAIHero";
 
 export const metadata: Metadata = {
-  title: "Blog | Weboldal Készítés, Landing Page, SEO Tippek | Nexen Sites",
-  description: "Olvass a weboldal készítésről, landing page tervezésről, SEO optimalizálásról, 10 napos weboldal fejlesztésről és modernebb weboldal készítésről. Hasznos cikkek prémium weboldal fejlesztéshez.",
+  title: "Weboldal Készítés Blog | Webshop Készítés, 10 Nap Alatt Kész Weboldal | Nexen Sites",
+  description: "Olvass a weboldal készítésről, webshop készítésről, olcsó weboldal készítő cég szolgáltatásairól és 10 nap alatt kész weboldal készítésről. Hasznos cikkek prémium weboldal és webshop fejlesztéshez.",
   keywords: [
     "weboldal készítés",
-    "landing page",
-    "weboldal fejlesztés",
-    "10 napos weboldal",
+    "webshop készítés",
+    "weboldal készítő cég",
+    "olcsó weboldal",
+    "10 nap alatt kész weboldal",
+    "weboldal készítés 10 nap",
+    "olcsó weboldal készítés",
+    "weboldal készítő",
+    "weboldal készítés magyarország",
+    "webshop készítés magyarország",
+    "olcsó webshop készítés",
     "prémium weboldal",
     "modern weboldal",
+    "mobilbarát weboldal",
+    "weboldal fejlesztés",
+    "landing page",
+    "10 napos weboldal",
     "weboldal tervezés",
     "weboldal készítés Budapest",
-    "weboldal fejlesztés 10 nap",
     "SEO optimalizálás",
-    "mobilbarát weboldal",
     "weboldal árazás",
     "gyors weboldal készítés",
-    "professzionális weboldal"
+    "professzionális weboldal",
+    "nexen sites"
   ],
   openGraph: {
-    title: "Blog | Weboldal Készítés, Landing Page, SEO Tippek | Nexen Sites",
-    description: "Olvass a weboldal készítésről, landing page tervezésről és modernebb weboldal fejlesztésről.",
+    title: "Weboldal Készítés Blog | Webshop Készítés, 10 Nap Alatt Kész Weboldal | Nexen Sites",
+    description: "Olvass a weboldal készítésről, webshop készítésről, olcsó weboldal készítő cég szolgáltatásairól és 10 nap alatt kész weboldal készítésről.",
     type: "website",
+    url: "https://nexensites.hu/blog",
+    siteName: "Nexen Sites",
+    images: [
+      {
+        url: "https://nexensites.hu/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Nexen Sites - Weboldal készítés és webshop készítés blog",
+      },
+    ],
+    locale: "hu_HU",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Weboldal Készítés Blog | Webshop Készítés, 10 Nap Alatt Kész Weboldal",
+    description: "Olvass a weboldal készítésről, webshop készítésről és 10 nap alatt kész weboldal készítésről.",
+  },
+  alternates: {
+    canonical: "https://nexensites.hu/blog",
   },
 };
 
@@ -100,13 +129,19 @@ export default function BlogPage() {
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "Nexen Sites Blog",
-    "description": "Weboldal készítés, landing page tervezés és SEO optimalizálás cikkek",
+    "name": "Nexen Sites Blog - Weboldal Készítés és Webshop Készítés",
+    "description": "Weboldal készítés, webshop készítés, olcsó weboldal készítő cég szolgáltatásai, 10 nap alatt kész weboldal készítés cikkek és tippek",
     "url": "https://nexensites.hu/blog",
     "publisher": {
       "@type": "Organization",
-      "name": "Nexen Sites",
-      "url": "https://nexensites.hu"
+      "name": "Nexen Sites - Weboldal Készítő Cég",
+      "alternateName": "Nexen Sites",
+      "url": "https://nexensites.hu",
+      "logo": "https://nexensites.hu/logo.png"
+    },
+    "about": {
+      "@type": "Thing",
+      "name": "Weboldal készítés és webshop készítés"
     }
   };
 
@@ -147,11 +182,11 @@ export default function BlogPage() {
                 Blog
               </span>
               <span className="block bg-gradient-to-r from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent mt-2">
-                Weboldal Készítés & SEO Tippek
+                Weboldal Készítés & Webshop Készítés
               </span>
             </h1>
             <p className="text-lg md:text-xl text-[#A8B3C7] max-w-3xl mx-auto font-light leading-relaxed break-words overflow-wrap-anywhere px-4 mt-4">
-              Hasznos cikkek a <strong className="text-white">weboldal készítésről</strong>, <strong className="text-white">landing page tervezésről</strong>, <strong className="text-white">SEO optimalizálásról</strong> és a <strong className="text-white">10 napos weboldal fejlesztésről</strong>.
+              Hasznos cikkek a <strong className="text-white">weboldal készítésről</strong>, <strong className="text-white">webshop készítésről</strong>, <strong className="text-white">olcsó weboldal készítő cég</strong> szolgáltatásairól és a <strong className="text-white">10 nap alatt kész weboldal</strong> készítésről.
             </p>
           </div>
 
@@ -205,6 +240,7 @@ export default function BlogPage() {
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
+                    aria-label="Tovább olvasás ikon"
                   >
                     <path
                       strokeLinecap="round"
@@ -222,10 +258,10 @@ export default function BlogPage() {
           <div className="mt-16 text-center">
             <div className="bg-[#0F1620]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 break-words overflow-wrap-anywhere">
-                Készen állsz egy <span className="bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent">prémium weboldalra</span>?
+                Készen állsz egy <span className="bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent">prémium weboldalra vagy webshopra</span>?
               </h2>
               <p className="text-lg text-[#A8B3C7] mb-6 max-w-2xl mx-auto break-words overflow-wrap-anywhere">
-                Foglalj időpontot és beszéljük meg, hogyan készíthetünk neked egy <strong className="text-white">10 nap alatt elkészülő, prémium minőségű weboldalt</strong> vagy <strong className="text-white">landing page</strong>-et.
+                Foglalj időpontot és beszéljük meg, hogyan készíthetünk neked egy <strong className="text-white">10 nap alatt elkészülő, prémium minőségű weboldalt</strong> vagy <strong className="text-white">webshopot</strong>. Olcsó weboldal készítő cégként garantáltan 10 nap alatt kész weboldalt nyújtunk.
               </p>
               <Link
                 href="/book"

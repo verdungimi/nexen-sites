@@ -223,15 +223,45 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
   }
 
+  const cleanContent = post.content.replace(/<[^>]*>/g, '').substring(0, 160);
+  const keywords = [
+    ...post.keywords,
+    "weboldal készítés",
+    "webshop készítés",
+    "weboldal készítő cég",
+    "olcsó weboldal",
+    "10 nap alatt kész weboldal",
+    "nexen sites"
+  ];
+
   return {
-    title: `${post.title} | Nexen Sites Blog`,
-    description: post.content.replace(/<[^>]*>/g, '').substring(0, 160),
-    keywords: post.keywords,
+    title: `${post.title} | Weboldal Készítés Blog | Nexen Sites`,
+    description: cleanContent || `Olvass a ${post.title.toLowerCase()} témában. Weboldal készítés, webshop készítés, olcsó weboldal készítő cég szolgáltatásai.`,
+    keywords: keywords,
     openGraph: {
-      title: post.title,
-      description: post.content.replace(/<[^>]*>/g, '').substring(0, 160),
+      title: `${post.title} | Nexen Sites Blog`,
+      description: cleanContent || `Olvass a ${post.title.toLowerCase()} témában.`,
       type: "article",
+      url: `https://nexensites.hu/blog/${params.slug}`,
+      siteName: "Nexen Sites",
       publishedTime: post.date,
+      images: [
+        {
+          url: "https://nexensites.hu/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      locale: "hu_HU",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: cleanContent || `Olvass a ${post.title.toLowerCase()} témában.`,
+    },
+    alternates: {
+      canonical: `https://nexensites.hu/blog/${params.slug}`,
     },
   };
 }
@@ -247,9 +277,31 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": post.title,
+    "description": post.content.replace(/<[^>]*>/g, '').substring(0, 200),
     "datePublished": post.date,
+    "dateModified": post.date,
     "articleSection": post.category,
-    "keywords": post.keywords.join(", "),
+    "keywords": [...post.keywords, "weboldal készítés", "webshop készítés", "weboldal készítő cég", "olcsó weboldal", "10 nap alatt kész weboldal"].join(", "),
+    "url": `https://nexensites.hu/blog/${params.slug}`,
+    "author": {
+      "@type": "Organization",
+      "name": "Nexen Sites - Weboldal Készítő Cég",
+      "url": "https://nexensites.hu"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Nexen Sites - Weboldal Készítő Cég",
+      "alternateName": "Nexen Sites",
+      "url": "https://nexensites.hu",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://nexensites.hu/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://nexensites.hu/blog/${params.slug}`
+    }
   };
 
   return (
@@ -268,7 +320,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             href="/blog"
             className="inline-flex items-center gap-2 text-[#7C5CFF] hover:text-[#50AEDF] mb-8 transition-colors"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Vissza a bloghoz ikon">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
             Vissza a bloghoz

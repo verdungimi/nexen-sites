@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Blog | Weboldal Készítés, Landing Page, SEO Tippek | Nexen Sites",
-  description: "Olvass a weboldal készítésről, landing page tervezésről, SEO optimalizálásról és modernebb weboldal fejlesztésről.",
+  title: "Weboldal Készítés Blog | Webshop Készítés, 10 Nap Alatt Kész Weboldal | Nexen Sites",
+  description: "Olvass a weboldal készítésről, webshop készítésről, olcsó weboldal készítő cég szolgáltatásairól és 10 nap alatt kész weboldal készítésről.",
 };
 
 export default function BlogLayout({
