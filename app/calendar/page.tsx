@@ -162,26 +162,18 @@ export default function CalendarPage() {
           </div>
         ) : (
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Google Calendar Embed */}
-            <div className="bg-[#0F1620]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl shadow-lg p-6">
-              <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
-                Naptár
+            {/* Google Calendar Link */}
+            <div className="bg-[#0F1620]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl shadow-lg p-8 md:p-10 flex flex-col items-center justify-center">
+              <h2 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
+                Vagy foglalj időpontot közvetlenül
               </h2>
-              <div className="aspect-square w-full rounded-xl overflow-hidden mb-4">
-                <iframe
-                  src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23ffffff&ctz=Europe%2FBudapest&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
-                  style={{ border: 0, width: "100%", height: "100%" }}
-                  frameBorder="0"
-                  scrolling="no"
-                ></iframe>
-              </div>
               <a
                 href="https://calendar.app.google/vzsa7ELQRad7jjFu8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full px-6 py-3 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white rounded-xl font-semibold text-sm hover:shadow-[0_0_30px_rgba(124,92,255,0.6)] hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7C5CFF] focus:ring-offset-2 focus:ring-offset-[#0F1620] flex items-center justify-center gap-2"
+                className="w-full px-8 py-4 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white rounded-xl font-semibold text-base hover:shadow-[0_0_30px_rgba(124,92,255,0.6)] hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7C5CFF] focus:ring-offset-2 focus:ring-offset-[#0F1620] flex items-center justify-center gap-3"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
                 Időpont foglalása Google Calendar-ban
