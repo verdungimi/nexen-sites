@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import StarBorder from "@/components/StarBorder.jsx";
+import "@/components/StarBorder.css";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,10 +22,10 @@ export default function Navbar() {
           
           {/* Desktop Menu - Centered */}
           <div className="hidden md:flex items-center space-x-2 flex-1 justify-center absolute left-1/2 transform -translate-x-1/2 flex-nowrap">
-            <Link href="/" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap">
+            <StarBorder thickness={2.5} speed="3.5s" color="white" as={Link} href="/" className="text-sm font-semibold whitespace-nowrap">
               Kezdőlap
-            </Link>
-            <a href="#process" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap" onClick={(e) => {
+            </StarBorder>
+            <StarBorder thickness={2.5} speed="3.5s" color="white" as="a" href="#process" className="text-sm font-semibold whitespace-nowrap" onClick={(e) => {
               e.preventDefault();
               const target = document.getElementById('process');
               if (target) {
@@ -34,8 +36,8 @@ export default function Navbar() {
               }
             }}>
               Folyamat
-            </a>
-            <a href="#pricing" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap" onClick={(e) => {
+            </StarBorder>
+            <StarBorder thickness={2.5} speed="3.5s" color="white" as="a" href="#pricing" className="text-sm font-semibold whitespace-nowrap" onClick={(e) => {
               e.preventDefault();
               const target = document.getElementById('pricing');
               if (target) {
@@ -46,18 +48,17 @@ export default function Navbar() {
               }
             }}>
               Árazás
-            </a>
-            <Link href="/blog" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap">
+            </StarBorder>
+            <StarBorder thickness={2.5} speed="3.5s" color="white" as={Link} href="/blog" className="text-sm font-semibold whitespace-nowrap">
               Blog
-            </Link>
-            <Link href="/rolunk" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap">
+            </StarBorder>
+            <StarBorder thickness={2.5} speed="3.5s" color="white" as={Link} href="/rolunk" className="text-sm font-semibold whitespace-nowrap">
               Rólunk
-            </Link>
-            <a href="/#faq" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap" onClick={(e) => {
+            </StarBorder>
+            <StarBorder thickness={2.5} speed="3.5s" color="white" as="a" href="/#faq" className="text-sm font-semibold whitespace-nowrap" onClick={(e) => {
               e.preventDefault();
               const currentPath = window.location.pathname;
               if (currentPath === '/' || currentPath === '') {
-                // Ha a főoldalon vagyunk, görgessünk a faq szekcióhoz
                 const target = document.getElementById('faq');
                 if (target) {
                   const offset = 100;
@@ -66,17 +67,15 @@ export default function Navbar() {
                   window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                 }
               } else {
-                // Ha más oldalon vagyunk, navigáljunk a főoldalra a faq szekcióval
                 window.location.href = '/#faq';
               }
             }}>
               GYIK
-            </a>
-            <a href="/#contact" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap" onClick={(e) => {
+            </StarBorder>
+            <StarBorder thickness={2.5} speed="3.5s" color="white" as="a" href="/#contact" className="text-sm font-semibold whitespace-nowrap" onClick={(e) => {
               e.preventDefault();
               const currentPath = window.location.pathname;
               if (currentPath === '/' || currentPath === '') {
-                // Ha a főoldalon vagyunk, görgessünk a contact szekcióhoz
                 const target = document.getElementById('contact');
                 if (target) {
                   const offset = 100;
@@ -85,12 +84,11 @@ export default function Navbar() {
                   window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                 }
               } else {
-                // Ha más oldalon vagyunk, navigáljunk a főoldalra a contact szekcióval
                 window.location.href = '/#contact';
               }
             }}>
               Kapcsolat
-            </a>
+            </StarBorder>
           </div>
 
           {/* CTA Button - Right */}
