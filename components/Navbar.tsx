@@ -91,25 +91,6 @@ export default function Navbar() {
         }
       }
     },
-    { 
-      label: "Kapcsolat", 
-      href: "/#contact",
-      onClick: (e: React.MouseEvent) => {
-        e.preventDefault();
-        const currentPath = window.location.pathname;
-        if (currentPath === '/' || currentPath === '') {
-          const target = document.getElementById('contact');
-          if (target) {
-            const offset = 100;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - offset;
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-          }
-        } else {
-          window.location.href = '/#contact';
-        }
-      }
-    },
   ];
 
   return (
