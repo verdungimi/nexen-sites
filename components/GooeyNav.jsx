@@ -99,6 +99,11 @@ const GooeyNav = ({
     const liEl = e.currentTarget;
     if (activeIndex === index) return;
 
+    // Call custom onClick if provided
+    if (items[index]?.onClick) {
+      items[index].onClick(e);
+    }
+
     setActiveIndex(index);
     updateEffectPosition(liEl);
 
