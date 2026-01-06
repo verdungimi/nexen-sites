@@ -30,7 +30,7 @@ const StarBorder = ({
     }
   };
 
-  const content = (
+  return (
     <WrapperComponent {...wrapperProps}>
       <div
         className="border-gradient-bottom"
@@ -46,8 +46,14 @@ const StarBorder = ({
           animationDuration: speed
         }}
       ></div>
-      <div className="inner-content">{children}</div>
-    </Component>
+      <div className="inner-content">
+        {isStringComponent ? children : (
+          <Component {...rest}>
+            {children}
+          </Component>
+        )}
+      </div>
+    </WrapperComponent>
   );
 };
 
