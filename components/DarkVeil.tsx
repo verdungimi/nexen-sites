@@ -25,10 +25,16 @@ export default function DarkVeil({
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      console.error('DarkVeil: Canvas ref is null');
+      return;
+    }
 
     const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    if (!ctx) {
+      console.error('DarkVeil: Could not get 2d context');
+      return;
+    }
 
     const setCanvasSize = () => {
       const container = canvas.parentElement;
@@ -36,13 +42,16 @@ export default function DarkVeil({
         const rect = container.getBoundingClientRect();
         canvas.width = rect.width * resolutionScale;
         canvas.height = rect.height * resolutionScale;
+        console.log('DarkVeil: Canvas size set to', canvas.width, 'x', canvas.height, 'from container', rect.width, 'x', rect.height);
       } else {
         canvas.width = window.innerWidth * resolutionScale;
         canvas.height = window.innerHeight * resolutionScale;
+        console.log('DarkVeil: Canvas size set to', canvas.width, 'x', canvas.height, 'from window');
       }
     };
 
     setCanvasSize();
+    console.log('DarkVeil: Component mounted, starting animation');
 
     let animationFrame: number;
     let time = 0;
@@ -56,7 +65,7 @@ export default function DarkVeil({
       ctx.fillStyle = '#0a0a0a';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Create animated gradient orbs
+      // Create animated gradient orbs - MUCH STRONGER for visibility
       const gradient1 = ctx.createRadialGradient(
         canvas.width * 0.2 + Math.sin(time) * 50,
         canvas.height * 0.3 + Math.cos(time * 0.7) * 50,
@@ -65,9 +74,9 @@ export default function DarkVeil({
         canvas.height * 0.3,
         500
       );
-      gradient1.addColorStop(0, 'rgba(124, 92, 255, 0.15)');
-      gradient1.addColorStop(0.3, 'rgba(80, 174, 223, 0.10)');
-      gradient1.addColorStop(0.6, 'rgba(124, 92, 255, 0.05)');
+      gradient1.addColorStop(0, 'rgba(124, 92, 255, 0.6)');
+      gradient1.addColorStop(0.3, 'rgba(80, 174, 223, 0.4)');
+      gradient1.addColorStop(0.6, 'rgba(124, 92, 255, 0.2)');
       gradient1.addColorStop(1, 'rgba(124, 92, 255, 0)');
 
       ctx.fillStyle = gradient1;
@@ -81,12 +90,29 @@ export default function DarkVeil({
         canvas.height * 0.7,
         600
       );
-      gradient2.addColorStop(0, 'rgba(80, 174, 223, 0.12)');
-      gradient2.addColorStop(0.3, 'rgba(124, 92, 255, 0.08)');
-      gradient2.addColorStop(0.6, 'rgba(80, 174, 223, 0.04)');
+      gradient2.addColorStop(0, 'rgba(80, 174, 223, 0.5)');
+      gradient2.addColorStop(0.3, 'rgba(124, 92, 255, 0.3)');
+      gradient2.addColorStop(0.6, 'rgba(80, 174, 223, 0.15)');
       gradient2.addColorStop(1, 'rgba(80, 174, 223, 0)');
 
       ctx.fillStyle = gradient2;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Add a third gradient orb for more depth
+      const gradient3 = ctx.createRadialGradient(
+        canvas.width * 0.5 + Math.sin(time * 0.5) * 80,
+        canvas.height * 0.5 + Math.cos(time * 0.9) * 80,
+        0,
+        canvas.width * 0.5,
+        canvas.height * 0.5,
+        450
+      );
+      gradient3.addColorStop(0, 'rgba(124, 92, 255, 0.4)');
+      gradient3.addColorStop(0.4, 'rgba(80, 174, 223, 0.25)');
+      gradient3.addColorStop(0.8, 'rgba(124, 92, 255, 0.1)');
+      gradient3.addColorStop(1, 'rgba(124, 92, 255, 0)');
+
+      ctx.fillStyle = gradient3;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Add noise if noiseIntensity > 0
