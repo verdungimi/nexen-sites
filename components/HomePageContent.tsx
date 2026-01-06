@@ -65,16 +65,16 @@ export default function HomePageContent() {
                 Weboldal Készítés
               </span>
               <span className="block bg-gradient-to-r from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent mt-1 md:mt-2 animate-fade-in-delay">
-                & Webshop Készítés
+                10 Nap Alatt
               </span>
               <span className="block text-white mt-1 md:mt-2 animate-fade-in-delay-2">
-                10 Nap Alatt Kész
+                Kész
               </span>
             </h1>
 
             {/* Subheadline - Minimal */}
             <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 md:mb-12 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-delay-2 px-2">
-              Professzionális <strong>weboldal készítés</strong> és <strong>webshop készítés</strong> 10 nap alatt. Olcsó weboldal készítő cég vagyunk, aki garantált határidővel és prémium minőséggel dolgozik. Weboldal készítés és webshop készítés szolgáltatásaink vállalkozásoknak.
+              Professzionális <strong>weboldal készítés</strong> 10 nap alatt. Olcsó weboldal készítő cég vagyunk, aki garantált határidővel és prémium minőséggel dolgozik. Weboldal készítés szolgáltatásaink vállalkozásoknak.
             </p>
 
             {/* CTAs - Minimal */}
@@ -130,10 +130,10 @@ export default function HomePageContent() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-[#EAF0FF]">
-              Mit veszítesz el rossz weboldallal vagy webshoppal?
+              Mit veszítesz el rossz weboldallal?
             </h2>
             <p className="text-base sm:text-lg text-[#A8B3C7] max-w-2xl mx-auto px-2">
-              A rossz minőségű weboldal készítés vagy webshop készítés közvetlenül a bevételbe és az üzleti eredményekbe fájnak
+              A rossz minőségű weboldal készítés közvetlenül a bevételbe és az üzleti eredményekbe fájnak
             </p>
           </motion.div>
 
@@ -230,10 +230,10 @@ export default function HomePageContent() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-[#EAF0FF]">
-              Professzionális Weboldal Készítés és Webshop Készítés
+              Professzionális Weboldal Készítés
             </h2>
             <p className="text-base sm:text-lg text-[#A8B3C7] max-w-2xl mx-auto px-2">
-              Olcsó weboldal készítő cégként professzionális weboldal készítés és webshop készítés szolgáltatást nyújtunk 10 nap alatt
+              Olcsó weboldal készítő cégként professzionális weboldal készítés szolgáltatást nyújtunk 10 nap alatt
             </p>
           </motion.div>
 
@@ -276,7 +276,7 @@ export default function HomePageContent() {
               <div className="relative z-10">
                 <div className="mb-4 md:mb-6">
                   <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#7C5CFF] to-[#50AEDF] rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#7C5CFF]/40">
-                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Landing page webshop készítés ikon">
+                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Landing page weboldal készítés ikon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
@@ -285,7 +285,7 @@ export default function HomePageContent() {
                   Landing page logika
                 </h3>
                 <p className="text-white font-semibold leading-relaxed text-sm md:text-base">
-                  A webshop készítés és weboldal készítés kifejezetten a fizetett forgalom támogatására épül, maximális ROI-val.
+                  A weboldal készítés kifejezetten a fizetett forgalom támogatására épül, maximális ROI-val.
                 </p>
               </div>
             </motion.div>
@@ -333,7 +333,7 @@ export default function HomePageContent() {
               Weboldal Készítés 10 Napos Folyamata
             </h2>
             <p className="text-lg text-[#A8B3C7]">
-              A weboldal készítés és webshop készítés folyamata tiszta lépésekből áll, átlátható kommunikációval és garantált 10 napos határidővel
+              A weboldal készítés folyamata tiszta lépésekből áll, átlátható kommunikációval és garantált 10 napos határidővel
             </p>
           </motion.div>
 
@@ -361,7 +361,7 @@ export default function HomePageContent() {
             Olcsó Weboldal Készítés Árazása
           </h2>
           <p className="text-lg text-[#A8B3C7]">
-            Átlátható árazás weboldal készítés és webshop készítés szolgáltatásainkhoz. Olcsó weboldal készítő cégként prémium minőséget nyújtunk fix áron.
+            Átlátható árazás weboldal készítés szolgáltatásainkhoz. Olcsó weboldal készítő cégként prémium minőséget nyújtunk fix áron.
           </p>
         </motion.div>
 
@@ -418,7 +418,7 @@ export default function HomePageContent() {
               <div className="text-5xl font-bold mb-3 text-[#EAF0FF]">
                 499 000 Ft
               </div>
-              <p className="text-[#A8B3C7] mb-6">3-5 oldalas weboldal készítés vagy webshop készítés</p>
+              <p className="text-[#A8B3C7] mb-6">3-5 oldalas weboldal készítés</p>
             </div>
             <ul className="space-y-2 mb-6">
               <li className="flex items-start gap-2">
@@ -474,7 +474,7 @@ export default function HomePageContent() {
               <div className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent group-hover:from-[#FFD700] group-hover:to-[#FFA500] transition-all">
                 799 000 Ft
               </div>
-              <p className="text-[#A8B3C7] mb-6 text-sm">Teljes weboldal készítés vagy webshop készítés + extrák</p>
+              <p className="text-[#A8B3C7] mb-6 text-sm">Teljes weboldal készítés + extrák</p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-start gap-2">
                   <span className="text-[#FFD700] font-bold group-hover:text-[#FFA500] transition-colors">✓</span>
@@ -516,7 +516,7 @@ export default function HomePageContent() {
         >
           <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 inline-block">
             <p className="text-[#A8B3C7]">
-              <strong className="text-[#EAF0FF]">10 napos szállítási garancia weboldal készítés és webshop készítés esetén</strong> — ha lemaradunk a határidőről, 20%-ot visszatérítünk. 10 nap alatt kész weboldal garantálva.
+              <strong className="text-[#EAF0FF]">10 napos szállítási garancia weboldal készítés esetén</strong> — ha lemaradunk a határidőről, 20%-ot visszatérítünk. 10 nap alatt kész weboldal garantálva.
             </p>
           </div>
           <div>
@@ -580,7 +580,7 @@ export default function HomePageContent() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
-              Gyakran Ismételt Kérdések Weboldal Készítés és Webshop Készítés
+              Gyakran Ismételt Kérdések Weboldal Készítés
             </h2>
           </motion.div>
 
@@ -635,7 +635,7 @@ export default function HomePageContent() {
             Szeretnéd, hogy 10 Nap Múlva Élőben Legyen a Weboldalad?
           </h2>
           <p className="text-xl text-[#A8B3C7] mb-8">
-            Foglalj időpontot weboldal készítés vagy webshop készítés szolgáltatásunkhoz. Beszéljük meg a projektedet és kezdjük el. Olcsó weboldal készítő cégként garantáltan 10 nap alatt kész weboldalt nyújtunk.
+            Foglalj időpontot weboldal készítés szolgáltatásunkhoz. Beszéljük meg a projektedet és kezdjük el. Olcsó weboldal készítő cégként garantáltan 10 nap alatt kész weboldalt nyújtunk.
           </p>
           <div className="flex flex-col items-center gap-6">
             <CTAButton href="/book" variant="primary" className="text-lg px-8 py-4">

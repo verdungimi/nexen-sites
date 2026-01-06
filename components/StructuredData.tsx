@@ -6,7 +6,7 @@ export default function StructuredData() {
     "alternateName": "Nexen Sites",
     "url": "https://nexensites.hu",
     "logo": "https://nexensites.hu/logo.png",
-    "description": "Professzionális weboldal készítés és webshop készítés 10 nap alatt. Olcsó weboldal készítő cég Magyarországon. Prémium minőség, fix ár, garantált határidő.",
+    "description": "Professzionális weboldal készítés 10 nap alatt. Olcsó weboldal készítő cég Magyarországon. Prémium minőség, fix ár, garantált határidő.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kecskemét",
@@ -25,9 +25,7 @@ export default function StructuredData() {
     ],
     "knowsAbout": [
       "Weboldal készítés",
-      "Webshop készítés",
       "Weboldal fejlesztés",
-      "Webshop fejlesztés",
       "Next.js",
       "React",
       "TypeScript"
@@ -37,7 +35,7 @@ export default function StructuredData() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "Weboldal készítés és Webshop készítés",
+    "serviceType": "Weboldal készítés",
     "provider": {
       "@type": "Organization",
       "name": "Nexen Sites - Weboldal Készítő Cég"
@@ -46,45 +44,33 @@ export default function StructuredData() {
       "@type": "Country",
       "name": "Hungary"
     },
-    "description": "Professzionális weboldal készítés és webshop készítés 10 nap alatt. Olcsó weboldal készítő cégként prémium minőségű, modern, gyors, mobilbarát weboldalakat és webshopokat készítünk vállalkozásoknak.",
-    "offers": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Weboldal készítés",
-          "description": "Professzionális weboldal készítés 10 nap alatt"
-        },
+    "description": "Professzionális weboldal készítés 10 nap alatt. Olcsó weboldal készítő cégként prémium minőségű, modern, gyors, mobilbarát weboldalakat készítünk vállalkozásoknak.",
+    "offers": {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Weboldal készítés",
+        "description": "Professzionális weboldal készítés 10 nap alatt"
+      },
+      "priceCurrency": "HUF",
+      "price": "299000",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
         "priceCurrency": "HUF",
         "price": "299000",
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "priceCurrency": "HUF",
-          "price": "299000",
-          "valueAddedTaxIncluded": true
-        },
-        "availability": "https://schema.org/InStock"
+        "valueAddedTaxIncluded": true
       },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Webshop készítés",
-          "description": "Professzionális webshop készítés 10 nap alatt"
-        },
-        "priceCurrency": "HUF",
-        "availability": "https://schema.org/InStock"
-      }
-    ]
+      "availability": "https://schema.org/InStock"
+    }
   };
 
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Nexen Sites - Weboldal Készítés és Webshop Készítés",
+    "name": "Nexen Sites - Weboldal Készítés",
     "alternateName": "Nexen Sites",
     "url": "https://nexensites.hu",
-    "description": "Professzionális weboldal készítés és webshop készítés 10 nap alatt. Olcsó weboldal készítő cég Magyarországon.",
+    "description": "Professzionális weboldal készítés 10 nap alatt. Olcsó weboldal készítő cég Magyarországon.",
     "inLanguage": "hu-HU",
     "potentialAction": {
       "@type": "SearchAction",
