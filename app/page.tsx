@@ -4,7 +4,6 @@ import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 import FAQAccordion from "@/components/FAQAccordion";
 import TestimonialCard from "@/components/TestimonialCard";
-import FinAIHero from "@/components/FinAIHero";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import HomePageStructuredData from "@/components/HomePageStructuredData";
 import DarkVeil from "@/components/DarkVeil";
@@ -57,7 +56,7 @@ export default function HomePage() {
       <HomePageStructuredData />
       {/* Hero Section - Fin AI Style */}
       <section className="min-h-screen flex items-center justify-center relative pt-24 pb-16 px-4 overflow-hidden">
-        <div style={{ width: '1080px', height: '1080px', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1 }}>
+        <div style={{ width: '1080px', height: '1080px', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 0 }}>
           <DarkVeil
             hueShift={0}
             noiseIntensity={0}
@@ -68,7 +67,6 @@ export default function HomePage() {
             resolutionScale={1}
           />
         </div>
-        <FinAIHero />
         
         <div className="max-w-7xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
