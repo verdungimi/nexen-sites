@@ -59,7 +59,7 @@ export default function HomePage() {
       {/* Hero Section - Fin AI Style */}
       <section className="min-h-screen flex items-center justify-center relative pt-24 pb-16 px-4 overflow-hidden">
         <FinAIHero />
-        <div style={{ width: '1080px', height: '1080px', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 1, pointerEvents: 'none' }}>
+        <div className="absolute inset-0 w-full h-full" style={{ zIndex: 1, pointerEvents: 'none' }}>
           <DarkVeil
             hueShift={0}
             noiseIntensity={0}
