@@ -56,7 +56,7 @@ export default function HomePage() {
       <HomePageStructuredData />
       {/* Hero Section - Fin AI Style */}
       <section className="min-h-screen flex items-center justify-center relative pt-24 pb-16 px-4 overflow-hidden">
-        <div style={{ width: '1080px', height: '1080px', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 0 }}>
+        <div style={{ width: '1080px', height: '1080px', position: 'relative' }}>
           <DarkVeil
             hueShift={0}
             noiseIntensity={0}

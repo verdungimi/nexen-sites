@@ -121,18 +121,19 @@ export default function DarkVeil({
   }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ 
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: 0
-      }}
-    />
+    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+      <canvas
+        ref={canvasRef}
+        style={{ 
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          display: 'block'
+        }}
+      />
+    </div>
   );
 }
 
