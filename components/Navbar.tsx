@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import StarBorder from "@/components/StarBorder.jsx";
+import StarBorder from "@/components/StarBorder";
 import "@/components/StarBorder.css";
 
 export default function Navbar() {
