@@ -12,16 +12,21 @@ export default function FinAIHero() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    // Detect mobile device and reduce DPR for better performance
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+    const dpr = isMobile ? Math.min(window.devicePixelRatio || 1, 1) : Math.min(window.devicePixelRatio || 1, 1.5);
+    
     const setCanvasSize = () => {
       // Reduce resolution for better performance on mobile
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
+      const currentIsMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+      const currentDPR = currentIsMobile ? Math.min(window.devicePixelRatio || 1, 1) : Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = window.innerWidth * currentDPR;
+      canvas.height = window.innerHeight * currentDPR;
       canvas.style.width = window.innerWidth + 'px';
       canvas.style.height = window.innerHeight + 'px';
       // Scale context only once
-      if (!ctx.getTransform || ctx.getTransform().a !== dpr) {
-        ctx.scale(dpr, dpr);
+      if (!ctx.getTransform || ctx.getTransform().a !== currentDPR) {
+        ctx.scale(currentDPR, currentDPR);
       }
     };
 

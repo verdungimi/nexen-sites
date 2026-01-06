@@ -89,9 +89,16 @@ export default function DarkVeil({
   useEffect(() => {
     const canvas = ref.current;
     const parent = canvas.parentElement;
+    
+    // Detect mobile device
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+    
+    // Reduce resolution and DPR on mobile for better performance
+    const mobileDPR = isMobile ? Math.min(window.devicePixelRatio, 1) : Math.min(window.devicePixelRatio, 1.5);
+    const mobileResolutionScale = isMobile ? 0.5 : resolutionScale;
 
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, 1.5), // Reduced from 2 to 1.5 for better performance
+      dpr: mobileDPR,
       canvas
     });
 
@@ -118,7 +125,9 @@ export default function DarkVeil({
     const resize = () => {
       const w = parent.clientWidth,
         h = parent.clientHeight;
-      renderer.setSize(w * resolutionScale, h * resolutionScale);
+      const currentIsMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
+      const currentResolutionScale = currentIsMobile ? 0.5 : resolutionScale;
+      renderer.setSize(w * currentResolutionScale, h * currentResolutionScale);
       program.uniforms.uResolution.value.set(w, h);
     };
 

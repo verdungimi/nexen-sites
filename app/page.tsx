@@ -57,7 +57,7 @@ export default function HomePage() {
     <>
       <HomePageStructuredData />
       {/* Hero Section - Fin AI Style */}
-      <section className="min-h-screen flex items-center justify-center relative pt-24 pb-16 px-4 overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center relative pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-6 overflow-hidden">
         <div className="fixed inset-0 w-full h-full" style={{ zIndex: 1, pointerEvents: 'none' }}>
           <DarkVeil
             hueShift={0}
@@ -71,8 +71,8 @@ export default function HomePage() {
         </div>
         <FinAIHero />
         
-        <div className="max-w-7xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="max-w-7xl mx-auto relative z-10 w-full" style={{ pointerEvents: 'auto' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center">
             {/* Left side info - Hidden on mobile, visible on lg+ */}
             <div className="hidden lg:block lg:col-span-3 relative pr-4" style={{ minHeight: '600px' }}>
               <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '8%', right: '12%', animationDelay: '0s' }}>
@@ -92,49 +92,49 @@ export default function HomePage() {
             {/* Center content */}
             <div className="lg:col-span-6 text-center">
             {/* Large Typography - Fin AI Style */}
-            <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 leading-[0.95] tracking-tight">
-              <div className="mb-6 animate-fade-in flex justify-center">
-                <div className="inline-flex items-center justify-center px-5 py-3 bg-gradient-to-r from-[#ED5096]/30 via-[#ED5096]/40 to-[#ED5096]/30 border-2 border-[#ED5096] rounded-xl shadow-[0_0_30px_rgba(237,80,150,0.6)]">
-                  <span className="text-lg md:text-xl font-bold text-white tracking-wide">3</span>
-                  <span className="text-lg md:text-xl font-bold text-white mx-1.5 tracking-wide">ügyfél</span>
-                  <span className="text-lg md:text-xl font-bold text-white tracking-wide">havonta</span>
+            <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 md:mb-8 leading-[0.95] tracking-tight">
+              <div className="mb-4 md:mb-6 animate-fade-in flex justify-center">
+                <div className="inline-flex items-center justify-center px-3 py-2 md:px-5 md:py-3 bg-gradient-to-r from-[#ED5096]/30 via-[#ED5096]/40 to-[#ED5096]/30 border-2 border-[#ED5096] rounded-xl shadow-[0_0_30px_rgba(237,80,150,0.6)]">
+                  <span className="text-sm md:text-lg lg:text-xl font-bold text-white tracking-wide">3</span>
+                  <span className="text-sm md:text-lg lg:text-xl font-bold text-white mx-1 md:mx-1.5 tracking-wide">ügyfél</span>
+                  <span className="text-sm md:text-lg lg:text-xl font-bold text-white tracking-wide">havonta</span>
                 </div>
               </div>
               <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-fade-in">
                 Prémium
               </span>
-              <span className="block bg-gradient-to-r from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent mt-2 animate-fade-in-delay">
+              <span className="block bg-gradient-to-r from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent mt-1 md:mt-2 animate-fade-in-delay">
                 Weboldal
               </span>
-              <span className="block text-white mt-2 animate-fade-in-delay-2">
+              <span className="block text-white mt-1 md:mt-2 animate-fade-in-delay-2">
                 10 nap alatt
               </span>
             </h1>
 
             {/* Subheadline - Minimal */}
-            <p className="hero-subtitle text-lg md:text-xl lg:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-delay-2">
+            <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 md:mb-12 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-delay-2 px-2">
               Nexen weboldal készítés - Modern weboldal, ami működik. 10 nap, fix határidő, prémium eredmény. Weboldalak készítése vállalkozásoknak.
             </p>
 
             {/* CTAs - Minimal */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-fade-in-delay-2">
-              <CTAButton href="/book" variant="primary" className="text-base px-10 py-5 min-w-[200px]">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-12 md:mb-16 animate-fade-in-delay-2 px-2">
+              <CTAButton href="/book" variant="primary" className="text-sm md:text-base px-8 md:px-10 py-4 md:py-5 w-full sm:w-auto min-w-[180px] md:min-w-[200px]">
                 Időpont Foglalása
               </CTAButton>
-              <CTAButton href="#pricing" variant="secondary" className="text-base px-10 py-5 min-w-[200px]">
+              <CTAButton href="#pricing" variant="secondary" className="text-sm md:text-base px-8 md:px-10 py-4 md:py-5 w-full sm:w-auto min-w-[180px] md:min-w-[200px]">
                 Árak Megtekintése
               </CTAButton>
             </div>
 
             {/* Trust badges - Enhanced style with animations */}
-            <div className="flex flex-wrap justify-center gap-6 md:gap-12 mt-20">
-              <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.3)] hover:scale-105 transition-all duration-500 animate-float-up group">
-                <div className="text-4xl md:text-5xl font-black text-white mb-2 group-hover:text-[#7C5CFF] transition-colors duration-500 group-hover:scale-110 transition-transform duration-300">10</div>
-                <div className="text-sm md:text-base text-[#EAF0FF] font-semibold">Napos szállítás</div>
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-12 mt-12 md:mt-20 px-2">
+              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.3)] hover:scale-105 transition-all duration-500 animate-float-up group">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 group-hover:text-[#7C5CFF] transition-colors duration-500 group-hover:scale-110 transition-transform duration-300">10</div>
+                <div className="text-xs md:text-sm lg:text-base text-[#EAF0FF] font-semibold">Napos szállítás</div>
               </div>
-              <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
-                <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent mb-2 group-hover:from-[#50AEDF] group-hover:to-[#7C5CFF] transition-all duration-500 group-hover:scale-110 transition-transform duration-300">100%</div>
-                <div className="text-sm md:text-base text-[#EAF0FF] font-semibold">Prémium minőség</div>
+              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent mb-2 group-hover:from-[#50AEDF] group-hover:to-[#7C5CFF] transition-all duration-500 group-hover:scale-110 transition-transform duration-300">100%</div>
+                <div className="text-xs md:text-sm lg:text-base text-[#EAF0FF] font-semibold">Prémium minőség</div>
               </div>
             </div>
             </div>
@@ -160,72 +160,72 @@ export default function HomePage() {
 
       {/* Problems */}
       <Section>
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-[#EAF0FF]">
               Mit veszítesz el rossz weboldallal?
             </h2>
-            <p className="text-lg text-[#A8B3C7] max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-[#A8B3C7] max-w-2xl mx-auto px-2">
               Ezek a problémák közvetlenül a bevételbe és az üzleti eredményekbe fájnak
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {/* Card 1 - Lost Revenue */}
-            <div className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-3xl p-8 md:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#ED5096]/10 via-transparent to-transparent rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#ED5096]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <div className="mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#ED5096] to-[#ED5096]/60 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-[#ED5096]/30">
-                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="mb-4 md:mb-6">
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#ED5096] to-[#ED5096]/60 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#ED5096]/30">
+                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-black text-white mb-5 leading-tight">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
                   Elveszett bevétel
                 </h2>
-                <p className="text-[#A8B3C7] leading-relaxed text-base">
+                <p className="text-[#A8B3C7] leading-relaxed text-sm md:text-base">
                   A látogatók megjelennek a weboldalon, de nem válthatók leadekké.
                 </p>
               </div>
             </div>
 
             {/* Card 2 - Wasted Ad Spend */}
-            <div className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-3xl p-8 md:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#ED5096]/10 via-transparent to-transparent rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#ED5096]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <div className="mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#ED5096] to-[#ED5096]/60 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-[#ED5096]/30">
-                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="mb-4 md:mb-6">
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#ED5096] to-[#ED5096]/60 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#ED5096]/30">
+                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
                   </div>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-black text-white mb-5 leading-tight">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
                   Elpazarolt hirdetési költség
                 </h2>
-                <p className="text-[#A8B3C7] leading-relaxed text-base">
+                <p className="text-[#A8B3C7] leading-relaxed text-sm md:text-base">
                   A hirdetések pénzt hoznak, de a weboldal nem zárja le a forgalmat.
                 </p>
               </div>
             </div>
 
             {/* Card 3 - Low Trust & Cheap Perception */}
-            <div className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-3xl p-8 md:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#ED5096]/10 via-transparent to-transparent rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2 sm:col-span-2 lg:col-span-1">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#ED5096]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <div className="mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#ED5096] to-[#ED5096]/60 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-[#ED5096]/30">
-                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="mb-4 md:mb-6">
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#ED5096] to-[#ED5096]/60 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#ED5096]/30">
+                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-black text-white mb-5 leading-tight">
+                <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
                   Alacsony megbízhatóság
                 </h2>
-                <p className="text-[#A8B3C7] leading-relaxed text-base">
+                <p className="text-[#A8B3C7] leading-relaxed text-sm md:text-base">
                   A weboldal átlagos vagy elavult, alacsony minőségű leadeket és árfigyelőket vonz.
                 </p>
               </div>
@@ -236,24 +236,24 @@ export default function HomePage() {
 
       {/* Solutions */}
       <Section>
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-[#EAF0FF]">
               A megoldás
             </h2>
-            <p className="text-lg text-[#A8B3C7] max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-[#A8B3C7] max-w-2xl mx-auto px-2">
               Így oldjuk meg ezeket a problémákat
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {/* Solution 1 */}
-            <div className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-3xl p-8 md:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#7C5CFF]/10 via-transparent to-transparent rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#7C5CFF]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <div className="mb-6">
-                  <div className="w-14 h-14 bg-gradient-to-br from-[#7C5CFF] to-[#50AEDF] rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-[#7C5CFF]/40">
-                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="mb-4 md:mb-6">
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#7C5CFF] to-[#50AEDF] rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#7C5CFF]/40">
+                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
