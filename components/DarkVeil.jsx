@@ -123,8 +123,9 @@ export default function DarkVeil({
 
     let resizeTimeout;
     const resize = () => {
-      const w = parent.clientWidth,
-        h = parent.clientHeight;
+      if (!parent) return;
+      const w = window.innerWidth || parent.clientWidth;
+      const h = window.innerHeight || parent.clientHeight;
       const currentIsMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
       const currentResolutionScale = currentIsMobile ? 0.5 : resolutionScale;
       renderer.setSize(w * currentResolutionScale, h * currentResolutionScale);
@@ -136,7 +137,17 @@ export default function DarkVeil({
       resizeTimeout = setTimeout(resize, 150); // Debounce resize events
     };
 
+    // Handle viewport changes on mobile (keyboard, orientation, etc.)
+    const handleOrientationChange = () => {
+      setTimeout(resize, 300);
+    };
+
     window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('orientationchange', handleOrientationChange, { passive: true });
+    // Handle visual viewport changes (mobile keyboard)
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', handleResize, { passive: true });
+    }
     resize();
 
     const start = performance.now();
@@ -159,6 +170,10 @@ export default function DarkVeil({
       cancelAnimationFrame(frame);
       clearTimeout(resizeTimeout);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleOrientationChange);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', handleResize);
+      }
     };
   }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
   return <canvas ref={ref} className="darkveil-canvas" />;

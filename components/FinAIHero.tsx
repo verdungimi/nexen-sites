@@ -20,14 +20,22 @@ export default function FinAIHero() {
       // Reduce resolution for better performance on mobile
       const currentIsMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
       const currentDPR = currentIsMobile ? Math.min(window.devicePixelRatio || 1, 1) : Math.min(window.devicePixelRatio || 1, 1.5);
-      canvas.width = window.innerWidth * currentDPR;
-      canvas.height = window.innerHeight * currentDPR;
-      canvas.style.width = window.innerWidth + 'px';
-      canvas.style.height = window.innerHeight + 'px';
-      // Scale context only once
-      if (!ctx.getTransform || ctx.getTransform().a !== currentDPR) {
-        ctx.scale(currentDPR, currentDPR);
-      }
+      
+      // Use viewport dimensions
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      
+      // Set canvas internal size
+      canvas.width = width * currentDPR;
+      canvas.height = height * currentDPR;
+      
+      // Set canvas display size
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      
+      // Reset transform and scale
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(currentDPR, currentDPR);
     };
 
     setCanvasSize();
@@ -50,17 +58,21 @@ export default function FinAIHero() {
       lastFrameTime = currentTime - (elapsed % frameInterval);
       time += 0.008; // Slightly reduced for smoother animation
 
+      // Get actual display dimensions (not scaled)
+      const displayWidth = window.innerWidth;
+      const displayHeight = window.innerHeight;
+
       // Clear canvas
       ctx.fillStyle = '#0a0a0a';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, displayWidth, displayHeight);
 
       // Create animated gradient orbs - stronger effect
       const gradient1 = ctx.createRadialGradient(
-        canvas.width * 0.2 + Math.sin(time) * 50,
-        canvas.height * 0.3 + Math.cos(time * 0.7) * 50,
+        displayWidth * 0.2 + Math.sin(time) * 50,
+        displayHeight * 0.3 + Math.cos(time * 0.7) * 50,
         0,
-        canvas.width * 0.2,
-        canvas.height * 0.3,
+        displayWidth * 0.2,
+        displayHeight * 0.3,
         500
       );
       gradient1.addColorStop(0, 'rgba(124, 92, 255, 0.25)');
@@ -69,14 +81,14 @@ export default function FinAIHero() {
       gradient1.addColorStop(1, 'rgba(124, 92, 255, 0)');
 
       ctx.fillStyle = gradient1;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, displayWidth, displayHeight);
 
       const gradient2 = ctx.createRadialGradient(
-        canvas.width * 0.8 + Math.cos(time * 0.8) * 60,
-        canvas.height * 0.7 + Math.sin(time * 0.6) * 60,
+        displayWidth * 0.8 + Math.cos(time * 0.8) * 60,
+        displayHeight * 0.7 + Math.sin(time * 0.6) * 60,
         0,
-        canvas.width * 0.8,
-        canvas.height * 0.7,
+        displayWidth * 0.8,
+        displayHeight * 0.7,
         600
       );
       gradient2.addColorStop(0, 'rgba(80, 174, 223, 0.22)');
@@ -85,15 +97,15 @@ export default function FinAIHero() {
       gradient2.addColorStop(1, 'rgba(80, 174, 223, 0)');
 
       ctx.fillStyle = gradient2;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, displayWidth, displayHeight);
 
       // Add a third gradient orb for more depth
       const gradient3 = ctx.createRadialGradient(
-        canvas.width * 0.5 + Math.sin(time * 0.5) * 80,
-        canvas.height * 0.5 + Math.cos(time * 0.9) * 80,
+        displayWidth * 0.5 + Math.sin(time * 0.5) * 80,
+        displayHeight * 0.5 + Math.cos(time * 0.9) * 80,
         0,
-        canvas.width * 0.5,
-        canvas.height * 0.5,
+        displayWidth * 0.5,
+        displayHeight * 0.5,
         450
       );
       gradient3.addColorStop(0, 'rgba(124, 92, 255, 0.18)');
@@ -102,7 +114,7 @@ export default function FinAIHero() {
       gradient3.addColorStop(1, 'rgba(124, 92, 255, 0)');
 
       ctx.fillStyle = gradient3;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, displayWidth, displayHeight);
 
       animationFrame = requestAnimationFrame(animate);
     };
@@ -112,14 +124,35 @@ export default function FinAIHero() {
     let resizeTimeout: NodeJS.Timeout;
     const handleResize = () => {
       clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(setCanvasSize, 150); // Debounce resize events
+      resizeTimeout = setTimeout(() => {
+        setCanvasSize();
+        // Force redraw after resize
+        time = 0;
+      }, 150); // Debounce resize events
+    };
+
+    // Handle viewport changes on mobile (keyboard, orientation, etc.)
+    const handleOrientationChange = () => {
+      setTimeout(() => {
+        setCanvasSize();
+        time = 0;
+      }, 300);
     };
 
     window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('orientationchange', handleOrientationChange, { passive: true });
+    // Handle visual viewport changes (mobile keyboard)
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', handleResize, { passive: true });
+    }
 
     return () => {
       clearTimeout(resizeTimeout);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('orientationchange', handleOrientationChange);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', handleResize);
+      }
       cancelAnimationFrame(animationFrame);
     };
   }, []);
@@ -128,7 +161,18 @@ export default function FinAIHero() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 w-full h-full pointer-events-none"
-      style={{ zIndex: 0, position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh' }}
+      style={{ 
+        zIndex: 0, 
+        position: 'fixed', 
+        top: 0, 
+        left: 0, 
+        right: 0,
+        bottom: 0,
+        width: '100vw', 
+        height: '100vh',
+        maxWidth: '100%',
+        maxHeight: '100%'
+      }}
     />
   );
 }
