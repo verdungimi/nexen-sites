@@ -114,7 +114,7 @@ export default function DarkVeil({
 
     const mesh = new Mesh(gl, { geometry, program });
 
-    let resizeTimeout: NodeJS.Timeout;
+    let resizeTimeout;
     const resize = () => {
       const w = parent.clientWidth,
         h = parent.clientHeight;
