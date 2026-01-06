@@ -125,7 +125,7 @@ export default function Navbar() {
           </Link>
           
           {/* Desktop Menu - GooeyNav */}
-          <div className="hidden md:flex items-center flex-1 justify-center absolute left-1/2 transform -translate-x-1/2" style={{ height: '60px', position: 'relative' }}>
+          <div className="hidden md:flex items-center flex-1 justify-center absolute left-1/2 transform -translate-x-1/2" style={{ height: '60px', position: 'relative', maxWidth: 'calc(100% - 300px)' }}>
             <GooeyNav
               items={navItems}
               particleCount={15}
