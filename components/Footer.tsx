@@ -1,91 +1,33 @@
-"use client";
-
 import Link from "next/link";
-import ZoldhazLogo from "./ZoldhazLogo";
-
-const handleSectionClick = (sectionId: string) => {
-  const currentPath = window.location.pathname;
-  if (currentPath === '/' || currentPath === '') {
-    // Ha a főoldalon vagyunk, görgessünk a szekcióhoz
-    const target = document.getElementById(sectionId);
-    if (target) {
-      const offset = 100;
-      const elementPosition = target.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-    }
-  } else {
-    // Ha más oldalon vagyunk, navigáljunk a főoldalra a szekcióval
-    window.location.href = `/#${sectionId}`;
-  }
-};
 
 export default function Footer() {
   return (
     <footer className="bg-gray-900 border-t-2 border-gray-700 mt-auto relative z-[100]" style={{ position: 'relative', zIndex: 100, visibility: 'visible', opacity: 1, display: 'block' }}>
       <div className="container-custom py-16">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Cég információk */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          {/* Főoldal */}
           <div>
-            <div className="mb-4">
-              <ZoldhazLogo variant="footer" />
-            </div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              Energiahatékony megoldások otthonába és vállalkozásába. Klíma, villanyszerelés, napelem, fűtőpanel és padlófűtés egy helyen.
-            </p>
-            {/* Social Media */}
-            <div className="flex items-center gap-3">
-              <a 
-                href="https://www.facebook.com/zoldhazenergy" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-[#86FD22] transition-colors"
-                aria-label="Facebook"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          {/* Gyors linkek */}
-          <div>
-            <h3 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Gyors linkek</h3>
+            <h3 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Főoldal</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-400 hover:text-[#86FD22] transition-colors text-sm">
+                <Link href="/" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
                   Főoldal
                 </Link>
               </li>
               <li>
-                <a href="/#szolgaltatasok" className="text-gray-400 hover:text-[#86FD22] transition-colors text-sm" onClick={(e) => {
-                  e.preventDefault();
-                  handleSectionClick('szolgaltatasok');
-                }}>
-                  Szolgáltatások
+                <a href="#process" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                  Folyamat
                 </a>
               </li>
               <li>
-                <Link href="/termekek" className="text-gray-400 hover:text-[#86FD22] transition-colors text-sm">
-                  Termékek
-                </Link>
-              </li>
-              <li>
-                <a href="/#munkaink" className="text-gray-400 hover:text-[#86FD22] transition-colors text-sm" onClick={(e) => {
-                  e.preventDefault();
-                  handleSectionClick('munkaink');
-                }}>
-                  Munkáink
+                <a href="#pricing" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                  Árazás
                 </a>
               </li>
               <li>
-                <a href="/#kapcsolat" className="text-gray-400 hover:text-[#86FD22] transition-colors text-sm" onClick={(e) => {
-                  e.preventDefault();
-                  handleSectionClick('kapcsolat');
-                }}>
-                  Kapcsolat
+                <a href="#faq" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                  GYIK
                 </a>
               </li>
             </ul>
@@ -96,73 +38,108 @@ export default function Footer() {
             <h3 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Szolgáltatások</h3>
             <ul className="space-y-2">
               <li>
-                <span className="text-gray-400 text-sm">Klíma értékesítés, szerelés</span>
+                <Link href="/blog" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                  Blog
+                </Link>
               </li>
               <li>
-                <span className="text-gray-400 text-sm">Villanyszerelés</span>
+                <Link href="/book" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                  Időpontfoglalás
+                </Link>
               </li>
               <li>
-                <span className="text-gray-400 text-sm">Napelem értékesítés, telepítés</span>
+                <a href="#services" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                  Szolgáltatásaink
+                </a>
               </li>
               <li>
-                <span className="text-gray-400 text-sm">Norvég fűtőpanel</span>
-              </li>
-              <li>
-                <span className="text-gray-400 text-sm">Dán padlófűtés</span>
+                <a href="#testimonials" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                  Referenciák
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Kapcsolat és Nyitvatartás */}
+          {/* Kapcsolat */}
           <div>
             <h3 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Kapcsolat</h3>
-            <ul className="space-y-2 text-gray-400 text-sm mb-6">
-              <li className="font-medium text-white">Zöldház Energy Kft.</li>
-              <li>5666 Medgyesegyháza</li>
-              <li>Fáy András utca 31.</li>
+            <ul className="space-y-2 text-gray-400 text-sm">
+              <li className="font-medium">Nexen Sites</li>
+              <li>Kecskemét</li>
               <li>
-                <a href="mailto:zoldhazenergykft@gmail.com" className="hover:text-[#86FD22] transition-colors break-all">
-                  zoldhazenergykft@gmail.com
+                <a href="mailto:info@nexensites.hu" className="hover:text-[#7C5CFF] transition-colors">
+                  info@nexensites.hu
                 </a>
               </li>
               <li>
-                <a href="tel:+36307312493" className="hover:text-[#86FD22] transition-colors">
-                  +36 30 731 2493
+                <a href="tel:+36705767845" className="hover:text-[#7C5CFF] transition-colors">
+                  +36 70 576 7845
                 </a>
               </li>
             </ul>
-            
-            <div>
-              <h4 className="font-semibold text-white mb-2 text-sm">Nyitvatartás</h4>
-              <ul className="space-y-1 text-gray-400 text-xs">
-                <li>Hétfő - Csütörtök: 10:00 - 14:00</li>
-                <li>Péntek: 10:00 - 14:00</li>
-                <li>Szombat - Vasárnap: Zárva</li>
-                <li className="text-gray-500 mt-2">Sürgősségi esetekben elérhetőek!</li>
-              </ul>
-            </div>
+          </div>
+
+          {/* Jogi */}
+          <div>
+            <h3 className="font-bold text-white mb-4 text-sm uppercase tracking-wider">Jogi</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/privacy" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                  Adatvédelmi tájékoztató
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                  ÁSZF
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Legal Links and Copyright */}
+        {/* Social Media Icons and Copyright */}
         <div className="border-t border-[rgba(255,255,255,0.1)] pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            {/* Legal Links */}
-            <div className="flex flex-wrap items-center gap-6 text-sm">
-              <Link href="/terms" className="text-gray-400 hover:text-[#86FD22] transition-colors">
-                ÁSZF
-              </Link>
-              <Link href="/privacy" className="text-gray-400 hover:text-[#86FD22] transition-colors">
-                Adatvédelmi tájékoztató
-              </Link>
-              <Link href="/cookies" className="text-gray-400 hover:text-[#86FD22] transition-colors">
-                Cookie tájékoztató
-              </Link>
+            {/* Social Media Icons */}
+            <div className="flex items-center gap-4">
+              <a 
+                href="https://www.facebook.com/profile.php?id=61585984076838" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-[#7C5CFF] transition-colors"
+                aria-label="Facebook"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-[#7C5CFF] transition-colors"
+                aria-label="Instagram"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-400 hover:text-[#7C5CFF] transition-colors"
+                aria-label="LinkedIn"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
             </div>
 
             {/* Copyright */}
             <div className="text-gray-400 text-sm text-center md:text-right">
-              <p>&copy; {new Date().getFullYear()} Zöldház Energy Kft. Minden jog fenntartva.</p>
+              <p>&copy; {new Date().getFullYear()} Nexen Sites. Minden jog fenntartva.</p>
             </div>
           </div>
         </div>
