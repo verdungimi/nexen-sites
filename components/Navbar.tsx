@@ -23,10 +23,10 @@ export default function Navbar() {
           
           {/* Desktop Menu - Centered */}
           <div className="hidden md:flex items-center space-x-1.5 flex-1 justify-center absolute left-1/2 transform -translate-x-1/2 flex-nowrap">
-            <StarBorder thickness={1.5} speed="3.5s" color="white" as={Link} href="/" className="small text-xs font-medium whitespace-nowrap">
+            <StarBorder thickness={2} speed="3.5s" color="white" as={Link} href="/" className="small text-xs font-medium whitespace-nowrap">
               Kezdőlap
             </StarBorder>
-            <StarBorder thickness={1.5} speed="3.5s" color="white" as="a" href="#process" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+            <StarBorder thickness={2} speed="3.5s" color="white" as="a" href="#process" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               const target = document.getElementById('process');
               if (target) {
@@ -38,7 +38,7 @@ export default function Navbar() {
             }}>
               Folyamat
             </StarBorder>
-            <StarBorder thickness={1.5} speed="3.5s" color="white" as="a" href="#pricing" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+            <StarBorder thickness={2} speed="3.5s" color="white" as="a" href="#pricing" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               const target = document.getElementById('pricing');
               if (target) {
@@ -50,13 +50,13 @@ export default function Navbar() {
             }}>
               Árazás
             </StarBorder>
-            <StarBorder thickness={1.5} speed="3.5s" color="white" as={Link} href="/blog" className="small text-xs font-medium whitespace-nowrap">
+            <StarBorder thickness={2} speed="3.5s" color="white" as={Link} href="/blog" className="small text-xs font-medium whitespace-nowrap">
               Blog
             </StarBorder>
-            <StarBorder thickness={1.5} speed="3.5s" color="white" as={Link} href="/rolunk" className="small text-xs font-medium whitespace-nowrap">
+            <StarBorder thickness={2} speed="3.5s" color="white" as={Link} href="/rolunk" className="small text-xs font-medium whitespace-nowrap">
               Rólunk
             </StarBorder>
-            <StarBorder thickness={1.5} speed="3.5s" color="white" as="a" href="/#faq" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+            <StarBorder thickness={2} speed="3.5s" color="white" as="a" href="/#faq" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               const currentPath = window.location.pathname;
               if (currentPath === '/' || currentPath === '') {
@@ -73,7 +73,7 @@ export default function Navbar() {
             }}>
               GYIK
             </StarBorder>
-            <StarBorder thickness={1.5} speed="3.5s" color="white" as="a" href="/#contact" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+            <StarBorder thickness={2} speed="3.5s" color="white" as="a" href="/#contact" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               const currentPath = window.location.pathname;
               if (currentPath === '/' || currentPath === '') {
