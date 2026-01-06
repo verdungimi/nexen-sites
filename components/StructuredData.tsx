@@ -2,15 +2,13 @@ export default function StructuredData() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Nexen Sites - Weboldal Készítő Cég",
-    "alternateName": "Nexen Sites",
+    "name": "Nexen Sites",
     "url": "https://nexensites.hu",
     "logo": "https://nexensites.hu/logo.png",
-    "description": "Professzionális weboldal készítés 10 nap alatt. Olcsó weboldal készítő cég Magyarországon. Prémium minőség, fix ár, garantált határidő.",
+    "description": "Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kecskemét",
-      "addressRegion": "Bács-Kiskun",
       "addressCountry": "HU"
     },
     "contactPoint": {
@@ -18,17 +16,10 @@ export default function StructuredData() {
       "telephone": "+36-70-576-7845",
       "contactType": "customer service",
       "email": "info@nexensites.hu",
-      "availableLanguage": ["Hungarian", "hu"]
+      "availableLanguage": "Hungarian"
     },
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61585984076838"
-    ],
-    "knowsAbout": [
-      "Weboldal készítés",
-      "Weboldal fejlesztés",
-      "Next.js",
-      "React",
-      "TypeScript"
     ]
   };
 
@@ -38,28 +29,16 @@ export default function StructuredData() {
     "serviceType": "Weboldal készítés",
     "provider": {
       "@type": "Organization",
-      "name": "Nexen Sites - Weboldal Készítő Cég"
+      "name": "Nexen Sites"
     },
     "areaServed": {
       "@type": "Country",
       "name": "Hungary"
     },
-    "description": "Professzionális weboldal készítés 10 nap alatt. Olcsó weboldal készítő cégként prémium minőségű, modern, gyors, mobilbarát weboldalakat készítünk vállalkozásoknak.",
+    "description": "Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
     "offers": {
       "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Weboldal készítés",
-        "description": "Professzionális weboldal készítés 10 nap alatt"
-      },
       "priceCurrency": "HUF",
-      "price": "299000",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "priceCurrency": "HUF",
-        "price": "299000",
-        "valueAddedTaxIncluded": true
-      },
       "availability": "https://schema.org/InStock"
     }
   };
@@ -67,11 +46,8 @@ export default function StructuredData() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Nexen Sites - Weboldal Készítés",
-    "alternateName": "Nexen Sites",
+    "name": "Nexen Sites",
     "url": "https://nexensites.hu",
-    "description": "Professzionális weboldal készítés 10 nap alatt. Olcsó weboldal készítő cég Magyarországon.",
-    "inLanguage": "hu-HU",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
@@ -79,14 +55,6 @@ export default function StructuredData() {
         "urlTemplate": "https://nexensites.hu/search?q={search_term_string}"
       },
       "query-input": "required name=search_term_string"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Nexen Sites",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://nexensites.hu/logo.png"
-      }
     }
   };
 
@@ -107,4 +75,3 @@ export default function StructuredData() {
     </>
   );
 }
-
