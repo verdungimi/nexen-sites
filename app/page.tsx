@@ -7,7 +7,8 @@ import TestimonialCard from "@/components/TestimonialCard";
 import FinAIHero from "@/components/FinAIHero";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import HomePageStructuredData from "@/components/HomePageStructuredData";
-import DarkVeil from "@/components/DarkVeil";
+import DarkVeil from "@/components/DarkVeil.jsx";
+import "@/components/DarkVeil.css";
 
 export const metadata: Metadata = {
   title: "Nexen Weboldal - Weboldal Készítés 10 Nap Alatt | Prémium Weboldalak",
