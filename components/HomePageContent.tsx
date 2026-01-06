@@ -126,8 +126,8 @@ export default function HomePageContent() {
             className="text-center mb-8 md:mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-[#EAF0FF]">
               Mit veszítesz el rossz weboldallal?
@@ -141,10 +141,10 @@ export default function HomePageContent() {
             {/* Card 1 - Lost Revenue */}
             <motion.div 
               className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#ED5096]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
@@ -226,8 +226,8 @@ export default function HomePageContent() {
             className="text-center mb-8 md:mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-[#EAF0FF]">
               A megoldás
@@ -241,10 +241,10 @@ export default function HomePageContent() {
             {/* Solution 1 */}
             <motion.div 
               className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2"
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#7C5CFF]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
@@ -326,8 +326,8 @@ export default function HomePageContent() {
             className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
               10 napos folyamat
@@ -338,10 +338,10 @@ export default function HomePageContent() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <ProcessTimeline />
           </motion.div>
@@ -354,8 +354,8 @@ export default function HomePageContent() {
           className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
             Árazás
@@ -369,10 +369,10 @@ export default function HomePageContent() {
           {/* Starter */}
           <motion.div 
             className="group bg-[#0F1620] border border-[#50AEDF]/30 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#50AEDF] hover:shadow-[0_0_30px_rgba(80,174,223,0.3)]"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <h3 className="text-xl font-bold mb-2 text-[#EAF0FF] group-hover:text-[#50AEDF] transition-colors">Kezdő</h3>
             <div className="text-3xl font-bold mb-4 text-[#EAF0FF] group-hover:text-[#50AEDF] transition-colors">
@@ -405,10 +405,10 @@ export default function HomePageContent() {
           {/* Standard - Featured */}
           <motion.div 
             className="bg-[#0F1620] border-2 border-[#7C5CFF] rounded-3xl p-10 relative hover:shadow-[0_0_30px_rgba(124,92,255,0.3)] transition-all duration-300 hover:-translate-y-1 md:scale-105 md:-mt-6 md:mb-6"
-            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            initial={{ opacity: 0, y: 30, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#7C5CFF] text-white text-xs font-bold px-4 py-1 rounded-full">
               Legnépszerűbb
@@ -463,10 +463,10 @@ export default function HomePageContent() {
           {/* Pro */}
           <motion.div 
             className="group relative bg-[#0F1620] border border-[rgba(255,215,0,0.3)] rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2 hover:border-[#FFD700] hover:shadow-[0_0_50px_rgba(255,215,0,0.5),0_0_100px_rgba(255,215,0,0.3)]"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 via-[#FFA500]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="relative z-10">
@@ -509,10 +509,10 @@ export default function HomePageContent() {
         </div>
         <motion.div 
           className="mt-8 text-center space-y-6"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true, margin: "-20px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 inline-block">
             <p className="text-[#A8B3C7]">
@@ -533,8 +533,8 @@ export default function HomePageContent() {
           className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
             Mit mondanak az ügyfeleink
@@ -543,10 +543,10 @@ export default function HomePageContent() {
 
         <motion.div 
           className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: "-20px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <TestimonialCard
             name="Kovács Péter"
@@ -576,8 +576,8 @@ export default function HomePageContent() {
             className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
               Gyakran ismételt kérdések
@@ -585,10 +585,10 @@ export default function HomePageContent() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <FAQAccordion
               items={[
@@ -626,10 +626,10 @@ export default function HomePageContent() {
       <Section id="contact">
         <motion.div 
           className="max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#EAF0FF]">
             Szeretnéd, hogy 10 nap múlva élőben legyen?
