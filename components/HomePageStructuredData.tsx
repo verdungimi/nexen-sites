@@ -16,15 +16,17 @@ export default function HomePageStructuredData() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": "https://nexensites.hu/#organization",
-    "name": "Nexen Sites",
+    "name": "Nexen Sites - Weboldal Készítő Cég",
+    "alternateName": "Nexen Sites",
     "image": "https://nexensites.hu/logo.png",
-    "description": "Nexen Sites - Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
+    "description": "Professzionális weboldal készítés és webshop készítés 10 nap alatt. Olcsó weboldal készítő cég Magyarországon. Prémium minőség, fix ár, garantált határidő.",
     "url": "https://nexensites.hu",
     "telephone": "+36-70-576-7845",
     "email": "info@nexensites.hu",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kecskemét",
+      "addressRegion": "Bács-Kiskun",
       "addressCountry": "HU"
     },
     "geo": {
@@ -51,15 +53,38 @@ export default function HomePageStructuredData() {
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Weboldal készítés szolgáltatások",
+      "name": "Weboldal készítés és webshop készítés szolgáltatások",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
             "name": "Weboldal készítés",
-            "description": "Prémium weboldal készítés 10 nap alatt"
-          }
+            "description": "Professzionális weboldal készítés 10 nap alatt. Olcsó weboldal készítő cég szolgáltatása.",
+            "serviceType": "Weboldal készítés",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Nexen Sites"
+            }
+          },
+          "priceCurrency": "HUF",
+          "price": "299000",
+          "availability": "https://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Webshop készítés",
+            "description": "Professzionális webshop készítés 10 nap alatt. Olcsó webshop készítő cég szolgáltatása.",
+            "serviceType": "Webshop készítés",
+            "provider": {
+              "@type": "LocalBusiness",
+              "name": "Nexen Sites"
+            }
+          },
+          "priceCurrency": "HUF",
+          "availability": "https://schema.org/InStock"
         }
       ]
     }
@@ -74,15 +99,23 @@ export default function HomePageStructuredData() {
         "name": "Mennyi idő alatt készül el a weboldal?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A Nexen Sites weboldal készítés 10 nap alatt készül el. Fix határidővel dolgozunk, garantálva a minőséget."
+          "text": "A Nexen Sites weboldal készítés és webshop készítés 10 nap alatt készül el. Fix határidővel dolgozunk, garantálva a minőséget. 10 nap alatt kész weboldal szolgáltatást nyújtunk."
         }
       },
       {
         "@type": "Question",
-        "name": "Milyen típusú weboldalakat készít a Nexen?",
+        "name": "Olcsó weboldal készítő cég vagy?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A Nexen Sites prémium, modern, mobilbarát weboldalakat készít vállalkozásoknak. Next.js, React és TypeScript technológiákkal dolgozunk."
+          "text": "Igen, olcsó weboldal készítő cégként dolgozunk, de prémium minőséget nyújtunk. A weboldal készítés áraink 299,000 Ft-tól kezdődnek, miközben professzionális weboldal készítés és webshop készítés szolgáltatást nyújtunk."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Milyen típusú weboldalakat és webshopokat készít a Nexen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A Nexen Sites prémium, modern, mobilbarát weboldalakat és webshopokat készít vállalkozásoknak. Weboldal készítés és webshop készítés szolgáltatásaink Next.js, React és TypeScript technológiákkal készülnek."
         }
       },
       {
@@ -90,7 +123,15 @@ export default function HomePageStructuredData() {
         "name": "Mennyibe kerül egy weboldal készítése?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A Nexen Sites weboldal készítés árai 299,000 Ft-tól kezdődnek. Részletes árazást a csomagok oldalunkon találsz."
+          "text": "A Nexen Sites weboldal készítés árai 299,000 Ft-tól kezdődnek. Olcsó weboldal készítő cégként prémium minőségű weboldal készítés és webshop készítés szolgáltatást nyújtunk. Részletes árazást a csomagok oldalunkon találsz."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Tényleg 10 nap alatt készül el a weboldal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Igen, garantáltan 10 nap alatt kész weboldal szolgáltatást nyújtunk. A weboldal készítés és webshop készítés folyamata fix határidővel működik, ha az anyagok időben megérkeznek."
         }
       }
     ]

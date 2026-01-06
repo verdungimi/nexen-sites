@@ -37,13 +37,13 @@ export default function HomePageContent() {
             {/* Left side info - Hidden on mobile, visible on lg+ */}
             <div className="hidden lg:block lg:col-span-3 relative pr-4" style={{ minHeight: '600px' }}>
               <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '8%', right: '12%', animationDelay: '0s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#50AEDF] drop-shadow-[0_0_15px_rgba(80,174,223,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <svg className="absolute inset-0 w-full h-full text-[#50AEDF] drop-shadow-[0_0_15px_rgba(80,174,223,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-label="Mobilbarát weboldal készítés ikon">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
                 <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">Mobilbarát</h3>
               </div>
               <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '52%', right: '-5%', animationDelay: '1.5s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#7C5CFF] drop-shadow-[0_0_15px_rgba(124,92,255,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <svg className="absolute inset-0 w-full h-full text-[#7C5CFF] drop-shadow-[0_0_15px_rgba(124,92,255,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-label="Gyors weboldal készítés ikon">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
                 <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">Gyors betöltés</h3>
@@ -62,19 +62,19 @@ export default function HomePageContent() {
                 </div>
               </div>
               <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-fade-in">
-                Prémium
+                Weboldal Készítés
               </span>
               <span className="block bg-gradient-to-r from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent mt-1 md:mt-2 animate-fade-in-delay">
-                Weboldal
+                & Webshop Készítés
               </span>
               <span className="block text-white mt-1 md:mt-2 animate-fade-in-delay-2">
-                10 nap alatt
+                10 Nap Alatt Kész
               </span>
             </h1>
 
             {/* Subheadline - Minimal */}
             <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 md:mb-12 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-delay-2 px-2">
-              Nexen weboldal készítés - Modern weboldal, ami működik. 10 nap, fix határidő, prémium eredmény. Weboldalak készítése vállalkozásoknak.
+              Professzionális <strong>weboldal készítés</strong> és <strong>webshop készítés</strong> 10 nap alatt. Olcsó weboldal készítő cég vagyunk, aki garantált határidővel és prémium minőséggel dolgozik. Weboldal készítés és webshop készítés szolgáltatásaink vállalkozásoknak.
             </p>
 
             {/* CTAs - Minimal */}
@@ -103,13 +103,13 @@ export default function HomePageContent() {
             {/* Right side info - Hidden on mobile, visible on lg+ */}
             <div className="hidden lg:block lg:col-span-3 relative pl-4" style={{ minHeight: '600px' }}>
               <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '10%', left: '12%', animationDelay: '0.75s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#7C5CFF] drop-shadow-[0_0_15px_rgba(124,92,255,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <svg className="absolute inset-0 w-full h-full text-[#7C5CFF] drop-shadow-[0_0_15px_rgba(124,92,255,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-label="SEO optimalizált weboldal készítés ikon">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
                 <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">SEO kész</h3>
               </div>
               <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '55%', left: '-5%', animationDelay: '2.25s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#50AEDF] drop-shadow-[0_0_15px_rgba(80,174,223,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <svg className="absolute inset-0 w-full h-full text-[#50AEDF] drop-shadow-[0_0_15px_rgba(80,174,223,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-label="24/7 támogatás weboldal készítés ikon">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">24/7 támogatás</h3>
@@ -130,10 +130,10 @@ export default function HomePageContent() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-[#EAF0FF]">
-              Mit veszítesz el rossz weboldallal?
+              Mit veszítesz el rossz weboldallal vagy webshoppal?
             </h2>
             <p className="text-base sm:text-lg text-[#A8B3C7] max-w-2xl mx-auto px-2">
-              Ezek a problémák közvetlenül a bevételbe és az üzleti eredményekbe fájnak
+              A rossz minőségű weboldal készítés vagy webshop készítés közvetlenül a bevételbe és az üzleti eredményekbe fájnak
             </p>
           </motion.div>
 
@@ -155,11 +155,11 @@ export default function HomePageContent() {
                     </svg>
                   </div>
                 </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
                   Elveszett bevétel
-                </h2>
+                </h3>
                 <p className="text-[#A8B3C7] leading-relaxed text-sm md:text-base">
-                  A látogatók megjelennek a weboldalon, de nem válthatók leadekké.
+                  A rossz minőségű weboldal készítés miatt a látogatók megjelennek a weboldalon, de nem válthatók leadekké.
                 </p>
               </div>
             </motion.div>
@@ -176,16 +176,16 @@ export default function HomePageContent() {
               <div className="relative z-10">
                 <div className="mb-4 md:mb-6">
                   <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#ED5096] to-[#ED5096]/60 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#ED5096]/30">
-                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Elpazarolt hirdetési költség ikon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
                   </div>
                 </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
                   Elpazarolt hirdetési költség
-                </h2>
+                </h3>
                 <p className="text-[#A8B3C7] leading-relaxed text-sm md:text-base">
-                  A hirdetések pénzt hoznak, de a weboldal nem zárja le a forgalmat.
+                  A hirdetések pénzt hoznak, de a rossz weboldal készítés miatt a weboldal nem zárja le a forgalmat.
                 </p>
               </div>
             </motion.div>
@@ -202,16 +202,16 @@ export default function HomePageContent() {
               <div className="relative z-10">
                 <div className="mb-4 md:mb-6">
                   <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#ED5096] to-[#ED5096]/60 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#ED5096]/30">
-                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Alacsony megbízhatóság ikon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   </div>
                 </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
                   Alacsony megbízhatóság
-                </h2>
+                </h3>
                 <p className="text-[#A8B3C7] leading-relaxed text-sm md:text-base">
-                  A weboldal átlagos vagy elavult, alacsony minőségű leadeket és árfigyelőket vonz.
+                  A rossz weboldal készítés eredménye: átlagos vagy elavult weboldal, ami alacsony minőségű leadeket és árfigyelőket vonz.
                 </p>
               </div>
             </motion.div>
@@ -230,10 +230,10 @@ export default function HomePageContent() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-[#EAF0FF]">
-              A megoldás
+              Professzionális Weboldal Készítés és Webshop Készítés
             </h2>
             <p className="text-base sm:text-lg text-[#A8B3C7] max-w-2xl mx-auto px-2">
-              Így oldjuk meg ezeket a problémákat
+              Olcsó weboldal készítő cégként professzionális weboldal készítés és webshop készítés szolgáltatást nyújtunk 10 nap alatt
             </p>
           </motion.div>
 
@@ -250,16 +250,16 @@ export default function HomePageContent() {
               <div className="relative z-10">
                 <div className="mb-4 md:mb-6">
                   <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#7C5CFF] to-[#50AEDF] rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#7C5CFF]/40">
-                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Konverziós struktúra weboldal készítés ikon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                 </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
                   Konverziós struktúra
-                </h2>
+                </h3>
                 <p className="text-white font-semibold leading-relaxed text-sm md:text-base">
-                  Egyértelmű cselekvésre vezeti a látogatókat, így több leadet hoz.
+                  A professzionális weboldal készítés egyértelmű cselekvésre vezeti a látogatókat, így több leadet hoz.
                 </p>
               </div>
             </motion.div>
@@ -276,16 +276,16 @@ export default function HomePageContent() {
               <div className="relative z-10">
                 <div className="mb-4 md:mb-6">
                   <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#7C5CFF] to-[#50AEDF] rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#7C5CFF]/40">
-                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Landing page webshop készítés ikon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
                 </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
                   Landing page logika
-                </h2>
+                </h3>
                 <p className="text-white font-semibold leading-relaxed text-sm md:text-base">
-                  Kifejezetten a fizetett forgalom támogatására épül, maximális ROI-val.
+                  A webshop készítés és weboldal készítés kifejezetten a fizetett forgalom támogatására épül, maximális ROI-val.
                 </p>
               </div>
             </motion.div>
@@ -302,16 +302,16 @@ export default function HomePageContent() {
               <div className="relative z-10">
                 <div className="mb-4 md:mb-6">
                   <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#7C5CFF] to-[#50AEDF] rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#7C5CFF]/40">
-                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Prémium design weboldal készítés ikon">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                     </svg>
                   </div>
                 </div>
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
                   Prémium design
-                </h2>
+                </h3>
                 <p className="text-white font-semibold leading-relaxed text-sm md:text-base">
-                  Kiszűri a nem minősített érdeklődőket, magasabb minőségű leadeket hoz.
+                  Az olcsó weboldal készítés ellenére prémium designnal dolgozunk, ami kiszűri a nem minősített érdeklődőket, magasabb minőségű leadeket hoz.
                 </p>
               </div>
             </motion.div>
@@ -330,10 +330,10 @@ export default function HomePageContent() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
-              10 napos folyamat
+              Weboldal Készítés 10 Napos Folyamata
             </h2>
             <p className="text-lg text-[#A8B3C7]">
-              Tiszta lépések, átlátható kommunikáció, időben szállítás
+              A weboldal készítés és webshop készítés folyamata tiszta lépésekből áll, átlátható kommunikációval és garantált 10 napos határidővel
             </p>
           </motion.div>
 
@@ -358,10 +358,10 @@ export default function HomePageContent() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
-            Árazás
+            Olcsó Weboldal Készítés Árazása
           </h2>
           <p className="text-lg text-[#A8B3C7]">
-            Átlátható árazás, nincsenek meglepetések
+            Átlátható árazás weboldal készítés és webshop készítés szolgáltatásainkhoz. Olcsó weboldal készítő cégként prémium minőséget nyújtunk fix áron.
           </p>
         </motion.div>
 
@@ -374,11 +374,11 @@ export default function HomePageContent() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h3 className="text-xl font-bold mb-2 text-[#EAF0FF] group-hover:text-[#50AEDF] transition-colors">Kezdő</h3>
+            <h3 className="text-xl font-bold mb-2 text-[#EAF0FF] group-hover:text-[#50AEDF] transition-colors">Olcsó Weboldal Készítés</h3>
             <div className="text-3xl font-bold mb-4 text-[#EAF0FF] group-hover:text-[#50AEDF] transition-colors">
               299 000 Ft
             </div>
-            <p className="text-[#A8B3C7] mb-6 text-sm">1 oldalas landing</p>
+            <p className="text-[#A8B3C7] mb-6 text-sm">1 oldalas weboldal készítés - Olcsó weboldal készítő cég ajánlata</p>
             <ul className="space-y-2 mb-6">
               <li className="flex items-start gap-2">
                 <span className="text-[#50AEDF] font-bold">✓</span>
@@ -414,11 +414,11 @@ export default function HomePageContent() {
               Legnépszerűbb
             </div>
             <div className="text-center mb-6">
-              <h3 className="text-3xl font-bold mb-3 text-[#EAF0FF]">Standard</h3>
+              <h3 className="text-3xl font-bold mb-3 text-[#EAF0FF]">Weboldal Készítés Standard</h3>
               <div className="text-5xl font-bold mb-3 text-[#EAF0FF]">
                 499 000 Ft
               </div>
-              <p className="text-[#A8B3C7] mb-6">3-5 oldalas weboldal</p>
+              <p className="text-[#A8B3C7] mb-6">3-5 oldalas weboldal készítés vagy webshop készítés</p>
             </div>
             <ul className="space-y-2 mb-6">
               <li className="flex items-start gap-2">
@@ -470,11 +470,11 @@ export default function HomePageContent() {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 via-[#FFA500]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="relative z-10">
-              <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent group-hover:from-[#FFD700] group-hover:to-[#FFA500] transition-all">Pro</h3>
+              <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent group-hover:from-[#FFD700] group-hover:to-[#FFA500] transition-all">Prémium Weboldal Készítés</h3>
               <div className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent group-hover:from-[#FFD700] group-hover:to-[#FFA500] transition-all">
                 799 000 Ft
               </div>
-              <p className="text-[#A8B3C7] mb-6 text-sm">Teljes weboldal + extrák</p>
+              <p className="text-[#A8B3C7] mb-6 text-sm">Teljes weboldal készítés vagy webshop készítés + extrák</p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-start gap-2">
                   <span className="text-[#FFD700] font-bold group-hover:text-[#FFA500] transition-colors">✓</span>
@@ -516,7 +516,7 @@ export default function HomePageContent() {
         >
           <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 inline-block">
             <p className="text-[#A8B3C7]">
-              <strong className="text-[#EAF0FF]">10 napos szállítási garancia</strong> — ha lemaradunk a határidőről, 20%-ot visszatérítünk.
+              <strong className="text-[#EAF0FF]">10 napos szállítási garancia weboldal készítés és webshop készítés esetén</strong> — ha lemaradunk a határidőről, 20%-ot visszatérítünk. 10 nap alatt kész weboldal garantálva.
             </p>
           </div>
           <div>
@@ -537,7 +537,7 @@ export default function HomePageContent() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
-            Mit mondanak az ügyfeleink
+            Mit Mondanak Weboldal Készítés Ügyfeleink
           </h2>
         </motion.div>
 
@@ -580,7 +580,7 @@ export default function HomePageContent() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
-              Gyakran ismételt kérdések
+              Gyakran Ismételt Kérdések Weboldal Készítés és Webshop Készítés
             </h2>
           </motion.div>
 
@@ -632,10 +632,10 @@ export default function HomePageContent() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#EAF0FF]">
-            Szeretnéd, hogy 10 nap múlva élőben legyen?
+            Szeretnéd, hogy 10 Nap Múlva Élőben Legyen a Weboldalad?
           </h2>
           <p className="text-xl text-[#A8B3C7] mb-8">
-            Foglalj időpontot, beszéljük meg a projektedet és kezdjük el.
+            Foglalj időpontot weboldal készítés vagy webshop készítés szolgáltatásunkhoz. Beszéljük meg a projektedet és kezdjük el. Olcsó weboldal készítő cégként garantáltan 10 nap alatt kész weboldalt nyújtunk.
           </p>
           <div className="flex flex-col items-center gap-6">
             <CTAButton href="/book" variant="primary" className="text-lg px-8 py-4">
@@ -644,7 +644,7 @@ export default function HomePageContent() {
             
             {/* Availability Warning */}
             <div className="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-[#ED5096]/20 via-[#ED5096]/30 to-[#ED5096]/20 border-2 border-[#ED5096] rounded-xl shadow-[0_0_30px_rgba(237,80,150,0.4)] animate-pulse">
-              <svg className="w-6 h-6 text-[#ED5096] animate-bounce flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-6 h-6 text-[#ED5096] animate-bounce flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-label="Figyelmeztetés ikon - korlátozott kapacitás">
                 <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
               </svg>
               <span className="text-white font-bold text-lg">

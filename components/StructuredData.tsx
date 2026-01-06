@@ -2,13 +2,15 @@ export default function StructuredData() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Nexen Sites",
+    "name": "Nexen Sites - Weboldal Készítő Cég",
+    "alternateName": "Nexen Sites",
     "url": "https://nexensites.hu",
     "logo": "https://nexensites.hu/logo.png",
-    "description": "Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
+    "description": "Professzionális weboldal készítés és webshop készítés 10 nap alatt. Olcsó weboldal készítő cég Magyarországon. Prémium minőség, fix ár, garantált határidő.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kecskemét",
+      "addressRegion": "Bács-Kiskun",
       "addressCountry": "HU"
     },
     "contactPoint": {
@@ -16,38 +18,74 @@ export default function StructuredData() {
       "telephone": "+36-70-576-7845",
       "contactType": "customer service",
       "email": "info@nexensites.hu",
-      "availableLanguage": "Hungarian"
+      "availableLanguage": ["Hungarian", "hu"]
     },
     "sameAs": [
       "https://www.facebook.com/profile.php?id=61585984076838"
+    ],
+    "knowsAbout": [
+      "Weboldal készítés",
+      "Webshop készítés",
+      "Weboldal fejlesztés",
+      "Webshop fejlesztés",
+      "Next.js",
+      "React",
+      "TypeScript"
     ]
   };
 
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "Weboldal készítés",
+    "serviceType": "Weboldal készítés és Webshop készítés",
     "provider": {
       "@type": "Organization",
-      "name": "Nexen Sites"
+      "name": "Nexen Sites - Weboldal Készítő Cég"
     },
     "areaServed": {
       "@type": "Country",
       "name": "Hungary"
     },
-    "description": "Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "HUF",
-      "availability": "https://schema.org/InStock"
-    }
+    "description": "Professzionális weboldal készítés és webshop készítés 10 nap alatt. Olcsó weboldal készítő cégként prémium minőségű, modern, gyors, mobilbarát weboldalakat és webshopokat készítünk vállalkozásoknak.",
+    "offers": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Weboldal készítés",
+          "description": "Professzionális weboldal készítés 10 nap alatt"
+        },
+        "priceCurrency": "HUF",
+        "price": "299000",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "priceCurrency": "HUF",
+          "price": "299000",
+          "valueAddedTaxIncluded": true
+        },
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Webshop készítés",
+          "description": "Professzionális webshop készítés 10 nap alatt"
+        },
+        "priceCurrency": "HUF",
+        "availability": "https://schema.org/InStock"
+      }
+    ]
   };
 
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Nexen Sites",
+    "name": "Nexen Sites - Weboldal Készítés és Webshop Készítés",
+    "alternateName": "Nexen Sites",
     "url": "https://nexensites.hu",
+    "description": "Professzionális weboldal készítés és webshop készítés 10 nap alatt. Olcsó weboldal készítő cég Magyarországon.",
+    "inLanguage": "hu-HU",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
@@ -55,6 +93,14 @@ export default function StructuredData() {
         "urlTemplate": "https://nexensites.hu/search?q={search_term_string}"
       },
       "query-input": "required name=search_term_string"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Nexen Sites",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://nexensites.hu/logo.png"
+      }
     }
   };
 
