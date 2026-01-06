@@ -42,6 +42,11 @@
   z-index: 1;
 }
 
+.star-border-container.small .inner-content {
+  font-size: 12px;
+  padding: 10px 16px;
+}
+
 @keyframes star-movement-bottom {
   0% {
     transform: translate(0%, 0%);
