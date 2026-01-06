@@ -7,8 +7,6 @@ import TestimonialCard from "@/components/TestimonialCard";
 import FinAIHero from "@/components/FinAIHero";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import HomePageStructuredData from "@/components/HomePageStructuredData";
-import DarkVeil from "@/components/DarkVeil.jsx";
-import "@/components/DarkVeil.css";
 
 export const metadata: Metadata = {
   title: "Nexen Weboldal - Weboldal Készítés 10 Nap Alatt | Prémium Weboldalak",
@@ -59,17 +57,6 @@ export default function HomePage() {
       {/* Hero Section - Fin AI Style */}
       <section className="min-h-screen flex items-center justify-center relative pt-24 pb-16 px-4 overflow-hidden">
         <FinAIHero />
-        <div className="absolute inset-0 w-full h-full" style={{ zIndex: 1, pointerEvents: 'none' }}>
-          <DarkVeil
-            hueShift={0}
-            noiseIntensity={0}
-            scanlineIntensity={0}
-            speed={0.5}
-            scanlineFrequency={0}
-            warpAmount={0}
-            resolutionScale={1}
-          />
-        </div>
         
         <div className="max-w-7xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">

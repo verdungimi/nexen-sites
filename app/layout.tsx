@@ -6,6 +6,8 @@ import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import StructuredData from "@/components/StructuredData";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import DarkVeil from "@/components/DarkVeil.jsx";
+import "@/components/DarkVeil.css";
 
 const poppins = Poppins({ 
   subsets: ["latin"],
@@ -119,6 +121,17 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${dmSans.variable} ${spaceGrotesk.variable} font-sans flex flex-col min-h-screen`} style={{ backgroundColor: '#0a0a0a', color: '#ffffff', position: 'relative' }}>
         <GoogleAnalytics />
         <StructuredData />
+        <div className="fixed inset-0 w-full h-full" style={{ zIndex: 0, pointerEvents: 'none' }}>
+          <DarkVeil
+            hueShift={0}
+            noiseIntensity={0}
+            scanlineIntensity={0}
+            speed={0.5}
+            scanlineFrequency={0}
+            warpAmount={0}
+            resolutionScale={1}
+          />
+        </div>
         <Navbar />
         <main className="flex-grow relative z-10">{children}</main>
         <Footer />
