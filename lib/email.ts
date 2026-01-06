@@ -129,6 +129,13 @@ ${data.selectedDate ? `Kiválasztott dátum: ${formattedDate} (${data.selectedDa
 ${data.selectedTime ? `Kiválasztott időpont: ${data.selectedTime}` : ""}
 
 ═══════════════════════════════════════
+IDŐPONT FOGLALÁSA
+═══════════════════════════════════════
+
+Alternatívaként foglalhatsz időpontot közvetlenül a Google Calendar-ban:
+https://calendar.app.google/vzsa7ELQRad7jjFu8
+
+═══════════════════════════════════════
 PROJEKT RÉSZLETEI
 ═══════════════════════════════════════
 
@@ -178,6 +185,14 @@ ${data.description ? `Leírás:\n${data.description}` : ""}
         ${data.selectedTime ? `<div class="info-row"><span class="label">Kiválasztott időpont:</span> <span class="datetime">${data.selectedTime}</span></div>` : ""}
       </div>
       ` : ""}
+
+      <div class="section" style="background: linear-gradient(135deg, rgba(124,92,255,0.1) 0%, rgba(80,174,223,0.1) 100%); border-left-color: #7C5CFF;">
+        <div class="section-title">📅 IDŐPONT FOGLALÁSA</div>
+        <div class="info-row" style="margin-top: 15px;">
+          <p style="margin-bottom: 10px;">Alternatívaként foglalhatsz időpontot közvetlenül a Google Calendar-ban:</p>
+          <a href="https://calendar.app.google/vzsa7ELQRad7jjFu8" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #7C5CFF 0%, #50AEDF 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 10px;">Időpont foglalása Google Calendar-ban</a>
+        </div>
+      </div>
 
       <div class="section">
         <div class="section-title">💼 PROJEKT RÉSZLETEI</div>

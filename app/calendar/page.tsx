@@ -166,7 +166,7 @@ export default function CalendarPage() {
               <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
                 Naptár
               </h2>
-              <div className="aspect-square w-full rounded-xl overflow-hidden">
+              <div className="aspect-square w-full rounded-xl overflow-hidden mb-4">
                 <iframe
                   src="https://calendar.google.com/calendar/embed?height=600&wkst=2&bgcolor=%23ffffff&ctz=Europe%2FBudapest&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
                   style={{ border: 0, width: "100%", height: "100%" }}
@@ -174,6 +174,17 @@ export default function CalendarPage() {
                   scrolling="no"
                 ></iframe>
               </div>
+              <a
+                href="https://calendar.app.google/vzsa7ELQRad7jjFu8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full px-6 py-3 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white rounded-xl font-semibold text-sm hover:shadow-[0_0_30px_rgba(124,92,255,0.6)] hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#7C5CFF] focus:ring-offset-2 focus:ring-offset-[#0F1620] flex items-center justify-center gap-2"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Időpont foglalása Google Calendar-ban
+              </a>
             </div>
 
             {/* Date and Time Selection Form */}
