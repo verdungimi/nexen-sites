@@ -1,4 +1,23 @@
+"use client";
+
 import Link from "next/link";
+
+const handleSectionClick = (sectionId: string) => {
+  const currentPath = window.location.pathname;
+  if (currentPath === '/' || currentPath === '') {
+    // Ha a főoldalon vagyunk, görgessünk a szekcióhoz
+    const target = document.getElementById(sectionId);
+    if (target) {
+      const offset = 100;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
+  } else {
+    // Ha más oldalon vagyunk, navigáljunk a főoldalra a szekcióval
+    window.location.href = `/#${sectionId}`;
+  }
+};
 
 export default function Footer() {
   return (
@@ -16,17 +35,26 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#process" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                <a href="/#process" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm" onClick={(e) => {
+                  e.preventDefault();
+                  handleSectionClick('process');
+                }}>
                   Folyamat
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                <a href="/#pricing" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm" onClick={(e) => {
+                  e.preventDefault();
+                  handleSectionClick('pricing');
+                }}>
                   Árazás
                 </a>
               </li>
               <li>
-                <a href="#faq" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                <a href="/#faq" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm" onClick={(e) => {
+                  e.preventDefault();
+                  handleSectionClick('faq');
+                }}>
                   GYIK
                 </a>
               </li>
@@ -48,12 +76,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#services" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                <a href="/#pricing" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm" onClick={(e) => {
+                  e.preventDefault();
+                  handleSectionClick('pricing');
+                }}>
                   Szolgáltatásaink
                 </a>
               </li>
               <li>
-                <a href="#testimonials" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                <a href="/#testimonials" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm" onClick={(e) => {
+                  e.preventDefault();
+                  handleSectionClick('testimonials');
+                }}>
                   Referenciák
                 </a>
               </li>
@@ -86,6 +120,11 @@ export default function Footer() {
               <li>
                 <Link href="/privacy" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
                   Adatvédelmi tájékoztató
+                </Link>
+              </li>
+              <li>
+                <Link href="/cookies" className="text-gray-400 hover:text-[#7C5CFF] transition-colors text-sm">
+                  Cookie tájékoztató
                 </Link>
               </li>
               <li>
