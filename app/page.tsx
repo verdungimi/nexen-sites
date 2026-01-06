@@ -428,7 +428,7 @@ export default function HomePage() {
           <p className="text-lg md:text-xl text-[#A8B3C7] mb-8">
             Ha van egyértelmű ajánlatod, szállítunk egy prémium kinézetű, működő weboldalt.
           </p>
-          <CTAButton href="/book" text="Foglalj időpontot" />
+          <CTAButton href="/book">Foglalj időpontot</CTAButton>
         </div>
       </Section>
     </>
