@@ -91,7 +91,7 @@ export default function DarkVeil({
     const parent = canvas.parentElement;
 
     const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio, 2),
+      dpr: Math.min(window.devicePixelRatio, 1.5), // Reduced from 2 to 1.5 for better performance
       canvas
     });
 
@@ -114,6 +114,7 @@ export default function DarkVeil({
 
     const mesh = new Mesh(gl, { geometry, program });
 
+    let resizeTimeout: NodeJS.Timeout;
     const resize = () => {
       const w = parent.clientWidth,
         h = parent.clientHeight;
@@ -121,7 +122,12 @@ export default function DarkVeil({
       program.uniforms.uResolution.value.set(w, h);
     };
 
-    window.addEventListener('resize', resize);
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(resize, 150); // Debounce resize events
+    };
+
+    window.addEventListener('resize', handleResize, { passive: true });
     resize();
 
     const start = performance.now();
@@ -142,7 +148,8 @@ export default function DarkVeil({
 
     return () => {
       cancelAnimationFrame(frame);
-      window.removeEventListener('resize', resize);
+      clearTimeout(resizeTimeout);
+      window.removeEventListener('resize', handleResize);
     };
   }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
   return <canvas ref={ref} className="darkveil-canvas" />;

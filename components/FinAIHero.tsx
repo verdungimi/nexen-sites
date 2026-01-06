@@ -13,20 +13,34 @@ export default function FinAIHero() {
     if (!ctx) return;
 
     const setCanvasSize = () => {
-      canvas.width = window.innerWidth;
-      // Only cover viewport height, not full document height
-      canvas.height = window.innerHeight;
+      // Reduce resolution for better performance on mobile
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      ctx.scale(dpr, dpr);
+      canvas.style.width = window.innerWidth + 'px';
+      canvas.style.height = window.innerHeight + 'px';
     };
 
     setCanvasSize();
 
     let animationFrame: number;
     let time = 0;
+    let lastFrameTime = performance.now();
+    const targetFPS = 60;
+    const frameInterval = 1000 / targetFPS;
 
-    const animate = () => {
+    const animate = (currentTime: number) => {
       if (!ctx) return;
 
-      time += 0.01;
+      const elapsed = currentTime - lastFrameTime;
+      if (elapsed < frameInterval) {
+        animationFrame = requestAnimationFrame(animate);
+        return;
+      }
+
+      lastFrameTime = currentTime - (elapsed % frameInterval);
+      time += 0.008; // Slightly reduced for smoother animation
 
       // Clear canvas
       ctx.fillStyle = '#0a0a0a';
@@ -87,10 +101,17 @@ export default function FinAIHero() {
 
     animate();
 
-    window.addEventListener('resize', setCanvasSize);
+    let resizeTimeout: NodeJS.Timeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(setCanvasSize, 150); // Debounce resize events
+    };
+
+    window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
-      window.removeEventListener('resize', setCanvasSize);
+      clearTimeout(resizeTimeout);
+      window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrame);
     };
   }, []);
