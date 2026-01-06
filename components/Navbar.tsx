@@ -2,96 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import GooeyNav from "@/components/GooeyNav.jsx";
-import "@/components/GooeyNav.css";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
-  // GooeyNav items
-  const navItems = [
-    { 
-      label: "Kezdőlap", 
-      href: "/",
-      onClick: (e: React.MouseEvent) => {
-        e.preventDefault();
-        window.location.href = "/";
-      }
-    },
-    { 
-      label: "Folyamat", 
-      href: "#process",
-      onClick: (e: React.MouseEvent) => {
-        e.preventDefault();
-        const currentPath = window.location.pathname;
-        if (currentPath === '/' || currentPath === '') {
-          const target = document.getElementById('process');
-          if (target) {
-            const offset = 100;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - offset;
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-          }
-        } else {
-          window.location.href = '/#process';
-        }
-      }
-    },
-    { 
-      label: "Árazás", 
-      href: "#pricing",
-      onClick: (e: React.MouseEvent) => {
-        e.preventDefault();
-        const currentPath = window.location.pathname;
-        if (currentPath === '/' || currentPath === '') {
-          const target = document.getElementById('pricing');
-          if (target) {
-            const offset = 100;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - offset;
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-          }
-        } else {
-          window.location.href = '/#pricing';
-        }
-      }
-    },
-    { 
-      label: "Blog", 
-      href: "/blog",
-      onClick: (e: React.MouseEvent) => {
-        e.preventDefault();
-        window.location.href = "/blog";
-      }
-    },
-    { 
-      label: "Rólunk", 
-      href: "/rolunk",
-      onClick: (e: React.MouseEvent) => {
-        e.preventDefault();
-        window.location.href = "/rolunk";
-      }
-    },
-    { 
-      label: "GYIK", 
-      href: "/#faq",
-      onClick: (e: React.MouseEvent) => {
-        e.preventDefault();
-        const currentPath = window.location.pathname;
-        if (currentPath === '/' || currentPath === '') {
-          const target = document.getElementById('faq');
-          if (target) {
-            const offset = 100;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - offset;
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-          }
-        } else {
-          window.location.href = '/#faq';
-        }
-      }
-    },
-  ];
 
   return (
     <nav className="sticky top-4 z-50 px-4">
@@ -105,22 +18,8 @@ export default function Navbar() {
             </span>
           </Link>
           
-          {/* Desktop Menu - GooeyNav */}
-          <div className="hidden md:flex items-center flex-1 justify-center absolute left-1/2 transform -translate-x-1/2" style={{ height: '60px', position: 'relative', maxWidth: 'calc(100% - 300px)' }}>
-            <GooeyNav
-              items={navItems}
-              particleCount={15}
-              particleDistances={[90, 10]}
-              particleR={100}
-              initialActiveIndex={0}
-              animationTime={600}
-              timeVariance={300}
-              colors={[1, 2, 3, 1, 2, 3, 1, 4]}
-            />
-          </div>
-
-          {/* Old Desktop Menu - Hidden (keeping for reference) */}
-          <div className="hidden md:flex items-center space-x-2 flex-1 justify-center absolute left-1/2 transform -translate-x-1/2 flex-nowrap" style={{ display: 'none' }}>
+          {/* Desktop Menu - Centered */}
+          <div className="hidden md:flex items-center space-x-2 flex-1 justify-center absolute left-1/2 transform -translate-x-1/2 flex-nowrap">
             <Link href="/" className="px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg whitespace-nowrap">
               Kezdőlap
             </Link>
