@@ -83,13 +83,14 @@
 }
 
 .gooey-nav-container nav ul li.active {
-  color: black;
-  text-shadow: none;
+  color: white;
+  text-shadow: 0 1px 1px hsl(205deg 30% 10% / 0.2);
 }
 
 .gooey-nav-container nav ul li.active::after {
   opacity: 1;
   transform: scale(1);
+  background: rgba(124, 92, 255, 0.3); /* Purple background instead of white */
 }
 
 .gooey-nav-container .effect {
@@ -111,7 +112,7 @@
 }
 
 .gooey-nav-container .effect.text.active {
-  color: black;
+  color: white;
 }
 
 .gooey-nav-container .effect.filter {
@@ -131,7 +132,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: white;
+  background: rgba(124, 92, 255, 0.3); /* Purple background instead of white */
   transform: scale(0);
   opacity: 0;
   z-index: -1;
