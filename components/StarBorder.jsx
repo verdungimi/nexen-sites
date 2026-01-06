@@ -11,15 +11,27 @@ const StarBorder = ({
   children,
   ...rest
 }) => {
-  return (
-    <Component
-      className={`star-border-container ${className}`}
-      style={{
-        padding: `${thickness}px 0`,
-        ...rest.style
-      }}
-      {...rest}
-    >
+  // Handle both string components (like 'a', 'div') and React components (like Link)
+  const isStringComponent = typeof Component === 'string';
+  const WrapperComponent = isStringComponent ? Component : 'div';
+  
+  const wrapperProps = isStringComponent ? {
+    className: `star-border-container ${className}`,
+    style: {
+      padding: `${thickness}px 0`,
+      ...rest.style
+    },
+    ...rest
+  } : {
+    className: `star-border-container ${className}`,
+    style: {
+      padding: `${thickness}px 0`,
+      ...rest.style
+    }
+  };
+
+  const content = (
+    <WrapperComponent {...wrapperProps}>
       <div
         className="border-gradient-bottom"
         style={{
