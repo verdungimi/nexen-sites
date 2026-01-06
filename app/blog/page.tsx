@@ -3,11 +3,10 @@ import Link from "next/link";
 import FinAIHero from "@/components/FinAIHero";
 
 export const metadata: Metadata = {
-  title: "Weboldal Készítés Blog | Webshop Készítés, 10 Nap Alatt Kész Weboldal | Nexen Sites",
-  description: "Olvass a weboldal készítésről, webshop készítésről, olcsó weboldal készítő cég szolgáltatásairól és 10 nap alatt kész weboldal készítésről. Hasznos cikkek prémium weboldal és webshop fejlesztéshez.",
+  title: "Weboldal Készítés Blog | 10 Nap Alatt Kész Weboldal | Nexen Sites",
+  description: "Olvass a weboldal készítésről, olcsó weboldal készítő cég szolgáltatásairól és 10 nap alatt kész weboldal készítésről. Hasznos cikkek prémium weboldal fejlesztéshez.",
   keywords: [
     "weboldal készítés",
-    "webshop készítés",
     "weboldal készítő cég",
     "olcsó weboldal",
     "10 nap alatt kész weboldal",
@@ -15,8 +14,6 @@ export const metadata: Metadata = {
     "olcsó weboldal készítés",
     "weboldal készítő",
     "weboldal készítés magyarország",
-    "webshop készítés magyarország",
-    "olcsó webshop készítés",
     "prémium weboldal",
     "modern weboldal",
     "mobilbarát weboldal",
@@ -32,8 +29,8 @@ export const metadata: Metadata = {
     "nexen sites"
   ],
   openGraph: {
-    title: "Weboldal Készítés Blog | Webshop Készítés, 10 Nap Alatt Kész Weboldal | Nexen Sites",
-    description: "Olvass a weboldal készítésről, webshop készítésről, olcsó weboldal készítő cég szolgáltatásairól és 10 nap alatt kész weboldal készítésről.",
+    title: "Weboldal Készítés Blog | 10 Nap Alatt Kész Weboldal | Nexen Sites",
+    description: "Olvass a weboldal készítésről, olcsó weboldal készítő cég szolgáltatásairól és 10 nap alatt kész weboldal készítésről.",
     type: "website",
     url: "https://nexensites.hu/blog",
     siteName: "Nexen Sites",
@@ -42,15 +39,15 @@ export const metadata: Metadata = {
         url: "https://nexensites.hu/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Nexen Sites - Weboldal készítés és webshop készítés blog",
+        alt: "Nexen Sites - Weboldal készítés blog",
       },
     ],
     locale: "hu_HU",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Weboldal Készítés Blog | Webshop Készítés, 10 Nap Alatt Kész Weboldal",
-    description: "Olvass a weboldal készítésről, webshop készítésről és 10 nap alatt kész weboldal készítésről.",
+    title: "Weboldal Készítés Blog | 10 Nap Alatt Kész Weboldal",
+    description: "Olvass a weboldal készítésről és 10 nap alatt kész weboldal készítésről.",
   },
   alternates: {
     canonical: "https://nexensites.hu/blog",
@@ -129,8 +126,8 @@ export default function BlogPage() {
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "Nexen Sites Blog - Weboldal Készítés és Webshop Készítés",
-    "description": "Weboldal készítés, webshop készítés, olcsó weboldal készítő cég szolgáltatásai, 10 nap alatt kész weboldal készítés cikkek és tippek",
+    "name": "Nexen Sites Blog - Weboldal Készítés",
+    "description": "Weboldal készítés, olcsó weboldal készítő cég szolgáltatásai, 10 nap alatt kész weboldal készítés cikkek és tippek",
     "url": "https://nexensites.hu/blog",
     "publisher": {
       "@type": "Organization",
@@ -141,7 +138,7 @@ export default function BlogPage() {
     },
     "about": {
       "@type": "Thing",
-      "name": "Weboldal készítés és webshop készítés"
+      "name": "Weboldal készítés"
     }
   };
 
@@ -182,11 +179,11 @@ export default function BlogPage() {
                 Blog
               </span>
               <span className="block bg-gradient-to-r from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent mt-2">
-                Weboldal Készítés & Webshop Készítés
+                Weboldal Készítés & SEO Tippek
               </span>
             </h1>
             <p className="text-lg md:text-xl text-[#A8B3C7] max-w-3xl mx-auto font-light leading-relaxed break-words overflow-wrap-anywhere px-4 mt-4">
-              Hasznos cikkek a <strong className="text-white">weboldal készítésről</strong>, <strong className="text-white">webshop készítésről</strong>, <strong className="text-white">olcsó weboldal készítő cég</strong> szolgáltatásairól és a <strong className="text-white">10 nap alatt kész weboldal</strong> készítésről.
+              Hasznos cikkek a <strong className="text-white">weboldal készítésről</strong>, <strong className="text-white">olcsó weboldal készítő cég</strong> szolgáltatásairól és a <strong className="text-white">10 nap alatt kész weboldal</strong> készítésről.
             </p>
           </div>
 
@@ -258,10 +255,10 @@ export default function BlogPage() {
           <div className="mt-16 text-center">
             <div className="bg-[#0F1620]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 break-words overflow-wrap-anywhere">
-                Készen állsz egy <span className="bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent">prémium weboldalra vagy webshopra</span>?
+                Készen állsz egy <span className="bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent">prémium weboldalra</span>?
               </h2>
               <p className="text-lg text-[#A8B3C7] mb-6 max-w-2xl mx-auto break-words overflow-wrap-anywhere">
-                Foglalj időpontot és beszéljük meg, hogyan készíthetünk neked egy <strong className="text-white">10 nap alatt elkészülő, prémium minőségű weboldalt</strong> vagy <strong className="text-white">webshopot</strong>. Olcsó weboldal készítő cégként garantáltan 10 nap alatt kész weboldalt nyújtunk.
+                Foglalj időpontot és beszéljük meg, hogyan készíthetünk neked egy <strong className="text-white">10 nap alatt elkészülő, prémium minőségű weboldalt</strong> vagy <strong className="text-white">landing page</strong>-et. Olcsó weboldal készítő cégként garantáltan 10 nap alatt kész weboldalt nyújtunk.
               </p>
               <Link
                 href="/book"

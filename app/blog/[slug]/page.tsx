@@ -227,7 +227,6 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const keywords = [
     ...post.keywords,
     "weboldal készítés",
-    "webshop készítés",
     "weboldal készítő cég",
     "olcsó weboldal",
     "10 nap alatt kész weboldal",
@@ -281,7 +280,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     "datePublished": post.date,
     "dateModified": post.date,
     "articleSection": post.category,
-    "keywords": [...post.keywords, "weboldal készítés", "webshop készítés", "weboldal készítő cég", "olcsó weboldal", "10 nap alatt kész weboldal"].join(", "),
+    "keywords": [...post.keywords, "weboldal készítés", "weboldal készítő cég", "olcsó weboldal", "10 nap alatt kész weboldal"].join(", "),
     "url": `https://nexensites.hu/blog/${params.slug}`,
     "author": {
       "@type": "Organization",
