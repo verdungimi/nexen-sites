@@ -99,7 +99,7 @@ export default function FinAIHero() {
       animationFrame = requestAnimationFrame(animate);
     };
 
-    animate();
+    animate(performance.now());
 
     let resizeTimeout: NodeJS.Timeout;
     const handleResize = () => {
