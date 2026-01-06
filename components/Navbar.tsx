@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <nav className="sticky top-4 z-50 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center h-14 px-4 md:px-6 gap-3 relative">
+        <div className="flex items-center h-14 pl-4 md:pl-6 pr-2 md:pr-2 gap-3 relative">
           <Link href="/" className="group flex-shrink-0 nexen-logo-wrapper">
             <span className="text-2xl md:text-3xl font-black inline-flex">
               <span className="nexen-logo-ne logo-wave-1 inline-block">NE</span>
@@ -93,7 +93,7 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button - Right */}
-          <div className="hidden md:block flex-shrink-0 ml-auto">
+          <div className="hidden md:block flex-shrink-0 ml-auto -mr-2">
             <Link href="/book" className="px-7 py-3 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white rounded-xl hover:shadow-[0_0_30px_rgba(124,92,255,0.7)] hover:scale-105 transition-all duration-300 font-semibold text-base shadow-lg">
               Időpont Foglalása
             </Link>
