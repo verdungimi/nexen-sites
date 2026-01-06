@@ -9,6 +9,7 @@ import ProcessTimeline from "@/components/ProcessTimeline";
 import HomePageStructuredData from "@/components/HomePageStructuredData";
 import DarkVeil from "@/components/DarkVeil.jsx";
 import "@/components/DarkVeil.css";
+import { motion } from "framer-motion";
 
 export const metadata: Metadata = {
   title: "Nexen Weboldal - Weboldal Készítés 10 Nap Alatt | Prémium Weboldalak",
@@ -162,18 +163,30 @@ export default function HomePage() {
       {/* Problems */}
       <Section>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="text-center mb-8 md:mb-12">
+          <motion.div 
+            className="text-center mb-8 md:mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-[#EAF0FF]">
               Mit veszítesz el rossz weboldallal?
             </h2>
             <p className="text-base sm:text-lg text-[#A8B3C7] max-w-2xl mx-auto px-2">
               Ezek a problémák közvetlenül a bevételbe és az üzleti eredményekbe fájnak
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {/* Card 1 - Lost Revenue */}
-            <div className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2">
+            <motion.div 
+              className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-[#ED5096]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="mb-4 md:mb-6">
@@ -190,10 +203,16 @@ export default function HomePage() {
                   A látogatók megjelennek a weboldalon, de nem válthatók leadekké.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Card 2 - Wasted Ad Spend */}
-            <div className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2">
+            <motion.div 
+              className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-[#ED5096]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="mb-4 md:mb-6">
@@ -210,10 +229,16 @@ export default function HomePage() {
                   A hirdetések pénzt hoznak, de a weboldal nem zárja le a forgalmat.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Card 3 - Low Trust & Cheap Perception */}
-            <div className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2 sm:col-span-2 lg:col-span-1">
+            <motion.div 
+              className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2 sm:col-span-2 lg:col-span-1"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-[#ED5096]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="mb-4 md:mb-6">
@@ -230,7 +255,7 @@ export default function HomePage() {
                   A weboldal átlagos vagy elavult, alacsony minőségű leadeket és árfigyelőket vonz.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </Section>
@@ -238,18 +263,30 @@ export default function HomePage() {
       {/* Solutions */}
       <Section>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="text-center mb-8 md:mb-12">
+          <motion.div 
+            className="text-center mb-8 md:mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-[#EAF0FF]">
               A megoldás
             </h2>
             <p className="text-base sm:text-lg text-[#A8B3C7] max-w-2xl mx-auto px-2">
               Így oldjuk meg ezeket a problémákat
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {/* Solution 1 */}
-            <div className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2">
+            <motion.div 
+              className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-[#7C5CFF]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="mb-4 md:mb-6">
@@ -266,10 +303,16 @@ export default function HomePage() {
                   Egyértelmű cselekvésre vezeti a látogatókat, így több leadet hoz.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Solution 2 */}
-            <div className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-3xl p-8 md:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2">
+            <motion.div 
+              className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-[#7C5CFF]/10 via-transparent to-transparent rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="mb-6">
@@ -286,10 +329,16 @@ export default function HomePage() {
                   Kifejezetten a fizetett forgalom támogatására épül, maximális ROI-val.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Solution 3 */}
-            <div className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-3xl p-8 md:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2">
+            <motion.div 
+              className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-[#7C5CFF]/10 via-transparent to-transparent rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="mb-6">
@@ -314,33 +363,58 @@ export default function HomePage() {
       {/* Process Timeline */}
       <Section id="process">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
               10 napos folyamat
             </h2>
             <p className="text-lg text-[#A8B3C7]">
               Tiszta lépések, átlátható kommunikáció, időben szállítás
             </p>
-          </div>
+          </motion.div>
 
-          <ProcessTimeline />
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+          >
+            <ProcessTimeline />
+          </motion.div>
         </div>
       </Section>
 
       {/* Pricing */}
       <Section id="pricing">
-        <div className="text-center mb-12">
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
             Árazás
           </h2>
           <p className="text-lg text-[#A8B3C7]">
             Átlátható árazás, nincsenek meglepetések
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Starter */}
-          <div className="group bg-[#0F1620] border border-[#50AEDF]/30 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#50AEDF] hover:shadow-[0_0_30px_rgba(80,174,223,0.3)]">
+          <motion.div 
+            className="group bg-[#0F1620] border border-[#50AEDF]/30 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#50AEDF] hover:shadow-[0_0_30px_rgba(80,174,223,0.3)]"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             <h3 className="text-xl font-bold mb-2 text-[#EAF0FF] group-hover:text-[#50AEDF] transition-colors">Kezdő</h3>
             <div className="text-3xl font-bold mb-4 text-[#EAF0FF] group-hover:text-[#50AEDF] transition-colors">
               299 000 Ft
@@ -367,10 +441,16 @@ export default function HomePage() {
             <CTAButton href="/book" variant="secondary" className="w-full text-sm">
               Kezdjük el
             </CTAButton>
-          </div>
+          </motion.div>
 
           {/* Standard - Featured */}
-          <div className="bg-[#0F1620] border-2 border-[#7C5CFF] rounded-3xl p-10 relative hover:shadow-[0_0_30px_rgba(124,92,255,0.3)] transition-all duration-300 hover:-translate-y-1 md:scale-105 md:-mt-6 md:mb-6">
+          <motion.div 
+            className="bg-[#0F1620] border-2 border-[#7C5CFF] rounded-3xl p-10 relative hover:shadow-[0_0_30px_rgba(124,92,255,0.3)] transition-all duration-300 hover:-translate-y-1 md:scale-105 md:-mt-6 md:mb-6"
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#7C5CFF] text-white text-xs font-bold px-4 py-1 rounded-full">
               Legnépszerűbb
             </div>
@@ -412,10 +492,16 @@ export default function HomePage() {
             <CTAButton href="/book" variant="primary" className="w-full">
               Időpont Foglalása
             </CTAButton>
-          </div>
+          </motion.div>
 
           {/* Pro */}
-          <div className="group relative bg-[#0F1620] border border-[rgba(255,215,0,0.3)] rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2 hover:border-[#FFD700] hover:shadow-[0_0_50px_rgba(255,215,0,0.5),0_0_100px_rgba(255,215,0,0.3)]">
+          <motion.div 
+            className="group relative bg-[#0F1620] border border-[rgba(255,215,0,0.3)] rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2 hover:border-[#FFD700] hover:shadow-[0_0_50px_rgba(255,215,0,0.5),0_0_100px_rgba(255,215,0,0.3)]"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 via-[#FFA500]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="relative z-10">
               <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent group-hover:from-[#FFD700] group-hover:to-[#FFA500] transition-all">Pro</h3>
@@ -453,9 +539,15 @@ export default function HomePage() {
                 Kezdjük el
               </CTAButton>
             </div>
-          </div>
+          </motion.div>
         </div>
-        <div className="mt-8 text-center space-y-6">
+        <motion.div 
+          className="mt-8 text-center space-y-6"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 inline-block">
             <p className="text-[#A8B3C7]">
               <strong className="text-[#EAF0FF]">10 napos szállítási garancia</strong> — ha lemaradunk a határidőről, 20%-ot visszatérítünk.
@@ -466,18 +558,30 @@ export default function HomePage() {
               További csomagok megtekintése
             </CTAButton>
           </div>
-        </div>
+        </motion.div>
       </Section>
 
       {/* Testimonials */}
       <Section id="testimonials">
-        <div className="text-center mb-12">
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
             Mit mondanak az ügyfeleink
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <motion.div 
+          className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8 }}
+        >
           <TestimonialCard
             name="Kovács Péter"
             business="Tanácsadó"
@@ -496,19 +600,31 @@ export default function HomePage() {
             testimonial="A landing page-ünk 10 nap alatt készült, és azonnal látható volt a különbség a konverzióban."
             result="Jobb konverziós arány"
           />
-        </div>
+        </motion.div>
       </Section>
 
       {/* FAQ */}
       <Section id="faq">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
               Gyakran ismételt kérdések
             </h2>
-          </div>
+          </motion.div>
 
-          <FAQAccordion
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+          >
+            <FAQAccordion
             items={[
               {
                 question: "Tényleg 10 nap alatt kész?",
@@ -535,13 +651,20 @@ export default function HomePage() {
                 answer: "Design, fejlesztés, alap SEO, mobilbarát verzió, kapcsolati űrlap, és átadás dokumentációval. Extra funkciók (webshop, foglalási rendszer stb.) külön egyeztetendők.",
               },
             ]}
-          />
+            />
+          </motion.div>
         </div>
       </Section>
 
       {/* Final CTA */}
       <Section id="contact">
-        <div className="max-w-4xl mx-auto text-center">
+        <motion.div 
+          className="max-w-4xl mx-auto text-center"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#EAF0FF]">
             Szeretnéd, hogy 10 nap múlva élőben legyen?
           </h2>
@@ -563,7 +686,7 @@ export default function HomePage() {
               </span>
             </div>
           </div>
-        </div>
+        </motion.div>
       </Section>
     </>
   );
