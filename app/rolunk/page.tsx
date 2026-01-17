@@ -35,7 +35,7 @@ export default function RolunkPage() {
         <div className="max-w-4xl mx-auto relative z-10 text-center" style={{ pointerEvents: 'auto' }}>
           {/* Badge */}
           <div className="mb-6 animate-fade-in flex justify-center">
-            <div className="inline-flex items-center justify-center px-5 py-3 bg-gradient-to-r from-[#FFD700]/30 via-[#FFD700]/40 to-[#FFD700]/30 border-2 border-[#FFD700] rounded-xl shadow-[0_0_30px_rgba(255,215,0,0.6)]">
+            <div className="inline-flex items-center justify-center px-5 py-3 bg-gradient-to-r from-[#50AEDF]/30 via-[#50AEDF]/40 to-[#50AEDF]/30 border-2 border-[#50AEDF] rounded-xl shadow-[0_0_30px_rgba(80,174,223,0.6)]">
               <span className="text-lg md:text-xl font-bold text-white tracking-wide">Prémium minőség</span>
               <span className="text-lg md:text-xl font-bold text-white mx-1.5 tracking-wide">•</span>
               <span className="text-lg md:text-xl font-bold text-white tracking-wide">10 nap alatt</span>
@@ -64,16 +64,16 @@ export default function RolunkPage() {
 
           {/* Trust badges */}
           <div className="flex flex-wrap justify-center gap-6 md:gap-12 mt-20">
-            <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#FFD700]/50 hover:shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:scale-105 transition-all duration-500 animate-float-up group">
-              <div className="text-4xl md:text-5xl font-black text-[#FFD700] mb-2 group-hover:scale-110 transition-transform duration-300">10</div>
+            <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.3)] hover:scale-105 transition-all duration-500 animate-float-up group">
+              <div className="text-4xl md:text-5xl font-black text-[#50AEDF] mb-2 group-hover:scale-110 transition-transform duration-300">10</div>
               <div className="text-sm md:text-base text-[#EAF0FF] font-semibold">Napos szállítás</div>
             </div>
-            <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#FFD700]/50 hover:shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
-              <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">100%</div>
+            <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
+              <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">100%</div>
               <div className="text-sm md:text-base text-[#EAF0FF] font-semibold">Prémium minőség</div>
             </div>
-            <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#FFD700]/50 hover:shadow-[0_0_30px_rgba(255,215,0,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-2 group">
-              <div className="text-4xl md:text-5xl font-black text-[#FFD700] mb-2 group-hover:scale-110 transition-transform duration-300">24/7</div>
+            <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-2 group">
+              <div className="text-4xl md:text-5xl font-black text-[#50AEDF] mb-2 group-hover:scale-110 transition-transform duration-300">24/7</div>
               <div className="text-sm md:text-base text-[#EAF0FF] font-semibold">Támogatás</div>
             </div>
           </div>
@@ -110,33 +110,33 @@ export default function RolunkPage() {
             Értékeink
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="relative overflow-hidden rounded-2xl p-8 text-center border border-[rgba(255,215,0,0.3)] hover:border-[rgba(255,215,0,0.6)] hover:shadow-[0_0_40px_rgba(255,215,0,0.4)] transition-all duration-300 animate-float-up group gold-gradient-bg">
-              <div className="absolute inset-0 opacity-30 gold-shine-overlay"></div>
+            <div className="relative overflow-hidden rounded-2xl p-8 text-center border border-[rgba(80,174,223,0.3)] hover:border-[rgba(80,174,223,0.6)] hover:shadow-[0_0_40px_rgba(80,174,223,0.4)] transition-all duration-300 animate-float-up group">
+              <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-[#50AEDF]/20 to-[#7C5CFF]/20"></div>
               <div className="relative z-10">
                 <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">⚡</div>
-                <h3 className="text-xl font-bold mb-4 text-[#FFD700]">Gyorsaság</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#50AEDF]">Gyorsaság</h3>
                 <p className="text-[#EAF0FF] leading-relaxed">
                   10 nap alatt kész weboldal, fix határidővel. Nincs várakozás, nincs késés. 
                   Amikor azt mondjuk 10 nap, akkor 10 nap.
                 </p>
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-2xl p-8 text-center border border-[rgba(255,215,0,0.3)] hover:border-[rgba(255,215,0,0.6)] hover:shadow-[0_0_40px_rgba(255,215,0,0.4)] transition-all duration-300 animate-float-up-delay-1 group gold-gradient-bg" style={{ animationDelay: '0.5s' }}>
-              <div className="absolute inset-0 opacity-30 gold-shine-overlay" style={{ animationDelay: '0.5s' }}></div>
+            <div className="relative overflow-hidden rounded-2xl p-8 text-center border border-[rgba(80,174,223,0.3)] hover:border-[rgba(80,174,223,0.6)] hover:shadow-[0_0_40px_rgba(80,174,223,0.4)] transition-all duration-300 animate-float-up-delay-1 group" style={{ animationDelay: '0.5s' }}>
+              <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-[#50AEDF]/20 to-[#7C5CFF]/20" style={{ animationDelay: '0.5s' }}></div>
               <div className="relative z-10">
                 <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">✨</div>
-                <h3 className="text-xl font-bold mb-4 text-[#FFD700]">Minőség</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#50AEDF]">Minőség</h3>
                 <p className="text-[#EAF0FF] leading-relaxed">
                   Prémium design, modern technológiák, 
                   és tökéletes működés minden eszközön - mobil, tablet, desktop.
                 </p>
               </div>
             </div>
-            <div className="relative overflow-hidden rounded-2xl p-8 text-center border border-[rgba(255,215,0,0.3)] hover:border-[rgba(255,215,0,0.6)] hover:shadow-[0_0_40px_rgba(255,215,0,0.4)] transition-all duration-300 animate-float-up-delay-2 group gold-gradient-bg" style={{ animationDelay: '1s' }}>
-              <div className="absolute inset-0 opacity-30 gold-shine-overlay" style={{ animationDelay: '1s' }}></div>
+            <div className="relative overflow-hidden rounded-2xl p-8 text-center border border-[rgba(80,174,223,0.3)] hover:border-[rgba(80,174,223,0.6)] hover:shadow-[0_0_40px_rgba(80,174,223,0.4)] transition-all duration-300 animate-float-up-delay-2 group" style={{ animationDelay: '1s' }}>
+              <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-[#50AEDF]/20 to-[#7C5CFF]/20" style={{ animationDelay: '1s' }}></div>
               <div className="relative z-10">
                 <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🤝</div>
-                <h3 className="text-xl font-bold mb-4 text-[#FFD700]">Megbízhatóság</h3>
+                <h3 className="text-xl font-bold mb-4 text-[#50AEDF]">Megbízhatóság</h3>
                 <p className="text-[#EAF0FF] leading-relaxed">
                   Átlátható kommunikáció, tiszta határidők, és folyamatos támogatás. 
                   Nem csak a weboldalt adjuk át, hanem segítünk a sikerben is.
