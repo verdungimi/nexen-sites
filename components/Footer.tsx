@@ -38,40 +38,28 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="/#process"
+                <Link
+                  href="/folyamat"
                   className="text-gray-400 hover:text-[#50AEDF] transition-colors text-sm"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleSectionClick("process");
-                  }}
                 >
                   Folyamat
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/#packages"
+                <Link
+                  href="/packages"
                   className="text-gray-400 hover:text-[#50AEDF] transition-colors text-sm"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleSectionClick("packages");
-                  }}
                 >
                   Csomagok
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/#contact"
+                <Link
+                  href="/kapcsolat"
                   className="text-gray-400 hover:text-[#50AEDF] transition-colors text-sm"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleSectionClick("contact");
-                  }}
                 >
                   Kapcsolat
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -81,28 +69,20 @@ export default function Footer() {
             <h3 className="font-semibold text-white mb-4">Csomagok</h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="/#packages"
+                <Link
+                  href="/packages"
                   className="text-gray-400 hover:text-[#50AEDF] transition-colors text-sm"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleSectionClick("packages");
-                  }}
                 >
                   Csomagok megtekintése
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/#portfolio"
+                <Link
+                  href="/portfolio"
                   className="text-gray-400 hover:text-[#50AEDF] transition-colors text-sm"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleSectionClick("portfolio");
-                  }}
                 >
                   Portfólió
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

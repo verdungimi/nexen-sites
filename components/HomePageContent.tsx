@@ -188,35 +188,28 @@ export default function HomePageContent() {
             <div className="lg:col-span-6 text-center">
             {/* Large Typography - Fin AI Style */}
             <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 md:mb-8 leading-[0.95] tracking-tight">
-              <div className="mb-4 md:mb-6 animate-fade-in flex justify-center">
-                <div className="inline-flex items-center justify-center px-3 py-2 md:px-5 md:py-3 bg-gradient-to-r from-[#ED5096]/30 via-[#ED5096]/40 to-[#ED5096]/30 border-2 border-[#ED5096] rounded-xl shadow-[0_0_30px_rgba(237,80,150,0.6)]">
-                  <span className="text-sm md:text-lg lg:text-xl font-bold text-white tracking-wide">4</span>
-                  <span className="text-sm md:text-lg lg:text-xl font-bold text-white mx-1 md:mx-1.5 tracking-wide">ügyfél</span>
-                  <span className="text-sm md:text-lg lg:text-xl font-bold text-white tracking-wide">havonta</span>
-                </div>
-              </div>
               <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-fade-in">
-                Prémium
+                Professzionális
               </span>
               <span className="block bg-gradient-to-r from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent mt-1 md:mt-2 animate-fade-in-delay">
-                Weboldal
+                weboldal
               </span>
               <span className="block text-white mt-1 md:mt-2 animate-fade-in-delay-2">
-                10 nap alatt
+                10 nap alatt, kockázat nélkül.
               </span>
             </h1>
 
             {/* Subheadline - Minimal */}
             <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 md:mb-12 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-delay-2 px-2">
-              Nexen weboldal készítés - Modern weboldal, ami működik. 10 nap, fix határidő, prémium eredmény. Weboldalak készítése vállalkozásoknak.
+              Modern, gyors és eredményorientált weboldalakat készítünk vállalkozásoknak – fizetsz csak akkor, ha elégedett vagy.
             </p>
 
             {/* CTAs - Minimal */}
             <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-12 md:mb-16 animate-fade-in-delay-2 px-2">
-              <CTAButton href="/book" variant="primary" className="text-sm md:text-base px-8 md:px-10 py-4 md:py-5 w-full sm:w-auto min-w-[180px] md:min-w-[200px]">
-                Időpont Foglalása
+              <CTAButton href="/#contact" variant="primary" className="text-sm md:text-base px-8 md:px-10 py-4 md:py-5 w-full sm:w-auto min-w-[180px] md:min-w-[200px]">
+                Kérj ingyenes konzultációt
               </CTAButton>
-              <CTAButton href="#packages" variant="secondary" className="text-sm md:text-base px-8 md:px-10 py-4 md:py-5 w-full sm:w-auto min-w-[180px] md:min-w-[200px]">
+              <CTAButton href="/packages" variant="secondary" className="text-sm md:text-base px-8 md:px-10 py-4 md:py-5 w-full sm:w-auto min-w-[180px] md:min-w-[200px]">
                 Csomagok Megtekintése
               </CTAButton>
             </div>
