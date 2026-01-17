@@ -2,12 +2,17 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import Section from "@/components/Section";
+import CTAButton from "@/components/CTAButton";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Check, ArrowRight, Clock, Shield, Sparkles, Zap, Rocket } from "lucide-react";
+import { Check, ArrowRight, Clock, Shield, Sparkles, Zap } from "lucide-react";
+import FinAIHero from "@/components/FinAIHero";
 import HomePageStructuredData from "@/components/HomePageStructuredData";
+import DarkVeil from "@/components/DarkVeil.jsx";
+import "@/components/DarkVeil.css";
 
 // Animation variants
 const fadeInUp = {
@@ -144,48 +149,106 @@ export default function HomePageContent() {
     <>
       <HomePageStructuredData />
       
-      {/* Hero Section */}
-      <section className="min-h-[90vh] flex items-center justify-center relative pt-20 pb-16 px-4 overflow-hidden">
-        {/* Background Gradient Animation */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e] opacity-90"></div>
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#50AEDF]/10 via-transparent to-[#7C5CFF]/10"></div>
+      {/* Hero Section - Fin AI Style */}
+      <section className="min-h-screen flex items-center justify-center relative pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-6 overflow-hidden">
+        {/* DarkVeil - Only on desktop */}
+        <div className="hidden md:block fixed inset-0 w-full h-full" style={{ zIndex: 1, pointerEvents: 'none' }}>
+          <DarkVeil
+            hueShift={0}
+            noiseIntensity={0}
+            scanlineIntensity={0}
+            speed={0.5}
+            scanlineFrequency={0}
+            warpAmount={0}
+            resolutionScale={1}
+          />
+        </div>
+        <FinAIHero />
         
-        <div className="container-custom max-w-5xl text-center relative z-10">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-          >
-            <motion.h1
-              variants={fadeInUp}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-            >
-              Professzionális{" "}
-              <span className="bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent">
-                weboldal
-              </span>{" "}
-              10 nap alatt.
-            </motion.h1>
-            
-            <motion.p
-              variants={fadeInUp}
-              className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed"
-            >
-              Modern, gyors és üzleti célokra optimalizált weboldalakat készítünk –
-              <br className="hidden md:block" />
-              fizess csak akkor, ha elégedett vagy.
-            </motion.p>
-            
-            <motion.div
-              variants={fadeInUp}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-            >
-              <Button size="lg" className="text-lg px-8 py-6">
-                Kezdjük el a közös munkát
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </motion.div>
-          </motion.div>
+        <div className="max-w-7xl mx-auto relative z-10 w-full" style={{ pointerEvents: 'auto' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center">
+            {/* Left side info - Hidden on mobile, visible on lg+ */}
+            <div className="hidden lg:block lg:col-span-3 relative pr-4" style={{ minHeight: '600px' }}>
+              <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '8%', right: '12%', animationDelay: '0s' }}>
+                <svg className="absolute inset-0 w-full h-full text-[#50AEDF] drop-shadow-[0_0_15px_rgba(80,174,223,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">Mobilbarát</h3>
+              </div>
+              <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '52%', right: '-5%', animationDelay: '1.5s' }}>
+                <svg className="absolute inset-0 w-full h-full text-[#7C5CFF] drop-shadow-[0_0_15px_rgba(124,92,255,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">Gyors betöltés</h3>
+              </div>
+            </div>
+
+            {/* Center content */}
+            <div className="lg:col-span-6 text-center">
+            {/* Large Typography - Fin AI Style */}
+            <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 md:mb-8 leading-[0.95] tracking-tight">
+              <div className="mb-4 md:mb-6 animate-fade-in flex justify-center">
+                <div className="inline-flex items-center justify-center px-3 py-2 md:px-5 md:py-3 bg-gradient-to-r from-[#ED5096]/30 via-[#ED5096]/40 to-[#ED5096]/30 border-2 border-[#ED5096] rounded-xl shadow-[0_0_30px_rgba(237,80,150,0.6)]">
+                  <span className="text-sm md:text-lg lg:text-xl font-bold text-white tracking-wide">4</span>
+                  <span className="text-sm md:text-lg lg:text-xl font-bold text-white mx-1 md:mx-1.5 tracking-wide">ügyfél</span>
+                  <span className="text-sm md:text-lg lg:text-xl font-bold text-white tracking-wide">havonta</span>
+                </div>
+              </div>
+              <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-fade-in">
+                Prémium
+              </span>
+              <span className="block bg-gradient-to-r from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent mt-1 md:mt-2 animate-fade-in-delay">
+                Weboldal
+              </span>
+              <span className="block text-white mt-1 md:mt-2 animate-fade-in-delay-2">
+                10 nap alatt
+              </span>
+            </h1>
+
+            {/* Subheadline - Minimal */}
+            <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 md:mb-12 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-delay-2 px-2">
+              Nexen weboldal készítés - Modern weboldal, ami működik. 10 nap, fix határidő, prémium eredmény. Weboldalak készítése vállalkozásoknak.
+            </p>
+
+            {/* CTAs - Minimal */}
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-12 md:mb-16 animate-fade-in-delay-2 px-2">
+              <CTAButton href="/book" variant="primary" className="text-sm md:text-base px-8 md:px-10 py-4 md:py-5 w-full sm:w-auto min-w-[180px] md:min-w-[200px]">
+                Időpont Foglalása
+              </CTAButton>
+              <CTAButton href="#packages" variant="secondary" className="text-sm md:text-base px-8 md:px-10 py-4 md:py-5 w-full sm:w-auto min-w-[180px] md:min-w-[200px]">
+                Csomagok Megtekintése
+              </CTAButton>
+            </div>
+
+            {/* Trust badges - Enhanced style with animations */}
+            <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-12 mt-12 md:mt-20 px-2">
+              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.3)] hover:scale-105 transition-all duration-500 animate-float-up group">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 group-hover:text-[#7C5CFF] transition-colors duration-500 group-hover:scale-110 transition-transform duration-300">10</div>
+                <div className="text-xs md:text-sm lg:text-base text-[#EAF0FF] font-semibold">Napos szállítás</div>
+              </div>
+              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent mb-2 group-hover:from-[#50AEDF] group-hover:to-[#7C5CFF] transition-all duration-500 group-hover:scale-110 transition-transform duration-300">100%</div>
+                <div className="text-xs md:text-sm lg:text-base text-[#EAF0FF] font-semibold">Prémium minőség</div>
+              </div>
+            </div>
+            </div>
+
+            {/* Right side info - Hidden on mobile, visible on lg+ */}
+            <div className="hidden lg:block lg:col-span-3 relative pl-4" style={{ minHeight: '600px' }}>
+              <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '10%', left: '12%', animationDelay: '0.75s' }}>
+                <svg className="absolute inset-0 w-full h-full text-[#7C5CFF] drop-shadow-[0_0_15px_rgba(124,92,255,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">SEO kész</h3>
+              </div>
+              <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '55%', left: '-5%', animationDelay: '2.25s' }}>
+                <svg className="absolute inset-0 w-full h-full text-[#50AEDF] drop-shadow-[0_0_15px_rgba(80,174,223,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">24/7 támogatás</h3>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
