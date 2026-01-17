@@ -199,7 +199,7 @@ export default function HomePageContent() {
 
             {/* Subheadline - Minimal */}
             <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 md:mb-12 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-delay-2 px-2">
-              Modern, gyors és eredményorientált weboldalakat készítünk vállalkozásoknak – fizetsz csak akkor, ha elégedett vagy.
+              Modern, gyors és eredményorientált weboldalakat készítünk vállalkozásoknak – ha nem tetszik, nem fizetsz.
             </p>
 
             {/* CTAs - Minimal */}
