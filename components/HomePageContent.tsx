@@ -480,6 +480,23 @@ export default function HomePageContent() {
               </motion.div>
             ))}
           </div>
+
+          {/* További csomagok gomb */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center mt-12"
+          >
+            <CTAButton
+              href="/packages"
+              variant="secondary"
+              className="text-base px-8 py-4"
+            >
+              További csomagok megtekintése
+            </CTAButton>
+          </motion.div>
         </div>
       </section>
 
