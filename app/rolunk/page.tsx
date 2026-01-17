@@ -57,7 +57,7 @@ export default function RolunkPage() {
             <CTAButton href="/book" variant="primary" className="text-base px-10 py-5 min-w-[200px]">
               Időpont Foglalása
             </CTAButton>
-            <CTAButton href="/#pricing" variant="secondary" className="text-base px-10 py-5 min-w-[200px]">
+            <CTAButton href="/packages" variant="secondary" className="text-base px-10 py-5 min-w-[200px]">
               Csomagok Megtekintése
             </CTAButton>
           </div>
@@ -94,7 +94,7 @@ export default function RolunkPage() {
             </p>
             <p className="text-lg text-[#A8B3C7] leading-relaxed mb-6">
               A 10 napos szállítási rendszerünk nem kompromisszum a minőséggel. Minden weboldalunkat a legmodernebb technológiákkal 
-              készítjük el, prémium design-nal és tökéletes működéssel. Hiszünk abban, hogy a gyorsaság és a minőség együtt járhat.
+              készítjük el, prémium designnal és tökéletes működéssel. Hiszünk abban, hogy a gyorsaság és a minőség együtt járhat.
             </p>
             <p className="text-lg text-[#A8B3C7] leading-relaxed">
               Ma már több mint 50 elégedett ügyfelünk van, akik büszkén mutathatják be modern, gyors és konverzióra optimalizált weboldalukat.
@@ -190,7 +190,7 @@ export default function RolunkPage() {
                 <div>
                   <h3 className="text-xl font-bold mb-2 text-[#EAF0FF]">Prémium design</h3>
                   <p className="text-[#A8B3C7] leading-relaxed">
-                    Minden weboldalunk egyedi, modern design-nal készül. Nem sablonok, hanem 
+                    Minden weboldalunk egyedi, modern designnal készül. Nem sablonok, hanem 
                     a te vállalkozásodhoz igazított, egyedi megoldások.
                   </p>
                 </div>

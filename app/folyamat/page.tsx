@@ -14,18 +14,36 @@ export default function FolyamatPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative pt-24 pb-16 px-4 overflow-hidden">
+      <section className="min-h-[60vh] flex items-center justify-center relative pt-32 pb-12 px-4 overflow-hidden">
         <FinAIHero />
         
-        <div className="max-w-4xl mx-auto relative z-10 text-center" style={{ pointerEvents: 'auto' }}>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
-            <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
-              A folyamat
-            </span>
-          </h1>
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-            Egyszerű, átlátható lépések az eredményig – 10 nap alatt professzionális weboldal
-          </p>
+        <div className="max-w-6xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
+          <div className="text-center mb-12">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+              <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+                A folyamat
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto font-light leading-relaxed">
+              Egyszerű, átlátható lépések az eredményig – 10 nap alatt professzionális weboldal
+            </p>
+          </div>
+          
+          {/* Quick overview - 4 steps visible immediately */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-12">
+            {[
+              { step: "01", title: "Konzultáció", icon: "💬" },
+              { step: "02", title: "Tervezés", icon: "🎨" },
+              { step: "03", title: "Tesztelés", icon: "✅" },
+              { step: "04", title: "Indítás", icon: "🚀" },
+            ].map((item, index) => (
+              <div key={index} className="bg-[#0F1620]/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)] rounded-xl p-4 text-center hover:border-[#50AEDF]/50 transition-all">
+                <div className="text-2xl mb-2">{item.icon}</div>
+                <div className="text-xs md:text-sm text-[#50AEDF] font-bold mb-1">{item.step}</div>
+                <div className="text-sm md:text-base text-white font-semibold">{item.title}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -51,7 +69,7 @@ export default function FolyamatPage() {
             {/* Connection line - hidden on mobile */}
             <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#50AEDF]/50 to-transparent" />
             
-            <div className="grid md:grid-cols-4 gap-8 relative">
+            <div className="grid md:grid-cols-4 gap-6 md:gap-8 relative">
               {[
                 {
                   step: "01",
@@ -62,7 +80,7 @@ export default function FolyamatPage() {
                 {
                   step: "02",
                   title: "Tervezés és fejlesztés",
-                  description: "A következő napokban készítjük el a vázlatokat, a design-t, majd fejlesztjük a weboldalt modern technológiákkal. Egyedi dizájnt készítünk, amely tökéletesen tükrözi a vállalkozásod.",
+                  description: "A következő napokban készítjük el a vázlatokat, a designt, majd fejlesztjük a weboldalt modern technológiákkal. Egyedi designnal készítünk, amely tökéletesen tükrözi a vállalkozásod.",
                   icon: "🎨",
                 },
                 {
@@ -84,7 +102,7 @@ export default function FolyamatPage() {
                   whileInView="visible"
                   viewport={{ once: true, margin: "-100px" }}
                   variants={fadeInUp}
-                  className="text-center relative"
+                  className="text-center relative mb-8"
                 >
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#50AEDF] to-[#7C5CFF] text-white flex items-center justify-center text-xl font-bold mx-auto mb-4 relative z-10 shadow-lg shadow-[#50AEDF]/30">
                     {process.step}

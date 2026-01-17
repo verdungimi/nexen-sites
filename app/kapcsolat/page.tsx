@@ -141,18 +141,43 @@ export default function KapcsolatPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative pt-24 pb-16 px-4 overflow-hidden">
+      <section className="min-h-[60vh] flex items-center justify-center relative pt-32 pb-12 px-4 overflow-hidden">
         <FinAIHero />
         
-        <div className="max-w-4xl mx-auto relative z-10 text-center" style={{ pointerEvents: 'auto' }}>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
-            <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
-              Kapcsolat
-            </span>
-          </h1>
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-            Lépj velünk kapcsolatba – válaszolunk 24 órán belül
-          </p>
+        <div className="max-w-6xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
+          <div className="text-center mb-12">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+              <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+                Kapcsolat
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto font-light leading-relaxed">
+              Lépj velünk kapcsolatba – válaszolunk 24 órán belül
+            </p>
+          </div>
+          
+          {/* Quick contact info visible immediately */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-12">
+            <div className="bg-[#0F1620]/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)] rounded-xl p-4 text-center hover:border-[#50AEDF]/50 transition-all">
+              <Mail className="w-8 h-8 text-[#50AEDF] mx-auto mb-3" />
+              <h3 className="text-white font-semibold mb-1">Email</h3>
+              <a href="mailto:info@nexensites.hu" className="text-[#50AEDF] hover:text-[#4098cc] text-sm transition-colors">
+                info@nexensites.hu
+              </a>
+            </div>
+            <div className="bg-[#0F1620]/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)] rounded-xl p-4 text-center hover:border-[#7C5CFF]/50 transition-all">
+              <Phone className="w-8 h-8 text-[#50AEDF] mx-auto mb-3" />
+              <h3 className="text-white font-semibold mb-1">Telefon</h3>
+              <a href="tel:+36705767845" className="text-[#50AEDF] hover:text-[#4098cc] text-sm transition-colors">
+                +36 70 576 7845
+              </a>
+            </div>
+            <div className="bg-[#0F1620]/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)] rounded-xl p-4 text-center hover:border-[#50AEDF]/50 transition-all">
+              <MapPin className="w-8 h-8 text-[#50AEDF] mx-auto mb-3" />
+              <h3 className="text-white font-semibold mb-1">Helyszín</h3>
+              <p className="text-gray-400 text-sm">Kecskemét</p>
+            </div>
+          </div>
         </div>
       </section>
 

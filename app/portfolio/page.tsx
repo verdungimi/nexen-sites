@@ -26,7 +26,7 @@ export default function PortfolioPage() {
     {
       id: 1,
       title: "Modern Vállalkozás Weboldal",
-      description: "Professzionális weboldal egy kisvállalkozás számára, modernebb design-nal és teljes SEO optimalizálással.",
+      description: "Professzionális weboldal egy kisvállalkozás számára, modernebb designnal és teljes SEO optimalizálással.",
       category: "Vállalkozás",
       image: "/api/placeholder/600/400",
     },
@@ -70,18 +70,20 @@ export default function PortfolioPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative pt-24 pb-16 px-4 overflow-hidden">
+      <section className="min-h-[60vh] flex items-center justify-center relative pt-32 pb-12 px-4 overflow-hidden">
         <FinAIHero />
         
-        <div className="max-w-4xl mx-auto relative z-10 text-center" style={{ pointerEvents: 'auto' }}>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
-            <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
-              Portfólió
-            </span>
-          </h1>
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-            Nézd meg az általunk készített weboldalakat – prémium minőség, modern design
-          </p>
+        <div className="max-w-6xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
+          <div className="text-center mb-12">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+              <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+                Portfólió
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto font-light leading-relaxed">
+              Nézd meg az általunk készített weboldalakat – prémium minőség, modern design
+            </p>
+          </div>
         </div>
       </section>
 

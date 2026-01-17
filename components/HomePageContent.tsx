@@ -472,12 +472,13 @@ export default function HomePageContent() {
                         </li>
                       ))}
                     </ul>
-                    <Button
-                      variant={pkg.highlighted ? "default" : "outline"}
+                    <CTAButton
+                      href="/kapcsolat"
+                      variant={pkg.highlighted ? "primary" : "secondary"}
                       className="w-full"
                     >
                       Érdekel ez a csomag
-                    </Button>
+                    </CTAButton>
                   </CardContent>
                 </Card>
               </motion.div>
