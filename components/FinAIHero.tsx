@@ -29,29 +29,16 @@ export default function FinAIHero() {
     const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     
     const setCanvasSize = () => {
-      // Get parent container dimensions instead of window
-      const container = canvas.parentElement;
-      if (!container) {
-        // Fallback to window if no parent
-        const width = window.innerWidth;
-        const height = window.innerHeight;
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
-        canvas.style.width = width + 'px';
-        canvas.style.height = height + 'px';
-      } else {
-        const rect = container.getBoundingClientRect();
-        const width = rect.width;
-        const height = rect.height;
-        
-        // Set canvas internal size
-        canvas.width = width * dpr;
-        canvas.height = height * dpr;
-        
-        // Set canvas display size
-        canvas.style.width = width + 'px';
-        canvas.style.height = height + 'px';
-      }
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      
+      // Set canvas internal size
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      
+      // Set canvas display size
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
       
       // Reset transform and scale
       ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -78,9 +65,9 @@ export default function FinAIHero() {
       lastFrameTime = currentTime - (elapsed % frameInterval);
       time += 0.008; // Slightly reduced for smoother animation
 
-      // Get actual display dimensions from canvas, not window
-      const displayWidth = canvas.offsetWidth || canvas.width / dpr;
-      const displayHeight = canvas.offsetHeight || canvas.height / dpr;
+      // Get actual display dimensions (not scaled)
+      const displayWidth = window.innerWidth;
+      const displayHeight = window.innerHeight;
 
       // Clear canvas
       ctx.fillStyle = '#0a0a0a';
@@ -181,16 +168,16 @@ export default function FinAIHero() {
     if (isMobile) {
       return (
         <div 
-          className="absolute inset-0 w-full h-full pointer-events-none"
+          className="fixed inset-0 w-full h-full pointer-events-none"
           style={{ 
             zIndex: 0, 
-            position: 'absolute', 
+            position: 'fixed', 
             top: 0, 
             left: 0, 
             right: 0,
             bottom: 0,
-            width: '100%', 
-            height: '100%',
+            width: '100vw', 
+            height: '100vh',
             background: `
               radial-gradient(circle at 20% 30%, rgba(124, 92, 255, 0.25) 0%, transparent 50%),
               radial-gradient(circle at 80% 70%, rgba(80, 174, 223, 0.22) 0%, transparent 50%),
@@ -208,16 +195,16 @@ export default function FinAIHero() {
     return (
       <canvas
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full pointer-events-none hidden md:block"
+        className="fixed inset-0 w-full h-full pointer-events-none hidden md:block"
         style={{ 
           zIndex: 0, 
-          position: 'absolute', 
+          position: 'fixed', 
           top: 0, 
           left: 0, 
           right: 0,
           bottom: 0,
-          width: '100%', 
-          height: '100%',
+          width: '100vw', 
+          height: '100vh',
           maxWidth: '100%',
           maxHeight: '100%'
         }}
