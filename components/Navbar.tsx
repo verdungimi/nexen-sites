@@ -48,7 +48,7 @@ export default function Navbar() {
                 window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
               }
             }}>
-              Csomagok
+              Árazás
             </StarBorder>
             <StarBorder thickness={2} speed="3.5s" color="white" as={Link} href="/blog" className="small text-xs font-medium whitespace-nowrap">
               Blog
@@ -145,7 +145,7 @@ export default function Navbar() {
                 window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
               }
             }}>
-              Csomagok
+              Árazás
             </a>
             <Link href="/blog" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
               Blog
