@@ -80,7 +80,7 @@ export default function FolyamatPage() {
                 {
                   step: "02",
                   title: "Tervezés és fejlesztés",
-                  description: "A következő napokban készítjük el a vázlatokat, a designt, majd fejlesztjük a weboldalt modern technológiákkal. Egyedi designnal készítünk, amely tökéletesen tükrözi a vállalkozásod.",
+                  description: "A következő napokban készítjük el a vázlatokat, a designnal, majd fejlesztjük a weboldalt modern technológiákkal. Egyedi designnal készítünk, amely tökéletesen tükrözi a vállalkozásod.",
                   icon: "🎨",
                 },
                 {
