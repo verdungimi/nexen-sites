@@ -195,7 +195,7 @@ export default function HomePageContent() {
                 weboldal
               </span>
               <span className="block text-white mt-1 md:mt-2 animate-fade-in-delay-2">
-                10 nap alatt, kockázat nélkül.
+                10 nap alatt
               </span>
             </h1>
 
