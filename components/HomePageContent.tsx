@@ -1,660 +1,571 @@
 "use client";
 
-import Link from "next/link";
-import Section from "@/components/Section";
-import CTAButton from "@/components/CTAButton";
-import FAQAccordion from "@/components/FAQAccordion";
-import TestimonialCard from "@/components/TestimonialCard";
-import FinAIHero from "@/components/FinAIHero";
-import ProcessTimeline from "@/components/ProcessTimeline";
-import HomePageStructuredData from "@/components/HomePageStructuredData";
-import DarkVeil from "@/components/DarkVeil.jsx";
-import "@/components/DarkVeil.css";
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Check, ArrowRight, Clock, Shield, Sparkles, Zap, Rocket } from "lucide-react";
+import HomePageStructuredData from "@/components/HomePageStructuredData";
+
+// Animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus({
+          type: "success",
+          message: "Üzenet sikeresen elküldve! Hamarosan felvesszük veled a kapcsolatot.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: data.error || "Hiba történt. Kérjük, próbáld újra.",
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: "Hiba történt az üzenet küldése során. Kérjük, próbáld később.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <Card className="border-gray-800 hover:border-gray-700 transition-colors">
+      <CardHeader>
+        <CardTitle>Küldj üzenetet</CardTitle>
+        <CardDescription>Írj nekünk, és hamarosan válaszolunk!</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <Input
+              type="text"
+              name="name"
+              placeholder="Neved"
+              value={formData.name}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
+              required
+            />
+          </div>
+          <div>
+            <Input
+              type="email"
+              name="email"
+              placeholder="Email címed"
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+              required
+            />
+          </div>
+          <div>
+            <Textarea
+              name="message"
+              placeholder="Üzeneted"
+              rows={6}
+              value={formData.message}
+              onChange={(e) =>
+                setFormData({ ...formData, message: e.target.value })
+              }
+              required
+            />
+          </div>
+          {submitStatus.message && (
+            <div
+              className={`p-3 rounded-lg text-sm ${
+                submitStatus.type === "success"
+                  ? "bg-green-500/20 text-green-400 border border-green-500/30"
+                  : "bg-red-500/20 text-red-400 border border-red-500/30"
+              }`}
+            >
+              {submitStatus.message}
+            </div>
+          )}
+          <Button type="submit" className="w-full" disabled={isSubmitting}>
+            {isSubmitting ? "Küldés..." : "Küldés"}
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
+  );
+}
 
 export default function HomePageContent() {
   return (
     <>
       <HomePageStructuredData />
-      {/* Hero Section - Fin AI Style */}
-      <section className="min-h-screen flex items-center justify-center relative pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-6 overflow-hidden">
-        {/* DarkVeil - Only on desktop */}
-        <div className="hidden md:block fixed inset-0 w-full h-full" style={{ zIndex: 1, pointerEvents: 'none' }}>
-          <DarkVeil
-            hueShift={0}
-            noiseIntensity={0}
-            scanlineIntensity={0}
-            speed={0.5}
-            scanlineFrequency={0}
-            warpAmount={0}
-            resolutionScale={1}
-          />
-        </div>
-        <FinAIHero />
+      
+      {/* Hero Section */}
+      <section className="min-h-[90vh] flex items-center justify-center relative pt-20 pb-16 px-4 overflow-hidden">
+        {/* Background Gradient Animation */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a2e] to-[#16213e] opacity-90"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#50AEDF]/10 via-transparent to-[#7C5CFF]/10"></div>
         
-        <div className="max-w-7xl mx-auto relative z-10 w-full" style={{ pointerEvents: 'auto' }}>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center">
-            {/* Left side info - Hidden on mobile, visible on lg+ */}
-            <div className="hidden lg:block lg:col-span-3 relative pr-4" style={{ minHeight: '600px' }}>
-              <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '8%', right: '12%', animationDelay: '0s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#50AEDF] drop-shadow-[0_0_15px_rgba(80,174,223,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-                <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">Mobilbarát</h3>
-              </div>
-              <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '52%', right: '-5%', animationDelay: '1.5s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#7C5CFF] drop-shadow-[0_0_15px_rgba(124,92,255,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">Gyors betöltés</h3>
-              </div>
-            </div>
+        <div className="container-custom max-w-5xl text-center relative z-10">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+          >
+            <motion.h1
+              variants={fadeInUp}
+              className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+            >
+              Professzionális{" "}
+              <span className="bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent">
+                weboldal
+              </span>{" "}
+              10 nap alatt.
+            </motion.h1>
+            
+            <motion.p
+              variants={fadeInUp}
+              className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed"
+            >
+              Modern, gyors és üzleti célokra optimalizált weboldalakat készítünk –
+              <br className="hidden md:block" />
+              fizess csak akkor, ha elégedett vagy.
+            </motion.p>
+            
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
+              <Button size="lg" className="text-lg px-8 py-6">
+                Kezdjük el a közös munkát
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
-            {/* Center content */}
-            <div className="lg:col-span-6 text-center">
-            {/* Large Typography - Fin AI Style */}
-            <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 md:mb-8 leading-[0.95] tracking-tight">
-              <div className="mb-4 md:mb-6 animate-fade-in flex justify-center">
-                <div className="inline-flex items-center justify-center px-3 py-2 md:px-5 md:py-3 bg-gradient-to-r from-[#ED5096]/30 via-[#ED5096]/40 to-[#ED5096]/30 border-2 border-[#ED5096] rounded-xl shadow-[0_0_30px_rgba(237,80,150,0.6)]">
-                  <span className="text-sm md:text-lg lg:text-xl font-bold text-white tracking-wide">4</span>
-                  <span className="text-sm md:text-lg lg:text-xl font-bold text-white mx-1 md:mx-1.5 tracking-wide">ügyfél</span>
-                  <span className="text-sm md:text-lg lg:text-xl font-bold text-white tracking-wide">havonta</span>
-                </div>
-              </div>
-              <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-fade-in">
-                Prémium
-              </span>
-              <span className="block bg-gradient-to-r from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent mt-1 md:mt-2 animate-fade-in-delay">
-                Weboldal
-              </span>
-              <span className="block text-white mt-1 md:mt-2 animate-fade-in-delay-2">
-                10 nap alatt
-              </span>
-            </h1>
-
-            {/* Subheadline - Minimal */}
-            <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 md:mb-12 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-delay-2 px-2">
-              Nexen weboldal készítés - Modern weboldal, ami működik. 10 nap, fix határidő, prémium eredmény. Weboldalak készítése vállalkozásoknak.
+      {/* Miért válassz minket Section */}
+      <section id="why" className="py-20 relative">
+        <div className="container-custom">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Miért a NexenSites?
+            </h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Amiért számos vállalkozás bízik bennünk
             </p>
+          </motion.div>
 
-            {/* CTAs - Minimal */}
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-12 md:mb-16 animate-fade-in-delay-2 px-2">
-              <CTAButton href="/book" variant="primary" className="text-sm md:text-base px-8 md:px-10 py-4 md:py-5 w-full sm:w-auto min-w-[180px] md:min-w-[200px]">
-                Időpont Foglalása
-              </CTAButton>
-              <CTAButton href="#pricing" variant="secondary" className="text-sm md:text-base px-8 md:px-10 py-4 md:py-5 w-full sm:w-auto min-w-[180px] md:min-w-[200px]">
-                Árak Megtekintése
-              </CTAButton>
-            </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {[
+              {
+                icon: Clock,
+                title: "10 nap alatt kész projekt",
+                description: "Teljes projekt átadás 10 napon belül – gyors, de nem sietősen.",
+              },
+              {
+                icon: Shield,
+                title: "Elégedettségi garancia",
+                description: "Fizess csak akkor, ha elégedett vagy az eredménnyel.",
+              },
+              {
+                icon: Sparkles,
+                title: "Teljesen egyedi design",
+                description: "Minden weboldal egyedi, üzletedre szabott megjelenéssel.",
+              },
+              {
+                icon: Zap,
+                title: "SEO & mobiloptimalizált",
+                description: "Kész a teljesítésre az első naptól, minden eszközön.",
+              },
+            ].map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <motion.div key={index} variants={fadeInUp}>
+                  <Card className="h-full border-gray-800 hover:border-[#50AEDF]/50 hover:shadow-lg hover:shadow-[#50AEDF]/10 transition-all duration-300">
+                    <CardHeader>
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#50AEDF]/20 to-[#7C5CFF]/20 flex items-center justify-center mb-4">
+                        <IconComponent className="w-6 h-6 text-[#50AEDF]" />
+                      </div>
+                      <CardTitle className="text-xl">{feature.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base text-gray-400">
+                        {feature.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
 
-            {/* Trust badges - Enhanced style with animations */}
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-12 mt-12 md:mt-20 px-2">
-              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.3)] hover:scale-105 transition-all duration-500 animate-float-up group">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 group-hover:text-[#7C5CFF] transition-colors duration-500 group-hover:scale-110 transition-transform duration-300">10</div>
-                <div className="text-xs md:text-sm lg:text-base text-[#EAF0FF] font-semibold">Napos szállítás</div>
-              </div>
-              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent mb-2 group-hover:from-[#50AEDF] group-hover:to-[#7C5CFF] transition-all duration-500 group-hover:scale-110 transition-transform duration-300">100%</div>
-                <div className="text-xs md:text-sm lg:text-base text-[#EAF0FF] font-semibold">Prémium minőség</div>
-              </div>
-            </div>
-            </div>
+      {/* A folyamat Section */}
+      <section id="process" className="py-20 relative bg-gray-900/30">
+        <div className="container-custom">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              A folyamat
+            </h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Egyszerű, átlátható lépések az eredményig
+            </p>
+          </motion.div>
 
-            {/* Right side info - Hidden on mobile, visible on lg+ */}
-            <div className="hidden lg:block lg:col-span-3 relative pl-4" style={{ minHeight: '600px' }}>
-              <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '10%', left: '12%', animationDelay: '0.75s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#7C5CFF] drop-shadow-[0_0_15px_rgba(124,92,255,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">SEO kész</h3>
-              </div>
-              <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '55%', left: '-5%', animationDelay: '2.25s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#50AEDF] drop-shadow-[0_0_15px_rgba(80,174,223,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <h3 className="relative z-10 text-sm font-bold text-white text-center whitespace-nowrap drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]">24/7 támogatás</h3>
-              </div>
+          <div className="relative max-w-5xl mx-auto">
+            {/* Connection line - hidden on mobile */}
+            <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#50AEDF]/50 to-transparent" />
+            
+            <div className="grid md:grid-cols-4 gap-8 relative">
+              {[
+                {
+                  step: "01",
+                  title: "Konzultáció",
+                  description: "Megbeszéljük a célokat, vállalkozásod arculatát és igényeidet, hogy tökéletesen megértsük a víziódat.",
+                },
+                {
+                  step: "02",
+                  title: "Tervezés és fejlesztés",
+                  description: "Csapatunk egyedi dizájnt készít és modern technológiákkal építi fel a weboldaladat.",
+                },
+                {
+                  step: "03",
+                  title: "Tesztelés és visszajelzés",
+                  description: "Átnézed a weboldalt, visszajelzést adsz, mi pedig finomítjuk a részleteket.",
+                },
+                {
+                  step: "04",
+                  title: "Indítás és támogatás",
+                  description: "Elindítjuk a weboldaladat és biztosítjuk, hogy minden tökéletesen működjön.",
+                },
+              ].map((process, index) => (
+                <motion.div
+                  key={index}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-100px" }}
+                  variants={fadeInUp}
+                  className="text-center relative"
+                >
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#50AEDF] to-[#7C5CFF] text-white flex items-center justify-center text-xl font-bold mx-auto mb-4 relative z-10 shadow-lg shadow-[#50AEDF]/30">
+                    {process.step}
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    {process.title}
+                  </h3>
+                  <p className="text-gray-400">{process.description}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Problems */}
-      <Section>
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <motion.div 
-            className="text-center mb-8 md:mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+      {/* Csomagok Section */}
+      <section id="packages" className="py-20 relative">
+        <div className="container-custom">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-[#EAF0FF]">
-              Mit veszítesz el rossz weboldallal?
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Válaszd ki a csomagod
             </h2>
-            <p className="text-base sm:text-lg text-[#A8B3C7] max-w-2xl mx-auto px-2">
-              Ezek a problémák közvetlenül a bevételbe és az üzleti eredményekbe fájnak
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Minden vállalkozásnak megfelelő megoldás
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-            {/* Card 1 - Lost Revenue */}
-            <motion.div 
-              className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#ED5096]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-10">
-                <div className="mb-4 md:mb-6">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#ED5096] to-[#ED5096]/60 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#ED5096]/30">
-                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
-                  Elveszett bevétel
-                </h3>
-                <p className="text-[#A8B3C7] leading-relaxed text-sm md:text-base">
-                  A látogatók megjelennek a weboldalon, de nem válthatók leadekké.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 2 - Wasted Ad Spend */}
-            <motion.div 
-              className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#ED5096]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-10">
-                <div className="mb-4 md:mb-6">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#ED5096] to-[#ED5096]/60 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#ED5096]/30">
-                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
-                  Elpazarolt hirdetési költség
-                </h3>
-                <p className="text-[#A8B3C7] leading-relaxed text-sm md:text-base">
-                  A hirdetések pénzt hoznak, de a weboldal nem zárja le a forgalmat.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 3 - Low Trust & Cheap Perception */}
-            <motion.div 
-              className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(237,80,150,0.3)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#ED5096] shadow-[0_0_25px_rgba(237,80,150,0.25)] hover:shadow-[0_0_45px_rgba(237,80,150,0.5)] hover:-translate-y-2 sm:col-span-2 lg:col-span-1"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#ED5096]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-10">
-                <div className="mb-4 md:mb-6">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#ED5096] to-[#ED5096]/60 rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#ED5096]/30">
-                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
-                  Alacsony megbízhatóság
-                </h3>
-                <p className="text-[#A8B3C7] leading-relaxed text-sm md:text-base">
-                  A weboldal átlagos vagy elavult, alacsony minőségű leadeket és árfigyelőket vonz.
-                </p>
-              </div>
-            </motion.div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                name: "Starter",
+                description: "Kisebb vállalkozásoknak és egyéni vállalkozóknak.",
+                features: [
+                  "Egy oldalas design",
+                  "Mobilbarát verzió",
+                  "Kapcsolati űrlap",
+                  "Alap SEO beállítás",
+                  "10 napos szállítás",
+                ],
+                highlighted: false,
+              },
+              {
+                name: "Profi",
+                description: "Növekvő vállalkozásoknak, akik több oldalra és funkcióra van szükségük.",
+                features: [
+                  "3-5 oldalas weboldal",
+                  "Egyedi design",
+                  "CMS integráció",
+                  "Fejlett SEO",
+                  "Analytics beállítás",
+                  "Egyedi animációk",
+                  "10 napos szállítás",
+                ],
+                highlighted: true,
+              },
+              {
+                name: "Prémium",
+                description: "Kialakult vállalkozásoknak, akik komplex megoldást keresnek.",
+                features: [
+                  "7-10 oldalas weboldal",
+                  "Teljes SEO optimalizálás",
+                  "Egyedi integrációk",
+                  "Prémium animációk",
+                  "Folyamatos támogatás",
+                  "10 napos szállítás",
+                ],
+                highlighted: false,
+              },
+            ].map((pkg, index) => (
+              <motion.div
+                key={index}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                variants={fadeInUp}
+              >
+                <Card
+                  className={`h-full transition-all duration-300 ${
+                    pkg.highlighted
+                      ? "border-2 border-[#50AEDF] shadow-xl shadow-[#50AEDF]/20 scale-105"
+                      : "border-gray-800 hover:border-gray-700"
+                  }`}
+                >
+                  <CardHeader>
+                    <CardTitle className="text-2xl">{pkg.name}</CardTitle>
+                    <CardDescription className="text-base mt-2">
+                      {pkg.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3 mb-6">
+                      {pkg.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <Check className="w-5 h-5 text-[#50AEDF] flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button
+                      variant={pkg.highlighted ? "default" : "outline"}
+                      className="w-full"
+                    >
+                      Érdekel ez a csomag
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* Solutions */}
-      <Section>
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <motion.div 
-            className="text-center mb-8 md:mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+      {/* Portfólió Section */}
+      <section id="portfolio" className="py-20 relative bg-gray-900/30">
+        <div className="container-custom">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4 text-[#EAF0FF]">
-              A megoldás
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Portfólió
             </h2>
-            <p className="text-base sm:text-lg text-[#A8B3C7] max-w-2xl mx-auto px-2">
-              Így oldjuk meg ezeket a problémákat
-            </p>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-            {/* Solution 1 */}
-            <motion.div 
-              className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#7C5CFF]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-10">
-                <div className="mb-4 md:mb-6">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#7C5CFF] to-[#50AEDF] rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#7C5CFF]/40">
-                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
-                  Konverziós struktúra
-                </h3>
-                <p className="text-white font-semibold leading-relaxed text-sm md:text-base">
-                  Egyértelmű cselekvésre vezeti a látogatókat, így több leadet hoz.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Solution 2 */}
-            <motion.div 
-              className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#7C5CFF]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-10">
-                <div className="mb-4 md:mb-6">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#7C5CFF] to-[#50AEDF] rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#7C5CFF]/40">
-                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
-                  Landing page logika
-                </h3>
-                <p className="text-white font-semibold leading-relaxed text-sm md:text-base">
-                  Kifejezetten a fizetett forgalom támogatására épül, maximális ROI-val.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Solution 3 */}
-            <motion.div 
-              className="group relative bg-gradient-to-br from-[#7C5CFF]/20 via-[#50AEDF]/20 to-[#7C5CFF]/20 backdrop-blur-xl border-2 border-[rgba(124,92,255,0.4)] rounded-2xl md:rounded-3xl p-6 md:p-8 lg:p-10 transition-all duration-500 hover:border-[#7C5CFF] hover:shadow-[0_0_45px_rgba(124,92,255,0.5)] hover:-translate-y-2"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#7C5CFF]/10 via-transparent to-transparent rounded-2xl md:rounded-3xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-10">
-                <div className="mb-4 md:mb-6">
-                  <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#7C5CFF] to-[#50AEDF] rounded-xl flex items-center justify-center mb-3 md:mb-4 shadow-lg shadow-[#7C5CFF]/40">
-                    <svg className="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 md:mb-5 leading-tight">
-                  Prémium design
-                </h3>
-                <p className="text-white font-semibold leading-relaxed text-sm md:text-base">
-                  Kiszűri a nem minősített érdeklődőket, magasabb minőségű leadeket hoz.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Process Timeline */}
-      <Section id="process">
-        <div className="max-w-5xl mx-auto">
-          <motion.div 
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
-              10 napos folyamat
-            </h2>
-            <p className="text-lg text-[#A8B3C7]">
-              Tiszta lépések, átlátható kommunikáció, időben szállítás
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Nézd meg, mit készítettünk ügyfeleinknek
             </p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-3 gap-6"
           >
-            <ProcessTimeline />
+            {[1, 2, 3, 4, 5, 6].map((item) => (
+              <motion.div
+                key={item}
+                variants={fadeInUp}
+                className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 aspect-video hover:shadow-xl hover:shadow-[#50AEDF]/20 transition-all duration-300 cursor-pointer border border-gray-800 hover:border-[#50AEDF]/50"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-[#50AEDF]/20 to-[#7C5CFF]/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span className="text-white font-semibold text-lg">
+                    Projekt {item}
+                  </span>
+                </div>
+                <div className="w-full h-full bg-gradient-to-br from-gray-700/50 to-gray-800/50" />
+              </motion.div>
+            ))}
           </motion.div>
         </div>
-      </Section>
+      </section>
 
-      {/* Pricing */}
-      <Section id="pricing">
-        <motion.div 
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
-            Árazás
-          </h2>
-          <p className="text-lg text-[#A8B3C7]">
-            Átlátható árazás, nincsenek meglepetések
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Starter */}
-          <motion.div 
-            className="group bg-[#0F1620] border border-[#50AEDF]/30 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-1 hover:border-[#50AEDF] hover:shadow-[0_0_30px_rgba(80,174,223,0.3)]"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <h3 className="text-xl font-bold mb-2 text-[#EAF0FF] group-hover:text-[#50AEDF] transition-colors">Kezdő</h3>
-            <div className="text-3xl font-bold mb-4 text-[#EAF0FF] group-hover:text-[#50AEDF] transition-colors">
-              299 000 Ft
-            </div>
-            <p className="text-[#A8B3C7] mb-6 text-sm">1 oldalas landing</p>
-            <ul className="space-y-2 mb-6">
-              <li className="flex items-start gap-2">
-                <span className="text-[#50AEDF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">Egy oldalas design</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#50AEDF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">Mobilbarát</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#50AEDF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">Kapcsolati űrlap</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#50AEDF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">10 napos szállítás</span>
-              </li>
-            </ul>
-            <CTAButton href="/book" variant="secondary" className="w-full text-sm">
-              Kezdjük el
-            </CTAButton>
-          </motion.div>
-
-          {/* Standard - Featured */}
-          <motion.div 
-            className="bg-[#0F1620] border-2 border-[#7C5CFF] rounded-3xl p-10 relative hover:shadow-[0_0_30px_rgba(124,92,255,0.3)] transition-all duration-300 hover:-translate-y-1 md:scale-105 md:-mt-6 md:mb-6"
-            initial={{ opacity: 0, y: 30, scale: 0.98 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#7C5CFF] text-white text-xs font-bold px-4 py-1 rounded-full">
-              Legnépszerűbb
-            </div>
-            <div className="text-center mb-6">
-              <h3 className="text-3xl font-bold mb-3 text-[#EAF0FF]">Standard</h3>
-              <div className="text-5xl font-bold mb-3 text-[#EAF0FF]">
-                499 000 Ft
-              </div>
-              <p className="text-[#A8B3C7] mb-6">3-5 oldalas weboldal</p>
-            </div>
-            <ul className="space-y-2 mb-6">
-              <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">3-5 oldalas design</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">Mobilbarát</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">Kapcsolati űrlap</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">Fejlett SEO</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">Egyedi animációk</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">Tartalomkezelés</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">Analytics beállítás</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[#7C5CFF] font-bold">✓</span>
-                <span className="text-[#A8B3C7] text-sm">10 napos szállítás</span>
-              </li>
-            </ul>
-            
-            <CTAButton href="/book" variant="primary" className="w-full">
-              Időpont Foglalása
-            </CTAButton>
-          </motion.div>
-
-          {/* Pro */}
-          <motion.div 
-            className="group relative bg-[#0F1620] border border-[rgba(255,215,0,0.3)] rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2 hover:border-[#FFD700] hover:shadow-[0_0_50px_rgba(255,215,0,0.5),0_0_100px_rgba(255,215,0,0.3)]"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/10 via-[#FFA500]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="relative z-10">
-              <h3 className="text-xl font-bold mb-2 bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent group-hover:from-[#FFD700] group-hover:to-[#FFA500] transition-all">Pro</h3>
-              <div className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent group-hover:from-[#FFD700] group-hover:to-[#FFA500] transition-all">
-                799 000 Ft
-              </div>
-              <p className="text-[#A8B3C7] mb-6 text-sm">Teljes weboldal + extrák</p>
-              <ul className="space-y-2 mb-6">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FFD700] font-bold group-hover:text-[#FFA500] transition-colors">✓</span>
-                  <span className="text-[#A8B3C7] text-sm">7-10 oldalas design</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FFD700] font-bold group-hover:text-[#FFA500] transition-colors">✓</span>
-                  <span className="text-[#A8B3C7] text-sm">Teljes SEO optimalizálás</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FFD700] font-bold group-hover:text-[#FFA500] transition-colors">✓</span>
-                  <span className="text-[#A8B3C7] text-sm">Egyedi integrációk</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FFD700] font-bold group-hover:text-[#FFA500] transition-colors">✓</span>
-                  <span className="text-[#A8B3C7] text-sm">Prémium animációk</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FFD700] font-bold group-hover:text-[#FFA500] transition-colors">✓</span>
-                  <span className="text-[#A8B3C7] text-sm">Folyamatos támogatás</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#FFD700] font-bold group-hover:text-[#FFA500] transition-colors">✓</span>
-                  <span className="text-[#A8B3C7] text-sm">10 napos szállítás</span>
-                </li>
-              </ul>
-              <CTAButton href="/book" variant="secondary" className="w-full text-sm">
-                Kezdjük el
-              </CTAButton>
-            </div>
-          </motion.div>
-        </div>
-        <motion.div 
-          className="mt-8 text-center space-y-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-20px" }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
-          <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 inline-block">
-            <p className="text-[#A8B3C7]">
-              <strong className="text-[#EAF0FF]">10 napos szállítási garancia</strong> — ha lemaradunk a határidőről, 20%-ot visszatérítünk.
-            </p>
-          </div>
-          <div>
-            <CTAButton href="/packages" variant="secondary" className="text-base px-8 py-4">
-              További csomagok megtekintése
-            </CTAButton>
-          </div>
-        </motion.div>
-      </Section>
-
-      {/* Testimonials */}
-      <Section id="testimonials">
-        <motion.div 
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
-            Mit mondanak az ügyfeleink
-          </h2>
-        </motion.div>
-
-        <motion.div 
-          className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-20px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <TestimonialCard
-            name="Kovács Péter"
-            business="Tanácsadó"
-            testimonial="10 nap alatt kész volt a weboldalam. Gyors, profi, és pontosan azt kaptam, amit vártam."
-            result="Több érdeklődő, komolyabb megkeresések"
-          />
-          <TestimonialCard
-            name="Nagy Anna"
-            business="Fodrászszalon"
-            testimonial="Végre van egy modern, mobilbarát weboldalam. A klienseim egyszerűen foglalhatnak időpontot."
-            result="Növekvő online foglalások"
-          />
-          <TestimonialCard
-            name="Horváth Tamás"
-            business="E-commerce startup"
-            testimonial="A landing page-ünk 10 nap alatt készült, és azonnal látható volt a különbség a konverzióban."
-            result="Jobb konverziós arány"
-          />
-        </motion.div>
-      </Section>
-
-      {/* FAQ */}
-      <Section id="faq">
-        <div className="max-w-3xl mx-auto">
-          <motion.div 
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#EAF0FF]">
-              Gyakran ismételt kérdések
-            </h2>
-          </motion.div>
-
+      {/* Rólunk Section */}
+      <section id="about" className="py-20 relative">
+        <div className="container-custom max-w-4xl">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center"
           >
-            <FAQAccordion
-              items={[
-                {
-                  question: "Tényleg 10 nap alatt kész?",
-                  answer: "Igen, ha az anyagok (szöveg, logo, képek) a kickoff után 48 órán belül megérkeznek, és max. 2 kör módosításra van szükség a designban. A 10 napos határidő ezekkel a feltételekkel garantált.",
-                },
-                {
-                  question: "Mi kell tőlem hozzá?",
-                  answer: "Logo (vagy segítünk választani), színek, szöveg (vagy irányított kérdésekkel segítünk írni), referenciák/képek (ha van), és domain/tárhely hozzáférés (vagy ajánlunk megbízható partnereket).",
-                },
-                {
-                  question: "Van-e havi díj?",
-                  answer: "A weboldal elkészítése egyszeri díj. Ha szeretnéd, hogy karbantartjuk, frissítsük, biztonsági mentéseket készítsünk, akkor lehetőség van havi karbantartási csomagra is.",
-                },
-                {
-                  question: "Milyen rendszerben készül?",
-                  answer: "Modern, gyors technológiákat használunk (Next.js, React, TypeScript). A weboldal gyors, SEO-barát, és könnyen bővíthető lesz.",
-                },
-                {
-                  question: "Tudok később bővíteni?",
-                  answer: "Igen, természetesen! Bármikor kérhetsz új oldalakat, funkciókat vagy design frissítéseket. Egyeztetünk egyedi árazást.",
-                },
-                {
-                  question: "Mit tartalmaz a 10 napos csomag?",
-                  answer: "Design, fejlesztés, alap SEO, mobilbarát verzió, kapcsolati űrlap, és átadás dokumentációval. Extra funkciók (webshop, foglalási rendszer stb.) külön egyeztetendők.",
-                },
-              ]}
-            />
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              Rólunk
+            </h2>
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
+              Célunk, hogy vállalkozásod online jelenléte olyan legyen, ami valóban értékes ügyfeleket hoz. 
+              Nem csak weboldalt készítünk – <span className="text-[#50AEDF] font-semibold">eredményt építünk</span>.
+              <br /><br />
+              Tapasztalt csapatunk minden projektet egyedi figyelemmel kezel, és az üzleti célokra fókuszálva 
+              dolgozik. Megbízható partnere vagyunk a sikeres online megjelenéshez.
+            </p>
           </motion.div>
         </div>
-      </Section>
+      </section>
 
-      {/* Final CTA */}
-      <Section id="contact">
-        <motion.div 
-          className="max-w-4xl mx-auto text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#EAF0FF]">
-            Szeretnéd, hogy 10 nap múlva élőben legyen?
-          </h2>
-          <p className="text-xl text-[#A8B3C7] mb-8">
-            Foglalj időpontot, beszéljük meg a projektedet és kezdjük el.
-          </p>
-          <div className="flex flex-col items-center gap-6">
-            <CTAButton href="/book" variant="primary" className="text-lg px-8 py-4">
-              Időpont Foglalása
-            </CTAButton>
-            
-            {/* Availability Warning */}
-            <div className="flex items-center gap-3 px-6 py-4 bg-gradient-to-r from-[#ED5096]/20 via-[#ED5096]/30 to-[#ED5096]/20 border-2 border-[#ED5096] rounded-xl shadow-[0_0_30px_rgba(237,80,150,0.4)] animate-pulse">
-              <svg className="w-6 h-6 text-[#ED5096] animate-bounce flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-              <span className="text-white font-bold text-lg">
-                Ebben a hónapban már csak <span className="text-[#ED5096] text-2xl font-black">3 hely</span> maradt!
-              </span>
-            </div>
+      {/* Kapcsolat Section */}
+      <section id="contact" className="py-20 relative bg-gray-900/30">
+        <div className="container-custom max-w-4xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Lépj kapcsolatba velünk
+            </h2>
+            <p className="text-lg text-gray-400">
+              Készen állsz a projekted elkezdésére? Beszéljük meg!
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+            >
+              <ContactForm />
+            </motion.div>
+
+            {/* Contact Info */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="space-y-6"
+            >
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-4">
+                  Elérhetőségek
+                </h3>
+                <div className="space-y-4 text-gray-300">
+                  <div>
+                    <p className="font-semibold mb-1 text-white">Email</p>
+                    <a
+                      href="mailto:info@nexensites.hu"
+                      className="text-[#50AEDF] hover:text-[#4098cc] transition-colors"
+                    >
+                      info@nexensites.hu
+                    </a>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-1 text-white">Telefon</p>
+                    <a
+                      href="tel:+36705767845"
+                      className="text-[#50AEDF] hover:text-[#4098cc] transition-colors"
+                    >
+                      +36 70 576 7845
+                    </a>
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-1 text-white">Helyszín</p>
+                    <p className="text-gray-400">Kecskemét, Magyarország</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
-      </Section>
+        </div>
+      </section>
     </>
   );
 }
-

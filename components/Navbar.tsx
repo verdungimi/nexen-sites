@@ -1,205 +1,180 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import StarBorder from "@/components/StarBorder";
-import "@/components/StarBorder.css";
-import { MouseEvent } from "react";
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsOpen(false);
+    
+    if (href.startsWith("#")) {
+      const targetId = href.slice(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        const offset = 80;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+      }
+    } else if (href.includes("#")) {
+      const [path, hash] = href.split("#");
+      if (window.location.pathname === path) {
+        const target = document.getElementById(hash);
+        if (target) {
+          const offset = 80;
+          const elementPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+        }
+      } else {
+        window.location.href = href;
+      }
+    } else {
+      window.location.href = href;
+    }
+  };
 
   return (
-    <nav className="sticky top-2 md:top-4 z-50 px-2 sm:px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center h-12 md:h-14 pl-2 sm:pl-4 md:pl-6 pr-2 md:pr-2 gap-2 sm:gap-3 relative">
-          <Link href="/" className="group flex-shrink-0 nexen-logo-wrapper">
-            <span className="text-2xl md:text-3xl font-black inline-flex">
-              <span className="nexen-logo-ne logo-wave-1 inline-block">NE</span>
-              <span className="nexen-logo-x logo-wave-2 inline-block">X</span>
-              <span className="nexen-logo-en logo-wave-3 inline-block">EN</span>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-gray-900/95 backdrop-blur-md shadow-lg border-b border-gray-800"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container-custom">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <Link href="/" className="flex-shrink-0">
+            <span className="text-2xl md:text-3xl font-bold text-white">
+              Nexen<span className="text-[#50AEDF]">Sites</span>
             </span>
           </Link>
-          
-          {/* Desktop Menu - Centered */}
-          <div className="hidden md:flex items-center space-x-1.5 flex-1 justify-center absolute left-1/2 transform -translate-x-1/2 flex-nowrap">
-            <StarBorder thickness={2} speed="3.5s" color="white" as={Link} href="/" className="small text-xs font-medium whitespace-nowrap">
-              Kezdőlap
-            </StarBorder>
-            <StarBorder thickness={2} speed="3.5s" color="white" as="a" href="#process" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              const target = document.getElementById('process');
-              if (target) {
-                const offset = 100;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-              }
-            }}>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
+            <a
+              href="/"
+              onClick={(e) => handleLinkClick(e, "/")}
+              className="text-gray-300 hover:text-white transition-colors font-medium"
+            >
+              Főoldal
+            </a>
+            <a
+              href="/#process"
+              onClick={(e) => handleLinkClick(e, "/#process")}
+              className="text-gray-300 hover:text-white transition-colors font-medium"
+            >
               Folyamat
-            </StarBorder>
-            <StarBorder thickness={2} speed="3.5s" color="white" as="a" href="#pricing" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              const target = document.getElementById('pricing');
-              if (target) {
-                const offset = 100;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-              }
-            }}>
-              Árazás
-            </StarBorder>
-            <StarBorder thickness={2} speed="3.5s" color="white" as={Link} href="/blog" className="small text-xs font-medium whitespace-nowrap">
-              Blog
-            </StarBorder>
-            <StarBorder thickness={2} speed="3.5s" color="white" as={Link} href="/rolunk" className="small text-xs font-medium whitespace-nowrap">
+            </a>
+            <a
+              href="/#packages"
+              onClick={(e) => handleLinkClick(e, "/#packages")}
+              className="text-gray-300 hover:text-white transition-colors font-medium"
+            >
+              Csomagok
+            </a>
+            <a
+              href="/#about"
+              onClick={(e) => handleLinkClick(e, "/#about")}
+              className="text-gray-300 hover:text-white transition-colors font-medium"
+            >
               Rólunk
-            </StarBorder>
-            <StarBorder thickness={2} speed="3.5s" color="white" as="a" href="/#faq" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              const currentPath = window.location.pathname;
-              if (currentPath === '/' || currentPath === '') {
-                const target = document.getElementById('faq');
-                if (target) {
-                  const offset = 100;
-                  const elementPosition = target.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - offset;
-                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                }
-              } else {
-                window.location.href = '/#faq';
-              }
-            }}>
-              GYIK
-            </StarBorder>
-            <StarBorder thickness={2} speed="3.5s" color="white" as="a" href="/#contact" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              const currentPath = window.location.pathname;
-              if (currentPath === '/' || currentPath === '') {
-                const target = document.getElementById('contact');
-                if (target) {
-                  const offset = 100;
-                  const elementPosition = target.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - offset;
-                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                }
-              } else {
-                window.location.href = '/#contact';
-              }
-            }}>
+            </a>
+            <a
+              href="/#contact"
+              onClick={(e) => handleLinkClick(e, "/#contact")}
+              className="text-gray-300 hover:text-white transition-colors font-medium"
+            >
               Kapcsolat
-            </StarBorder>
+            </a>
           </div>
 
-          {/* CTA Button - Right */}
-          <div className="hidden md:block flex-shrink-0 ml-auto -mr-2">
-            <Link href="/book" className="px-7 py-3 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white rounded-xl hover:shadow-[0_0_30px_rgba(124,92,255,0.7)] hover:scale-105 transition-all duration-300 font-semibold text-base shadow-lg">
-              Időpont Foglalása
-            </Link>
+          {/* Desktop CTA */}
+          <div className="hidden md:block">
+            <Button 
+              asChild 
+              size="lg"
+              className="bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white border-0"
+            >
+              <a href="/#contact" onClick={(e) => handleLinkClick(e, "/#contact")}>
+                Kérj ingyenes konzultációt
+              </a>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-white hover:bg-[rgba(255,255,255,0.1)] transition-colors"
+            className="md:hidden p-2 rounded-lg text-white hover:bg-gray-800 transition-colors"
             aria-label="Menu"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-3 mt-4">
-            <Link href="/" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
-              Kezdőlap
-            </Link>
-            <a href="#process" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              setIsOpen(false);
-              const target = document.getElementById('process');
-              if (target) {
-                const offset = 100;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-              }
-            }}>
+          <div className="md:hidden py-4 space-y-2 border-t border-gray-800 mt-2">
+            <a
+              href="/"
+              onClick={(e) => handleLinkClick(e, "/")}
+              className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors font-medium"
+            >
+              Főoldal
+            </a>
+            <a
+              href="/#process"
+              onClick={(e) => handleLinkClick(e, "/#process")}
+              className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors font-medium"
+            >
               Folyamat
             </a>
-            <a href="#pricing" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              setIsOpen(false);
-              const target = document.getElementById('pricing');
-              if (target) {
-                const offset = 100;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-              }
-            }}>
-              Árazás
+            <a
+              href="/#packages"
+              onClick={(e) => handleLinkClick(e, "/#packages")}
+              className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors font-medium"
+            >
+              Csomagok
             </a>
-            <Link href="/blog" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
-              Blog
-            </Link>
-            <Link href="/rolunk" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
+            <a
+              href="/#about"
+              onClick={(e) => handleLinkClick(e, "/#about")}
+              className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors font-medium"
+            >
               Rólunk
-            </Link>
-            <a href="/#faq" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              setIsOpen(false);
-              const currentPath = window.location.pathname;
-              if (currentPath === '/' || currentPath === '') {
-                // Ha a főoldalon vagyunk, görgessünk a faq szekcióhoz
-                setTimeout(() => {
-                  const target = document.getElementById('faq');
-                  if (target) {
-                    const offset = 100;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset;
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                  }
-                }, 100);
-              } else {
-                // Ha más oldalon vagyunk, navigáljunk a főoldalra a faq szekcióval
-                window.location.href = '/#faq';
-              }
-            }}>
-              GYIK
             </a>
-            <a href="/#contact" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              setIsOpen(false);
-              const currentPath = window.location.pathname;
-              if (currentPath === '/' || currentPath === '') {
-                // Ha a főoldalon vagyunk, görgessünk a contact szekcióhoz
-                setTimeout(() => {
-                  const target = document.getElementById('contact');
-                  if (target) {
-                    const offset = 100;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset;
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                  }
-                }, 100);
-              } else {
-                // Ha más oldalon vagyunk, navigáljunk a főoldalra a contact szekcióval
-                window.location.href = '/#contact';
-              }
-            }}>
+            <a
+              href="/#contact"
+              onClick={(e) => handleLinkClick(e, "/#contact")}
+              className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors font-medium"
+            >
               Kapcsolat
             </a>
-            <Link href="/book" className="block px-5 py-2.5 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white rounded-xl hover:shadow-[0_0_25px_rgba(124,92,255,0.6)] hover:scale-105 transition-all duration-300 font-medium text-xs text-center shadow-lg" onClick={() => setIsOpen(false)}>
-              Időpont Foglalása
-            </Link>
+            <div className="pt-2">
+              <Button 
+                asChild 
+                className="w-full bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white border-0"
+              >
+                <a href="/#contact" onClick={(e) => handleLinkClick(e, "/#contact")}>
+                  Kérj ingyenes konzultációt
+                </a>
+              </Button>
+            </div>
           </div>
         )}
       </div>
