@@ -166,7 +166,7 @@ export default function HomePageContent() {
         </div>
         <FinAIHero />
         
-        <div className="max-w-7xl mx-auto relative z-10 w-full" style={{ pointerEvents: 'auto' }}>
+        <div className="max-w-7xl mx-auto relative z-20 w-full" style={{ pointerEvents: 'auto' }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center">
             {/* Left side info - Hidden on mobile, visible on lg+ */}
             <div className="hidden lg:block lg:col-span-3 relative pr-4" style={{ minHeight: '600px' }}>
@@ -254,7 +254,7 @@ export default function HomePageContent() {
       </section>
 
       {/* Miért válassz minket Section */}
-      <section id="why" className="py-20 relative">
+      <section id="why" className="py-20 relative z-10">
         <div className="container-custom">
           <motion.div
             initial="hidden"
@@ -324,7 +324,7 @@ export default function HomePageContent() {
       </section>
 
       {/* A folyamat Section */}
-      <section id="process" className="py-20 relative bg-gray-900/30">
+      <section id="process" className="py-20 relative bg-gray-900/30 z-10">
         <div className="container-custom">
           <motion.div
             initial="hidden"
@@ -391,7 +391,7 @@ export default function HomePageContent() {
       </section>
 
       {/* Csomagok Section */}
-      <section id="packages" className="py-20 relative">
+      <section id="packages" className="py-20 relative z-10">
         <div className="container-custom">
           <motion.div
             initial="hidden"
@@ -494,7 +494,7 @@ export default function HomePageContent() {
       </section>
 
       {/* Portfólió Section */}
-      <section id="portfolio" className="py-20 relative bg-gray-900/30">
+      <section id="portfolio" className="py-20 relative bg-gray-900/30 z-10">
         <div className="container-custom">
           <motion.div
             initial="hidden"
@@ -537,7 +537,7 @@ export default function HomePageContent() {
       </section>
 
       {/* Rólunk Section */}
-      <section id="about" className="py-20 relative">
+      <section id="about" className="py-20 relative z-10">
         <div className="container-custom max-w-4xl">
           <motion.div
             initial="hidden"
@@ -561,7 +561,7 @@ export default function HomePageContent() {
       </section>
 
       {/* Kapcsolat Section */}
-      <section id="contact" className="py-20 relative bg-gray-900/30">
+      <section id="contact" className="py-20 relative bg-gray-900/30 z-10">
         <div className="container-custom max-w-4xl">
           <motion.div
             initial="hidden"
