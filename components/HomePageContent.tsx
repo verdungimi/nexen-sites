@@ -447,19 +447,26 @@ export default function HomePageContent() {
                 variants={fadeInUp}
               >
                 <Card
-                  className={`h-full transition-all duration-300 ${
+                  className={`h-full transition-all duration-500 group relative overflow-hidden ${
                     pkg.highlighted
-                      ? "border-2 border-[#50AEDF] shadow-xl shadow-[#50AEDF]/20 scale-105"
-                      : "border-gray-800 hover:border-gray-700"
-                  }`}
+                      ? "border-2 border-[#50AEDF] shadow-xl shadow-[#50AEDF]/20"
+                      : "border-gray-800"
+                  } hover:-translate-y-2 hover:border-[#50AEDF] hover:shadow-[0_0_50px_rgba(80,174,223,0.4)]`}
                 >
-                  <CardHeader>
-                    <CardTitle className="text-2xl">{pkg.name}</CardTitle>
-                    <CardDescription className="text-base mt-2">
-                      {pkg.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
+                  {pkg.highlighted && (
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#50AEDF]/10 via-transparent to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  )}
+                  {!pkg.highlighted && (
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#50AEDF]/5 via-transparent to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  )}
+                  <div className="relative z-10">
+                    <CardHeader>
+                      <CardTitle className={`text-2xl ${!pkg.highlighted ? 'group-hover:text-[#50AEDF] transition-colors' : ''}`}>{pkg.name}</CardTitle>
+                      <CardDescription className="text-base mt-2">
+                        {pkg.description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
                     <ul className="space-y-3 mb-6">
                       {pkg.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-3">
@@ -475,7 +482,8 @@ export default function HomePageContent() {
                     >
                       Érdekel ez a csomag
                     </CTAButton>
-                  </CardContent>
+                    </CardContent>
+                  </div>
                 </Card>
               </motion.div>
             ))}
