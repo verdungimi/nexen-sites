@@ -1,6 +1,6 @@
 "use client";
 
-import type { Metadata } from "next";
+import { useState } from "react";
 import FinAIHero from "@/components/FinAIHero";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
@@ -10,9 +10,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { useState } from "react";
-
-// Metadata removed because this is now a client component
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
