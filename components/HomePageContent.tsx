@@ -187,8 +187,8 @@ export default function HomePageContent() {
             {/* Center content */}
             <div className="lg:col-span-6 text-center">
             {/* Large Typography - Fin AI Style */}
-            <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 md:mb-8 leading-[0.95] tracking-tight">
-              <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-fade-in">
+            <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 md:mb-8 leading-[1.1] tracking-tight break-words">
+              <span className="inline-block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-fade-in whitespace-nowrap">
                 Professzionális
               </span>
               <span className="block bg-gradient-to-r from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent mt-1 md:mt-2 animate-fade-in-delay">
@@ -484,49 +484,6 @@ export default function HomePageContent() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Portfólió Section */}
-      <section id="portfolio" className="py-20 relative bg-gray-900/30 z-10">
-        <div className="container-custom">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Portfólió
-            </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Nézd meg, mit készítettünk ügyfeleinknek
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="grid md:grid-cols-3 gap-6"
-          >
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <motion.div
-                key={item}
-                variants={fadeInUp}
-                className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 aspect-video hover:shadow-xl hover:shadow-[#50AEDF]/20 transition-all duration-300 cursor-pointer border border-gray-800 hover:border-[#50AEDF]/50"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#50AEDF]/20 to-[#7C5CFF]/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <span className="text-white font-semibold text-lg">
-                    Projekt {item}
-                  </span>
-                </div>
-                <div className="w-full h-full bg-gradient-to-br from-gray-700/50 to-gray-800/50" />
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
