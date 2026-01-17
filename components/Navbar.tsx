@@ -67,36 +67,41 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link
+            <a
               href="/"
+              onClick={(e) => handleLinkClick(e, "/")}
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
               Főoldal
-            </Link>
-            <Link
-              href="/folyamat"
+            </a>
+            <a
+              href="/#process"
+              onClick={(e) => handleLinkClick(e, "/#process")}
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
               Folyamat
-            </Link>
-            <Link
-              href="/packages"
+            </a>
+            <a
+              href="/#packages"
+              onClick={(e) => handleLinkClick(e, "/#packages")}
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
               Csomagok
-            </Link>
-            <Link
-              href="/rolunk"
+            </a>
+            <a
+              href="/#about"
+              onClick={(e) => handleLinkClick(e, "/#about")}
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
               Rólunk
-            </Link>
-            <Link
-              href="/kapcsolat"
+            </a>
+            <a
+              href="/#contact"
+              onClick={(e) => handleLinkClick(e, "/#contact")}
               className="text-gray-300 hover:text-white transition-colors font-medium"
             >
               Kapcsolat
-            </Link>
+            </a>
           </div>
 
           {/* Desktop CTA */}
@@ -106,9 +111,9 @@ export default function Navbar() {
               size="lg"
               className="bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white border-0"
             >
-              <Link href="/kapcsolat">
+              <a href="/#contact" onClick={(e) => handleLinkClick(e, "/#contact")}>
                 Kérj ingyenes konzultációt
-              </Link>
+              </a>
             </Button>
           </div>
 
@@ -125,49 +130,49 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden py-4 space-y-2 border-t border-gray-800 mt-2">
-            <Link
+            <a
               href="/"
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => handleLinkClick(e, "/")}
               className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors font-medium"
             >
               Főoldal
-            </Link>
-            <Link
-              href="/folyamat"
-              onClick={() => setIsOpen(false)}
+            </a>
+            <a
+              href="/#process"
+              onClick={(e) => handleLinkClick(e, "/#process")}
               className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors font-medium"
             >
               Folyamat
-            </Link>
-            <Link
-              href="/packages"
-              onClick={() => setIsOpen(false)}
+            </a>
+            <a
+              href="/#packages"
+              onClick={(e) => handleLinkClick(e, "/#packages")}
               className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors font-medium"
             >
               Csomagok
-            </Link>
-            <Link
-              href="/rolunk"
-              onClick={() => setIsOpen(false)}
+            </a>
+            <a
+              href="/#about"
+              onClick={(e) => handleLinkClick(e, "/#about")}
               className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors font-medium"
             >
               Rólunk
-            </Link>
-            <Link
-              href="/kapcsolat"
-              onClick={() => setIsOpen(false)}
+            </a>
+            <a
+              href="/#contact"
+              onClick={(e) => handleLinkClick(e, "/#contact")}
               className="block px-4 py-2 text-gray-300 hover:text-white hover:bg-gray-800 rounded-lg transition-colors font-medium"
             >
               Kapcsolat
-            </Link>
+            </a>
             <div className="pt-2">
               <Button 
                 asChild 
                 className="w-full bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white border-0"
               >
-                <Link href="/kapcsolat" onClick={() => setIsOpen(false)}>
+                <a href="/#contact" onClick={(e) => handleLinkClick(e, "/#contact")}>
                   Kérj ingyenes konzultációt
-                </Link>
+                </a>
               </Button>
             </div>
           </div>
