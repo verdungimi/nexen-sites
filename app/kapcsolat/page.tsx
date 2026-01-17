@@ -1,3 +1,5 @@
+"use client";
+
 import type { Metadata } from "next";
 import FinAIHero from "@/components/FinAIHero";
 import Section from "@/components/Section";
@@ -8,27 +10,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useState } from "react";
 
-export const metadata: Metadata = {
-  title: "Kapcsolat | Nexen Sites - Weboldal Készítés",
-  description: "Lépj velünk kapcsolatba! Írj nekünk üzenetet, vagy foglalj időpontot. Kecskemét, Magyarország.",
-  keywords: [
-    "nexen",
-    "nexen weboldal",
-    "kapcsolat",
-    "weboldal készítés",
-    "nexen sites",
-  ],
-  openGraph: {
-    title: "Kapcsolat | Nexen Sites - Weboldal Készítés",
-    description: "Lépj velünk kapcsolatba! Írj nekünk üzenetet, vagy foglalj időpontot. Kecskemét, Magyarország.",
-    type: "website",
-    url: "https://nexensites.hu/kapcsolat",
-  },
-  alternates: {
-    canonical: "https://nexensites.hu/kapcsolat",
-  },
-};
+// Metadata removed because this is now a client component
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -36,6 +20,55 @@ const fadeInUp = {
 };
 
 function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus({
+          type: "success",
+          message: "Üzenet sikeresen elküldve! Hamarosan felvesszük veled a kapcsolatot.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: data.error || "Hiba történt. Kérjük, próbáld újra.",
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message: "Hiba történt az üzenet küldése során. Kérjük, próbáld később.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <Card className="border-gray-800 hover:border-gray-700 transition-colors">
       <CardHeader>
@@ -43,12 +76,16 @@ function ContactForm() {
         <CardDescription>Írj nekünk, és hamarosan válaszolunk!</CardDescription>
       </CardHeader>
       <CardContent>
-        <form action="/api/contact" method="POST" className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <Input
               type="text"
               name="name"
               placeholder="Neved"
+              value={formData.name}
+              onChange={(e) =>
+                setFormData({ ...formData, name: e.target.value })
+              }
               required
               className="bg-gray-900/50 border-gray-800"
             />
@@ -58,6 +95,10 @@ function ContactForm() {
               type="email"
               name="email"
               placeholder="Email címed"
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
               required
               className="bg-gray-900/50 border-gray-800"
             />
@@ -67,15 +108,31 @@ function ContactForm() {
               name="message"
               placeholder="Üzeneted"
               rows={6}
+              value={formData.message}
+              onChange={(e) =>
+                setFormData({ ...formData, message: e.target.value })
+              }
               required
               className="bg-gray-900/50 border-gray-800"
             />
           </div>
+          {submitStatus.type && (
+            <div
+              className={`p-4 rounded-lg ${
+                submitStatus.type === "success"
+                  ? "bg-green-900/30 border border-green-700 text-green-400"
+                  : "bg-red-900/30 border border-red-700 text-red-400"
+              }`}
+            >
+              {submitStatus.message}
+            </div>
+          )}
           <Button
             type="submit"
+            disabled={isSubmitting}
             className="w-full bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white border-0"
           >
-            Küldés
+            {isSubmitting ? "Küldés..." : "Küldés"}
           </Button>
         </form>
       </CardContent>
