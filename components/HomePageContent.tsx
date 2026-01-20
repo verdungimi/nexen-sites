@@ -12,6 +12,8 @@ import { Check, ArrowRight, Clock, Shield, Sparkles, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FinAIHero from "@/components/FinAIHero";
 import HomePageStructuredData from "@/components/HomePageStructuredData";
+import DarkVeil from "@/components/DarkVeil.jsx";
+import "@/components/DarkVeil.css";
 import FAQAccordion from "@/components/FAQAccordion";
 
 // Animation variants
@@ -151,9 +153,21 @@ export default function HomePageContent() {
       
       {/* Hero Section - Fin AI Style */}
       <section className="min-h-screen flex items-center justify-center relative pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-6 overflow-hidden">
+        {/* DarkVeil - Only on desktop */}
+        <div className="hidden md:block fixed inset-0 w-full h-full" style={{ zIndex: 1, pointerEvents: 'none' }}>
+          <DarkVeil
+            hueShift={0}
+            noiseIntensity={0}
+            scanlineIntensity={0}
+            speed={0.5}
+            scanlineFrequency={0}
+            warpAmount={0}
+            resolutionScale={1}
+          />
+        </div>
         <FinAIHero />
         
-        <div className="max-w-7xl mx-auto relative z-20 w-full" style={{ pointerEvents: 'auto' }}>
+        <div className="max-w-7xl mx-auto relative z-10 w-full" style={{ pointerEvents: 'auto' }}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center">
             {/* Left side info - Hidden on mobile, visible on lg+ */}
             <div className="hidden lg:block lg:col-span-3 relative pr-4" style={{ minHeight: '600px' }}>
