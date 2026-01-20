@@ -152,9 +152,9 @@ export default function HomePageContent() {
       <HomePageStructuredData />
       
       {/* Hero Section - Fin AI Style */}
-      <section className="min-h-screen flex items-center justify-center relative pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-6 overflow-hidden">
+      <section className="min-h-screen flex items-center justify-center relative pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-6 overflow-hidden" style={{ position: 'relative', zIndex: 1 }}>
         {/* DarkVeil - Only on desktop */}
-        <div className="hidden md:block fixed inset-0 w-full h-full" style={{ zIndex: 1, pointerEvents: 'none' }}>
+        <div className="hidden md:block fixed inset-0 w-full h-full" style={{ zIndex: 0, pointerEvents: 'none' }}>
           <DarkVeil
             hueShift={0}
             noiseIntensity={0}
@@ -602,7 +602,7 @@ export default function HomePageContent() {
       </section>
 
       {/* Kapcsolat Section */}
-      <section id="contact" className="py-20 relative bg-gray-900/30 z-10">
+      <section id="contact" className="py-20 pb-32 relative bg-gray-900/30 z-10">
         <div className="container-custom max-w-4xl">
           <motion.div
             initial="hidden"
