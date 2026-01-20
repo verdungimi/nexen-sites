@@ -14,6 +14,7 @@ import FinAIHero from "@/components/FinAIHero";
 import HomePageStructuredData from "@/components/HomePageStructuredData";
 import DarkVeil from "@/components/DarkVeil.jsx";
 import "@/components/DarkVeil.css";
+import FAQAccordion from "@/components/FAQAccordion";
 
 // Animation variants
 const fadeInUp = {
@@ -528,6 +529,74 @@ export default function HomePageContent() {
               Tapasztalt csapatunk minden projektet egyedi figyelemmel kezel, és az üzleti célokra fókuszálva 
               dolgozik. Megbízható partnere vagyunk a sikeres online megjelenéshez.
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* GYIK Section */}
+      <section id="faq" className="py-20 relative bg-gray-900/30 z-10">
+        <div className="container-custom max-w-4xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Gyakran Ismételt Kérdések
+            </h2>
+            <p className="text-lg text-gray-400">
+              Válaszok a leggyakrabban feltett kérdésekre
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+          >
+            <FAQAccordion
+              items={[
+                {
+                  question: "Mi kell tőled?",
+                  answer: "Logo fájlok, márkaszinvek (ha vannak), szövegek/tartalom, és bármilyen specifikus követelmény. Szükség esetén segítünk tartalmat szerezni is.",
+                },
+                {
+                  question: "Mennyi idő alatt készül el a weboldal?",
+                  answer: "A Nexen Sites weboldal készítés 10 nap alatt készül el. Fix határidővel dolgozunk, garantálva a minőséget.",
+                },
+                {
+                  question: "Mi van, ha változtatni szeretnék?",
+                  answer: "Egy javítási kört tartalmazunk a design fázisban, és ésszerű változtatásokat tudunk alkalmazni a fejlesztés során. Nagyobb scope változások meghosszabbíthatják a határidőt.",
+                },
+                {
+                  question: "Foglalkoztok a szövegekkel?",
+                  answer: "Igen, finomhangoljuk és optimalizáljuk a szövegeidet a wireframe fázisban. Ha még nincsenek szövegeid, veled együtt készítjük el őket.",
+                },
+                {
+                  question: "Integrálhattok eszközöket?",
+                  answer: "Igen, integrálhatunk gyakori eszközöket, mint kapcsolati űrlapok, analytics, foglalási rendszerek stb. Összetett integrációk kiegészítőként elérhetőek.",
+                },
+              ]}
+            />
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center mt-12"
+          >
+            <CTAButton
+              href="/gyik"
+              variant="secondary"
+              className="text-base px-8 py-4"
+            >
+              További kérdések megtekintése
+            </CTAButton>
           </motion.div>
         </div>
       </section>
