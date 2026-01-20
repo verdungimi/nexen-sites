@@ -56,21 +56,7 @@ export default function Navbar() {
             <StarBorder thickness={2} speed="3.5s" color="white" as={Link} href="/rolunk" className="small text-xs font-medium whitespace-nowrap">
               Rólunk
             </StarBorder>
-            <StarBorder thickness={2} speed="3.5s" color="white" as="a" href="/#faq" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              const currentPath = window.location.pathname;
-              if (currentPath === '/' || currentPath === '') {
-                const target = document.getElementById('faq');
-                if (target) {
-                  const offset = 100;
-                  const elementPosition = target.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - offset;
-                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                }
-              } else {
-                window.location.href = '/#faq';
-              }
-            }}>
+            <StarBorder thickness={2} speed="3.5s" color="white" as={Link} href="/gyik" className="small text-xs font-medium whitespace-nowrap">
               GYIK
             </StarBorder>
             <StarBorder thickness={2} speed="3.5s" color="white" as="a" href="/#contact" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
@@ -153,26 +139,9 @@ export default function Navbar() {
             <Link href="/rolunk" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
               Rólunk
             </Link>
-            <a href="/#faq" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              setIsOpen(false);
-              const currentPath = window.location.pathname;
-              if (currentPath === '/' || currentPath === '') {
-                setTimeout(() => {
-                  const target = document.getElementById('faq');
-                  if (target) {
-                    const offset = 100;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset;
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                  }
-                }, 100);
-              } else {
-                window.location.href = '/#faq';
-              }
-            }}>
+            <Link href="/gyik" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
               GYIK
-            </a>
+            </Link>
             <a href="/#contact" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               setIsOpen(false);
