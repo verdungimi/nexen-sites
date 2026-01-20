@@ -170,7 +170,7 @@ export default function FinAIHero() {
         <div 
           className="fixed inset-0 w-full h-full pointer-events-none"
           style={{ 
-            zIndex: 0, 
+            zIndex: 1, 
             position: 'fixed', 
             top: 0, 
             left: 0, 
@@ -197,7 +197,7 @@ export default function FinAIHero() {
         ref={canvasRef}
         className="fixed inset-0 w-full h-full pointer-events-none hidden md:block"
         style={{ 
-          zIndex: 0, 
+          zIndex: 1, 
           position: 'fixed', 
           top: 0, 
           left: 0, 
