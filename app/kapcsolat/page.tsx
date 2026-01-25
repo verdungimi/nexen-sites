@@ -182,7 +182,7 @@ export default function KapcsolatPage() {
       </section>
 
       {/* Contact Section */}
-      <Section id="contact">
+      <Section id="contact" className="!pb-32 md:!pb-40">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial="hidden"
