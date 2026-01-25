@@ -42,12 +42,32 @@ export default function BookPage() {
       return;
     }
 
-    // Save to localStorage for calendar page
-    localStorage.setItem("bookingData", JSON.stringify(data));
-
-    // Navigate to calendar page
+    // Send email directly via API
     try {
-      router.push("/calendar");
+      const response = await fetch("/api/booking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        // Handle validation errors
+        if (result.errors) {
+          setErrors(result.errors);
+        } else {
+          const errorMessage = result.error || result.details || result.message || "Hiba történt az email küldése során. Kérjük, próbáld újra.";
+          setErrors({ submit: errorMessage });
+        }
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Success - redirect to thank you page
+      router.push("/thank-you");
     } catch (error) {
       console.error("Error submitting form:", error);
       setErrors({ submit: "Hiba történt. Kérjük, próbáld újra." });
@@ -71,6 +91,9 @@ export default function BookPage() {
           </h1>
           <p className="text-lg md:text-xl text-[#A8B3C7] mb-4 max-w-2xl mx-auto font-light leading-relaxed">
             Töltsd ki az űrlapot, és felvesszük veled a kapcsolatot, hogy megbeszéljük a projekt részleteit és a lehetőségeket.
+          </p>
+          <p className="text-base text-[#A8B3C7] mt-2 max-w-2xl mx-auto font-light">
+            Hamarosan felvesszük veled a kapcsolatot az általad megadott elérhetőségeken.
           </p>
           <p className="text-sm text-[#7C5CFF] mt-4 font-medium">
             ⚠️ Ezzel az ajánlattal havonta csak 3 új ügyfelet vállalunk.

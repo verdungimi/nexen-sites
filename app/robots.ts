@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/thank-you', '/calendar'],
+        disallow: ['/api/', '/thank-you'],
       },
     ],
     sitemap: 'https://nexensites.hu/sitemap.xml',

@@ -120,10 +120,10 @@ export function formatBookingEmail(data: {
       })
     : "Nincs megadva";
 
-  const subject = `Új időpontfoglalás - ${data.name}`;
+  const subject = `Új érdeklődő - ${data.name}`;
 
   const text = `
-ÚJ IDŐPONTFOGLALÁS
+ÚJ ÉRDEKLŐDŐ
 
 ═══════════════════════════════════════
 ÜGYFÉL ADATOK
@@ -135,26 +135,18 @@ Email: ${data.email}
 Telefonszám: ${data.phone}
 
 ═══════════════════════════════════════
-IDŐPONT RÉSZLETEI
-═══════════════════════════════════════
-
-${data.selectedDate ? `Kiválasztott dátum: ${formattedDate} (${data.selectedDate})` : ""}
-${data.selectedTime ? `Kiválasztott időpont: ${data.selectedTime}` : ""}
-
-═══════════════════════════════════════
-IDŐPONT FOGLALÁSA
-═══════════════════════════════════════
-
-Alternatívaként foglalhatsz időpontot közvetlenül a Google Calendar-ban:
-https://calendar.app.google/vzsa7ELQRad7jjFu8
-
-═══════════════════════════════════════
 PROJEKT RÉSZLETEI
 ═══════════════════════════════════════
 
 Weboldal célja: ${data.purpose || "Nincs megadva"}
 Határidő: ${data.deadline || "Nincs megadva"}
 ${data.description ? `Leírás:\n${data.description}` : ""}
+
+═══════════════════════════════════════
+KÖVETKEZŐ LÉPÉSEK
+═══════════════════════════════════════
+
+Felvesszük a kapcsolatot az ügyféllel a megadott elérhetőségeken.
 
 ═══════════════════════════════════════
 `;
@@ -180,7 +172,7 @@ ${data.description ? `Leírás:\n${data.description}` : ""}
 <body>
   <div class="container">
     <div class="header">
-      <h1>Új Időpontfoglalás</h1>
+      <h1>Új Érdeklődő</h1>
     </div>
     <div class="content">
       <div class="section">
@@ -191,27 +183,18 @@ ${data.description ? `Leírás:\n${data.description}` : ""}
         <div class="info-row"><span class="label">Telefonszám:</span> <a href="tel:${data.phone}">${data.phone}</a></div>
       </div>
 
-      ${data.selectedDate || data.selectedTime ? `
-      <div class="section">
-        <div class="section-title">📅 IDŐPONT RÉSZLETEI</div>
-        ${data.selectedDate ? `<div class="info-row"><span class="label">Kiválasztott dátum:</span> <span class="datetime">${formattedDate}</span></div>` : ""}
-        ${data.selectedTime ? `<div class="info-row"><span class="label">Kiválasztott időpont:</span> <span class="datetime">${data.selectedTime}</span></div>` : ""}
-      </div>
-      ` : ""}
-
-      <div class="section" style="background: linear-gradient(135deg, rgba(124,92,255,0.1) 0%, rgba(80,174,223,0.1) 100%); border-left-color: #7C5CFF;">
-        <div class="section-title">📅 IDŐPONT FOGLALÁSA</div>
-        <div class="info-row" style="margin-top: 15px;">
-          <p style="margin-bottom: 10px;">Alternatívaként foglalhatsz időpontot közvetlenül a Google Calendar-ban:</p>
-          <a href="https://calendar.app.google/vzsa7ELQRad7jjFu8" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 12px 24px; background: linear-gradient(135deg, #7C5CFF 0%, #50AEDF 100%); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 10px;">Időpont foglalása Google Calendar-ban</a>
-        </div>
-      </div>
-
       <div class="section">
         <div class="section-title">💼 PROJEKT RÉSZLETEI</div>
         <div class="info-row"><span class="label">Weboldal célja:</span> ${data.purpose || "Nincs megadva"}</div>
         <div class="info-row"><span class="label">Határidő:</span> ${data.deadline || "Nincs megadva"}</div>
         ${data.description ? `<div class="info-row" style="margin-top: 10px;"><span class="label">Leírás:</span><br><div style="margin-top: 5px; padding: 10px; background: #f0f0f0; border-radius: 4px; white-space: pre-wrap;">${data.description}</div></div>` : ""}
+      </div>
+
+      <div class="section" style="background: linear-gradient(135deg, rgba(124,92,255,0.1) 0%, rgba(80,174,223,0.1) 100%); border-left-color: #7C5CFF;">
+        <div class="section-title">📞 KÖVETKEZŐ LÉPÉSEK</div>
+        <div class="info-row" style="margin-top: 15px;">
+          <p style="margin-bottom: 10px; font-weight: bold; color: #7C5CFF;">Felvesszük a kapcsolatot az ügyféllel a megadott elérhetőségeken.</p>
+        </div>
       </div>
 
       <div class="footer">
