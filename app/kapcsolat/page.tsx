@@ -139,7 +139,7 @@ function ContactForm() {
 
 export default function KapcsolatPage() {
   return (
-    <div className="relative min-h-screen">
+    <>
       {/* Hero Section */}
       <section className="min-h-[60vh] flex items-center justify-center relative pt-32 pb-12 px-4">
         <FinAIHero />
@@ -182,8 +182,8 @@ export default function KapcsolatPage() {
       </section>
 
       {/* Contact Section */}
-      <Section id="contact" className="!pb-48 md:!pb-56">
-        <div className="max-w-6xl mx-auto">
+      <section id="contact" className="py-12 sm:py-16 md:py-24 pb-32 md:pb-40 relative">
+        <div className="container-custom max-w-6xl mx-auto relative z-[5]" style={{ pointerEvents: 'auto' }}>
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -268,7 +268,7 @@ export default function KapcsolatPage() {
             </motion.div>
           </div>
         </div>
-      </Section>
-    </div>
+      </section>
+    </>
   );
 }
