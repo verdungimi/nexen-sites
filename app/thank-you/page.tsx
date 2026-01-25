@@ -4,6 +4,7 @@ import Link from "next/link";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 
+export default function ThankYouPage() {
   return (
     <Section background="gradient" className="pt-24 pb-16 md:pt-32">
       <div className="max-w-2xl mx-auto text-center">
