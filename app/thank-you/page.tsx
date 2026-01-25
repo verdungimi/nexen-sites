@@ -1,17 +1,17 @@
 "use client";
 
-import Link from "next/link";
-import Section from "@/components/Section";
+import FinAIHero from "@/components/FinAIHero";
 import CTAButton from "@/components/CTAButton";
 
 export default function ThankYouPage() {
   return (
-    <Section background="gradient" className="pt-24 pb-16 md:pt-32">
-      <div className="max-w-2xl mx-auto text-center">
-        <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 border border-gray-200">
+    <section className="min-h-screen relative pt-24 pb-16 px-4 overflow-hidden">
+      <FinAIHero />
+      <div className="max-w-2xl mx-auto relative z-10 text-center" style={{ pointerEvents: 'auto' }}>
+        <div className="bg-[#0F1620]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl shadow-lg p-8 md:p-12">
           <div className="mb-6">
             <svg
-              className="w-16 h-16 text-primary-600 mx-auto"
+              className="w-16 h-16 text-[#7C5CFF] mx-auto"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -25,15 +25,15 @@ export default function ThankYouPage() {
             </svg>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Köszönjük az érdeklődésed!
           </h1>
-          <p className="text-lg text-gray-700 mb-6">
+          <p className="text-lg text-[#A8B3C7] mb-6">
             Megkaptuk az adataidat. Hamarosan felvesszük veled a kapcsolatot a megadott elérhetőségeken, hogy megbeszéljük a projekt részleteit.
           </p>
-          <p className="text-base text-gray-600 mb-8">
+          <p className="text-base text-[#A8B3C7] mb-8">
             Ha sürgős a kérdésed, írj nekünk közvetlenül:{" "}
-            <a href="mailto:info@nexensites.hu" className="text-primary-500 hover:underline font-medium">
+            <a href="mailto:info@nexensites.hu" className="text-[#7C5CFF] hover:text-[#50AEDF] underline font-medium transition-colors">
               info@nexensites.hu
             </a>
           </p>
@@ -48,6 +48,6 @@ export default function ThankYouPage() {
           </div>
         </div>
       </div>
-    </Section>
+    </section>
   );
 }
