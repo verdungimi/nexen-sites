@@ -1,8 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import FinAIHero from "@/components/FinAIHero";
-import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -142,9 +140,7 @@ export default function KapcsolatPage() {
     <>
       {/* Hero Section */}
       <section className="min-h-[60vh] flex items-center justify-center relative pt-32 pb-12 px-4">
-        <FinAIHero />
-        
-        <div className="max-w-6xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
               <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
@@ -269,6 +265,6 @@ export default function KapcsolatPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
