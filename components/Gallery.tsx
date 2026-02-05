@@ -3,19 +3,11 @@
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 export default function Gallery() {
-  const [mounted, setMounted] = useState(false);
-  
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Only use Convex query after component is mounted (client-side only)
-  const images = mounted 
-    ? (useQuery(api.images.getImages) as { _id: string; url: string; title: string; createdAt: number }[] | undefined)
-    : undefined;
+  // useQuery must always be called (React hook rules)
+  // It will return undefined if Convex is not configured or not available
+  const images = useQuery(api.images.getImages) as { _id: string; url: string; title: string; createdAt: number }[] | undefined;
 
   if (images === undefined) {
     return (
