@@ -13,6 +13,7 @@
 	"dependencies": {
 		"@radix-ui/react-slot": "^1.2.4",
 		"@types/nodemailer": "^7.0.5",
+		"@vercel/blob": "^2.1.0",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"convex": "^1.31.7",
