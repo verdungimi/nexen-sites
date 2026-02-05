@@ -6,4 +6,9 @@ export const api: {
     addImage: any;
     getImages: any;
   };
-} = {} as any;
+} = {
+  images: {
+    addImage: null as any,
+    getImages: null as any,
+  },
+} as any;
