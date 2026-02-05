@@ -3,6 +3,7 @@
 import FinAIHero from "@/components/FinAIHero";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
+import Gallery from "@/components/Gallery";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 
@@ -145,6 +146,27 @@ export default function PortfolioPage() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </Section>
+
+      {/* Dynamic Gallery Section */}
+      <Section id="gallery" className="bg-gray-900/30">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-[#EAF0FF] mb-4">
+              Galéria
+            </h2>
+            <p className="text-lg text-[#A8B3C7] max-w-2xl mx-auto">
+              Tekintsd meg a legfrissebb munkáinkat
+            </p>
+          </motion.div>
+          <Gallery />
         </div>
       </Section>
 

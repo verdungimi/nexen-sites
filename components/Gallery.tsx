@@ -1,0 +1,47 @@
+"use client";
+
+import { useQuery } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import Image from "next/image";
+
+export default function Gallery() {
+  const images = useQuery(api.images.getImages);
+
+  if (images === undefined) {
+    return (
+      <div className="flex items-center justify-center py-12">
+        <div className="text-[#A8B3C7]">Betöltés...</div>
+      </div>
+    );
+  }
+
+  if (images.length === 0) {
+    return (
+      <div className="flex items-center justify-center py-12">
+        <div className="text-[#A8B3C7]">Még nincsenek képek a galériában.</div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
+      {images.map((img) => (
+        <div key={img._id} className="group relative overflow-hidden rounded-lg bg-[#0F1620] border border-[rgba(255,255,255,0.1)] hover:border-[#50AEDF]/50 transition-all duration-300">
+          <div className="relative aspect-square w-full">
+            <Image
+              src={img.url}
+              alt={img.title}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              unoptimized
+            />
+          </div>
+          <div className="p-4">
+            <p className="text-[#EAF0FF] font-semibold text-center">{img.title}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
