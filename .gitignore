@@ -41,3 +41,7 @@ convex/_generated/*
 
 # temp files
 temp-clone/
+
+# uploaded files (keep directory structure but ignore contents)
+public/uploads/*
+!public/uploads/.gitkeep
