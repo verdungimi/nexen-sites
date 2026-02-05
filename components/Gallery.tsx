@@ -25,7 +25,7 @@ export default function Gallery() {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
-      {images.map((img) => (
+      {images.map((img: { _id: string; url: string; title: string; createdAt: number }) => (
         <div key={img._id} className="group relative overflow-hidden rounded-lg bg-[#0F1620] border border-[rgba(255,255,255,0.1)] hover:border-[#50AEDF]/50 transition-all duration-300">
           <div className="relative aspect-square w-full">
             <Image
