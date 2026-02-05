@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import AdminSidebar from "@/components/admin/Sidebar";
 import AdminHeader from "@/components/admin/Header";
+import AdminErrorBoundary from "./error-boundary";
 import { motion } from "framer-motion";
 
 const ADMIN_USERNAME = "nexenadmin";
@@ -101,21 +102,23 @@ export default function AdminLayout({
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex">
-      <AdminSidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
-      <div className={`flex-1 flex flex-col transition-all duration-300 ${sidebarOpen ? "ml-64" : "ml-16"}`}>
-        <AdminHeader onLogout={handleLogout} onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
-        <main className="flex-1 p-6">
-          <motion.div
-            key={pathname}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {children}
-          </motion.div>
-        </main>
+    <AdminErrorBoundary>
+      <div className="min-h-screen bg-[#0a0a0a] flex">
+        <AdminSidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
+        <div className={`flex-1 flex flex-col transition-all duration-300 ${sidebarOpen ? "ml-64" : "ml-16"}`}>
+          <AdminHeader onLogout={handleLogout} onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
+          <main className="flex-1 p-6">
+            <motion.div
+              key={pathname}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {children}
+            </motion.div>
+          </main>
+        </div>
       </div>
-    </div>
+    </AdminErrorBoundary>
   );
 }

@@ -22,8 +22,13 @@ interface ImageItem {
 
 // Real Convex queries
 const useImages = () => {
-  const images = useQuery(api.images.getAll) ?? [];
-  return images;
+  try {
+    const images = useQuery(api.images.getAll) ?? [];
+    return images;
+  } catch (error) {
+    console.error("Error fetching images:", error);
+    return [];
+  }
 };
 
 export default function ImagesPage() {
@@ -32,11 +37,15 @@ export default function ImagesPage() {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const addImage = useMutation(api.images.add);
   const updateImage = useMutation(api.images.update);
   const deleteImage = useMutation(api.images.remove);
   const images = useImages();
+
+  // Check if Convex is configured
+  const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL;
 
   const handleAdd = () => {
     setEditingImage(null);
@@ -62,16 +71,22 @@ export default function ImagesPage() {
   const handleSave = async () => {
     if (!title.trim()) return;
 
-    if (editingImage) {
-      await updateImage({ id: editingImage._id as any, title, url });
-    } else {
-      await addImage({ title, url });
-    }
+    try {
+      if (editingImage) {
+        await updateImage({ id: editingImage._id as any, title, url });
+      } else {
+        await addImage({ title, url });
+      }
 
-    setIsModalOpen(false);
-    setEditingImage(null);
-    setTitle("");
-    setUrl("");
+      setIsModalOpen(false);
+      setEditingImage(null);
+      setTitle("");
+      setUrl("");
+      setError(null);
+    } catch (err) {
+      console.error("Error saving image:", err);
+      setError(err instanceof Error ? err.message : "Hiba történt a mentés során");
+    }
   };
 
   const columns = [
@@ -116,8 +131,27 @@ export default function ImagesPage() {
     },
   ];
 
+  // Show error if Convex is not configured
+  if (!convexUrl) {
+    return (
+      <div className="space-y-6">
+        <div className="bg-red-900/30 border border-red-700 text-red-400 p-4 rounded-lg">
+          <p className="font-semibold">Convex nincs konfigurálva</p>
+          <p className="text-sm mt-2">
+            Kérjük, állítsa be a NEXT_PUBLIC_CONVEX_URL environment változót a Vercel Dashboard-ban.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-6">
+      {error && (
+        <div className="bg-red-900/30 border border-red-700 text-red-400 p-4 rounded-lg">
+          {error}
+        </div>
+      )}
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-3xl font-bold text-[#EAF0FF] mb-2">Képek Kezelése</h2>
