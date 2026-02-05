@@ -46,9 +46,6 @@ export default function ImagesPage() {
   const deleteImage = useMutation(api.images.remove);
   const images = useImages();
 
-  // Check if Convex is configured
-  const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL;
-
   const handleAdd = () => {
     setEditingImage(null);
     setTitle("");
@@ -132,20 +129,6 @@ export default function ImagesPage() {
         new Date(timestamp).toLocaleDateString("hu-HU"),
     },
   ];
-
-  // Show error if Convex is not configured
-  if (!convexUrl) {
-    return (
-      <div className="space-y-6">
-        <div className="bg-red-900/30 border border-red-700 text-red-400 p-4 rounded-lg">
-          <p className="font-semibold">Convex nincs konfigurálva</p>
-          <p className="text-sm mt-2">
-            Kérjük, állítsa be a NEXT_PUBLIC_CONVEX_URL environment változót a Vercel Dashboard-ban.
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="space-y-6">

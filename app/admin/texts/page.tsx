@@ -42,9 +42,6 @@ export default function TextsPage() {
   const deleteText = useMutation(api.texts.remove);
   const texts = useTexts();
 
-  // Check if Convex is configured
-  const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL;
-
   const handleAdd = () => {
     setEditingText(null);
     setKey("");
@@ -116,31 +113,12 @@ export default function TextsPage() {
     },
   ];
 
-  // Check if Convex is configured
-  const convexUrl = typeof window !== "undefined" ? process.env.NEXT_PUBLIC_CONVEX_URL : null;
-
-  if (!convexUrl) {
-    return (
-      <div className="space-y-6">
-        <div className="bg-yellow-900/30 border border-yellow-700 text-yellow-400 p-4 rounded-lg">
-          <p className="font-semibold">Convex nincs konfigurálva</p>
-          <p className="text-sm mt-2">
-            Kérjük, állítsa be a NEXT_PUBLIC_CONVEX_URL environment változót a Vercel Dashboard-ban.
-          </p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="space-y-6">
-      {convexError && (
+      {error && (
         <div className="bg-red-900/30 border border-red-700 text-red-400 p-4 rounded-lg">
-          <p className="font-semibold">Convex hiba</p>
-          <p className="text-sm mt-2">{convexError}</p>
-          <p className="text-xs mt-2 text-red-300">
-            Ellenőrizze, hogy a Convex backend deployolva van-e: npx convex deploy --prod
-          </p>
+          <p className="font-semibold">Hiba</p>
+          <p className="text-sm mt-2">{error}</p>
         </div>
       )}
       <div className="flex items-center justify-between">
