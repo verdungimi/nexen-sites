@@ -17,9 +17,7 @@ const Gallery = dynamic(() => import("@/components/Gallery"), {
   ),
 });
 
-// Force dynamic rendering to avoid Convex SSR issues
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
+// Gallery is dynamically imported with ssr: false to prevent Convex SSR issues
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
