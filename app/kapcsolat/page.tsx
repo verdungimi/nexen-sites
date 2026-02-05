@@ -265,6 +265,6 @@ export default function KapcsolatPage() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }
