@@ -29,9 +29,10 @@ export default function AdminPanel() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [uploadMethod, setUploadMethod] = useState<"url" | "file">("file");
   const [uploadProgress, setUploadProgress] = useState(0);
-  const [status, setStatus] = useState<{ type: "success" | "error" | null; message: string }>({
+  const [status, setStatus] = useState<{ type: "success" | "error" | null; message: string; details?: string }>({
     type: null,
     message: "",
+    details: undefined,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   
@@ -108,9 +109,16 @@ export default function AdminPanel() {
         setUploadProgress(50);
 
         if (!uploadResponse.ok) {
-          const errorData = await uploadResponse.json();
-          const errorMessage = errorData.error || errorData.details || "Fájl feltöltési hiba";
-          throw new Error(errorMessage);
+          let errorData;
+          try {
+            errorData = await uploadResponse.json();
+          } catch (e) {
+            errorData = { error: `HTTP ${uploadResponse.status}: ${uploadResponse.statusText}` };
+          }
+          const errorMessage = errorData.error || `Fájl feltöltési hiba (${uploadResponse.status})`;
+          const errorDetails = errorData.details || errorData.error || undefined;
+          console.error("Upload error:", errorData);
+          throw new Error(errorMessage + (errorDetails && errorDetails !== errorMessage ? `: ${errorDetails}` : ""));
         }
 
         const uploadData = await uploadResponse.json();
@@ -138,9 +146,11 @@ export default function AdminPanel() {
         setUploadProgress(0);
       }, 2000);
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : "Hiba történt a kép hozzáadása során. Kérjük, próbáld újra.";
       setStatus({
         type: "error",
-        message: error instanceof Error ? error.message : "Hiba történt a kép hozzáadása során. Kérjük, próbáld újra.",
+        message: errorMessage,
+        details: error instanceof Error && error.stack ? error.stack.split('\n')[0] : undefined,
       });
       setUploadProgress(0);
       console.error("Error adding image:", error);
@@ -417,7 +427,10 @@ export default function AdminPanel() {
                       : "bg-red-900/30 border border-red-700 text-red-400"
                   }`}
                 >
-                  {status.message}
+                  <div className="font-semibold">{status.message}</div>
+                  {status.details && status.type === "error" && (
+                    <div className="mt-2 text-sm opacity-75">{status.details}</div>
+                  )}
                 </div>
               )}
 
