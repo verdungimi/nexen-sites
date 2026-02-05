@@ -38,3 +38,6 @@ next-env.d.ts
 convex/_generated/*
 !convex/_generated/api.d.ts
 !convex/_generated/api.js
+
+# temp files
+temp-clone/
