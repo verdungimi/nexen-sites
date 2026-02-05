@@ -88,7 +88,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-3xl font-bold text-[#EAF0FF] mb-2">Üdvözöljük az Admin Panelben!</h2>
+        <h2 className="text-2xl lg:text-3xl font-bold text-[#EAF0FF] mb-2">Üdvözöljük az Admin Panelben!</h2>
         <p className="text-[#A8B3C7]">Itt kezelheti a weboldal tartalmát és beállításait.</p>
       </div>
 
