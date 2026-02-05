@@ -35,4 +35,6 @@ yarn-error.log*
 next-env.d.ts
 
 # convex
-convex/_generated
+convex/_generated/*
+!convex/_generated/api.d.ts
+!convex/_generated/api.js
