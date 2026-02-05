@@ -12,6 +12,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Disable static optimization for portfolio page to avoid Convex SSR issues
+  experimental: {
+    missingSuspenseWithCSRBailout: false,
+  },
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],

@@ -1,11 +1,25 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import FinAIHero from "@/components/FinAIHero";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
-import Gallery from "@/components/Gallery";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
+
+// Dynamic import to prevent SSR issues with Convex
+const Gallery = dynamic(() => import("@/components/Gallery"), {
+  ssr: false,
+  loading: () => (
+    <div className="flex items-center justify-center py-12">
+      <div className="text-[#A8B3C7]">Betöltés...</div>
+    </div>
+  ),
+});
+
+// Force dynamic rendering to avoid Convex SSR issues
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },

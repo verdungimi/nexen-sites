@@ -5,7 +5,8 @@ import { api } from "@/convex/_generated/api";
 import Image from "next/image";
 
 export default function Gallery() {
-  const images = useQuery(api.images.getImages);
+  // Always call useQuery - it will return undefined if Convex is not configured
+  const images = useQuery(api.images.getImages) as { _id: string; url: string; title: string; createdAt: number }[] | undefined;
 
   if (images === undefined) {
     return (
