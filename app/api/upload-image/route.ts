@@ -50,9 +50,13 @@ export async function POST(request: NextRequest) {
 
     // Upload to Vercel Blob Storage
     // Vercel Blob accepts File, Blob, ArrayBuffer, Buffer, or ReadableStream
+    // Check if token is available
+    const token = process.env.BLOB_READ_WRITE_TOKEN;
+    
     const blob = await put(filename, file, {
       access: "public",
       contentType: file.type,
+      ...(token && { token }), // Only add token if it exists
     });
 
     return NextResponse.json({
@@ -65,11 +69,16 @@ export async function POST(request: NextRequest) {
     const errorMessage = error instanceof Error ? error.message : "Unknown error";
     const errorStack = error instanceof Error ? error.stack : undefined;
     
+    // Check if it's a token error
+    const isTokenError = errorMessage.includes("No token found") || errorMessage.includes("BLOB_READ_WRITE_TOKEN");
+    
     return NextResponse.json(
       {
         success: false,
         error: "Hiba történt a fájl feltöltése során",
-        details: errorMessage,
+        details: isTokenError 
+          ? `${errorMessage}. Kérjük, állítsd be a BLOB_READ_WRITE_TOKEN environment változót a Vercel Dashboard-ban: Settings → Environment Variables → Add BLOB_READ_WRITE_TOKEN`
+          : errorMessage,
         stack: process.env.NODE_ENV === "development" ? errorStack : undefined,
       },
       { status: 500 }
