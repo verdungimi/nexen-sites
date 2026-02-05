@@ -53,10 +53,15 @@ export async function POST(request: NextRequest) {
     // Check if token is available
     const token = process.env.BLOB_READ_WRITE_TOKEN;
     
+    if (!token) {
+      console.error("BLOB_READ_WRITE_TOKEN is not set in environment variables");
+      throw new Error("BLOB_READ_WRITE_TOKEN environment variable is not set. Please redeploy your Vercel project after adding the token.");
+    }
+    
     const blob = await put(filename, file, {
       access: "public",
       contentType: file.type,
-      ...(token && { token }), // Only add token if it exists
+      token: token, // Always pass token if we reach here
     });
 
     return NextResponse.json({
@@ -70,14 +75,16 @@ export async function POST(request: NextRequest) {
     const errorStack = error instanceof Error ? error.stack : undefined;
     
     // Check if it's a token error
-    const isTokenError = errorMessage.includes("No token found") || errorMessage.includes("BLOB_READ_WRITE_TOKEN");
+    const isTokenError = errorMessage.includes("No token found") || 
+                        errorMessage.includes("BLOB_READ_WRITE_TOKEN") ||
+                        errorMessage.includes("environment variable is not set");
     
     return NextResponse.json(
       {
         success: false,
         error: "Hiba történt a fájl feltöltése során",
         details: isTokenError 
-          ? `${errorMessage}. Kérjük, állítsd be a BLOB_READ_WRITE_TOKEN environment változót a Vercel Dashboard-ban: Settings → Environment Variables → Add BLOB_READ_WRITE_TOKEN`
+          ? `${errorMessage}. A token be van állítva, de újra kell deployolni a projektet a Vercel Dashboard-ban: Deployments → Redeploy (vagy Settings → Redeploy)`
           : errorMessage,
         stack: process.env.NODE_ENV === "development" ? errorStack : undefined,
       },
