@@ -109,7 +109,8 @@ export default function AdminPanel() {
 
         if (!uploadResponse.ok) {
           const errorData = await uploadResponse.json();
-          throw new Error(errorData.error || "Fájl feltöltési hiba");
+          const errorMessage = errorData.error || errorData.details || "Fájl feltöltési hiba";
+          throw new Error(errorMessage);
         }
 
         const uploadData = await uploadResponse.json();

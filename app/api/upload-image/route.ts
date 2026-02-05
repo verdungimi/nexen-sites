@@ -49,6 +49,7 @@ export async function POST(request: NextRequest) {
     const filename = `images/${timestamp}-${sanitizedTitle}.${fileExtension}`;
 
     // Upload to Vercel Blob Storage
+    // Vercel Blob accepts File, Blob, ArrayBuffer, Buffer, or ReadableStream
     const blob = await put(filename, file, {
       access: "public",
       contentType: file.type,
