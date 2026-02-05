@@ -22,10 +22,10 @@ interface TextItem {
   updatedAt: number;
 }
 
-// Real Convex queries
+// Real Convex queries - will return undefined if error occurs
 const useTexts = () => {
-  const texts = useQuery(api.texts.getAll) ?? [];
-  return texts;
+  const result = useQuery(api.texts.getAll);
+  return result ?? [];
 };
 
 export default function TextsPage() {
@@ -35,11 +35,15 @@ export default function TextsPage() {
   const [section, setSection] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   const addText = useMutation(api.texts.add);
   const updateText = useMutation(api.texts.update);
   const deleteText = useMutation(api.texts.remove);
   const texts = useTexts();
+
+  // Check if Convex is configured
+  const convexUrl = process.env.NEXT_PUBLIC_CONVEX_URL;
 
   const handleAdd = () => {
     setEditingText(null);
@@ -68,14 +72,20 @@ export default function TextsPage() {
   const handleSave = async () => {
     if (!key.trim() || !title.trim() || !content.trim()) return;
 
-    if (editingText) {
-      await updateText({ id: editingText._id as any, key, section, title, content });
-    } else {
-      await addText({ key, section, title, content });
-    }
+    try {
+      if (editingText) {
+        await updateText({ id: editingText._id as any, key, section, title, content });
+      } else {
+        await addText({ key, section, title, content });
+      }
 
-    setIsModalOpen(false);
-    setEditingText(null);
+      setIsModalOpen(false);
+      setEditingText(null);
+      setError(null);
+    } catch (err) {
+      console.error("Error saving text:", err);
+      setError(err instanceof Error ? err.message : "Hiba történt a mentés során");
+    }
   };
 
   const columns = [
@@ -106,8 +116,33 @@ export default function TextsPage() {
     },
   ];
 
+  // Check if Convex is configured
+  const convexUrl = typeof window !== "undefined" ? process.env.NEXT_PUBLIC_CONVEX_URL : null;
+
+  if (!convexUrl) {
+    return (
+      <div className="space-y-6">
+        <div className="bg-yellow-900/30 border border-yellow-700 text-yellow-400 p-4 rounded-lg">
+          <p className="font-semibold">Convex nincs konfigurálva</p>
+          <p className="text-sm mt-2">
+            Kérjük, állítsa be a NEXT_PUBLIC_CONVEX_URL environment változót a Vercel Dashboard-ban.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-6">
+      {convexError && (
+        <div className="bg-red-900/30 border border-red-700 text-red-400 p-4 rounded-lg">
+          <p className="font-semibold">Convex hiba</p>
+          <p className="text-sm mt-2">{convexError}</p>
+          <p className="text-xs mt-2 text-red-300">
+            Ellenőrizze, hogy a Convex backend deployolva van-e: npx convex deploy --prod
+          </p>
+        </div>
+      )}
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-3xl font-bold text-[#EAF0FF] mb-2">Szövegek Kezelése</h2>

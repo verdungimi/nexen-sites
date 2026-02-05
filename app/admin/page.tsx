@@ -6,19 +6,46 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { motion } from "framer-motion";
 import { Image as ImageIcon, FileText, Briefcase, Users, TrendingUp, Activity } from "lucide-react";
 
-// Placeholder data - replace with real Convex queries
+// Dashboard stats with error handling
 const useDashboardStats = () => {
-  // const images = useQuery(api.images.getCount) ?? 0;
-  // const texts = useQuery(api.texts.getCount) ?? 0;
-  // const services = useQuery(api.services.getCount) ?? 0;
-  // const users = useQuery(api.users.getCount) ?? 0;
+  let images = 0;
+  let texts = 0;
+  let services = 0;
+  let users = 0;
   
-  // Using dummy data for now
+  try {
+    const imagesData = useQuery(api.images.getAll);
+    images = imagesData?.length ?? 0;
+  } catch (error) {
+    console.error("Error fetching images count:", error);
+  }
+  
+  try {
+    const textsData = useQuery(api.texts.getAll);
+    texts = textsData?.length ?? 0;
+  } catch (error) {
+    console.error("Error fetching texts count:", error);
+  }
+  
+  try {
+    const servicesData = useQuery(api.services.getAll);
+    services = servicesData?.length ?? 0;
+  } catch (error) {
+    console.error("Error fetching services count:", error);
+  }
+  
+  try {
+    const usersData = useQuery(api.users.getAll);
+    users = usersData?.length ?? 0;
+  } catch (error) {
+    console.error("Error fetching users count:", error);
+  }
+  
   return {
-    images: 24,
-    texts: 12,
-    services: 8,
-    users: 156,
+    images,
+    texts,
+    services,
+    users,
     recentActivity: 12,
     growth: 8.2,
   };

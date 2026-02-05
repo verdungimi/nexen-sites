@@ -20,15 +20,17 @@ interface ImageItem {
   createdAt: number;
 }
 
-// Real Convex queries
+// Real Convex queries with error handling
 const useImages = () => {
+  let images: ImageItem[] = [];
   try {
-    const images = useQuery(api.images.getAll) ?? [];
-    return images;
+    const result = useQuery(api.images.getAll);
+    images = result ?? [];
   } catch (error) {
     console.error("Error fetching images:", error);
-    return [];
+    images = [];
   }
+  return images;
 };
 
 export default function ImagesPage() {
