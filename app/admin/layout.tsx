@@ -102,14 +102,29 @@ export default function AdminLayout({
     );
   }
 
+  // Close sidebar on mobile by default
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1024) {
+        setSidebarOpen(false);
+      } else {
+        setSidebarOpen(true);
+      }
+    };
+    
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <AdminErrorBoundary>
       <ConvexErrorHandler>
         <div className="min-h-screen bg-[#0a0a0a] flex">
           <AdminSidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
-          <div className={`flex-1 flex flex-col transition-all duration-300 ${sidebarOpen ? "ml-64" : "ml-16"}`}>
+          <div className="flex-1 flex flex-col lg:ml-64 transition-all duration-300">
             <AdminHeader onLogout={handleLogout} onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
-            <main className="flex-1 p-6">
+            <main className="flex-1 p-3 lg:p-6">
               <motion.div
                 key={pathname}
                 initial={{ opacity: 0, y: 20 }}

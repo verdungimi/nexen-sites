@@ -83,8 +83,8 @@ export default function UsersPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-3xl font-bold text-[#EAF0FF] mb-2">Felhasználók Kezelése</h2>
-        <p className="text-[#A8B3C7]">Tekintse meg és kezelje a regisztrált felhasználókat</p>
+        <h2 className="text-2xl lg:text-3xl font-bold text-[#EAF0FF] mb-2">Felhasználók Kezelése</h2>
+        <p className="text-sm lg:text-base text-[#A8B3C7]">Tekintse meg és kezelje a regisztrált felhasználókat</p>
       </div>
 
       <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">

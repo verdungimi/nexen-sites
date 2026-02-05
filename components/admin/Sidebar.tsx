@@ -33,17 +33,32 @@ export default function AdminSidebar({ isOpen, setIsOpen }: SidebarProps) {
   const pathname = usePathname();
 
   return (
-    <motion.aside
-      initial={false}
-      animate={{ width: isOpen ? 256 : 64 }}
-      className="fixed left-0 top-0 h-screen bg-[#0F1620] border-r border-[rgba(255,255,255,0.1)] z-50 flex flex-col"
-    >
-      <div className="p-4 border-b border-[rgba(255,255,255,0.1)] flex items-center justify-between">
+    <>
+      {/* Mobile overlay */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+        />
+      )}
+      
+      <motion.aside
+        initial={false}
+        animate={{ 
+          width: isOpen ? 256 : 64,
+          x: isOpen ? 0 : -256
+        }}
+        className="fixed left-0 top-0 h-screen bg-[#0F1620] border-r border-[rgba(255,255,255,0.1)] z-50 flex flex-col lg:translate-x-0"
+      >
+      <div className="p-3 lg:p-4 border-b border-[rgba(255,255,255,0.1)] flex items-center justify-between">
         {isOpen && (
           <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-xl font-bold text-[#EAF0FF]"
+            className="text-lg lg:text-xl font-bold text-[#EAF0FF]"
           >
             Admin Panel
           </motion.h2>
@@ -60,7 +75,7 @@ export default function AdminSidebar({ isOpen, setIsOpen }: SidebarProps) {
         </button>
       </div>
 
-      <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
+      <nav className="flex-1 p-2 lg:p-4 space-y-1 lg:space-y-2 overflow-y-auto">
         {menuItems.map((item, index) => {
           const Icon = item.icon;
           const isActive = pathname === item.href;
@@ -74,19 +89,25 @@ export default function AdminSidebar({ isOpen, setIsOpen }: SidebarProps) {
             >
               <Link
                 href={item.href}
+                onClick={() => {
+                  // Close sidebar on mobile when clicking a link
+                  if (window.innerWidth < 1024) {
+                    setIsOpen(false);
+                  }
+                }}
                 className={cn(
-                  "flex items-center gap-3 px-4 py-3 rounded-lg transition-all group",
+                  "flex items-center gap-2 lg:gap-3 px-3 lg:px-4 py-2 lg:py-3 rounded-lg transition-all group text-sm lg:text-base",
                   isActive
                     ? "bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] text-white"
                     : "text-[#A8B3C7] hover:bg-[rgba(255,255,255,0.05)] hover:text-[#EAF0FF]"
                 )}
               >
-                <Icon className="w-5 h-5 flex-shrink-0" />
+                <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />
                 {isOpen && (
                   <motion.span
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="font-medium"
+                    className="font-medium whitespace-nowrap"
                   >
                     {item.label}
                   </motion.span>
@@ -97,5 +118,6 @@ export default function AdminSidebar({ isOpen, setIsOpen }: SidebarProps) {
         })}
       </nav>
     </motion.aside>
+    </>
   );
 }

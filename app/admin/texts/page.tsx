@@ -121,10 +121,10 @@ export default function TextsPage() {
           <p className="text-sm mt-2">{error}</p>
         </div>
       )}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-3xl font-bold text-[#EAF0FF] mb-2">Szövegek Kezelése</h2>
-          <p className="text-[#A8B3C7]">Szerkessze a weboldal szöveges tartalmait</p>
+          <h2 className="text-2xl lg:text-3xl font-bold text-[#EAF0FF] mb-2">Szövegek Kezelése</h2>
+          <p className="text-sm lg:text-base text-[#A8B3C7]">Szerkessze a weboldal szöveges tartalmait</p>
         </div>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Button

@@ -56,8 +56,8 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-3xl font-bold text-[#EAF0FF] mb-2">Beállítások</h2>
-        <p className="text-[#A8B3C7]">Konfigurálja a weboldal globális beállításait</p>
+        <h2 className="text-2xl lg:text-3xl font-bold text-[#EAF0FF] mb-2">Beállítások</h2>
+        <p className="text-sm lg:text-base text-[#A8B3C7]">Konfigurálja a weboldal globális beállításait</p>
       </div>
 
       <motion.div

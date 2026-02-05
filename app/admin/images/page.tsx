@@ -137,10 +137,10 @@ export default function ImagesPage() {
           {error}
         </div>
       )}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-3xl font-bold text-[#EAF0FF] mb-2">Képek Kezelése</h2>
-          <p className="text-[#A8B3C7]">Töltse fel és kezelje a weboldal képeit</p>
+          <h2 className="text-2xl lg:text-3xl font-bold text-[#EAF0FF] mb-2">Képek Kezelése</h2>
+          <p className="text-sm lg:text-base text-[#A8B3C7]">Töltse fel és kezelje a weboldal képeit</p>
         </div>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Button
