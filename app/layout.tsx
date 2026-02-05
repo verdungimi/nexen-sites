@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import StructuredData from "@/components/StructuredData";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import ConvexProviderWrapper from "@/components/ConvexProvider";
 
 const poppins = Poppins({ 
   subsets: ["latin"],
@@ -119,12 +120,14 @@ export default function RootLayout({
   return (
     <html lang="hu">
       <body className={`${poppins.variable} ${dmSans.variable} ${spaceGrotesk.variable} font-sans flex flex-col min-h-screen`} style={{ backgroundColor: '#0a0a0a', color: '#ffffff', position: 'relative' }}>
-        <GoogleAnalytics />
-        <StructuredData />
-        <Navbar />
-        <main className="flex-grow relative z-10">{children}</main>
-        <Footer />
-        <CookieBanner />
+        <ConvexProviderWrapper>
+          <GoogleAnalytics />
+          <StructuredData />
+          <Navbar />
+          <main className="flex-grow relative z-10">{children}</main>
+          <Footer />
+          <CookieBanner />
+        </ConvexProviderWrapper>
       </body>
     </html>
   );
