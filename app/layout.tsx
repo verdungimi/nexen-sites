@@ -32,10 +32,10 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL("https://nexensites.hu"),
   title: {
-    default: "NexenSites - Professzionális Weboldal 10 Nap Alatt | Prémium Weboldal Készítés",
+    default: "NexenSites - Professzionális Weboldal 3 Nap Alatt | Prémium Weboldal Készítés",
     template: "%s | Nexen Sites",
   },
-  description: "NexenSites modern, gyors és üzleti célokra optimalizált weboldalakat készít. Professzionális weboldal 10 nap alatt - fizess csak akkor, ha elégedett vagy.",
+  description: "NexenSites modern, gyors és üzleti célokra optimalizált weboldalakat készít. Professzionális weboldal 3 nap alatt - fizess csak akkor, ha elégedett vagy.",
   keywords: [
     "nexen",
     "nexen weboldal",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     "weboldalak készítése",
     "weboldal fejlesztés",
     "weboldal készítés budapest",
-    "weboldal készítés 10 nap",
+    "weboldal készítés 3 nap",
     "prémium weboldal",
     "modern weboldal",
     "mobilbarát weboldal",
@@ -62,8 +62,8 @@ export const metadata: Metadata = {
     locale: "hu_HU",
     url: "https://nexensites.hu",
     siteName: "Nexen Sites",
-    title: "NexenSites - Professzionális Weboldal 10 Nap Alatt",
-    description: "NexenSites modern, gyors és üzleti célokra optimalizált weboldalakat készít. Professzionális weboldal 10 nap alatt.",
+    title: "NexenSites - Professzionális Weboldal 3 Nap Alatt",
+    description: "NexenSites modern, gyors és üzleti célokra optimalizált weboldalakat készít. Professzionális weboldal 3 nap alatt.",
     images: [
       {
         url: "/og-image.jpg",
@@ -75,8 +75,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexen Sites - Weboldal Készítés 10 Nap Alatt",
-    description: "Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak.",
+    title: "Nexen Sites - Weboldal Készítés 3 Nap Alatt",
+    description: "Prémium weboldal készítés 3 nap alatt. Modern, gyors, mobilbarát weboldalak.",
     images: ["/og-image.jpg"],
   },
   robots: {

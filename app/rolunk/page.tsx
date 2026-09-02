@@ -5,7 +5,7 @@ import CTAButton from "@/components/CTAButton";
 
 export const metadata: Metadata = {
   title: "Rólunk | Nexen Sites - Weboldal Készítés",
-  description: "Ismerd meg a Nexen Sites csapatát, értékeinket és küldetésünket. Nexen weboldal készítés - Modern weboldal fejlesztés 10 nap alatt. Weboldalak készítése vállalkozásoknak.",
+  description: "Ismerd meg a Nexen Sites csapatát, értékeinket és küldetésünket. Nexen weboldal készítés - Modern weboldal fejlesztés 3 nap alatt. Weboldalak készítése vállalkozásoknak.",
   keywords: [
     "nexen",
     "nexen weboldal",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Rólunk | Nexen Sites - Weboldal Készítés",
-    description: "Ismerd meg a Nexen Sites csapatát, értékeinket és küldetésünket. Modern weboldal fejlesztés 10 nap alatt.",
+    description: "Ismerd meg a Nexen Sites csapatát, értékeinket és küldetésünket. Modern weboldal fejlesztés 3 nap alatt.",
     type: "website",
     url: "https://nexensites.hu/rolunk",
   },
@@ -38,7 +38,7 @@ export default function RolunkPage() {
             <div className="inline-flex items-center justify-center px-5 py-3 bg-gradient-to-r from-[#50AEDF]/30 via-[#50AEDF]/40 to-[#50AEDF]/30 border-2 border-[#50AEDF] rounded-xl shadow-[0_0_30px_rgba(80,174,223,0.6)]">
               <span className="text-lg md:text-xl font-bold text-white tracking-wide">Prémium minőség</span>
               <span className="text-lg md:text-xl font-bold text-white mx-1.5 tracking-wide">•</span>
-              <span className="text-lg md:text-xl font-bold text-white tracking-wide">10 nap alatt</span>
+              <span className="text-lg md:text-xl font-bold text-white tracking-wide">3 nap alatt</span>
             </div>
           </div>
 
@@ -65,7 +65,7 @@ export default function RolunkPage() {
           {/* Trust badges */}
           <div className="flex flex-wrap justify-center gap-6 md:gap-12 mt-20">
             <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.3)] hover:scale-105 transition-all duration-500 animate-float-up group">
-              <div className="text-4xl md:text-5xl font-black text-[#50AEDF] mb-2 group-hover:scale-110 transition-transform duration-300">10</div>
+              <div className="text-4xl md:text-5xl font-black text-[#50AEDF] mb-2 group-hover:scale-110 transition-transform duration-300">3</div>
               <div className="text-sm md:text-base text-[#EAF0FF] font-semibold">Napos szállítás</div>
             </div>
             <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
@@ -93,7 +93,7 @@ export default function RolunkPage() {
               hogy ezt sokkal gyorsabban és hatékonyabban megoldjuk.
             </p>
             <p className="text-lg text-[#A8B3C7] leading-relaxed mb-6">
-              A 10 napos szállítási rendszerünk nem kompromisszum a minőséggel. Minden weboldalunkat a legmodernebb technológiákkal 
+              A 3 napos szállítási rendszerünk nem kompromisszum a minőséggel. Minden weboldalunkat a legmodernebb technológiákkal 
               készítjük el, prémium designnal és tökéletes működéssel. Hiszünk abban, hogy a gyorsaság és a minőség együtt járhat.
             </p>
             <p className="text-lg text-[#A8B3C7] leading-relaxed">
@@ -116,8 +116,8 @@ export default function RolunkPage() {
                 <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">⚡</div>
                 <h3 className="text-xl font-bold mb-4 text-[#50AEDF]">Gyorsaság</h3>
                 <p className="text-[#EAF0FF] leading-relaxed">
-                  10 nap alatt kész weboldal, fix határidővel. Nincs várakozás, nincs késés. 
-                  Amikor azt mondjuk 10 nap, akkor 10 nap.
+                  3 nap alatt kész weboldal, fix határidővel. Nincs várakozás, nincs késés. 
+                  Amikor azt mondjuk 3 nap, akkor 3 nap.
                 </p>
               </div>
             </div>
@@ -160,9 +160,9 @@ export default function RolunkPage() {
                   ✓
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 text-[#EAF0FF]">10 napos garantált szállítás</h3>
+                  <h3 className="text-xl font-bold mb-2 text-[#EAF0FF]">3 napos garantált szállítás</h3>
                   <p className="text-[#A8B3C7] leading-relaxed">
-                    Nem ígérgetünk, hanem garantáljuk. Ha 10 nap alatt nem készül el a weboldal, 
+                    Nem ígérgetünk, hanem garantáljuk. Ha 3 nap alatt nem készül el a weboldal, 
                     akkor ingyenesen dolgozunk tovább.
                   </p>
                 </div>
@@ -256,7 +256,7 @@ export default function RolunkPage() {
             Készen állsz a weboldaladra?
           </h2>
           <p className="text-lg text-[#A8B3C7] mb-8 max-w-2xl mx-auto animate-fade-in-delay">
-            Foglalj időpontot még ma, és 10 nap múlva már élő lesz a prémium weboldalad. 
+            Foglalj időpontot még ma, és 3 nap múlva már élő lesz a prémium weboldalad. 
             Ne várj tovább, kezdjük el még ma!
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-delay-2">

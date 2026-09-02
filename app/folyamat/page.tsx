@@ -25,7 +25,7 @@ export default function FolyamatPage() {
               </span>
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 max-w-3xl mx-auto font-light leading-relaxed">
-              Egyszerű, átlátható lépések az eredményig – 10 nap alatt professzionális weboldal
+              Egyszerű, átlátható lépések az eredményig – 3 nap alatt professzionális weboldal
             </p>
           </div>
           
@@ -130,7 +130,7 @@ export default function FolyamatPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-[#EAF0FF] mb-4">
-              10 napos időzítés
+              3 napos időzítés
             </h2>
             <p className="text-lg text-[#A8B3C7] max-w-2xl mx-auto">
               Részletesen, naponta hogyan haladunk
@@ -175,7 +175,7 @@ export default function FolyamatPage() {
             Készen állsz, hogy elindítsuk?
           </h2>
           <p className="text-lg text-[#A8B3C7] mb-8 max-w-2xl mx-auto">
-            Foglalj időpontot még ma, és 10 nap múlva már élő lesz a prémium weboldalad.
+            Foglalj időpontot még ma, és 3 nap múlva már élő lesz a prémium weboldalad.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <CTAButton href="/book" variant="primary" className="text-base px-10 py-5">

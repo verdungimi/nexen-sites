@@ -5,7 +5,7 @@ export default function StructuredData() {
     "name": "Nexen Sites",
     "url": "https://nexensites.hu",
     "logo": "https://nexensites.hu/logo.png",
-    "description": "Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
+    "description": "Prémium weboldal készítés 3 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kecskemét",
@@ -35,7 +35,7 @@ export default function StructuredData() {
       "@type": "Country",
       "name": "Hungary"
     },
-    "description": "Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
+    "description": "Prémium weboldal készítés 3 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
     "offers": {
       "@type": "Offer",
       "priceCurrency": "HUF",

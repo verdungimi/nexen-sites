@@ -161,7 +161,7 @@ export default function PackagesPage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-[#50AEDF] font-bold text-lg">✓</span>
-                    <span className="text-[#EAF0FF] text-base">10 napos szállítási garancia</span>
+                    <span className="text-[#EAF0FF] text-base">3 napos szállítási garancia</span>
                   </li>
                 </ul>
                 
