@@ -75,7 +75,7 @@
   position: absolute;
   inset: 0;
   border-radius: 10px;
-  background: rgba(124, 92, 255, 0.3); /* Purple background instead of white */
+  background: rgba(242,169,59,0.3); /* Purple background instead of white */
   opacity: 0;
   transform: scale(0);
   transition: all 0.3s ease;
@@ -90,7 +90,7 @@
 .gooey-nav-container nav ul li.active::after {
   opacity: 1;
   transform: scale(1);
-  background: rgba(124, 92, 255, 0.3); /* Purple background instead of white */
+  background: rgba(242,169,59,0.3); /* Purple background instead of white */
 }
 
 .gooey-nav-container .effect {
@@ -132,7 +132,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(124, 92, 255, 0.3); /* Purple background instead of white */
+  background: rgba(242,169,59,0.3); /* Purple background instead of white */
   transform: scale(0);
   opacity: 0;
   z-index: -1;

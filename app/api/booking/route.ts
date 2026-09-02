@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
     // Format and send email
     const emailContent = formatBookingEmail(bookingData);
     const emailResult = await sendEmail({
-      to: process.env.ADMIN_EMAIL || "info@nexensites.hu",
+      to: process.env.ADMIN_EMAIL || "verdung.imi@gmail.com",
       subject: emailContent.subject,
       text: emailContent.text,
       html: emailContent.html,

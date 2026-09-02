@@ -28,7 +28,7 @@ export default function FAQAccordion({ items }: FAQAccordionProps) {
               onClick={() => setOpenIndex(isOpen ? null : index)}
               className={`w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/10 transition-all duration-300 focus:outline-none rounded-t-xl ${
                 isOpen
-                  ? "ring-4 ring-[#7C5CFF] ring-inset shadow-[0_0_0_4px_rgba(124,92,255,0.3)]"
+                  ? "ring-4 ring-[#F2A93B] ring-inset shadow-[0_0_0_4px_rgba(242,169,59,0.3)]"
                   : ""
               }`}
               aria-expanded={isOpen}

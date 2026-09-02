@@ -126,7 +126,7 @@ function ContactForm() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white border-0"
+            className="w-full bg-gradient-to-r from-[#2DD4BF] to-[#F2A93B] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white border-0"
           >
             {isSubmitting ? "Küldés..." : "Küldés"}
           </Button>
@@ -156,22 +156,22 @@ export default function KapcsolatPage() {
           
           {/* Quick contact info visible immediately */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-12">
-            <div className="bg-[#0F1620]/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)] rounded-xl p-4 text-center hover:border-[#50AEDF]/50 transition-all">
-              <Mail className="w-8 h-8 text-[#50AEDF] mx-auto mb-3" />
+            <div className="bg-[#17151C]/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)] rounded-xl p-4 text-center hover:border-[#2DD4BF]/50 transition-all">
+              <Mail className="w-8 h-8 text-[#2DD4BF] mx-auto mb-3" />
               <h3 className="text-white font-semibold mb-1">Email</h3>
-              <a href="mailto:info@nexensites.hu" className="text-[#50AEDF] hover:text-[#4098cc] text-sm transition-colors">
-                info@nexensites.hu
+              <a href="mailto:verdung.imi@gmail.com" className="text-[#2DD4BF] hover:text-[#4098cc] text-sm transition-colors">
+                verdung.imi@gmail.com
               </a>
             </div>
-            <div className="bg-[#0F1620]/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)] rounded-xl p-4 text-center hover:border-[#7C5CFF]/50 transition-all">
-              <Phone className="w-8 h-8 text-[#50AEDF] mx-auto mb-3" />
+            <div className="bg-[#17151C]/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)] rounded-xl p-4 text-center hover:border-[#F2A93B]/50 transition-all">
+              <Phone className="w-8 h-8 text-[#2DD4BF] mx-auto mb-3" />
               <h3 className="text-white font-semibold mb-1">Telefon</h3>
-              <a href="tel:+36705767845" className="text-[#50AEDF] hover:text-[#4098cc] text-sm transition-colors">
+              <a href="tel:+36705767845" className="text-[#2DD4BF] hover:text-[#4098cc] text-sm transition-colors">
                 +36 70 576 7845
               </a>
             </div>
-            <div className="bg-[#0F1620]/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)] rounded-xl p-4 text-center hover:border-[#50AEDF]/50 transition-all">
-              <MapPin className="w-8 h-8 text-[#50AEDF] mx-auto mb-3" />
+            <div className="bg-[#17151C]/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)] rounded-xl p-4 text-center hover:border-[#2DD4BF]/50 transition-all">
+              <MapPin className="w-8 h-8 text-[#2DD4BF] mx-auto mb-3" />
               <h3 className="text-white font-semibold mb-1">Helyszín</h3>
               <p className="text-gray-400 text-sm">Kecskemét</p>
             </div>
@@ -189,10 +189,10 @@ export default function KapcsolatPage() {
             variants={fadeInUp}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#EAF0FF] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#F3EFE6] mb-4">
               Lépj velünk kapcsolatba
             </h2>
-            <p className="text-lg text-[#A8B3C7] max-w-2xl mx-auto">
+            <p className="text-lg text-[#A69F91] max-w-2xl mx-auto">
               Írj nekünk üzenetet, vagy foglalj időpontot konzultációra
             </p>
           </motion.div>
@@ -216,42 +216,42 @@ export default function KapcsolatPage() {
               variants={fadeInUp}
               className="space-y-6"
             >
-              <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[#50AEDF]/30 hover:shadow-[0_0_20px_rgba(80,174,223,0.2)] transition-all duration-500">
+              <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[#2DD4BF]/30 hover:shadow-[0_0_20px_rgba(45,212,191,0.2)] transition-all duration-500">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#50AEDF]/20 to-[#7C5CFF]/20 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6 text-[#50AEDF]" />
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#2DD4BF]/20 to-[#F2A93B]/20 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-[#2DD4BF]" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-[#EAF0FF] mb-2">Email</h3>
-                    <a href="mailto:info@nexensites.hu" className="text-[#A8B3C7] hover:text-[#50AEDF] transition-colors">
-                      info@nexensites.hu
+                    <h3 className="text-xl font-bold text-[#F3EFE6] mb-2">Email</h3>
+                    <a href="mailto:verdung.imi@gmail.com" className="text-[#A69F91] hover:text-[#2DD4BF] transition-colors">
+                      verdung.imi@gmail.com
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[#7C5CFF]/30 hover:shadow-[0_0_20px_rgba(124,92,255,0.2)] transition-all duration-500">
+              <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[#F2A93B]/30 hover:shadow-[0_0_20px_rgba(242,169,59,0.2)] transition-all duration-500">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#50AEDF]/20 to-[#7C5CFF]/20 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-[#50AEDF]" />
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#2DD4BF]/20 to-[#F2A93B]/20 flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6 text-[#2DD4BF]" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-[#EAF0FF] mb-2">Telefon</h3>
-                    <a href="tel:+36705767845" className="text-[#A8B3C7] hover:text-[#50AEDF] transition-colors">
+                    <h3 className="text-xl font-bold text-[#F3EFE6] mb-2">Telefon</h3>
+                    <a href="tel:+36705767845" className="text-[#A69F91] hover:text-[#2DD4BF] transition-colors">
                       +36 70 576 7845
                     </a>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[#50AEDF]/30 hover:shadow-[0_0_20px_rgba(80,174,223,0.2)] transition-all duration-500">
+              <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[#2DD4BF]/30 hover:shadow-[0_0_20px_rgba(45,212,191,0.2)] transition-all duration-500">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#50AEDF]/20 to-[#7C5CFF]/20 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-[#50AEDF]" />
+                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#2DD4BF]/20 to-[#F2A93B]/20 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-[#2DD4BF]" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-[#EAF0FF] mb-2">Helyszín</h3>
-                    <p className="text-[#A8B3C7]">
+                    <h3 className="text-xl font-bold text-[#F3EFE6] mb-2">Helyszín</h3>
+                    <p className="text-[#A69F91]">
                       Kecskemét, Magyarország
                     </p>
                   </div>

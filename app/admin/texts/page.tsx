@@ -123,13 +123,13 @@ export default function TextsPage() {
       )}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-2xl lg:text-3xl font-bold text-[#EAF0FF] mb-2">Szövegek Kezelése</h2>
-          <p className="text-sm lg:text-base text-[#A8B3C7]">Szerkessze a weboldal szöveges tartalmait</p>
+          <h2 className="text-2xl lg:text-3xl font-bold text-[#F3EFE6] mb-2">Szövegek Kezelése</h2>
+          <p className="text-sm lg:text-base text-[#A69F91]">Szerkessze a weboldal szöveges tartalmait</p>
         </div>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Button
             onClick={handleAdd}
-            className="bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white"
+            className="bg-gradient-to-r from-[#2DD4BF] to-[#F2A93B] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white"
           >
             <Plus className="w-4 h-4 mr-2" />
             Új Szöveg
@@ -137,10 +137,10 @@ export default function TextsPage() {
         </motion.div>
       </div>
 
-      <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">
+      <Card className="bg-[#17151C] border-[rgba(255,255,255,0.1)]">
         <CardHeader>
-          <CardTitle className="text-[#EAF0FF]">Szövegek Listája</CardTitle>
-          <CardDescription className="text-[#A8B3C7]">
+          <CardTitle className="text-[#F3EFE6]">Szövegek Listája</CardTitle>
+          <CardDescription className="text-[#A69F91]">
             {texts.length} szöveg található
           </CardDescription>
         </CardHeader>
@@ -163,7 +163,7 @@ export default function TextsPage() {
       >
         <div className="space-y-4">
           <div>
-            <Label htmlFor="section" className="text-[#A8B3C7]">
+            <Label htmlFor="section" className="text-[#A69F91]">
               Szekció *
             </Label>
             <Input
@@ -175,7 +175,7 @@ export default function TextsPage() {
             />
           </div>
           <div>
-            <Label htmlFor="key" className="text-[#A8B3C7]">
+            <Label htmlFor="key" className="text-[#A69F91]">
               Kulcs (egyedi azonosító) *
             </Label>
             <Input
@@ -187,7 +187,7 @@ export default function TextsPage() {
             />
           </div>
           <div>
-            <Label htmlFor="title" className="text-[#A8B3C7]">
+            <Label htmlFor="title" className="text-[#A69F91]">
               Cím *
             </Label>
             <Input
@@ -199,7 +199,7 @@ export default function TextsPage() {
             />
           </div>
           <div>
-            <Label htmlFor="content" className="text-[#A8B3C7]">
+            <Label htmlFor="content" className="text-[#A69F91]">
               Tartalom *
             </Label>
             <Textarea

@@ -39,14 +39,14 @@ export default function DataTable<T extends { _id: string }>({
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-12">
-        <div className="w-8 h-8 border-2 border-[#50AEDF] border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-[#2DD4BF] border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
 
   if (data.length === 0) {
     return (
-      <div className="text-center py-12 text-[#A8B3C7]">
+      <div className="text-center py-12 text-[#A69F91]">
         Nincs adat megjelenítésre
       </div>
     );
@@ -61,12 +61,12 @@ export default function DataTable<T extends { _id: string }>({
             <TableHeader>
               <TableRow className="border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.05)]">
                 {columns.map((column) => (
-                  <TableHead key={String(column.key)} className="text-[#A8B3C7]">
+                  <TableHead key={String(column.key)} className="text-[#A69F91]">
                     {column.label}
                   </TableHead>
                 ))}
                 {(onEdit || onDelete || onView) && (
-                  <TableHead className="text-[#A8B3C7] text-right">Műveletek</TableHead>
+                  <TableHead className="text-[#A69F91] text-right">Műveletek</TableHead>
                 )}
               </TableRow>
             </TableHeader>
@@ -80,7 +80,7 @@ export default function DataTable<T extends { _id: string }>({
                   className="border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.05)]"
                 >
                   {columns.map((column) => (
-                    <TableCell key={String(column.key)} className="text-[#EAF0FF]">
+                    <TableCell key={String(column.key)} className="text-[#F3EFE6]">
                       {column.render
                         ? column.render(
                             typeof column.key === "string"
@@ -103,7 +103,7 @@ export default function DataTable<T extends { _id: string }>({
                             onClick={() => onView(row)}
                             className="h-8 w-8 p-0 hover:bg-[rgba(255,255,255,0.1)]"
                           >
-                            <Eye className="w-4 h-4 text-[#50AEDF]" />
+                            <Eye className="w-4 h-4 text-[#2DD4BF]" />
                           </Button>
                         )}
                         {onEdit && (
@@ -113,7 +113,7 @@ export default function DataTable<T extends { _id: string }>({
                             onClick={() => onEdit(row)}
                             className="h-8 w-8 p-0 hover:bg-[rgba(255,255,255,0.1)]"
                           >
-                            <Edit className="w-4 h-4 text-[#7C5CFF]" />
+                            <Edit className="w-4 h-4 text-[#F2A93B]" />
                           </Button>
                         )}
                         {onDelete && (
@@ -144,12 +144,12 @@ export default function DataTable<T extends { _id: string }>({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.05 }}
-            className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-lg p-4 space-y-3"
+            className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-lg p-4 space-y-3"
           >
             {columns.map((column) => (
               <div key={String(column.key)} className="flex flex-col gap-1">
-                <div className="text-xs text-[#A8B3C7] font-medium">{column.label}</div>
-                <div className="text-sm text-[#EAF0FF]">
+                <div className="text-xs text-[#A69F91] font-medium">{column.label}</div>
+                <div className="text-sm text-[#F3EFE6]">
                   {column.render
                     ? column.render(
                         typeof column.key === "string"
@@ -172,7 +172,7 @@ export default function DataTable<T extends { _id: string }>({
                     onClick={() => onView(row)}
                     className="h-8 w-8 p-0 hover:bg-[rgba(255,255,255,0.1)]"
                   >
-                    <Eye className="w-4 h-4 text-[#50AEDF]" />
+                    <Eye className="w-4 h-4 text-[#2DD4BF]" />
                   </Button>
                 )}
                 {onEdit && (
@@ -182,7 +182,7 @@ export default function DataTable<T extends { _id: string }>({
                     onClick={() => onEdit(row)}
                     className="h-8 w-8 p-0 hover:bg-[rgba(255,255,255,0.1)]"
                   >
-                    <Edit className="w-4 h-4 text-[#7C5CFF]" />
+                    <Edit className="w-4 h-4 text-[#F2A93B]" />
                   </Button>
                 )}
                 {onDelete && (

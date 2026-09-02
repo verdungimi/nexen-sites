@@ -74,10 +74,10 @@ export default function DarkVeil({
         canvas.height * 0.3,
         500
       );
-      gradient1.addColorStop(0, 'rgba(124, 92, 255, 0.6)');
-      gradient1.addColorStop(0.3, 'rgba(80, 174, 223, 0.4)');
-      gradient1.addColorStop(0.6, 'rgba(124, 92, 255, 0.2)');
-      gradient1.addColorStop(1, 'rgba(124, 92, 255, 0)');
+      gradient1.addColorStop(0, 'rgba(242,169,59,0.6)');
+      gradient1.addColorStop(0.3, 'rgba(45,212,191,0.4)');
+      gradient1.addColorStop(0.6, 'rgba(242,169,59,0.2)');
+      gradient1.addColorStop(1, 'rgba(242,169,59,0)');
 
       ctx.fillStyle = gradient1;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -90,10 +90,10 @@ export default function DarkVeil({
         canvas.height * 0.7,
         600
       );
-      gradient2.addColorStop(0, 'rgba(80, 174, 223, 0.5)');
-      gradient2.addColorStop(0.3, 'rgba(124, 92, 255, 0.3)');
-      gradient2.addColorStop(0.6, 'rgba(80, 174, 223, 0.15)');
-      gradient2.addColorStop(1, 'rgba(80, 174, 223, 0)');
+      gradient2.addColorStop(0, 'rgba(45,212,191,0.5)');
+      gradient2.addColorStop(0.3, 'rgba(242,169,59,0.3)');
+      gradient2.addColorStop(0.6, 'rgba(45,212,191,0.15)');
+      gradient2.addColorStop(1, 'rgba(45,212,191,0)');
 
       ctx.fillStyle = gradient2;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -107,10 +107,10 @@ export default function DarkVeil({
         canvas.height * 0.5,
         450
       );
-      gradient3.addColorStop(0, 'rgba(124, 92, 255, 0.4)');
-      gradient3.addColorStop(0.4, 'rgba(80, 174, 223, 0.25)');
-      gradient3.addColorStop(0.8, 'rgba(124, 92, 255, 0.1)');
-      gradient3.addColorStop(1, 'rgba(124, 92, 255, 0)');
+      gradient3.addColorStop(0, 'rgba(242,169,59,0.4)');
+      gradient3.addColorStop(0.4, 'rgba(45,212,191,0.25)');
+      gradient3.addColorStop(0.8, 'rgba(242,169,59,0.1)');
+      gradient3.addColorStop(1, 'rgba(242,169,59,0)');
 
       ctx.fillStyle = gradient3;
       ctx.fillRect(0, 0, canvas.width, canvas.height);

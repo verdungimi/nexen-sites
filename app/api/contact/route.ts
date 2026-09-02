@@ -66,10 +66,10 @@ ${contactData.message}
   <style>
     body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
     .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { background: linear-gradient(135deg, #7C5CFF 0%, #50AEDF 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; text-align: center; }
+    .header { background: linear-gradient(135deg, #F2A93B 0%, #2DD4BF 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; text-align: center; }
     .content { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-top: none; }
-    .section { margin-bottom: 20px; padding: 15px; background: white; border-radius: 5px; border-left: 4px solid #7C5CFF; }
-    .section-title { font-weight: bold; color: #7C5CFF; margin-bottom: 10px; font-size: 16px; }
+    .section { margin-bottom: 20px; padding: 15px; background: white; border-radius: 5px; border-left: 4px solid #F2A93B; }
+    .section-title { font-weight: bold; color: #F2A93B; margin-bottom: 10px; font-size: 16px; }
     .info-row { margin: 8px 0; }
     .label { font-weight: bold; color: #555; }
     .message { margin-top: 10px; padding: 15px; background: #f0f0f0; border-radius: 4px; white-space: pre-wrap; }
@@ -105,7 +105,7 @@ ${contactData.message}
 
     // Send email
     const emailResult = await sendEmail({
-      to: process.env.ADMIN_EMAIL || "info@nexensites.hu",
+      to: process.env.ADMIN_EMAIL || "verdung.imi@gmail.com",
       subject: subject,
       text: text,
       html: html,

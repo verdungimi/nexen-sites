@@ -12,7 +12,7 @@ const Gallery = dynamic(() => import("@/components/Gallery"), {
   ssr: false,
   loading: () => (
     <div className="flex items-center justify-center py-12">
-      <div className="text-[#A8B3C7]">Betöltés...</div>
+      <div className="text-[#A69F91]">Betöltés...</div>
     </div>
   ),
 });
@@ -110,10 +110,10 @@ export default function PortfolioPage() {
             variants={fadeInUp}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#EAF0FF] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#F3EFE6] mb-4">
               Munkáink
             </h2>
-            <p className="text-lg text-[#A8B3C7] max-w-2xl mx-auto">
+            <p className="text-lg text-[#A69F91] max-w-2xl mx-auto">
               Minden projekt egyedi, modern és eredményorientált megoldás
             </p>
           </motion.div>
@@ -131,23 +131,23 @@ export default function PortfolioPage() {
                 variants={fadeInUp}
                 className="group"
               >
-                <Card className="border-gray-800 hover:border-[#50AEDF]/50 transition-all duration-300 overflow-hidden h-full flex flex-col">
-                  <div className="relative h-48 bg-gradient-to-br from-[#50AEDF]/20 to-[#7C5CFF]/20 overflow-hidden">
+                <Card className="border-gray-800 hover:border-[#2DD4BF]/50 transition-all duration-300 overflow-hidden h-full flex flex-col">
+                  <div className="relative h-48 bg-gradient-to-br from-[#2DD4BF]/20 to-[#F2A93B]/20 overflow-hidden">
                     <div className="absolute inset-0 bg-gray-900/50 group-hover:bg-gray-900/30 transition-colors duration-300 flex items-center justify-center">
                       <div className="text-gray-600 text-sm">Projekt képe</div>
                     </div>
-                    <div className="absolute top-4 right-4 px-3 py-1 bg-[#50AEDF]/20 border border-[#50AEDF]/40 rounded-full text-xs text-[#50AEDF] font-semibold">
+                    <div className="absolute top-4 right-4 px-3 py-1 bg-[#2DD4BF]/20 border border-[#2DD4BF]/40 rounded-full text-xs text-[#2DD4BF] font-semibold">
                       {project.category}
                     </div>
                   </div>
                   <CardContent className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-xl font-bold text-[#EAF0FF] mb-2 group-hover:text-[#50AEDF] transition-colors">
+                    <h3 className="text-xl font-bold text-[#F3EFE6] mb-2 group-hover:text-[#2DD4BF] transition-colors">
                       {project.title}
                     </h3>
-                    <p className="text-[#A8B3C7] mb-4 flex-grow">
+                    <p className="text-[#A69F91] mb-4 flex-grow">
                       {project.description}
                     </p>
-                    <div className="flex items-center gap-2 text-sm text-[#50AEDF] font-semibold">
+                    <div className="flex items-center gap-2 text-sm text-[#2DD4BF] font-semibold">
                       <span>Megtekintés</span>
                       <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -171,10 +171,10 @@ export default function PortfolioPage() {
             variants={fadeInUp}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#EAF0FF] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#F3EFE6] mb-4">
               Galéria
             </h2>
-            <p className="text-lg text-[#A8B3C7] max-w-2xl mx-auto">
+            <p className="text-lg text-[#A69F91] max-w-2xl mx-auto">
               Tekintsd meg a legfrissebb munkáinkat
             </p>
           </motion.div>
@@ -185,10 +185,10 @@ export default function PortfolioPage() {
       {/* CTA Section */}
       <Section id="cta" className="bg-gray-900/30">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#EAF0FF]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#F3EFE6]">
             Készen állsz a saját weboldaladra?
           </h2>
-          <p className="text-lg text-[#A8B3C7] mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-[#A69F91] mb-8 max-w-2xl mx-auto">
             Foglalj időpontot még ma, és 3 nap múlva már élő lesz a prémium weboldalad.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">

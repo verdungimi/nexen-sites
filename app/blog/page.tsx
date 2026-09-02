@@ -178,11 +178,11 @@ export default function BlogPage() {
               <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
                 Blog
               </span>
-              <span className="block bg-gradient-to-r from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent mt-2">
+              <span className="block bg-gradient-to-r from-[#F2A93B] via-[#2DD4BF] to-[#F2A93B] bg-clip-text text-transparent mt-2">
                 Weboldal Készítés & SEO Tippek
               </span>
             </h1>
-            <p className="text-lg md:text-xl text-[#A8B3C7] max-w-3xl mx-auto font-light leading-relaxed break-words overflow-wrap-anywhere px-4 mt-4">
+            <p className="text-lg md:text-xl text-[#A69F91] max-w-3xl mx-auto font-light leading-relaxed break-words overflow-wrap-anywhere px-4 mt-4">
               Hasznos cikkek a <strong className="text-white">weboldal készítésről</strong>, <strong className="text-white">olcsó weboldal készítő cég</strong> szolgáltatásairól és a <strong className="text-white">3 nap alatt kész weboldal</strong> készítésről.
             </p>
           </div>
@@ -192,17 +192,17 @@ export default function BlogPage() {
             {blogPosts.map((post) => (
               <article
                 key={post.slug}
-                className="bg-[#0F1620]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 transition-all duration-300 hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] hover:-translate-y-1 group flex flex-col blog-card"
+                className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 transition-all duration-300 hover:border-[#F2A93B]/50 hover:shadow-[0_0_30px_rgba(242,169,59,0.2)] hover:-translate-y-1 group flex flex-col blog-card"
               >
                 {/* Category Badge */}
                 <div className="mb-4">
-                  <span className="inline-block px-3 py-1 bg-[rgba(124,92,255,0.2)] border border-[rgba(124,92,255,0.3)] text-[#7C5CFF] text-xs font-semibold rounded-full">
+                  <span className="inline-block px-3 py-1 bg-[rgba(242,169,59,0.2)] border border-[rgba(242,169,59,0.3)] text-[#F2A93B] text-xs font-semibold rounded-full">
                     {post.category}
                   </span>
                 </div>
 
                 {/* Date and Read Time */}
-                <div className="flex items-center gap-4 text-xs text-[#A8B3C7] mb-4 flex-wrap">
+                <div className="flex items-center gap-4 text-xs text-[#A69F91] mb-4 flex-wrap">
                   <time dateTime={post.date} className="break-words">
                     {new Date(post.date).toLocaleDateString('hu-HU', {
                       year: 'numeric',
@@ -215,13 +215,13 @@ export default function BlogPage() {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#7C5CFF] group-hover:to-[#50AEDF] transition-all duration-300 leading-tight break-words overflow-wrap-anywhere">
+                <h2 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#F2A93B] group-hover:to-[#2DD4BF] transition-all duration-300 leading-tight break-words overflow-wrap-anywhere">
                   {post.title}
                 </h2>
 
                 {/* Excerpt */}
                 <div className="relative mb-6 blog-excerpt-wrapper">
-                  <p className="text-[#A8B3C7] leading-relaxed break-words overflow-wrap-anywhere blog-excerpt-text">
+                  <p className="text-[#A69F91] leading-relaxed break-words overflow-wrap-anywhere blog-excerpt-text">
                     {post.excerpt}
                   </p>
                 </div>
@@ -229,7 +229,7 @@ export default function BlogPage() {
                 {/* Read More Link */}
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center gap-2 text-[#7C5CFF] hover:text-[#50AEDF] font-semibold text-sm group-hover:gap-3 transition-all duration-300"
+                  className="inline-flex items-center gap-2 text-[#F2A93B] hover:text-[#2DD4BF] font-semibold text-sm group-hover:gap-3 transition-all duration-300"
                 >
                   Tovább olvasás
                   <svg
@@ -253,16 +253,16 @@ export default function BlogPage() {
 
           {/* CTA Section */}
           <div className="mt-16 text-center">
-            <div className="bg-[#0F1620]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10">
+            <div className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 break-words overflow-wrap-anywhere">
-                Készen állsz egy <span className="bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent">prémium weboldalra</span>?
+                Készen állsz egy <span className="bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] bg-clip-text text-transparent">prémium weboldalra</span>?
               </h2>
-              <p className="text-lg text-[#A8B3C7] mb-6 max-w-2xl mx-auto break-words overflow-wrap-anywhere">
+              <p className="text-lg text-[#A69F91] mb-6 max-w-2xl mx-auto break-words overflow-wrap-anywhere">
                 Foglalj időpontot és beszéljük meg, hogyan készíthetünk neked egy <strong className="text-white">3 nap alatt elkészülő, prémium minőségű weboldalt</strong> vagy <strong className="text-white">landing page</strong>-et. Olcsó weboldal készítő cégként garantáltan 3 nap alatt kész weboldalt nyújtunk.
               </p>
               <Link
                 href="/book"
-                className="inline-block px-8 py-4 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white rounded-xl hover:shadow-[0_0_30px_rgba(124,92,255,0.6)] hover:scale-105 transition-all duration-300 font-semibold text-base shadow-lg"
+                className="inline-block px-8 py-4 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] text-white rounded-xl hover:shadow-[0_0_30px_rgba(242,169,59,0.6)] hover:scale-105 transition-all duration-300 font-semibold text-base shadow-lg"
               >
                 Időpont Foglalása
               </Link>

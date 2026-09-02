@@ -124,7 +124,7 @@ export default function ZoldhazEnergyPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {/* Service 1 - Vízvezeték-szerelés */}
-            <div className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] shadow-[0_0_25px_rgba(67,89,54,0.25)] hover:shadow-[0_0_45px_rgba(134,253,34,0.5)] hover:-translate-y-2">
+            <div className="group relative bg-[#17151C]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] shadow-[0_0_25px_rgba(67,89,54,0.25)] hover:shadow-[0_0_45px_rgba(134,253,34,0.5)] hover:-translate-y-2">
               <div className="absolute inset-0 bg-gradient-to-br from-[#435936]/10 via-transparent to-transparent rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="mb-6">
@@ -144,7 +144,7 @@ export default function ZoldhazEnergyPage() {
             </div>
 
             {/* Service 2 - Gázszerelés */}
-            <div className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] shadow-[0_0_25px_rgba(67,89,54,0.25)] hover:shadow-[0_0_45px_rgba(134,253,34,0.5)] hover:-translate-y-2">
+            <div className="group relative bg-[#17151C]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] shadow-[0_0_25px_rgba(67,89,54,0.25)] hover:shadow-[0_0_45px_rgba(134,253,34,0.5)] hover:-translate-y-2">
               <div className="absolute inset-0 bg-gradient-to-br from-[#435936]/10 via-transparent to-transparent rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="mb-6">
@@ -164,7 +164,7 @@ export default function ZoldhazEnergyPage() {
             </div>
 
             {/* Service 3 - Fűtésszerelés */}
-            <div className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] shadow-[0_0_25px_rgba(67,89,54,0.25)] hover:shadow-[0_0_45px_rgba(134,253,34,0.5)] hover:-translate-y-2">
+            <div className="group relative bg-[#17151C]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] shadow-[0_0_25px_rgba(67,89,54,0.25)] hover:shadow-[0_0_45px_rgba(134,253,34,0.5)] hover:-translate-y-2">
               <div className="absolute inset-0 bg-gradient-to-br from-[#435936]/10 via-transparent to-transparent rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="mb-6">
@@ -184,7 +184,7 @@ export default function ZoldhazEnergyPage() {
             </div>
 
             {/* Service 4 - Légkondicionáló */}
-            <div className="group relative bg-[#0F1620]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] shadow-[0_0_25px_rgba(67,89,54,0.25)] hover:shadow-[0_0_45px_rgba(134,253,34,0.5)] hover:-translate-y-2">
+            <div className="group relative bg-[#17151C]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] shadow-[0_0_25px_rgba(67,89,54,0.25)] hover:shadow-[0_0_45px_rgba(134,253,34,0.5)] hover:-translate-y-2">
               <div className="absolute inset-0 bg-gradient-to-br from-[#435936]/10 via-transparent to-transparent rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="mb-6">
@@ -219,7 +219,7 @@ export default function ZoldhazEnergyPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-[#0F1620]/50 border border-[#435936]/50 rounded-2xl hover:border-[#86FD22] transition-all duration-300">
+            <div className="text-center p-8 bg-[#17151C]/50 border border-[#435936]/50 rounded-2xl hover:border-[#86FD22] transition-all duration-300">
               <div className="w-16 h-16 bg-gradient-to-br from-[#435936] to-[#86FD22] rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -229,7 +229,7 @@ export default function ZoldhazEnergyPage() {
               <p className="text-gray-300">Tapasztalt szakembereink garantálják a minőségi munkavégzést.</p>
             </div>
 
-            <div className="text-center p-8 bg-[#0F1620]/50 border border-[#435936]/50 rounded-2xl hover:border-[#86FD22] transition-all duration-300">
+            <div className="text-center p-8 bg-[#17151C]/50 border border-[#435936]/50 rounded-2xl hover:border-[#86FD22] transition-all duration-300">
               <div className="w-16 h-16 bg-gradient-to-br from-[#435936] to-[#86FD22] rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -239,7 +239,7 @@ export default function ZoldhazEnergyPage() {
               <p className="text-gray-300">Sürgősségi esetekben is gyorsan elérhetőek vagyunk.</p>
             </div>
 
-            <div className="text-center p-8 bg-[#0F1620]/50 border border-[#435936]/50 rounded-2xl hover:border-[#86FD22] transition-all duration-300">
+            <div className="text-center p-8 bg-[#17151C]/50 border border-[#435936]/50 rounded-2xl hover:border-[#86FD22] transition-all duration-300">
               <div className="w-16 h-16 bg-gradient-to-br from-[#435936] to-[#86FD22] rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -267,7 +267,7 @@ export default function ZoldhazEnergyPage() {
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Info */}
             <div className="space-y-6">
-              <div className="p-6 bg-[#0F1620]/50 border border-[#435936]/50 rounded-2xl hover:border-[#86FD22] transition-all duration-300">
+              <div className="p-6 bg-[#17151C]/50 border border-[#435936]/50 rounded-2xl hover:border-[#86FD22] transition-all duration-300">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#435936] to-[#86FD22] rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -283,7 +283,7 @@ export default function ZoldhazEnergyPage() {
                 </div>
               </div>
 
-              <div className="p-6 bg-[#0F1620]/50 border border-[#435936]/50 rounded-2xl hover:border-[#86FD22] transition-all duration-300">
+              <div className="p-6 bg-[#17151C]/50 border border-[#435936]/50 rounded-2xl hover:border-[#86FD22] transition-all duration-300">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#435936] to-[#86FD22] rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -299,7 +299,7 @@ export default function ZoldhazEnergyPage() {
                 </div>
               </div>
 
-              <div className="p-6 bg-[#0F1620]/50 border border-[#435936]/50 rounded-2xl hover:border-[#86FD22] transition-all duration-300">
+              <div className="p-6 bg-[#17151C]/50 border border-[#435936]/50 rounded-2xl hover:border-[#86FD22] transition-all duration-300">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#435936] to-[#86FD22] rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -317,7 +317,7 @@ export default function ZoldhazEnergyPage() {
                 </div>
               </div>
 
-              <div className="p-6 bg-[#0F1620]/50 border border-[#435936]/50 rounded-2xl hover:border-[#86FD22] transition-all duration-300">
+              <div className="p-6 bg-[#17151C]/50 border border-[#435936]/50 rounded-2xl hover:border-[#86FD22] transition-all duration-300">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#435936] to-[#86FD22] rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -340,7 +340,7 @@ export default function ZoldhazEnergyPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="p-8 bg-[#0F1620]/50 border border-[#435936]/50 rounded-2xl">
+            <div className="p-8 bg-[#17151C]/50 border border-[#435936]/50 rounded-2xl">
               <h3 className="text-2xl font-bold text-white mb-6">Küldjön üzenetet</h3>
               <form action="/api/contact" method="POST" className="space-y-4">
                 <div>
@@ -352,7 +352,7 @@ export default function ZoldhazEnergyPage() {
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 py-3 bg-[#0F1620] border border-[#435936] rounded-lg text-white focus:outline-none focus:border-[#86FD22] transition-colors"
+                    className="w-full px-4 py-3 bg-[#17151C] border border-[#435936] rounded-lg text-white focus:outline-none focus:border-[#86FD22] transition-colors"
                     placeholder="Teljes név"
                   />
                 </div>
@@ -365,7 +365,7 @@ export default function ZoldhazEnergyPage() {
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 bg-[#0F1620] border border-[#435936] rounded-lg text-white focus:outline-none focus:border-[#86FD22] transition-colors"
+                    className="w-full px-4 py-3 bg-[#17151C] border border-[#435936] rounded-lg text-white focus:outline-none focus:border-[#86FD22] transition-colors"
                     placeholder="email@pelda.hu"
                   />
                 </div>
@@ -377,7 +377,7 @@ export default function ZoldhazEnergyPage() {
                     type="tel"
                     id="phone"
                     name="phone"
-                    className="w-full px-4 py-3 bg-[#0F1620] border border-[#435936] rounded-lg text-white focus:outline-none focus:border-[#86FD22] transition-colors"
+                    className="w-full px-4 py-3 bg-[#17151C] border border-[#435936] rounded-lg text-white focus:outline-none focus:border-[#86FD22] transition-colors"
                     placeholder="+36 30 123 4567"
                   />
                 </div>
@@ -390,7 +390,7 @@ export default function ZoldhazEnergyPage() {
                     name="message"
                     required
                     rows={5}
-                    className="w-full px-4 py-3 bg-[#0F1620] border border-[#435936] rounded-lg text-white focus:outline-none focus:border-[#86FD22] transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-[#17151C] border border-[#435936] rounded-lg text-white focus:outline-none focus:border-[#86FD22] transition-colors resize-none"
                     placeholder="Írja le, miben segíthetünk..."
                   ></textarea>
                 </div>
@@ -412,7 +412,7 @@ export default function ZoldhazEnergyPage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">
             Nyitvatartás
           </h2>
-          <div className="bg-[#0F1620]/50 border border-[#435936]/50 rounded-2xl p-8">
+          <div className="bg-[#17151C]/50 border border-[#435936]/50 rounded-2xl p-8">
             <div className="grid md:grid-cols-2 gap-6 text-left">
               <div>
                 <h3 className="text-xl font-bold text-[#86FD22] mb-4">Hétfő - Csütörtök</h3>

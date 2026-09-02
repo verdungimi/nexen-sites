@@ -95,10 +95,10 @@ export default function GyikPage() {
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#EAF0FF]">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#F3EFE6]">
               Nem találtad a választ a kérdésedre?
             </h2>
-            <p className="text-lg text-[#A8B3C7] mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-[#A69F91] mb-8 max-w-2xl mx-auto">
               Lépj velünk kapcsolatba, és szívesen válaszolunk minden további kérdésedre.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">

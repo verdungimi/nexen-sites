@@ -35,15 +35,15 @@ export default function AboutPage() {
       {/* Mission Section */}
       <Section id="mission">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-[#EAF0FF]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-[#F3EFE6]">
             Küldetésünk
           </h2>
-          <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-12 mb-12">
-            <p className="text-lg text-[#A8B3C7] leading-relaxed mb-6">
+          <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-12 mb-12">
+            <p className="text-lg text-[#A69F91] leading-relaxed mb-6">
               A Nexen Sites célja, hogy minden vállalkozó számára elérhetővé tegyük a prémium minőségű weboldalakat. 
               Hiszünk abban, hogy egy modern, gyors és mobilbarát weboldal nem kell, hogy hónapokig tartó projekt legyen.
             </p>
-            <p className="text-lg text-[#A8B3C7] leading-relaxed">
+            <p className="text-lg text-[#A69F91] leading-relaxed">
               A 3 napos szállítási rendszerünkkel garantáljuk, hogy ügyfeleink gyorsan online jelenléthez juthassanak, 
               miközben a minőség és a prémium megjelenés mindig az első helyen áll.
             </p>
@@ -54,28 +54,28 @@ export default function AboutPage() {
       {/* Values Section */}
       <Section id="values">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#EAF0FF]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#F3EFE6]">
             Értékeink
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] transition-all duration-300">
+            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#F2A93B]/50 hover:shadow-[0_0_30px_rgba(242,169,59,0.2)] transition-all duration-300">
               <div className="text-4xl mb-4">⚡</div>
-              <h3 className="text-xl font-bold mb-4 text-[#EAF0FF]">Gyorsaság</h3>
-              <p className="text-[#A8B3C7] leading-relaxed">
+              <h3 className="text-xl font-bold mb-4 text-[#F3EFE6]">Gyorsaság</h3>
+              <p className="text-[#A69F91] leading-relaxed">
                 3 nap alatt kész weboldal, fix határidővel. Nincs várakozás, nincs késés.
               </p>
             </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.2)] transition-all duration-300">
+            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#2DD4BF]/50 hover:shadow-[0_0_30px_rgba(45,212,191,0.2)] transition-all duration-300">
               <div className="text-4xl mb-4">✨</div>
-              <h3 className="text-xl font-bold mb-4 text-[#EAF0FF]">Minőség</h3>
-              <p className="text-[#A8B3C7] leading-relaxed">
+              <h3 className="text-xl font-bold mb-4 text-[#F3EFE6]">Minőség</h3>
+              <p className="text-[#A69F91] leading-relaxed">
                 Prémium design, modern technológiák, és tökéletes működés minden eszközön.
               </p>
             </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.2)] transition-all duration-300">
+            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#F2A93B]/50 hover:shadow-[0_0_30px_rgba(242,169,59,0.2)] transition-all duration-300">
               <div className="text-4xl mb-4">🤝</div>
-              <h3 className="text-xl font-bold mb-4 text-[#EAF0FF]">Megbízhatóság</h3>
-              <p className="text-[#A8B3C7] leading-relaxed">
+              <h3 className="text-xl font-bold mb-4 text-[#F3EFE6]">Megbízhatóság</h3>
+              <p className="text-[#A69F91] leading-relaxed">
                 Átlátható kommunikáció, tiszta határidők, és folyamatos támogatás.
               </p>
             </div>
@@ -86,44 +86,44 @@ export default function AboutPage() {
       {/* Process Section */}
       <Section id="our-process">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#EAF0FF]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#F3EFE6]">
             Hogyan dolgozunk?
           </h2>
           <div className="space-y-6">
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8">
+            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] rounded-full flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] rounded-full flex items-center justify-center text-white font-bold">
                   1
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 text-[#EAF0FF]">Kickoff és anyaggyűjtés</h3>
-                  <p className="text-[#A8B3C7] leading-relaxed">
+                  <h3 className="text-xl font-bold mb-2 text-[#F3EFE6]">Kickoff és anyaggyűjtés</h3>
+                  <p className="text-[#A69F91] leading-relaxed">
                     Az első napon összegyűjtjük az igényeket és a szükséges anyagokat (logo, szövegek, képek).
                   </p>
                 </div>
               </div>
             </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8">
+            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] rounded-full flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] rounded-full flex items-center justify-center text-white font-bold">
                   2
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 text-[#EAF0FF]">Design és fejlesztés</h3>
-                  <p className="text-[#A8B3C7] leading-relaxed">
+                  <h3 className="text-xl font-bold mb-2 text-[#F3EFE6]">Design és fejlesztés</h3>
+                  <p className="text-[#A69F91] leading-relaxed">
                     A következő napokban készítjük el a vázlatokat, a design-t, majd fejlesztjük a weboldalt.
                   </p>
                 </div>
               </div>
             </div>
-            <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8">
+            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] rounded-full flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] rounded-full flex items-center justify-center text-white font-bold">
                   3
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 text-[#EAF0FF]">Tesztelés és indítás</h3>
-                  <p className="text-[#A8B3C7] leading-relaxed">
+                  <h3 className="text-xl font-bold mb-2 text-[#F3EFE6]">Tesztelés és indítás</h3>
+                  <p className="text-[#A69F91] leading-relaxed">
                     Az utolsó napokban teszteljük, finomhangoljuk, majd élőre helyezzük a weboldalt.
                   </p>
                 </div>
@@ -136,10 +136,10 @@ export default function AboutPage() {
       {/* CTA Section */}
       <Section id="cta">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#EAF0FF]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#F3EFE6]">
             Készen állsz a weboldaladra?
           </h2>
-          <p className="text-lg text-[#A8B3C7] mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-[#A69F91] mb-8 max-w-2xl mx-auto">
             Foglalj időpontot még ma, és 3 nap múlva már élő lesz a prémium weboldalad.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">

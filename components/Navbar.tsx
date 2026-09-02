@@ -80,7 +80,7 @@ export default function Navbar() {
 
           {/* CTA Button - Right */}
           <div className="hidden md:block flex-shrink-0 ml-auto -mr-2">
-            <Link href="/book" className="px-7 py-3 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white rounded-xl hover:shadow-[0_0_30px_rgba(124,92,255,0.7)] hover:scale-105 transition-all duration-300 font-semibold text-base shadow-lg">
+            <Link href="/book" className="px-7 py-3 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] text-white rounded-xl hover:shadow-[0_0_30px_rgba(242,169,59,0.7)] hover:scale-105 transition-all duration-300 font-semibold text-base shadow-lg">
               Időpont Foglalása
             </Link>
           </div>
@@ -104,10 +104,10 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden py-4 space-y-3 mt-4">
-            <Link href="/" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
+            <Link href="/" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#F2A93B] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#F2A93B]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
               Kezdőlap
             </Link>
-            <a href="#process" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+            <a href="#process" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#F2A93B] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#F2A93B]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               setIsOpen(false);
               const target = document.getElementById('process');
@@ -120,7 +120,7 @@ export default function Navbar() {
             }}>
               Folyamat
             </a>
-            <a href="#packages" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+            <a href="#packages" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#F2A93B] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#F2A93B]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               setIsOpen(false);
               const target = document.getElementById('packages');
@@ -133,16 +133,16 @@ export default function Navbar() {
             }}>
               Árazás
             </a>
-            <Link href="/blog" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
+            <Link href="/blog" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#F2A93B] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#F2A93B]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
               Blog
             </Link>
-            <Link href="/rolunk" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
+            <Link href="/rolunk" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#F2A93B] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#F2A93B]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
               Rólunk
             </Link>
-            <Link href="/gyik" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
+            <Link href="/gyik" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#F2A93B] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#F2A93B]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
               GYIK
             </Link>
-            <a href="/#contact" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#7C5CFF] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#7C5CFF]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+            <a href="/#contact" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#F2A93B] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#F2A93B]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               setIsOpen(false);
               const currentPath = window.location.pathname;
@@ -162,7 +162,7 @@ export default function Navbar() {
             }}>
               Kapcsolat
             </a>
-            <Link href="/book" className="block px-5 py-2.5 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white rounded-xl hover:shadow-[0_0_25px_rgba(124,92,255,0.6)] hover:scale-105 transition-all duration-300 font-medium text-xs text-center shadow-lg" onClick={() => setIsOpen(false)}>
+            <Link href="/book" className="block px-5 py-2.5 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] text-white rounded-xl hover:shadow-[0_0_25px_rgba(242,169,59,0.6)] hover:scale-105 transition-all duration-300 font-medium text-xs text-center shadow-lg" onClick={() => setIsOpen(false)}>
               Időpont Foglalása
             </Link>
           </div>

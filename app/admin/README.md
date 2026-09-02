@@ -133,10 +133,10 @@ export default defineSchema({
 
 - **Theme:** Dark mode (Vercel/Notion style)
 - **Colors:**
-  - Primary: `#50AEDF` (Blue)
-  - Secondary: `#7C5CFF` (Purple)
+  - Primary: `#2DD4BF` (Blue)
+  - Secondary: `#F2A93B` (Purple)
   - Background: `#0a0a0a` (Dark)
-  - Card: `#0F1620` (Darker)
+  - Card: `#17151C` (Darker)
 - **Components:** ShadCN UI components
 - **Animations:** Framer Motion
 

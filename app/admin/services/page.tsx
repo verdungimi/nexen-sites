@@ -127,13 +127,13 @@ export default function ServicesPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-2xl lg:text-3xl font-bold text-[#EAF0FF] mb-2">Szolgáltatások Kezelése</h2>
-          <p className="text-sm lg:text-base text-[#A8B3C7]">Adja hozzá és kezelje a weboldal szolgáltatásait</p>
+          <h2 className="text-2xl lg:text-3xl font-bold text-[#F3EFE6] mb-2">Szolgáltatások Kezelése</h2>
+          <p className="text-sm lg:text-base text-[#A69F91]">Adja hozzá és kezelje a weboldal szolgáltatásait</p>
         </div>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Button
             onClick={handleAdd}
-            className="bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white"
+            className="bg-gradient-to-r from-[#2DD4BF] to-[#F2A93B] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white"
           >
             <Plus className="w-4 h-4 mr-2" />
             Új Szolgáltatás
@@ -141,10 +141,10 @@ export default function ServicesPage() {
         </motion.div>
       </div>
 
-      <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">
+      <Card className="bg-[#17151C] border-[rgba(255,255,255,0.1)]">
         <CardHeader>
-          <CardTitle className="text-[#EAF0FF]">Szolgáltatások Listája</CardTitle>
-          <CardDescription className="text-[#A8B3C7]">
+          <CardTitle className="text-[#F3EFE6]">Szolgáltatások Listája</CardTitle>
+          <CardDescription className="text-[#A69F91]">
             {services.length} szolgáltatás található
           </CardDescription>
         </CardHeader>
@@ -167,7 +167,7 @@ export default function ServicesPage() {
       >
         <div className="space-y-4">
           <div>
-            <Label htmlFor="title" className="text-[#A8B3C7]">
+            <Label htmlFor="title" className="text-[#A69F91]">
               Cím *
             </Label>
             <Input
@@ -179,7 +179,7 @@ export default function ServicesPage() {
             />
           </div>
           <div>
-            <Label htmlFor="description" className="text-[#A8B3C7]">
+            <Label htmlFor="description" className="text-[#A69F91]">
               Leírás *
             </Label>
             <Textarea
@@ -193,7 +193,7 @@ export default function ServicesPage() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="price" className="text-[#A8B3C7]">
+              <Label htmlFor="price" className="text-[#A69F91]">
                 Ár *
               </Label>
               <Input
@@ -205,7 +205,7 @@ export default function ServicesPage() {
               />
             </div>
             <div>
-              <Label htmlFor="iconUrl" className="text-[#A8B3C7]">
+              <Label htmlFor="iconUrl" className="text-[#A69F91]">
                 Ikon URL
               </Label>
               <Input
@@ -225,7 +225,7 @@ export default function ServicesPage() {
               onChange={(e) => setFeatured(e.target.checked)}
               className="w-4 h-4 rounded border-[rgba(255,255,255,0.1)] bg-[#0a0a0a]"
             />
-            <Label htmlFor="featured" className="text-[#A8B3C7] cursor-pointer">
+            <Label htmlFor="featured" className="text-[#A69F91] cursor-pointer">
               Kiemelt szolgáltatás
             </Label>
           </div>

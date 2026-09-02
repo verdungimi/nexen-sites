@@ -46,25 +46,25 @@ export default function ProcessTimeline() {
     <div ref={sectionRef} className="relative">
       <div ref={timelineRef} className="space-y-12 relative">
         {/* Scroll progress line - single vertical line for entire timeline */}
-        <div className="absolute left-6 top-10 bottom-0 w-1 bg-[#7C5CFF]/30 hidden md:block rounded-full">
+        <div className="absolute left-6 top-10 bottom-0 w-1 bg-[#F2A93B]/30 hidden md:block rounded-full">
           {/* Progress fill */}
           <div
-            className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] transition-all duration-75 ease-out rounded-full"
+            className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#F2A93B] via-[#2DD4BF] to-[#F2A93B] transition-all duration-75 ease-out rounded-full"
             style={{
               height: `${scrollProgress * 100}%`,
-              boxShadow: '0 0 15px rgba(124, 92, 255, 0.8), 0 0 30px rgba(80, 174, 223, 0.6)',
+              boxShadow: '0 0 15px rgba(242,169,59,0.8), 0 0 30px rgba(45,212,191,0.6)',
             }}
           />
         </div>
 
         {steps.map((step, idx) => (
           <div key={idx} className="flex gap-6 items-start relative">
-            <div className="flex-shrink-0 w-10 h-10 bg-[#7C5CFF] rounded-full flex items-center justify-center text-white font-bold text-xs shadow-[0_0_15px_rgba(124,92,255,0.4)] z-10 border-2 border-[#0a0a0a]">
+            <div className="flex-shrink-0 w-10 h-10 bg-[#F2A93B] rounded-full flex items-center justify-center text-white font-bold text-xs shadow-[0_0_15px_rgba(242,169,59,0.4)] z-10 border-2 border-[#0a0a0a]">
               {step.day}
             </div>
-            <div className="flex-1 bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 transition-all duration-300 hover:border-[rgba(255,255,255,0.2)]">
-              <h3 className="text-xl font-bold mb-2 text-[#EAF0FF]">{step.title}</h3>
-              <p className="text-[#A8B3C7] leading-relaxed">{step.desc}</p>
+            <div className="flex-1 bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 transition-all duration-300 hover:border-[rgba(255,255,255,0.2)]">
+              <h3 className="text-xl font-bold mb-2 text-[#F3EFE6]">{step.title}</h3>
+              <p className="text-[#A69F91] leading-relaxed">{step.desc}</p>
             </div>
           </div>
         ))}

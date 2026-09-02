@@ -52,13 +52,13 @@ export default function UsersPage() {
         <div className="flex items-center gap-3">
           <Avatar>
             <AvatarImage src={row.avatar} alt={row.name} />
-            <AvatarFallback className="bg-[#50AEDF] text-white">
+            <AvatarFallback className="bg-[#2DD4BF] text-white">
               {row.name.split(" ").map(n => n[0]).join("")}
             </AvatarFallback>
           </Avatar>
           <div>
-            <p className="font-medium text-[#EAF0FF]">{row.name}</p>
-            <p className="text-sm text-[#A8B3C7]">{row.email}</p>
+            <p className="font-medium text-[#F3EFE6]">{row.name}</p>
+            <p className="text-sm text-[#A69F91]">{row.email}</p>
           </div>
         </div>
       ),
@@ -83,14 +83,14 @@ export default function UsersPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl lg:text-3xl font-bold text-[#EAF0FF] mb-2">Felhasználók Kezelése</h2>
-        <p className="text-sm lg:text-base text-[#A8B3C7]">Tekintse meg és kezelje a regisztrált felhasználókat</p>
+        <h2 className="text-2xl lg:text-3xl font-bold text-[#F3EFE6] mb-2">Felhasználók Kezelése</h2>
+        <p className="text-sm lg:text-base text-[#A69F91]">Tekintse meg és kezelje a regisztrált felhasználókat</p>
       </div>
 
-      <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">
+      <Card className="bg-[#17151C] border-[rgba(255,255,255,0.1)]">
         <CardHeader>
-          <CardTitle className="text-[#EAF0FF]">Felhasználók Listája</CardTitle>
-          <CardDescription className="text-[#A8B3C7]">
+          <CardTitle className="text-[#F3EFE6]">Felhasználók Listája</CardTitle>
+          <CardDescription className="text-[#A69F91]">
             {users.length} felhasználó található
           </CardDescription>
         </CardHeader>
@@ -105,30 +105,30 @@ export default function UsersPage() {
       </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">
+        <Card className="bg-[#17151C] border-[rgba(255,255,255,0.1)]">
           <CardHeader>
-            <CardTitle className="text-[#EAF0FF] text-lg">Összes Felhasználó</CardTitle>
+            <CardTitle className="text-[#F3EFE6] text-lg">Összes Felhasználó</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-bold text-[#50AEDF]">{users.length}</p>
+            <p className="text-3xl font-bold text-[#2DD4BF]">{users.length}</p>
           </CardContent>
         </Card>
-        <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">
+        <Card className="bg-[#17151C] border-[rgba(255,255,255,0.1)]">
           <CardHeader>
-            <CardTitle className="text-[#EAF0FF] text-lg">Adminok</CardTitle>
+            <CardTitle className="text-[#F3EFE6] text-lg">Adminok</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-bold text-[#7C5CFF]">
+            <p className="text-3xl font-bold text-[#F2A93B]">
               {users.filter(u => u.role === "admin").length}
             </p>
           </CardContent>
         </Card>
-        <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">
+        <Card className="bg-[#17151C] border-[rgba(255,255,255,0.1)]">
           <CardHeader>
-            <CardTitle className="text-[#EAF0FF] text-lg">Felhasználók</CardTitle>
+            <CardTitle className="text-[#F3EFE6] text-lg">Felhasználók</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-3xl font-bold text-[#EAF0FF]">
+            <p className="text-3xl font-bold text-[#F3EFE6]">
               {users.filter(u => u.role === "user").length}
             </p>
           </CardContent>
