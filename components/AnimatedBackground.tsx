@@ -53,7 +53,7 @@ export default function AnimatedBackground() {
         return (
           <div
             key={idx}
-            className="absolute text-4xl md:text-6xl opacity-40 text-primary-300 drop-shadow-[0_0_10px_rgba(80,174,223,0.5)] transition-all duration-500 ease-out"
+            className="absolute text-4xl md:text-6xl opacity-40 text-primary-300 drop-shadow-[0_0_10px_rgba(45,212,191,0.5)] transition-all duration-500 ease-out"
             style={{
               left: `${symbol.x}%`,
               top: `${symbol.y}%`,

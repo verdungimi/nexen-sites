@@ -172,12 +172,12 @@ export default function HomePageContent() {
             {/* Left side info - Hidden on mobile, visible on lg+ */}
             <div className="hidden lg:block lg:col-span-3 relative pr-4" style={{ minHeight: '600px' }}>
               <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '8%', right: '12%', animationDelay: '0s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#50AEDF] drop-shadow-[0_0_15px_rgba(80,174,223,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <svg className="absolute inset-0 w-full h-full text-[#2DD4BF] drop-shadow-[0_0_15px_rgba(45,212,191,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
               </div>
               <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '52%', right: '-5%', animationDelay: '1.5s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#7C5CFF] drop-shadow-[0_0_15px_rgba(124,92,255,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <svg className="absolute inset-0 w-full h-full text-[#F2A93B] drop-shadow-[0_0_15px_rgba(242,169,59,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
@@ -190,7 +190,7 @@ export default function HomePageContent() {
               <span className="inline-block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-fade-in whitespace-nowrap">
                 Professzionális
               </span>
-              <span className="block bg-gradient-to-r from-[#7C5CFF] via-[#50AEDF] to-[#7C5CFF] bg-clip-text text-transparent mt-1 md:mt-2 animate-fade-in-delay">
+              <span className="block bg-gradient-to-r from-[#F2A93B] via-[#2DD4BF] to-[#F2A93B] bg-clip-text text-transparent mt-1 md:mt-2 animate-fade-in-delay">
                 weboldal
               </span>
               <span className="block text-white mt-1 md:mt-2 animate-fade-in-delay-2">
@@ -215,13 +215,13 @@ export default function HomePageContent() {
 
             {/* Trust badges - Enhanced style with animations */}
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-12 mt-12 md:mt-20 px-2">
-              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.3)] hover:scale-105 transition-all duration-500 animate-float-up group">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 group-hover:text-[#7C5CFF] transition-colors duration-500 group-hover:scale-110 transition-transform duration-300">3</div>
-                <div className="text-xs md:text-sm lg:text-base text-[#EAF0FF] font-semibold">Napos szállítás</div>
+              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#F2A93B]/50 hover:shadow-[0_0_30px_rgba(242,169,59,0.3)] hover:scale-105 transition-all duration-500 animate-float-up group">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 group-hover:text-[#F2A93B] transition-colors duration-500 group-hover:scale-110 transition-transform duration-300">3</div>
+                <div className="text-xs md:text-sm lg:text-base text-[#F3EFE6] font-semibold">Napos szállítás</div>
               </div>
-              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent mb-2 group-hover:from-[#50AEDF] group-hover:to-[#7C5CFF] transition-all duration-500 group-hover:scale-110 transition-transform duration-300">100%</div>
-                <div className="text-xs md:text-sm lg:text-base text-[#EAF0FF] font-semibold">Prémium minőség</div>
+              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#2DD4BF]/50 hover:shadow-[0_0_30px_rgba(45,212,191,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] bg-clip-text text-transparent mb-2 group-hover:from-[#2DD4BF] group-hover:to-[#F2A93B] transition-all duration-500 group-hover:scale-110 transition-transform duration-300">100%</div>
+                <div className="text-xs md:text-sm lg:text-base text-[#F3EFE6] font-semibold">Prémium minőség</div>
               </div>
             </div>
             </div>
@@ -229,12 +229,12 @@ export default function HomePageContent() {
             {/* Right side info - Hidden on mobile, visible on lg+ */}
             <div className="hidden lg:block lg:col-span-3 relative pl-4" style={{ minHeight: '600px' }}>
               <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '10%', left: '12%', animationDelay: '0.75s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#7C5CFF] drop-shadow-[0_0_15px_rgba(124,92,255,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <svg className="absolute inset-0 w-full h-full text-[#F2A93B] drop-shadow-[0_0_15px_rgba(242,169,59,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
               <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '55%', left: '-5%', animationDelay: '2.25s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#50AEDF] drop-shadow-[0_0_15px_rgba(80,174,223,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <svg className="absolute inset-0 w-full h-full text-[#2DD4BF] drop-shadow-[0_0_15px_rgba(45,212,191,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -293,10 +293,10 @@ export default function HomePageContent() {
               const IconComponent = feature.icon;
               return (
                 <motion.div key={index} variants={fadeInUp}>
-                  <Card className="h-full border-gray-800 hover:border-[#50AEDF]/50 hover:shadow-lg hover:shadow-[#50AEDF]/10 transition-all duration-300">
+                  <Card className="h-full border-gray-800 hover:border-[#2DD4BF]/50 hover:shadow-lg hover:shadow-[#2DD4BF]/10 transition-all duration-300">
                     <CardHeader>
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#50AEDF]/20 to-[#7C5CFF]/20 flex items-center justify-center mb-4">
-                        <IconComponent className="w-6 h-6 text-[#50AEDF]" />
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#2DD4BF]/20 to-[#F2A93B]/20 flex items-center justify-center mb-4">
+                        <IconComponent className="w-6 h-6 text-[#2DD4BF]" />
                       </div>
                       <CardTitle className="text-xl">{feature.title}</CardTitle>
                     </CardHeader>
@@ -333,7 +333,7 @@ export default function HomePageContent() {
 
           <div className="relative max-w-5xl mx-auto">
             {/* Connection line - hidden on mobile */}
-            <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#50AEDF]/50 to-transparent" />
+            <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#2DD4BF]/50 to-transparent" />
             
             <div className="grid md:grid-cols-4 gap-8 relative">
               {[
@@ -366,7 +366,7 @@ export default function HomePageContent() {
                   variants={fadeInUp}
                   className="text-center relative"
                 >
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#50AEDF] to-[#7C5CFF] text-white flex items-center justify-center text-xl font-bold mx-auto mb-4 relative z-10 shadow-lg shadow-[#50AEDF]/30">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#2DD4BF] to-[#F2A93B] text-white flex items-center justify-center text-xl font-bold mx-auto mb-4 relative z-10 shadow-lg shadow-[#2DD4BF]/30">
                     {process.step}
                   </div>
                   <h3 className="text-xl font-semibold text-white mb-2">
@@ -450,19 +450,19 @@ export default function HomePageContent() {
                 <Card
                   className={`h-full transition-all duration-500 group relative overflow-hidden ${
                     pkg.highlighted
-                      ? "border-2 border-[#50AEDF] shadow-xl shadow-[#50AEDF]/20"
+                      ? "border-2 border-[#2DD4BF] shadow-xl shadow-[#2DD4BF]/20"
                       : "border-gray-800"
-                  } hover:-translate-y-2 hover:border-[#50AEDF] hover:shadow-[0_0_50px_rgba(80,174,223,0.4)]`}
+                  } hover:-translate-y-2 hover:border-[#2DD4BF] hover:shadow-[0_0_50px_rgba(45,212,191,0.4)]`}
                 >
                   {pkg.highlighted && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#50AEDF]/10 via-transparent to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#2DD4BF]/10 via-transparent to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   )}
                   {!pkg.highlighted && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#50AEDF]/5 via-transparent to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#2DD4BF]/5 via-transparent to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   )}
                   <div className="relative z-10">
                     <CardHeader>
-                      <CardTitle className={`text-2xl ${!pkg.highlighted ? 'group-hover:text-[#50AEDF] transition-colors' : ''}`}>{pkg.name}</CardTitle>
+                      <CardTitle className={`text-2xl ${!pkg.highlighted ? 'group-hover:text-[#2DD4BF] transition-colors' : ''}`}>{pkg.name}</CardTitle>
                       <CardDescription className="text-base mt-2">
                         {pkg.description}
                       </CardDescription>
@@ -471,7 +471,7 @@ export default function HomePageContent() {
                     <ul className="space-y-3 mb-6">
                       {pkg.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-3">
-                          <Check className="w-5 h-5 text-[#50AEDF] flex-shrink-0 mt-0.5" />
+                          <Check className="w-5 h-5 text-[#2DD4BF] flex-shrink-0 mt-0.5" />
                           <span className="text-gray-300">{feature}</span>
                         </li>
                       ))}
@@ -524,7 +524,7 @@ export default function HomePageContent() {
             </h2>
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
               Célunk, hogy vállalkozásod online jelenléte olyan legyen, ami valóban értékes ügyfeleket hoz. 
-              Nem csak weboldalt készítünk – <span className="text-[#50AEDF] font-semibold">eredményt építünk</span>.
+              Nem csak weboldalt készítünk – <span className="text-[#2DD4BF] font-semibold">eredményt építünk</span>.
               <br /><br />
               Tapasztalt csapatunk minden projektet egyedi figyelemmel kezel, és az üzleti célokra fókuszálva 
               dolgozik. Megbízható partnere vagyunk a sikeres online megjelenéshez.
@@ -646,17 +646,17 @@ export default function HomePageContent() {
                   <div>
                     <p className="font-semibold mb-1 text-white">Email</p>
                     <a
-                      href="mailto:info@nexensites.hu"
-                      className="text-[#50AEDF] hover:text-[#4098cc] transition-colors"
+                      href="mailto:verdung.imi@gmail.com"
+                      className="text-[#2DD4BF] hover:text-[#4098cc] transition-colors"
                     >
-                      info@nexensites.hu
+                      verdung.imi@gmail.com
                     </a>
                   </div>
                   <div>
                     <p className="font-semibold mb-1 text-white">Telefon</p>
                     <a
                       href="tel:+36705767845"
-                      className="text-[#50AEDF] hover:text-[#4098cc] transition-colors"
+                      className="text-[#2DD4BF] hover:text-[#4098cc] transition-colors"
                     >
                       +36 70 576 7845
                     </a>

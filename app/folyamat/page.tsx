@@ -37,9 +37,9 @@ export default function FolyamatPage() {
               { step: "03", title: "Tesztelés", icon: "✅" },
               { step: "04", title: "Indítás", icon: "🚀" },
             ].map((item, index) => (
-              <div key={index} className="bg-[#0F1620]/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)] rounded-xl p-4 text-center hover:border-[#50AEDF]/50 transition-all">
+              <div key={index} className="bg-[#17151C]/50 backdrop-blur-sm border border-[rgba(255,255,255,0.1)] rounded-xl p-4 text-center hover:border-[#2DD4BF]/50 transition-all">
                 <div className="text-2xl mb-2">{item.icon}</div>
-                <div className="text-xs md:text-sm text-[#50AEDF] font-bold mb-1">{item.step}</div>
+                <div className="text-xs md:text-sm text-[#2DD4BF] font-bold mb-1">{item.step}</div>
                 <div className="text-sm md:text-base text-white font-semibold">{item.title}</div>
               </div>
             ))}
@@ -57,17 +57,17 @@ export default function FolyamatPage() {
             variants={fadeInUp}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#EAF0FF] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#F3EFE6] mb-4">
               Hogyan dolgozunk?
             </h2>
-            <p className="text-lg text-[#A8B3C7] max-w-2xl mx-auto">
+            <p className="text-lg text-[#A69F91] max-w-2xl mx-auto">
               Négy egyszerű lépés, amely biztosítja, hogy a weboldalad pontosan az legyen, amit elképzeltél.
             </p>
           </motion.div>
 
           <div className="relative">
             {/* Connection line - hidden on mobile */}
-            <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#50AEDF]/50 to-transparent" />
+            <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#2DD4BF]/50 to-transparent" />
             
             <div className="grid md:grid-cols-4 gap-6 md:gap-8 relative">
               {[
@@ -104,14 +104,14 @@ export default function FolyamatPage() {
                   variants={fadeInUp}
                   className="text-center relative mb-8"
                 >
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#50AEDF] to-[#7C5CFF] text-white flex items-center justify-center text-xl font-bold mx-auto mb-4 relative z-10 shadow-lg shadow-[#50AEDF]/30">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#2DD4BF] to-[#F2A93B] text-white flex items-center justify-center text-xl font-bold mx-auto mb-4 relative z-10 shadow-lg shadow-[#2DD4BF]/30">
                     {process.step}
                   </div>
                   <div className="text-4xl mb-3">{process.icon}</div>
-                  <h3 className="text-xl font-semibold text-[#EAF0FF] mb-3">
+                  <h3 className="text-xl font-semibold text-[#F3EFE6] mb-3">
                     {process.title}
                   </h3>
-                  <p className="text-[#A8B3C7] leading-relaxed">{process.description}</p>
+                  <p className="text-[#A69F91] leading-relaxed">{process.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -129,10 +129,10 @@ export default function FolyamatPage() {
             variants={fadeInUp}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-[#EAF0FF] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#F3EFE6] mb-4">
               3 napos időzítés
             </h2>
-            <p className="text-lg text-[#A8B3C7] max-w-2xl mx-auto">
+            <p className="text-lg text-[#A69F91] max-w-2xl mx-auto">
               Részletesen, naponta hogyan haladunk
             </p>
           </motion.div>
@@ -149,16 +149,16 @@ export default function FolyamatPage() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
                 variants={fadeInUp}
-                className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 hover:border-[#7C5CFF]/30 hover:shadow-[0_0_20px_rgba(124,92,255,0.2)] transition-all duration-500"
+                className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 hover:border-[#F2A93B]/30 hover:shadow-[0_0_20px_rgba(242,169,59,0.2)] transition-all duration-500"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] rounded-full flex items-center justify-center text-white font-bold">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] rounded-full flex items-center justify-center text-white font-bold">
                     {index + 1}
                   </div>
                   <div>
-                    <div className="text-sm text-[#50AEDF] font-semibold mb-1">{item.days}</div>
-                    <h3 className="text-xl font-bold mb-2 text-[#EAF0FF]">{item.title}</h3>
-                    <p className="text-[#A8B3C7] leading-relaxed">{item.description}</p>
+                    <div className="text-sm text-[#2DD4BF] font-semibold mb-1">{item.days}</div>
+                    <h3 className="text-xl font-bold mb-2 text-[#F3EFE6]">{item.title}</h3>
+                    <p className="text-[#A69F91] leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               </motion.div>
@@ -170,10 +170,10 @@ export default function FolyamatPage() {
       {/* CTA Section */}
       <Section id="cta">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#EAF0FF]">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#F3EFE6]">
             Készen állsz, hogy elindítsuk?
           </h2>
-          <p className="text-lg text-[#A8B3C7] mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-[#A69F91] mb-8 max-w-2xl mx-auto">
             Foglalj időpontot még ma, és 3 nap múlva már élő lesz a prémium weboldalad.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">

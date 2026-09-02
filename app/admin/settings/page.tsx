@@ -15,9 +15,9 @@ export default function SettingsPage() {
   const [settings, setSettings] = useState({
     siteName: "Nexen Sites",
     logoUrl: "https://example.com/logo.png",
-    primaryColor: "#50AEDF",
-    secondaryColor: "#7C5CFF",
-    contactEmail: "info@nexensites.hu",
+    primaryColor: "#2DD4BF",
+    secondaryColor: "#F2A93B",
+    contactEmail: "verdung.imi@gmail.com",
     contactPhone: "+36 1 234 5678",
     facebookUrl: "https://facebook.com/nexensites",
     instagramUrl: "https://instagram.com/nexensites",
@@ -33,8 +33,8 @@ export default function SettingsPage() {
       setSettings({
         siteName: currentSettings.siteName || "",
         logoUrl: currentSettings.logoUrl || "",
-        primaryColor: currentSettings.primaryColor || "#50AEDF",
-        secondaryColor: currentSettings.secondaryColor || "#7C5CFF",
+        primaryColor: currentSettings.primaryColor || "#2DD4BF",
+        secondaryColor: currentSettings.secondaryColor || "#F2A93B",
         contactEmail: currentSettings.contactEmail || "",
         contactPhone: currentSettings.contactPhone || "",
         facebookUrl: currentSettings.facebookUrl || "",
@@ -56,27 +56,27 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl lg:text-3xl font-bold text-[#EAF0FF] mb-2">Beállítások</h2>
-        <p className="text-sm lg:text-base text-[#A8B3C7]">Konfigurálja a weboldal globális beállításait</p>
+        <h2 className="text-2xl lg:text-3xl font-bold text-[#F3EFE6] mb-2">Beállítások</h2>
+        <p className="text-sm lg:text-base text-[#A69F91]">Konfigurálja a weboldal globális beállításait</p>
       </div>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">
+        <Card className="bg-[#17151C] border-[rgba(255,255,255,0.1)]">
           <CardHeader>
-            <CardTitle className="text-[#EAF0FF] flex items-center gap-2">
-              <Globe className="w-5 h-5 text-[#50AEDF]" />
+            <CardTitle className="text-[#F3EFE6] flex items-center gap-2">
+              <Globe className="w-5 h-5 text-[#2DD4BF]" />
               Általános Beállítások
             </CardTitle>
-            <CardDescription className="text-[#A8B3C7]">
+            <CardDescription className="text-[#A69F91]">
               Weboldal alapvető információi
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <Label htmlFor="siteName" className="text-[#A8B3C7]">
+              <Label htmlFor="siteName" className="text-[#A69F91]">
                 Weboldal Neve
               </Label>
               <Input
@@ -87,7 +87,7 @@ export default function SettingsPage() {
               />
             </div>
             <div>
-              <Label htmlFor="logoUrl" className="text-[#A8B3C7]">
+              <Label htmlFor="logoUrl" className="text-[#A69F91]">
                 Logó URL
               </Label>
               <Input
@@ -106,20 +106,20 @@ export default function SettingsPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
       >
-        <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">
+        <Card className="bg-[#17151C] border-[rgba(255,255,255,0.1)]">
           <CardHeader>
-            <CardTitle className="text-[#EAF0FF] flex items-center gap-2">
-              <Palette className="w-5 h-5 text-[#7C5CFF]" />
+            <CardTitle className="text-[#F3EFE6] flex items-center gap-2">
+              <Palette className="w-5 h-5 text-[#F2A93B]" />
               Színek
             </CardTitle>
-            <CardDescription className="text-[#A8B3C7]">
+            <CardDescription className="text-[#A69F91]">
               Weboldal színvilága
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="primaryColor" className="text-[#A8B3C7]">
+                <Label htmlFor="primaryColor" className="text-[#A69F91]">
                   Elsődleges Szín
                 </Label>
                 <div className="flex gap-2 mt-2">
@@ -138,7 +138,7 @@ export default function SettingsPage() {
                 </div>
               </div>
               <div>
-                <Label htmlFor="secondaryColor" className="text-[#A8B3C7]">
+                <Label htmlFor="secondaryColor" className="text-[#A69F91]">
                   Másodlagos Szín
                 </Label>
                 <div className="flex gap-2 mt-2">
@@ -166,19 +166,19 @@ export default function SettingsPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
       >
-        <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">
+        <Card className="bg-[#17151C] border-[rgba(255,255,255,0.1)]">
           <CardHeader>
-            <CardTitle className="text-[#EAF0FF] flex items-center gap-2">
-              <Mail className="w-5 h-5 text-[#50AEDF]" />
+            <CardTitle className="text-[#F3EFE6] flex items-center gap-2">
+              <Mail className="w-5 h-5 text-[#2DD4BF]" />
               Kapcsolat
             </CardTitle>
-            <CardDescription className="text-[#A8B3C7]">
+            <CardDescription className="text-[#A69F91]">
               Kapcsolattartási információk
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <Label htmlFor="contactEmail" className="text-[#A8B3C7]">
+              <Label htmlFor="contactEmail" className="text-[#A69F91]">
                 Email Cím
               </Label>
               <Input
@@ -190,7 +190,7 @@ export default function SettingsPage() {
               />
             </div>
             <div>
-              <Label htmlFor="contactPhone" className="text-[#A8B3C7]">
+              <Label htmlFor="contactPhone" className="text-[#A69F91]">
                 Telefonszám
               </Label>
               <Input
@@ -209,19 +209,19 @@ export default function SettingsPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
       >
-        <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">
+        <Card className="bg-[#17151C] border-[rgba(255,255,255,0.1)]">
           <CardHeader>
-            <CardTitle className="text-[#EAF0FF] flex items-center gap-2">
-              <Globe className="w-5 h-5 text-[#7C5CFF]" />
+            <CardTitle className="text-[#F3EFE6] flex items-center gap-2">
+              <Globe className="w-5 h-5 text-[#F2A93B]" />
               Közösségi Média
             </CardTitle>
-            <CardDescription className="text-[#A8B3C7]">
+            <CardDescription className="text-[#A69F91]">
               Social media linkek
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <Label htmlFor="facebookUrl" className="text-[#A8B3C7]">
+              <Label htmlFor="facebookUrl" className="text-[#A69F91]">
                 Facebook URL
               </Label>
               <Input
@@ -232,7 +232,7 @@ export default function SettingsPage() {
               />
             </div>
             <div>
-              <Label htmlFor="instagramUrl" className="text-[#A8B3C7]">
+              <Label htmlFor="instagramUrl" className="text-[#A69F91]">
                 Instagram URL
               </Label>
               <Input
@@ -243,7 +243,7 @@ export default function SettingsPage() {
               />
             </div>
             <div>
-              <Label htmlFor="twitterUrl" className="text-[#A8B3C7]">
+              <Label htmlFor="twitterUrl" className="text-[#A69F91]">
                 Twitter URL
               </Label>
               <Input
@@ -265,7 +265,7 @@ export default function SettingsPage() {
         <div className="flex justify-end">
           <Button
             onClick={handleSave}
-            className="bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white"
+            className="bg-gradient-to-r from-[#2DD4BF] to-[#F2A93B] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white"
           >
             <Save className="w-4 h-4 mr-2" />
             Beállítások Mentése

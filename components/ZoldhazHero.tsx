@@ -40,10 +40,10 @@ export default function ZoldhazHero() {
         canvas.height * 0.3,
         500
       );
-      gradient1.addColorStop(0, 'rgba(67, 89, 54, 0.25)'); // #435936
-      gradient1.addColorStop(0.3, 'rgba(134, 253, 34, 0.15)'); // #86FD22
-      gradient1.addColorStop(0.6, 'rgba(67, 89, 54, 0.08)');
-      gradient1.addColorStop(1, 'rgba(67, 89, 54, 0)');
+      gradient1.addColorStop(0, 'rgba(67,89,54,0.25)'); // #435936
+      gradient1.addColorStop(0.3, 'rgba(134,253,34,0.15)'); // #86FD22
+      gradient1.addColorStop(0.6, 'rgba(67,89,54,0.08)');
+      gradient1.addColorStop(1, 'rgba(67,89,54,0)');
 
       ctx.fillStyle = gradient1;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -56,10 +56,10 @@ export default function ZoldhazHero() {
         canvas.height * 0.7,
         600
       );
-      gradient2.addColorStop(0, 'rgba(134, 253, 34, 0.22)'); // #86FD22
-      gradient2.addColorStop(0.3, 'rgba(67, 89, 54, 0.12)'); // #435936
-      gradient2.addColorStop(0.6, 'rgba(134, 253, 34, 0.06)');
-      gradient2.addColorStop(1, 'rgba(134, 253, 34, 0)');
+      gradient2.addColorStop(0, 'rgba(134,253,34,0.22)'); // #86FD22
+      gradient2.addColorStop(0.3, 'rgba(67,89,54,0.12)'); // #435936
+      gradient2.addColorStop(0.6, 'rgba(134,253,34,0.06)');
+      gradient2.addColorStop(1, 'rgba(134,253,34,0)');
 
       ctx.fillStyle = gradient2;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -73,10 +73,10 @@ export default function ZoldhazHero() {
         canvas.height * 0.5,
         450
       );
-      gradient3.addColorStop(0, 'rgba(67, 89, 54, 0.18)');
-      gradient3.addColorStop(0.4, 'rgba(134, 253, 34, 0.10)');
-      gradient3.addColorStop(0.8, 'rgba(67, 89, 54, 0.05)');
-      gradient3.addColorStop(1, 'rgba(67, 89, 54, 0)');
+      gradient3.addColorStop(0, 'rgba(67,89,54,0.18)');
+      gradient3.addColorStop(0.4, 'rgba(134,253,34,0.10)');
+      gradient3.addColorStop(0.8, 'rgba(67,89,54,0.05)');
+      gradient3.addColorStop(1, 'rgba(67,89,54,0)');
 
       ctx.fillStyle = gradient3;
       ctx.fillRect(0, 0, canvas.width, canvas.height);

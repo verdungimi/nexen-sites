@@ -116,7 +116,7 @@ export default function ImagesPage() {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#50AEDF] hover:underline truncate max-w-xs"
+          className="text-[#2DD4BF] hover:underline truncate max-w-xs"
         >
           {url}
         </a>
@@ -139,13 +139,13 @@ export default function ImagesPage() {
       )}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h2 className="text-2xl lg:text-3xl font-bold text-[#EAF0FF] mb-2">Képek Kezelése</h2>
-          <p className="text-sm lg:text-base text-[#A8B3C7]">Töltse fel és kezelje a weboldal képeit</p>
+          <h2 className="text-2xl lg:text-3xl font-bold text-[#F3EFE6] mb-2">Képek Kezelése</h2>
+          <p className="text-sm lg:text-base text-[#A69F91]">Töltse fel és kezelje a weboldal képeit</p>
         </div>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Button
             onClick={handleAdd}
-            className="bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white"
+            className="bg-gradient-to-r from-[#2DD4BF] to-[#F2A93B] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white"
           >
             <Plus className="w-4 h-4 mr-2" />
             Új Kép
@@ -153,10 +153,10 @@ export default function ImagesPage() {
         </motion.div>
       </div>
 
-      <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">
+      <Card className="bg-[#17151C] border-[rgba(255,255,255,0.1)]">
         <CardHeader>
-          <CardTitle className="text-[#EAF0FF]">Képek Listája</CardTitle>
-          <CardDescription className="text-[#A8B3C7]">
+          <CardTitle className="text-[#F3EFE6]">Képek Listája</CardTitle>
+          <CardDescription className="text-[#A69F91]">
             {images.length} kép található
           </CardDescription>
         </CardHeader>
@@ -179,7 +179,7 @@ export default function ImagesPage() {
       >
         <div className="space-y-4">
           <div>
-            <Label htmlFor="title" className="text-[#A8B3C7]">
+            <Label htmlFor="title" className="text-[#A69F91]">
               Cím *
             </Label>
             <Input
@@ -191,7 +191,7 @@ export default function ImagesPage() {
             />
           </div>
           <div>
-            <Label htmlFor="url" className="text-[#A8B3C7]">
+            <Label htmlFor="url" className="text-[#A69F91]">
               URL vagy Fájl
             </Label>
             <div className="flex gap-2 mt-2">
@@ -205,7 +205,7 @@ export default function ImagesPage() {
               <Button
                 type="button"
                 variant="outline"
-                className="border-[rgba(255,255,255,0.1)] text-[#A8B3C7]"
+                className="border-[rgba(255,255,255,0.1)] text-[#A69F91]"
               >
                 <Upload className="w-4 h-4 mr-2" />
                 Feltöltés
@@ -214,7 +214,7 @@ export default function ImagesPage() {
           </div>
           {selectedFile && (
             <div className="p-4 bg-[rgba(255,255,255,0.05)] rounded-lg">
-              <p className="text-sm text-[#A8B3C7]">Kiválasztott fájl: {selectedFile.name}</p>
+              <p className="text-sm text-[#A69F91]">Kiválasztott fájl: {selectedFile.name}</p>
             </div>
           )}
         </div>

@@ -21,7 +21,7 @@ export default function HomePageStructuredData() {
     "description": "Nexen Sites - Prémium weboldal készítés 3 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
     "url": "https://nexensites.hu",
     "telephone": "+36-70-576-7845",
-    "email": "info@nexensites.hu",
+    "email": "verdung.imi@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kecskemét",

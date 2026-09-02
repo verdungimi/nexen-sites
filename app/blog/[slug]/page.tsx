@@ -35,7 +35,7 @@ const blogPosts: Record<string, any> = {
       <h2>Az eredmény</h2>
       <p>Az eredmény egy <strong>prémium minőségű weboldal</strong>, amely 3 nap alatt készül el, de nem éri le a minőséget. Ez a rendszer több száz sikeres projekten keresztül lett finomhangolva, és folyamatosan fejlesztjük.</p>
       
-      <p>Ha szeretnél többet megtudni a <strong>3 napos weboldal készítésről</strong>, vagy szeretnél egy prémium weboldalt, <a href="/book" class="text-[#7C5CFF] hover:text-[#50AEDF] underline">foglalj időpontot</a> velünk!</p>
+      <p>Ha szeretnél többet megtudni a <strong>3 napos weboldal készítésről</strong>, vagy szeretnél egy prémium weboldalt, <a href="/book" class="text-[#F2A93B] hover:text-[#2DD4BF] underline">foglalj időpontot</a> velünk!</p>
     `
   },
   "landing-page-vagy-tobb-oldalas-weboldal-melyiket-valasszam": {
@@ -71,7 +71,7 @@ const blogPosts: Record<string, any> = {
       <h2>Az ár és az idő</h2>
       <p>A <strong>landing page</strong> általában gyorsabban készül el és olcsóbb, mint a több oldalas weboldal. A <strong>3 napos weboldal készítés</strong> mindkét esetben lehetséges, de a landing page esetén még gyorsabb lehet.</p>
       
-      <p>Ha bizonytalan vagy, hogy a <strong>landing page</strong> vagy a több oldalas <strong>weboldal</strong> felel meg jobban, <a href="/book" class="text-[#7C5CFF] hover:text-[#50AEDF] underline">beszéljük meg</a> együtt!</p>
+      <p>Ha bizonytalan vagy, hogy a <strong>landing page</strong> vagy a több oldalas <strong>weboldal</strong> felel meg jobban, <a href="/book" class="text-[#F2A93B] hover:text-[#2DD4BF] underline">beszéljük meg</a> együtt!</p>
     `
   },
   "seo-optimalizalas-modern-weboldalhoz-tippek": {
@@ -106,7 +106,7 @@ const blogPosts: Record<string, any> = {
       <h2>Következtetés</h2>
       <p>A <strong>SEO optimalizálás</strong> hosszú távú stratégia, de a jó alapokkal már rövid időn belül látható eredményeket érhetsz el. Egy jól optimalizált, <strong>prémium weboldal</strong> nagy előnyt jelent a versenytársakkal szemben.</p>
       
-      <p>Ha szeretnél egy <strong>SEO-optimalizált weboldalt</strong>, amely a keresőmotorok tetején jelenik meg, <a href="/book" class="text-[#7C5CFF] hover:text-[#50AEDF] underline">lépj velünk kapcsolatba</a>!</p>
+      <p>Ha szeretnél egy <strong>SEO-optimalizált weboldalt</strong>, amely a keresőmotorok tetején jelenik meg, <a href="/book" class="text-[#F2A93B] hover:text-[#2DD4BF] underline">lépj velünk kapcsolatba</a>!</p>
     `
   },
   "mobilbarat-weboldal-keszites-mi-a-fontos": {
@@ -139,7 +139,7 @@ const blogPosts: Record<string, any> = {
       <h2>Következtetés</h2>
       <p>A <strong>mobilbarát weboldal készítés</strong> nem csak trend, hanem elengedhetetlen követelmény. Ha weboldalad nincs mobilbarát, akkor a látogatóid jelentős részét elveszíted.</p>
       
-      <p>Szeretnél egy <strong>prémium, mobilbarát weboldalt</strong>? <a href="/book" class="text-[#7C5CFF] hover:text-[#50AEDF] underline">Foglalj időpontot</a> és beszéljük meg!</p>
+      <p>Szeretnél egy <strong>prémium, mobilbarát weboldalt</strong>? <a href="/book" class="text-[#F2A93B] hover:text-[#2DD4BF] underline">Foglalj időpontot</a> és beszéljük meg!</p>
     `
   },
   "premium-weboldal-keszites-aron-belul": {
@@ -169,7 +169,7 @@ const blogPosts: Record<string, any> = {
       <h2>A befektetés megtérülése</h2>
       <p>Egy <strong>prémium weboldal</strong> nem költség, hanem befektetés. Jó weboldal több ügyfelet, több értékesítést és növekvő vállalkozást jelent.</p>
       
-      <p>Készen állsz egy <strong>prémium weboldalra</strong> versenyképes áron? <a href="/book" class="text-[#7C5CFF] hover:text-[#50AEDF] underline">Lépj velünk kapcsolatba</a>!</p>
+      <p>Készen állsz egy <strong>prémium weboldalra</strong> versenyképes áron? <a href="/book" class="text-[#F2A93B] hover:text-[#2DD4BF] underline">Lépj velünk kapcsolatba</a>!</p>
     `
   },
   "weboldal-keszites-budapest-tippek-es-trendek": {
@@ -203,7 +203,7 @@ const blogPosts: Record<string, any> = {
       <h2>Következtetés</h2>
       <p>A <strong>weboldal készítés Budapest</strong> során fontos figyelembe venni a helyi sajátosságokat, de a minőség és a modern megoldások továbbra is elsőbbséget élveznek.</p>
       
-      <p>Budapesti vállalkozás vagy és szeretnél egy <strong>prémium weboldalt</strong>? <a href="/book" class="text-[#7C5CFF] hover:text-[#50AEDF] underline">Foglalj időpontot</a> velünk!</p>
+      <p>Budapesti vállalkozás vagy és szeretnél egy <strong>prémium weboldalt</strong>? <a href="/book" class="text-[#F2A93B] hover:text-[#2DD4BF] underline">Foglalj időpontot</a> velünk!</p>
     `
   }
 };
@@ -317,7 +317,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           {/* Back to Blog */}
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[#7C5CFF] hover:text-[#50AEDF] mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-[#F2A93B] hover:text-[#2DD4BF] mb-8 transition-colors"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-label="Vissza a bloghoz ikon">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -326,10 +326,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </Link>
 
           {/* Article Header */}
-          <article className="bg-[#0F1620]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10 mb-8">
+          <article className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10 mb-8">
             {/* Category Badge */}
             <div className="mb-4">
-              <span className="inline-block px-3 py-1 bg-[rgba(124,92,255,0.2)] border border-[rgba(124,92,255,0.3)] text-[#7C5CFF] text-xs font-semibold rounded-full">
+              <span className="inline-block px-3 py-1 bg-[rgba(242,169,59,0.2)] border border-[rgba(242,169,59,0.3)] text-[#F2A93B] text-xs font-semibold rounded-full">
                 {post.category}
               </span>
             </div>
@@ -340,7 +340,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             </h1>
 
             {/* Meta */}
-            <div className="flex items-center gap-4 text-sm text-[#A8B3C7] mb-8 pb-8 border-b border-[rgba(255,255,255,0.1)]">
+            <div className="flex items-center gap-4 text-sm text-[#A69F91] mb-8 pb-8 border-b border-[rgba(255,255,255,0.1)]">
               <time dateTime={post.date}>
                 {new Date(post.date).toLocaleDateString('hu-HU', {
                   year: 'numeric',
@@ -356,10 +356,10 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <div
               className="prose prose-invert prose-lg max-w-none break-words overflow-wrap-anywhere
                 prose-headings:text-white prose-headings:font-bold prose-headings:break-words
-                prose-p:text-[#A8B3C7] prose-p:leading-relaxed prose-p:break-words prose-p:overflow-wrap-anywhere
-                prose-a:text-[#7C5CFF] prose-a:no-underline hover:prose-a:text-[#50AEDF] hover:prose-a:underline prose-a:break-words
+                prose-p:text-[#A69F91] prose-p:leading-relaxed prose-p:break-words prose-p:overflow-wrap-anywhere
+                prose-a:text-[#F2A93B] prose-a:no-underline hover:prose-a:text-[#2DD4BF] hover:prose-a:underline prose-a:break-words
                 prose-strong:text-white prose-strong:font-semibold
-                prose-ul:text-[#A8B3C7] prose-li:text-[#A8B3C7] prose-li:break-words
+                prose-ul:text-[#A69F91] prose-li:text-[#A69F91] prose-li:break-words
                 prose-h2:text-2xl prose-h2:mt-8 prose-h2:mb-4 prose-h2:break-words
                 prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-3 prose-h3:break-words"
               style={{ wordWrap: 'break-word', overflowWrap: 'anywhere' }}
@@ -368,16 +368,16 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           </article>
 
           {/* CTA */}
-          <div className="bg-[#0F1620]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center">
+          <div className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center">
             <h2 className="text-2xl font-bold text-white mb-4 break-words overflow-wrap-anywhere">
-              Szeretnél egy <span className="bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent">prémium weboldalt</span>?
+              Szeretnél egy <span className="bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] bg-clip-text text-transparent">prémium weboldalt</span>?
             </h2>
-            <p className="text-[#A8B3C7] mb-6 break-words overflow-wrap-anywhere">
+            <p className="text-[#A69F91] mb-6 break-words overflow-wrap-anywhere">
               Foglalj időpontot és beszéljük meg a projektedet!
             </p>
             <Link
               href="/book"
-              className="inline-block px-8 py-4 bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] text-white rounded-xl hover:shadow-[0_0_30px_rgba(124,92,255,0.6)] hover:scale-105 transition-all duration-300 font-semibold text-base shadow-lg"
+              className="inline-block px-8 py-4 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] text-white rounded-xl hover:shadow-[0_0_30px_rgba(242,169,59,0.6)] hover:scale-105 transition-all duration-300 font-semibold text-base shadow-lg"
             >
               Időpont Foglalása
             </Link>

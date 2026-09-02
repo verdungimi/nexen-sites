@@ -51,14 +51,14 @@ export default function AdminSidebar({ isOpen, setIsOpen }: SidebarProps) {
           width: isOpen ? 256 : 64,
           x: isOpen ? 0 : -256
         }}
-        className="fixed left-0 top-0 h-screen bg-[#0F1620] border-r border-[rgba(255,255,255,0.1)] z-50 flex flex-col lg:translate-x-0"
+        className="fixed left-0 top-0 h-screen bg-[#17151C] border-r border-[rgba(255,255,255,0.1)] z-50 flex flex-col lg:translate-x-0"
       >
       <div className="p-3 lg:p-4 border-b border-[rgba(255,255,255,0.1)] flex items-center justify-between">
         {isOpen && (
           <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-lg lg:text-xl font-bold text-[#EAF0FF]"
+            className="text-lg lg:text-xl font-bold text-[#F3EFE6]"
           >
             Admin Panel
           </motion.h2>
@@ -68,9 +68,9 @@ export default function AdminSidebar({ isOpen, setIsOpen }: SidebarProps) {
           className="p-2 hover:bg-[rgba(255,255,255,0.1)] rounded-lg transition-colors"
         >
           {isOpen ? (
-            <ChevronLeft className="w-5 h-5 text-[#A8B3C7]" />
+            <ChevronLeft className="w-5 h-5 text-[#A69F91]" />
           ) : (
-            <ChevronRight className="w-5 h-5 text-[#A8B3C7]" />
+            <ChevronRight className="w-5 h-5 text-[#A69F91]" />
           )}
         </button>
       </div>
@@ -98,8 +98,8 @@ export default function AdminSidebar({ isOpen, setIsOpen }: SidebarProps) {
                 className={cn(
                   "flex items-center gap-2 lg:gap-3 px-3 lg:px-4 py-2 lg:py-3 rounded-lg transition-all group text-sm lg:text-base",
                   isActive
-                    ? "bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] text-white"
-                    : "text-[#A8B3C7] hover:bg-[rgba(255,255,255,0.05)] hover:text-[#EAF0FF]"
+                    ? "bg-gradient-to-r from-[#2DD4BF] to-[#F2A93B] text-white"
+                    : "text-[#A69F91] hover:bg-[rgba(255,255,255,0.05)] hover:text-[#F3EFE6]"
                 )}
               >
                 <Icon className="w-4 h-4 lg:w-5 lg:h-5 flex-shrink-0" />

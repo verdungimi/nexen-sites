@@ -143,6 +143,12 @@ Határidő: ${data.deadline || "Nincs megadva"}
 ${data.description ? `Leírás:\n${data.description}` : ""}
 
 ═══════════════════════════════════════
+ELŐNYBEN RÉSZESÍTETT IDŐPONT
+═══════════════════════════════════════
+
+${formattedDate}${data.selectedTime ? `, ${data.selectedTime}` : ""}
+
+═══════════════════════════════════════
 KÖVETKEZŐ LÉPÉSEK
 ═══════════════════════════════════════
 
@@ -159,13 +165,13 @@ Felvesszük a kapcsolatot az ügyféllel a megadott elérhetőségeken.
   <style>
     body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
     .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { background: linear-gradient(135deg, #7C5CFF 0%, #50AEDF 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; text-align: center; }
+    .header { background: linear-gradient(135deg, #F2A93B 0%, #2DD4BF 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; text-align: center; }
     .content { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-top: none; }
-    .section { margin-bottom: 20px; padding: 15px; background: white; border-radius: 5px; border-left: 4px solid #7C5CFF; }
-    .section-title { font-weight: bold; color: #7C5CFF; margin-bottom: 10px; font-size: 16px; }
+    .section { margin-bottom: 20px; padding: 15px; background: white; border-radius: 5px; border-left: 4px solid #F2A93B; }
+    .section-title { font-weight: bold; color: #F2A93B; margin-bottom: 10px; font-size: 16px; }
     .info-row { margin: 8px 0; }
     .label { font-weight: bold; color: #555; }
-    .datetime { font-size: 18px; color: #7C5CFF; font-weight: bold; }
+    .datetime { font-size: 18px; color: #F2A93B; font-weight: bold; }
     .footer { margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #888; font-size: 12px; }
   </style>
 </head>
@@ -190,10 +196,15 @@ Felvesszük a kapcsolatot az ügyféllel a megadott elérhetőségeken.
         ${data.description ? `<div class="info-row" style="margin-top: 10px;"><span class="label">Leírás:</span><br><div style="margin-top: 5px; padding: 10px; background: #f0f0f0; border-radius: 4px; white-space: pre-wrap;">${data.description}</div></div>` : ""}
       </div>
 
-      <div class="section" style="background: linear-gradient(135deg, rgba(124,92,255,0.1) 0%, rgba(80,174,223,0.1) 100%); border-left-color: #7C5CFF;">
+      <div class="section" style="background: linear-gradient(135deg, rgba(242,169,59,0.1) 0%, rgba(45,212,191,0.1) 100%); border-left-color: #F2A93B;">
+        <div class="section-title">📅 ELŐNYBEN RÉSZESÍTETT IDŐPONT</div>
+        <p class="datetime">${formattedDate}${data.selectedTime ? `, ${data.selectedTime}` : ""}</p>
+      </div>
+
+      <div class="section" style="background: linear-gradient(135deg, rgba(242,169,59,0.1) 0%, rgba(45,212,191,0.1) 100%); border-left-color: #F2A93B;">
         <div class="section-title">📞 KÖVETKEZŐ LÉPÉSEK</div>
         <div class="info-row" style="margin-top: 15px;">
-          <p style="margin-bottom: 10px; font-weight: bold; color: #7C5CFF;">Felvesszük a kapcsolatot az ügyféllel a megadott elérhetőségeken.</p>
+          <p style="margin-bottom: 10px; font-weight: bold; color: #F2A93B;">Felvesszük a kapcsolatot az ügyféllel a megadott elérhetőségeken.</p>
         </div>
       </div>
 

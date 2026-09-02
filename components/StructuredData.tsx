@@ -15,7 +15,7 @@ export default function StructuredData() {
       "@type": "ContactPoint",
       "telephone": "+36-70-576-7845",
       "contactType": "customer service",
-      "email": "info@nexensites.hu",
+      "email": "verdung.imi@gmail.com",
       "availableLanguage": "Hungarian"
     },
     "sameAs": [

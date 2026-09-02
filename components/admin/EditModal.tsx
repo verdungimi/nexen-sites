@@ -40,15 +40,15 @@ export default function EditModal({
 }: EditModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="bg-[#0F1620] border-[rgba(255,255,255,0.1)] text-white max-w-2xl w-[95vw] max-h-[90vh] overflow-y-auto">
+      <DialogContent className="bg-[#17151C] border-[rgba(255,255,255,0.1)] text-white max-w-2xl w-[95vw] max-h-[90vh] overflow-y-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
         >
           <DialogHeader>
-            <DialogTitle className="text-[#EAF0FF] text-lg lg:text-xl">{title}</DialogTitle>
+            <DialogTitle className="text-[#F3EFE6] text-lg lg:text-xl">{title}</DialogTitle>
             {description && (
-              <DialogDescription className="text-[#A8B3C7] text-sm">
+              <DialogDescription className="text-[#A69F91] text-sm">
                 {description}
               </DialogDescription>
             )}
@@ -61,14 +61,14 @@ export default function EditModal({
                 onOpenChange(false);
                 onCancel?.();
               }}
-              className="border-[rgba(255,255,255,0.1)] text-[#A8B3C7] hover:bg-[rgba(255,255,255,0.05)] w-full sm:w-auto"
+              className="border-[rgba(255,255,255,0.1)] text-[#A69F91] hover:bg-[rgba(255,255,255,0.05)] w-full sm:w-auto"
             >
               {cancelLabel}
             </Button>
             <Button
               onClick={onSave}
               disabled={isLoading}
-              className="bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white w-full sm:w-auto"
+              className="bg-gradient-to-r from-[#2DD4BF] to-[#F2A93B] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white w-full sm:w-auto"
             >
               {isLoading ? (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />

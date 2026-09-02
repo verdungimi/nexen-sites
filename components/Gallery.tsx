@@ -12,7 +12,7 @@ export default function Gallery() {
   if (images === undefined) {
     return (
       <div className="flex items-center justify-center py-12">
-        <div className="text-[#A8B3C7]">Betöltés...</div>
+        <div className="text-[#A69F91]">Betöltés...</div>
       </div>
     );
   }
@@ -20,7 +20,7 @@ export default function Gallery() {
   if (images.length === 0) {
     return (
       <div className="flex items-center justify-center py-12">
-        <div className="text-[#A8B3C7]">Még nincsenek képek a galériában.</div>
+        <div className="text-[#A69F91]">Még nincsenek képek a galériában.</div>
       </div>
     );
   }
@@ -28,7 +28,7 @@ export default function Gallery() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
       {images.map((img: { _id: string; url: string; title: string; createdAt: number }) => (
-        <div key={img._id} className="group relative overflow-hidden rounded-lg bg-[#0F1620] border border-[rgba(255,255,255,0.1)] hover:border-[#50AEDF]/50 transition-all duration-300">
+        <div key={img._id} className="group relative overflow-hidden rounded-lg bg-[#17151C] border border-[rgba(255,255,255,0.1)] hover:border-[#2DD4BF]/50 transition-all duration-300">
           <div className="relative aspect-square w-full">
             <Image
               src={img.url}
@@ -40,7 +40,7 @@ export default function Gallery() {
             />
           </div>
           <div className="p-4">
-            <p className="text-[#EAF0FF] font-semibold text-center">{img.title}</p>
+            <p className="text-[#F3EFE6] font-semibold text-center">{img.title}</p>
           </div>
         </div>
       ))}

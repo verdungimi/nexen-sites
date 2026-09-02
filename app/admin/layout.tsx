@@ -51,7 +51,7 @@ export default function AdminLayout({
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-[#50AEDF] border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-[#2DD4BF] border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
@@ -64,34 +64,34 @@ export default function AdminLayout({
           animate={{ opacity: 1, y: 0 }}
           className="w-full max-w-md"
         >
-          <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-lg p-8">
-            <h1 className="text-2xl font-bold text-[#EAF0FF] mb-6">Admin Bejelentkezés</h1>
+          <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-lg p-8">
+            <h1 className="text-2xl font-bold text-[#F3EFE6] mb-6">Admin Bejelentkezés</h1>
             <form onSubmit={handleLogin} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-[#A8B3C7] mb-2">
+                <label className="block text-sm font-medium text-[#A69F91] mb-2">
                   Felhasználónév
                 </label>
                 <input
                   type="text"
                   name="username"
                   required
-                  className="w-full bg-[#0a0a0a] border border-[rgba(255,255,255,0.1)] text-white p-3 rounded-lg focus:outline-none focus:border-[#50AEDF] transition-colors"
+                  className="w-full bg-[#0a0a0a] border border-[rgba(255,255,255,0.1)] text-white p-3 rounded-lg focus:outline-none focus:border-[#2DD4BF] transition-colors"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-[#A8B3C7] mb-2">
+                <label className="block text-sm font-medium text-[#A69F91] mb-2">
                   Jelszó
                 </label>
                 <input
                   type="password"
                   name="password"
                   required
-                  className="w-full bg-[#0a0a0a] border border-[rgba(255,255,255,0.1)] text-white p-3 rounded-lg focus:outline-none focus:border-[#50AEDF] transition-colors"
+                  className="w-full bg-[#0a0a0a] border border-[rgba(255,255,255,0.1)] text-white p-3 rounded-lg focus:outline-none focus:border-[#2DD4BF] transition-colors"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#50AEDF] to-[#7C5CFF] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white font-semibold px-6 py-3 rounded-lg transition-all"
+                className="w-full bg-gradient-to-r from-[#2DD4BF] to-[#F2A93B] hover:from-[#4098cc] hover:to-[#6b4dd1] text-white font-semibold px-6 py-3 rounded-lg transition-all"
               >
                 Bejelentkezés
               </button>

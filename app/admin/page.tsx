@@ -88,8 +88,8 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl lg:text-3xl font-bold text-[#EAF0FF] mb-2">Üdvözöljük az Admin Panelben!</h2>
-        <p className="text-[#A8B3C7]">Itt kezelheti a weboldal tartalmát és beállításait.</p>
+        <h2 className="text-2xl lg:text-3xl font-bold text-[#F3EFE6] mb-2">Üdvözöljük az Admin Panelben!</h2>
+        <p className="text-[#A69F91]">Itt kezelheti a weboldal tartalmát és beállításait.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -103,9 +103,9 @@ export default function DashboardPage() {
               transition={{ delay: index * 0.1 }}
               whileHover={{ y: -5 }}
             >
-              <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">
+              <Card className="bg-[#17151C] border-[rgba(255,255,255,0.1)]">
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
-                  <CardTitle className="text-sm font-medium text-[#A8B3C7]">
+                  <CardTitle className="text-sm font-medium text-[#A69F91]">
                     {stat.title}
                   </CardTitle>
                   <div className={`p-2 rounded-lg bg-gradient-to-r ${stat.color}`}>
@@ -113,7 +113,7 @@ export default function DashboardPage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="text-2xl font-bold text-[#EAF0FF]">{stat.value}</div>
+                  <div className="text-2xl font-bold text-[#F3EFE6]">{stat.value}</div>
                   <p className="text-xs text-green-400 mt-1">{stat.change} az előző hónaphoz képest</p>
                 </CardContent>
               </Card>
@@ -128,13 +128,13 @@ export default function DashboardPage() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4 }}
         >
-          <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">
+          <Card className="bg-[#17151C] border-[rgba(255,255,255,0.1)]">
             <CardHeader>
-              <CardTitle className="text-[#EAF0FF] flex items-center gap-2">
-                <Activity className="w-5 h-5 text-[#50AEDF]" />
+              <CardTitle className="text-[#F3EFE6] flex items-center gap-2">
+                <Activity className="w-5 h-5 text-[#2DD4BF]" />
                 Legutóbbi tevékenységek
               </CardTitle>
-              <CardDescription className="text-[#A8B3C7]">
+              <CardDescription className="text-[#A69F91]">
                 Az elmúlt 24 óra eseményei
               </CardDescription>
             </CardHeader>
@@ -154,8 +154,8 @@ export default function DashboardPage() {
                     className="flex items-center justify-between p-3 rounded-lg bg-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
                   >
                     <div>
-                      <p className="text-sm text-[#EAF0FF]">{activity.action}</p>
-                      <p className="text-xs text-[#A8B3C7]">{activity.time}</p>
+                      <p className="text-sm text-[#F3EFE6]">{activity.action}</p>
+                      <p className="text-xs text-[#A69F91]">{activity.time}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -169,35 +169,35 @@ export default function DashboardPage() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 }}
         >
-          <Card className="bg-[#0F1620] border-[rgba(255,255,255,0.1)]">
+          <Card className="bg-[#17151C] border-[rgba(255,255,255,0.1)]">
             <CardHeader>
-              <CardTitle className="text-[#EAF0FF] flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-[#7C5CFF]" />
+              <CardTitle className="text-[#F3EFE6] flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-[#F2A93B]" />
                 Statisztikák
               </CardTitle>
-              <CardDescription className="text-[#A8B3C7]">
+              <CardDescription className="text-[#A69F91]">
                 Teljesítmény áttekintés
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-[#A8B3C7]">Növekedés</span>
+                  <span className="text-sm text-[#A69F91]">Növekedés</span>
                   <span className="text-sm font-semibold text-green-400">+{stats.growth}%</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-[#A8B3C7]">Aktív felhasználók</span>
-                  <span className="text-sm font-semibold text-[#EAF0FF]">{stats.users}</span>
+                  <span className="text-sm text-[#A69F91]">Aktív felhasználók</span>
+                  <span className="text-sm font-semibold text-[#F3EFE6]">{stats.users}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-[#A8B3C7]">Tartalom elemek</span>
-                  <span className="text-sm font-semibold text-[#EAF0FF]">
+                  <span className="text-sm text-[#A69F91]">Tartalom elemek</span>
+                  <span className="text-sm font-semibold text-[#F3EFE6]">
                     {stats.images + stats.texts + stats.services}
                   </span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-[#A8B3C7]">Legutóbbi frissítés</span>
-                  <span className="text-sm font-semibold text-[#EAF0FF]">Ma</span>
+                  <span className="text-sm text-[#A69F91]">Legutóbbi frissítés</span>
+                  <span className="text-sm font-semibold text-[#F3EFE6]">Ma</span>
                 </div>
               </div>
             </CardContent>

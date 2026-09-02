@@ -32,7 +32,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/"
-                  className="text-gray-400 hover:text-[#50AEDF] transition-colors text-sm"
+                  className="text-gray-400 hover:text-[#2DD4BF] transition-colors text-sm"
                 >
                   Főoldal
                 </Link>
@@ -40,7 +40,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/folyamat"
-                  className="text-gray-400 hover:text-[#50AEDF] transition-colors text-sm"
+                  className="text-gray-400 hover:text-[#2DD4BF] transition-colors text-sm"
                 >
                   Folyamat
                 </Link>
@@ -48,7 +48,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/packages"
-                  className="text-gray-400 hover:text-[#50AEDF] transition-colors text-sm"
+                  className="text-gray-400 hover:text-[#2DD4BF] transition-colors text-sm"
                 >
                   Csomagok
                 </Link>
@@ -56,7 +56,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/kapcsolat"
-                  className="text-gray-400 hover:text-[#50AEDF] transition-colors text-sm"
+                  className="text-gray-400 hover:text-[#2DD4BF] transition-colors text-sm"
                 >
                   Kapcsolat
                 </Link>
@@ -71,7 +71,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/packages"
-                  className="text-gray-400 hover:text-[#50AEDF] transition-colors text-sm"
+                  className="text-gray-400 hover:text-[#2DD4BF] transition-colors text-sm"
                 >
                   Csomagok megtekintése
                 </Link>
@@ -79,7 +79,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/portfolio"
-                  className="text-gray-400 hover:text-[#50AEDF] transition-colors text-sm"
+                  className="text-gray-400 hover:text-[#2DD4BF] transition-colors text-sm"
                 >
                   Portfólió
                 </Link>
@@ -94,7 +94,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/privacy"
-                  className="text-gray-400 hover:text-[#50AEDF] transition-colors text-sm"
+                  className="text-gray-400 hover:text-[#2DD4BF] transition-colors text-sm"
                 >
                   Adatvédelmi tájékoztató
                 </Link>
@@ -102,7 +102,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/terms"
-                  className="text-gray-400 hover:text-[#50AEDF] transition-colors text-sm"
+                  className="text-gray-400 hover:text-[#2DD4BF] transition-colors text-sm"
                 >
                   Általános Szerződési Feltételek
                 </Link>
@@ -118,16 +118,16 @@ export default function Footer() {
               <li>Kecskemét, Magyarország</li>
               <li>
                 <a
-                  href="mailto:info@nexensites.hu"
-                  className="hover:text-[#50AEDF] transition-colors"
+                  href="mailto:verdung.imi@gmail.com"
+                  className="hover:text-[#2DD4BF] transition-colors"
                 >
-                  info@nexensites.hu
+                  verdung.imi@gmail.com
                 </a>
               </li>
               <li>
                 <a
                   href="tel:+36705767845"
-                  className="hover:text-[#50AEDF] transition-colors"
+                  className="hover:text-[#2DD4BF] transition-colors"
                 >
                   +36 70 576 7845
                 </a>
@@ -147,7 +147,7 @@ export default function Footer() {
                 href="https://www.facebook.com/profile.php?id=61585984076838"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#50AEDF] transition-colors"
+                className="text-gray-400 hover:text-[#2DD4BF] transition-colors"
                 aria-label="Facebook"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

@@ -82,10 +82,10 @@ export default function FinAIHero() {
         displayHeight * 0.3,
         500
       );
-      gradient1.addColorStop(0, 'rgba(124, 92, 255, 0.25)');
-      gradient1.addColorStop(0.3, 'rgba(80, 174, 223, 0.15)');
-      gradient1.addColorStop(0.6, 'rgba(124, 92, 255, 0.08)');
-      gradient1.addColorStop(1, 'rgba(124, 92, 255, 0)');
+      gradient1.addColorStop(0, 'rgba(242,169,59,0.25)');
+      gradient1.addColorStop(0.3, 'rgba(45,212,191,0.15)');
+      gradient1.addColorStop(0.6, 'rgba(242,169,59,0.08)');
+      gradient1.addColorStop(1, 'rgba(242,169,59,0)');
 
       ctx.fillStyle = gradient1;
       ctx.fillRect(0, 0, displayWidth, displayHeight);
@@ -98,10 +98,10 @@ export default function FinAIHero() {
         displayHeight * 0.7,
         600
       );
-      gradient2.addColorStop(0, 'rgba(80, 174, 223, 0.22)');
-      gradient2.addColorStop(0.3, 'rgba(124, 92, 255, 0.12)');
-      gradient2.addColorStop(0.6, 'rgba(80, 174, 223, 0.06)');
-      gradient2.addColorStop(1, 'rgba(80, 174, 223, 0)');
+      gradient2.addColorStop(0, 'rgba(45,212,191,0.22)');
+      gradient2.addColorStop(0.3, 'rgba(242,169,59,0.12)');
+      gradient2.addColorStop(0.6, 'rgba(45,212,191,0.06)');
+      gradient2.addColorStop(1, 'rgba(45,212,191,0)');
 
       ctx.fillStyle = gradient2;
       ctx.fillRect(0, 0, displayWidth, displayHeight);
@@ -115,10 +115,10 @@ export default function FinAIHero() {
         displayHeight * 0.5,
         450
       );
-      gradient3.addColorStop(0, 'rgba(124, 92, 255, 0.18)');
-      gradient3.addColorStop(0.4, 'rgba(80, 174, 223, 0.10)');
-      gradient3.addColorStop(0.8, 'rgba(124, 92, 255, 0.05)');
-      gradient3.addColorStop(1, 'rgba(124, 92, 255, 0)');
+      gradient3.addColorStop(0, 'rgba(242,169,59,0.18)');
+      gradient3.addColorStop(0.4, 'rgba(45,212,191,0.10)');
+      gradient3.addColorStop(0.8, 'rgba(242,169,59,0.05)');
+      gradient3.addColorStop(1, 'rgba(242,169,59,0)');
 
       ctx.fillStyle = gradient3;
       ctx.fillRect(0, 0, displayWidth, displayHeight);
@@ -179,9 +179,9 @@ export default function FinAIHero() {
             width: '100vw', 
             height: '100vh',
             background: `
-              radial-gradient(circle at 20% 30%, rgba(124, 92, 255, 0.25) 0%, transparent 50%),
-              radial-gradient(circle at 80% 70%, rgba(80, 174, 223, 0.22) 0%, transparent 50%),
-              radial-gradient(circle at 50% 50%, rgba(124, 92, 255, 0.18) 0%, transparent 50%),
+              radial-gradient(circle at 20% 30%, rgba(242,169,59,0.25) 0%, transparent 50%),
+              radial-gradient(circle at 80% 70%, rgba(45,212,191,0.22) 0%, transparent 50%),
+              radial-gradient(circle at 50% 50%, rgba(242,169,59,0.18) 0%, transparent 50%),
               #0a0a0a
             `,
             backgroundSize: '100% 100%',
