@@ -11,11 +11,11 @@ interface CTAButtonProps {
 }
 
 export default function CTAButton({ href, children, variant = "primary", className = "", onClick }: CTAButtonProps) {
-  const baseStyles = "inline-block px-6 py-3 rounded-lg font-semibold transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 transform hover:scale-105 active:scale-95";
-  
+  const baseStyles = "inline-block px-6 py-3 rounded-lg font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0a0a0a] active:opacity-80";
+
   const variantStyles = {
-    primary: "bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] text-white hover:shadow-[0_0_30px_rgba(242,169,59,0.5)] focus:ring-[#F2A93B] shadow-lg hover:-translate-y-1 hover:scale-105 transition-all duration-300",
-    secondary: "bg-[#17151C] text-white border border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.05)] hover:border-[rgba(255,255,255,0.2)] focus:ring-[#F2A93B] shadow-lg hover:shadow-xl backdrop-blur-sm transition-all duration-300",
+    primary: "bg-[#F2A93B] text-[#0a0a0a] hover:bg-[#f0b658] focus:ring-[#F2A93B]",
+    secondary: "bg-transparent text-[#F3EFE6] border border-white/15 hover:border-white/30 hover:bg-white/5 focus:ring-[#F2A93B]",
   };
 
   if (href.startsWith("#")) {

@@ -59,7 +59,7 @@ export default function ProcessTimeline() {
 
         {steps.map((step, idx) => (
           <div key={idx} className="flex gap-6 items-start relative">
-            <div className="flex-shrink-0 w-10 h-10 bg-[#F2A93B] rounded-full flex items-center justify-center text-white font-bold text-xs shadow-[0_0_15px_rgba(242,169,59,0.4)] z-10 border-2 border-[#0a0a0a]">
+            <div className="flex-shrink-0 w-10 h-10 bg-[#F2A93B] rounded-full flex items-center justify-center text-white font-bold text-xs z-10 border-2 border-[#0a0a0a]">
               {step.day}
             </div>
             <div className="flex-1 bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 transition-all duration-300 hover:border-[rgba(255,255,255,0.2)]">

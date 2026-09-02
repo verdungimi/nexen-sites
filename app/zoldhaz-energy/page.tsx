@@ -35,10 +35,10 @@ export default function ZoldhazEnergyPage() {
 
             {/* Main Headline */}
             <h1 className="hero-title text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 leading-[0.95] tracking-tight">
-              <span className="block bg-gradient-to-r from-white via-[#86FD22] to-white bg-clip-text text-transparent animate-fade-in">
+              <span className="block text-[#F3EFE6] animate-fade-in">
                 Professzionális
               </span>
-              <span className="block bg-gradient-to-r from-[#86FD22] via-[#435936] to-[#86FD22] bg-clip-text text-transparent mt-2 animate-fade-in-delay">
+              <span className="block text-[#86FD22] mt-2 animate-fade-in-delay">
                 Szerelési Szolgáltatások
               </span>
               <span className="block text-white mt-2 animate-fade-in-delay-2">
@@ -55,7 +55,7 @@ export default function ZoldhazEnergyPage() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 animate-fade-in-delay-2">
               <a 
                 href="#kapcsolat" 
-                className="px-10 py-5 bg-gradient-to-r from-[#435936] to-[#86FD22] text-white rounded-xl hover:shadow-[0_0_30px_rgba(134,253,34,0.7)] hover:scale-105 transition-all duration-300 font-semibold text-base min-w-[200px] text-center"
+                className="px-10 py-5 bg-gradient-to-r from-[#435936] to-[#86FD22] text-white rounded-xl hover:scale-105 transition-all duration-300 font-semibold text-base min-w-[200px] text-center"
               >
                 Ajánlatkérés
               </a>
@@ -69,12 +69,12 @@ export default function ZoldhazEnergyPage() {
 
             {/* Trust badges */}
             <div className="flex flex-wrap justify-center gap-6 md:gap-12 mt-20">
-              <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(67,89,54,0.2)] border border-[#86FD22]/30 rounded-2xl shadow-lg hover:border-[#86FD22] hover:shadow-[0_0_30px_rgba(134,253,34,0.3)] hover:scale-105 transition-all duration-500 animate-float-up group">
-                <div className="text-4xl md:text-5xl font-black text-[#86FD22] mb-2 group-hover:scale-110 transition-transform duration-300">2023</div>
+              <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(67,89,54,0.2)] border border-[#86FD22]/30 rounded-2xl shadow-lg hover:border-[#86FD22] hover:scale-105 transition-all duration-500 animate-float-up group">
+                <div className="text-4xl md:text-5xl font-black text-[#86FD22] mb-2">2023</div>
                 <div className="text-sm md:text-base text-gray-300 font-semibold">Alapítás éve</div>
               </div>
-              <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(67,89,54,0.2)] border border-[#86FD22]/30 rounded-2xl shadow-lg hover:border-[#86FD22] hover:shadow-[0_0_30px_rgba(134,253,34,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
-                <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-[#86FD22] to-[#435936] bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300">100%</div>
+              <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(67,89,54,0.2)] border border-[#86FD22]/30 rounded-2xl shadow-lg hover:border-[#86FD22] hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
+                <div className="text-4xl md:text-5xl font-black text-[#86FD22] mb-2">100%</div>
                 <div className="text-sm md:text-base text-gray-300 font-semibold">Elégedett ügyfél</div>
               </div>
             </div>
@@ -124,7 +124,7 @@ export default function ZoldhazEnergyPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {/* Service 1 - Vízvezeték-szerelés */}
-            <div className="group relative bg-[#17151C]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] shadow-[0_0_25px_rgba(67,89,54,0.25)] hover:shadow-[0_0_45px_rgba(134,253,34,0.5)] hover:-translate-y-2">
+            <div className="group relative bg-[#17151C]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] hover:-translate-y-2">
               <div className="absolute inset-0 bg-gradient-to-br from-[#435936]/10 via-transparent to-transparent rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="mb-6">
@@ -144,7 +144,7 @@ export default function ZoldhazEnergyPage() {
             </div>
 
             {/* Service 2 - Gázszerelés */}
-            <div className="group relative bg-[#17151C]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] shadow-[0_0_25px_rgba(67,89,54,0.25)] hover:shadow-[0_0_45px_rgba(134,253,34,0.5)] hover:-translate-y-2">
+            <div className="group relative bg-[#17151C]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] hover:-translate-y-2">
               <div className="absolute inset-0 bg-gradient-to-br from-[#435936]/10 via-transparent to-transparent rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="mb-6">
@@ -164,7 +164,7 @@ export default function ZoldhazEnergyPage() {
             </div>
 
             {/* Service 3 - Fűtésszerelés */}
-            <div className="group relative bg-[#17151C]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] shadow-[0_0_25px_rgba(67,89,54,0.25)] hover:shadow-[0_0_45px_rgba(134,253,34,0.5)] hover:-translate-y-2">
+            <div className="group relative bg-[#17151C]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] hover:-translate-y-2">
               <div className="absolute inset-0 bg-gradient-to-br from-[#435936]/10 via-transparent to-transparent rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="mb-6">
@@ -184,7 +184,7 @@ export default function ZoldhazEnergyPage() {
             </div>
 
             {/* Service 4 - Légkondicionáló */}
-            <div className="group relative bg-[#17151C]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] shadow-[0_0_25px_rgba(67,89,54,0.25)] hover:shadow-[0_0_45px_rgba(134,253,34,0.5)] hover:-translate-y-2">
+            <div className="group relative bg-[#17151C]/90 backdrop-blur-xl border-2 border-[rgba(67,89,54,0.5)] rounded-3xl p-8 transition-all duration-500 hover:border-[#86FD22] hover:-translate-y-2">
               <div className="absolute inset-0 bg-gradient-to-br from-[#435936]/10 via-transparent to-transparent rounded-3xl opacity-30 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <div className="mb-6">
@@ -396,7 +396,7 @@ export default function ZoldhazEnergyPage() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full px-6 py-4 bg-gradient-to-r from-[#435936] to-[#86FD22] text-white rounded-lg hover:shadow-[0_0_30px_rgba(134,253,34,0.7)] hover:scale-105 transition-all duration-300 font-semibold text-lg"
+                  className="w-full px-6 py-4 bg-gradient-to-r from-[#435936] to-[#86FD22] text-white rounded-lg hover:scale-105 transition-all duration-300 font-semibold text-lg"
                 >
                   Üzenet küldése
                 </button>

@@ -61,7 +61,7 @@ export default function GyikPage() {
             variants={fadeInUp}
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
-              <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+              <span className="block text-[#F3EFE6]">
                 Gyakran Ismételt Kérdések
               </span>
             </h1>

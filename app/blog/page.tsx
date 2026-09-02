@@ -175,10 +175,10 @@ export default function BlogPage() {
           {/* Header */}
           <div className="text-center mb-16 pb-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 pb-4 text-white leading-[1.15] break-words overflow-wrap-anywhere px-4" style={{ lineHeight: '1.15', paddingBottom: '1rem' }}>
-              <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+              <span className="block text-[#F3EFE6]">
                 Blog
               </span>
-              <span className="block bg-gradient-to-r from-[#F2A93B] via-[#2DD4BF] to-[#F2A93B] bg-clip-text text-transparent mt-2">
+              <span className="block text-[#F2A93B] mt-2">
                 Weboldal Készítés & SEO Tippek
               </span>
             </h1>
@@ -192,7 +192,7 @@ export default function BlogPage() {
             {blogPosts.map((post) => (
               <article
                 key={post.slug}
-                className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 transition-all duration-300 hover:border-[#F2A93B]/50 hover:shadow-[0_0_30px_rgba(242,169,59,0.2)] hover:-translate-y-1 group flex flex-col blog-card"
+                className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 transition-all duration-300 hover:border-[#F2A93B]/50 hover:-translate-y-1 group flex flex-col blog-card"
               >
                 {/* Category Badge */}
                 <div className="mb-4">
@@ -215,7 +215,7 @@ export default function BlogPage() {
                 </div>
 
                 {/* Title */}
-                <h2 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#F2A93B] group-hover:to-[#2DD4BF] transition-all duration-300 leading-tight break-words overflow-wrap-anywhere">
+                <h2 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-[#F2A93B] transition-all duration-300 leading-tight break-words overflow-wrap-anywhere">
                   {post.title}
                 </h2>
 
@@ -255,14 +255,14 @@ export default function BlogPage() {
           <div className="mt-16 text-center">
             <div className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10">
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 break-words overflow-wrap-anywhere">
-                Készen állsz egy <span className="bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] bg-clip-text text-transparent">prémium weboldalra</span>?
+                Készen állsz egy <span className="text-[#F2A93B]">prémium weboldalra</span>?
               </h2>
               <p className="text-lg text-[#A69F91] mb-6 max-w-2xl mx-auto break-words overflow-wrap-anywhere">
                 Foglalj időpontot és beszéljük meg, hogyan készíthetünk neked egy <strong className="text-white">3 nap alatt elkészülő, prémium minőségű weboldalt</strong> vagy <strong className="text-white">landing page</strong>-et. Olcsó weboldal készítő cégként garantáltan 3 nap alatt kész weboldalt nyújtunk.
               </p>
               <Link
                 href="/book"
-                className="inline-block px-8 py-4 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] text-white rounded-xl hover:shadow-[0_0_30px_rgba(242,169,59,0.6)] hover:scale-105 transition-all duration-300 font-semibold text-base shadow-lg"
+                className="inline-block px-8 py-4 bg-[#F2A93B] text-[#0a0a0a] rounded-lg hover:bg-[#f0b658] transition-colors duration-200 font-semibold text-base"
               >
                 Időpont Foglalása
               </Link>

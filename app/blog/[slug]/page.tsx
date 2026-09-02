@@ -370,14 +370,14 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           {/* CTA */}
           <div className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center">
             <h2 className="text-2xl font-bold text-white mb-4 break-words overflow-wrap-anywhere">
-              Szeretnél egy <span className="bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] bg-clip-text text-transparent">prémium weboldalt</span>?
+              Szeretnél egy <span className="text-[#F2A93B]">prémium weboldalt</span>?
             </h2>
             <p className="text-[#A69F91] mb-6 break-words overflow-wrap-anywhere">
               Foglalj időpontot és beszéljük meg a projektedet!
             </p>
             <Link
               href="/book"
-              className="inline-block px-8 py-4 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] text-white rounded-xl hover:shadow-[0_0_30px_rgba(242,169,59,0.6)] hover:scale-105 transition-all duration-300 font-semibold text-base shadow-lg"
+              className="inline-block px-8 py-4 bg-[#F2A93B] text-[#0a0a0a] rounded-lg hover:bg-[#f0b658] transition-colors duration-200 font-semibold text-base"
             >
               Időpont Foglalása
             </Link>

@@ -12,8 +12,6 @@ import { Check, ArrowRight, Clock, Shield, Sparkles, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FinAIHero from "@/components/FinAIHero";
 import HomePageStructuredData from "@/components/HomePageStructuredData";
-import DarkVeil from "@/components/DarkVeil.jsx";
-import "@/components/DarkVeil.css";
 import FAQAccordion from "@/components/FAQAccordion";
 
 // Animation variants
@@ -153,18 +151,6 @@ export default function HomePageContent() {
       
       {/* Hero Section - Fin AI Style */}
       <section className="min-h-screen flex items-center justify-center relative pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-6 overflow-hidden">
-        {/* DarkVeil - animated background, mobile included (component auto-scales resolution/DPR on mobile) */}
-        <div className="block fixed inset-0 w-full h-full" style={{ zIndex: 1, pointerEvents: 'none' }}>
-          <DarkVeil
-            hueShift={0}
-            noiseIntensity={0}
-            scanlineIntensity={0}
-            speed={0.5}
-            scanlineFrequency={0}
-            warpAmount={0.4}
-            resolutionScale={1}
-          />
-        </div>
         <FinAIHero />
         
         <div className="max-w-7xl mx-auto relative z-10 w-full" style={{ pointerEvents: 'auto' }}>
@@ -172,12 +158,12 @@ export default function HomePageContent() {
             {/* Left side info - Hidden on mobile, visible on lg+ */}
             <div className="hidden lg:block lg:col-span-3 relative pr-4" style={{ minHeight: '600px' }}>
               <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '8%', right: '12%', animationDelay: '0s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#2DD4BF] drop-shadow-[0_0_15px_rgba(45,212,191,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <svg className="absolute inset-0 w-full h-full text-[#2DD4BF] drop-" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>
               </div>
               <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '52%', right: '-5%', animationDelay: '1.5s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#F2A93B] drop-shadow-[0_0_15px_rgba(242,169,59,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <svg className="absolute inset-0 w-full h-full text-[#F2A93B] drop-" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
@@ -187,10 +173,10 @@ export default function HomePageContent() {
             <div className="lg:col-span-6 text-center">
             {/* Large Typography - Fin AI Style */}
             <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 md:mb-8 leading-[1.1] tracking-tight break-words">
-              <span className="inline-block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent animate-fade-in whitespace-nowrap">
+              <span className="inline-block text-[#F3EFE6] animate-fade-in whitespace-nowrap">
                 Professzionális
               </span>
-              <span className="block bg-gradient-to-r from-[#F2A93B] via-[#2DD4BF] to-[#F2A93B] bg-clip-text text-transparent mt-1 md:mt-2 animate-fade-in-delay">
+              <span className="block text-[#F2A93B] mt-1 md:mt-2 animate-fade-in-delay">
                 weboldal
               </span>
               <span className="block text-white mt-1 md:mt-2 animate-fade-in-delay-2">
@@ -215,12 +201,12 @@ export default function HomePageContent() {
 
             {/* Trust badges - Enhanced style with animations */}
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-12 mt-12 md:mt-20 px-2">
-              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#F2A93B]/50 hover:shadow-[0_0_30px_rgba(242,169,59,0.3)] hover:scale-105 transition-all duration-500 animate-float-up group">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 group-hover:text-[#F2A93B] transition-colors duration-500 group-hover:scale-110 transition-transform duration-300">3</div>
+              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#F2A93B]/50 hover:scale-105 transition-all duration-500 animate-float-up group">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 group-hover:text-[#F2A93B] transition-colors duration-500">3</div>
                 <div className="text-xs md:text-sm lg:text-base text-[#F3EFE6] font-semibold">Napos szállítás</div>
               </div>
-              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#2DD4BF]/50 hover:shadow-[0_0_30px_rgba(45,212,191,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] bg-clip-text text-transparent mb-2 group-hover:from-[#2DD4BF] group-hover:to-[#F2A93B] transition-all duration-500 group-hover:scale-110 transition-transform duration-300">100%</div>
+              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#2DD4BF]/50 hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black text-[#F2A93B] mb-2 transition-all duration-500">100%</div>
                 <div className="text-xs md:text-sm lg:text-base text-[#F3EFE6] font-semibold">Prémium minőség</div>
               </div>
             </div>
@@ -229,12 +215,12 @@ export default function HomePageContent() {
             {/* Right side info - Hidden on mobile, visible on lg+ */}
             <div className="hidden lg:block lg:col-span-3 relative pl-4" style={{ minHeight: '600px' }}>
               <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '10%', left: '12%', animationDelay: '0.75s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#F2A93B] drop-shadow-[0_0_15px_rgba(242,169,59,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <svg className="absolute inset-0 w-full h-full text-[#F2A93B] drop-" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
               <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '55%', left: '-5%', animationDelay: '2.25s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#2DD4BF] drop-shadow-[0_0_15px_rgba(45,212,191,0.6)]" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <svg className="absolute inset-0 w-full h-full text-[#2DD4BF] drop-" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -452,7 +438,7 @@ export default function HomePageContent() {
                     pkg.highlighted
                       ? "border-2 border-[#2DD4BF] shadow-xl shadow-[#2DD4BF]/20"
                       : "border-gray-800"
-                  } hover:-translate-y-2 hover:border-[#2DD4BF] hover:shadow-[0_0_50px_rgba(45,212,191,0.4)]`}
+                  } hover:-translate-y-2 hover:border-[#2DD4BF]`}
                 >
                   {pkg.highlighted && (
                     <div className="absolute inset-0 bg-gradient-to-br from-[#2DD4BF]/10 via-transparent to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

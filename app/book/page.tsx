@@ -105,10 +105,10 @@ export default function BookPage() {
       <div className="max-w-2xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
         <div className="text-center mb-16 pb-4">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 text-white leading-tight">
-            <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+            <span className="block text-[#F3EFE6]">
               Időpont
             </span>
-            <span className="block bg-gradient-to-r from-[#F2A93B] via-[#2DD4BF] to-[#F2A93B] bg-clip-text text-transparent mt-2 leading-tight">
+            <span className="block text-[#F2A93B] mt-2 leading-tight">
               Foglalása
             </span>
           </h1>
@@ -240,7 +240,7 @@ export default function BookPage() {
                       onClick={() => setSelectedTime(slot)}
                       className={`px-4 py-2 rounded-lg border text-sm font-medium transition-all ${
                         selectedTime === slot
-                          ? "bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] border-transparent text-white"
+                          ? "bg-[#F2A93B] border-transparent text-[#0a0a0a]"
                           : "bg-[rgba(255,255,255,0.05)] border-[rgba(255,255,255,0.1)] text-[#F3EFE6] hover:border-[#2DD4BF]/50"
                       }`}
                     >
@@ -335,7 +335,7 @@ export default function BookPage() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full px-8 py-4 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] text-white rounded-xl font-semibold text-base hover:shadow-[0_0_30px_rgba(242,169,59,0.6)] hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#F2A93B] focus:ring-offset-2 focus:ring-offset-[#17151C] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none"
+              className="w-full px-8 py-4 bg-[#F2A93B] text-[#0a0a0a] rounded-lg font-semibold text-base hover:bg-[#f0b658] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#F2A93B] focus:ring-offset-2 focus:ring-offset-[#17151C] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? "Küldés..." : "Időpontot kérek"}
             </button>
