@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
 import Link from "next/link";
+import FinAIHero from "@/components/FinAIHero";
 
 export const metadata: Metadata = {
   title: "További csomagok | Nexen Sites",
@@ -12,8 +13,9 @@ export default function PackagesPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section className="pt-32 pb-16">
-        <div className="max-w-4xl mx-auto text-center">
+      <Section className="pt-32 pb-16 relative overflow-hidden">
+        <FinAIHero />
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#EAF0FF]">
             További csomagok
           </h1>

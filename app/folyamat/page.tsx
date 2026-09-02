@@ -139,10 +139,9 @@ export default function FolyamatPage() {
 
           <div className="space-y-8">
             {[
-              { days: "1-2. nap", title: "Kickoff és anyaggyűjtés", description: "Konzultáció, igények megfogalmazása, anyagok összegyűjtése" },
-              { days: "3-6. nap", title: "Design és fejlesztés", description: "Vázlatok készítése, design véglegesítése, fejlesztés" },
-              { days: "7-9. nap", title: "Tesztelés és finomhangolás", description: "Funkcionális tesztelés, visszajelzések feldolgozása, módosítások" },
-              { days: "10. nap", title: "Indítás", description: "Végső ellenőrzés, élőre helyezés, dokumentáció átadása" },
+              { days: "1. nap", title: "Kickoff és tervezés", description: "Konzultáció, igények megfogalmazása, márkaanyagok begyűjtése, a weboldal struktúrájának és vázlatának felállítása." },
+              { days: "2. nap", title: "Design és fejlesztés", description: "Elkészítjük az egyedi vizuális designt, és modern technológiákkal felépítjük a weboldaladat." },
+              { days: "3. nap", title: "Tesztelés és indítás", description: "Végigteszteljük minden eszközön, finomhangolunk, majd élesítjük a weboldaladat és átadjuk a dokumentációt." },
             ].map((item, index) => (
               <motion.div
                 key={index}
