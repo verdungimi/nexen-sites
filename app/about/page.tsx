@@ -22,7 +22,7 @@ export default function AboutPage() {
         
         <div className="max-w-4xl mx-auto relative z-10 text-center" style={{ pointerEvents: 'auto' }}>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-8 leading-tight">
-            <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+            <span className="block text-[#F3EFE6]">
               Rólunk
             </span>
           </h1>
@@ -58,21 +58,21 @@ export default function AboutPage() {
             Értékeink
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#F2A93B]/50 hover:shadow-[0_0_30px_rgba(242,169,59,0.2)] transition-all duration-300">
+            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#F2A93B]/50 transition-all duration-300">
               <div className="text-4xl mb-4">⚡</div>
               <h3 className="text-xl font-bold mb-4 text-[#F3EFE6]">Gyorsaság</h3>
               <p className="text-[#A69F91] leading-relaxed">
                 3 nap alatt kész weboldal, fix határidővel. Nincs várakozás, nincs késés.
               </p>
             </div>
-            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#2DD4BF]/50 hover:shadow-[0_0_30px_rgba(45,212,191,0.2)] transition-all duration-300">
+            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#2DD4BF]/50 transition-all duration-300">
               <div className="text-4xl mb-4">✨</div>
               <h3 className="text-xl font-bold mb-4 text-[#F3EFE6]">Minőség</h3>
               <p className="text-[#A69F91] leading-relaxed">
                 Prémium design, modern technológiák, és tökéletes működés minden eszközön.
               </p>
             </div>
-            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#F2A93B]/50 hover:shadow-[0_0_30px_rgba(242,169,59,0.2)] transition-all duration-300">
+            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#F2A93B]/50 transition-all duration-300">
               <div className="text-4xl mb-4">🤝</div>
               <h3 className="text-xl font-bold mb-4 text-[#F3EFE6]">Megbízhatóság</h3>
               <p className="text-[#A69F91] leading-relaxed">
@@ -92,7 +92,7 @@ export default function AboutPage() {
           <div className="space-y-6">
             <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] rounded-full flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-[#F2A93B] rounded-full flex items-center justify-center text-white font-bold">
                   1
                 </div>
                 <div>
@@ -105,7 +105,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] rounded-full flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-[#F2A93B] rounded-full flex items-center justify-center text-white font-bold">
                   2
                 </div>
                 <div>
@@ -118,7 +118,7 @@ export default function AboutPage() {
             </div>
             <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] rounded-full flex items-center justify-center text-white font-bold">
+                <div className="flex-shrink-0 w-10 h-10 bg-[#F2A93B] rounded-full flex items-center justify-center text-white font-bold">
                   3
                 </div>
                 <div>

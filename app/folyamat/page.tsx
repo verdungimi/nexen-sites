@@ -20,7 +20,7 @@ export default function FolyamatPage() {
         <div className="max-w-6xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-              <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+              <span className="block text-[#F3EFE6]">
                 A folyamat
               </span>
             </h1>
@@ -149,10 +149,10 @@ export default function FolyamatPage() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
                 variants={fadeInUp}
-                className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 hover:border-[#F2A93B]/30 hover:shadow-[0_0_20px_rgba(242,169,59,0.2)] transition-all duration-500"
+                className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 hover:border-[#F2A93B]/30 transition-all duration-500"
               >
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] rounded-full flex items-center justify-center text-white font-bold">
+                  <div className="flex-shrink-0 w-12 h-12 bg-[#F2A93B] rounded-full flex items-center justify-center text-white font-bold">
                     {index + 1}
                   </div>
                   <div>

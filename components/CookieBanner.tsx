@@ -81,7 +81,7 @@ export default function CookieBanner() {
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div className="flex-1">
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
-                    🍪 Cookie-k használata
+                    Cookie-k használata
                   </h3>
                   <p className="text-[#A69F91] text-sm md:text-base leading-relaxed">
                     Weboldalunk cookie-kat használ a felhasználói élmény javítása, 
@@ -109,7 +109,7 @@ export default function CookieBanner() {
                   </button>
                   <button
                     onClick={acceptAll}
-                    className="px-6 py-3 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] text-white rounded-xl hover:shadow-[0_0_30px_rgba(242,169,59,0.7)] hover:scale-105 transition-all duration-300 font-semibold text-sm whitespace-nowrap"
+                    className="px-6 py-3 bg-[#F2A93B] text-[#0a0a0a] rounded-lg hover:bg-[#f0b658] transition-colors duration-200 font-semibold text-sm whitespace-nowrap"
                   >
                     Elfogadom mind
                   </button>
@@ -206,7 +206,7 @@ export default function CookieBanner() {
                 </button>
                 <button
                   onClick={savePreferences}
-                  className="px-6 py-3 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] text-white rounded-xl hover:shadow-[0_0_30px_rgba(242,169,59,0.7)] hover:scale-105 transition-all duration-300 font-semibold text-sm flex-1 sm:flex-none"
+                  className="px-6 py-3 bg-[#F2A93B] text-[#0a0a0a] rounded-lg hover:bg-[#f0b658] transition-colors duration-200 font-semibold text-sm flex-1 sm:flex-none"
                 >
                   Beállítások mentése
                 </button>

@@ -2,31 +2,30 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import StarBorder from "@/components/StarBorder";
-import "@/components/StarBorder.css";
 import { MouseEvent } from "react";
+
+const navLinkClass =
+  "text-sm font-medium text-[#A69F91] hover:text-[#F3EFE6] transition-colors duration-200 whitespace-nowrap px-3 py-2";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-2 md:top-4 z-50 px-2 sm:px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex items-center h-12 md:h-14 pl-2 sm:pl-4 md:pl-6 pr-2 md:pr-2 gap-2 sm:gap-3 relative">
-          <Link href="/" className="group flex-shrink-0 nexen-logo-wrapper">
-            <span className="text-2xl md:text-3xl font-black inline-flex">
-              <span className="nexen-logo-ne logo-wave-1 inline-block">NE</span>
-              <span className="nexen-logo-x logo-wave-2 inline-block">X</span>
-              <span className="nexen-logo-en logo-wave-3 inline-block">EN</span>
+    <nav className="sticky top-0 z-50 px-4 md:px-6 border-b border-white/5 bg-[#0a0a0a]/80 backdrop-blur-md">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex items-center h-16 gap-3 relative">
+          <Link href="/" className="flex-shrink-0">
+            <span className="text-xl md:text-2xl font-bold text-[#F3EFE6]">
+              NEXEN
             </span>
           </Link>
-          
+
           {/* Desktop Menu - Centered */}
-          <div className="hidden md:flex items-center space-x-1.5 flex-1 justify-center absolute left-1/2 transform -translate-x-1/2 flex-nowrap">
-            <StarBorder thickness={2} speed="3.5s" color="white" as={Link} href="/" className="small text-xs font-medium whitespace-nowrap">
+          <div className="hidden md:flex items-center flex-1 justify-center">
+            <Link href="/" className={navLinkClass}>
               Kezdőlap
-            </StarBorder>
-            <StarBorder thickness={2} speed="3.5s" color="white" as="a" href="#process" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+            </Link>
+            <a href="#process" className={navLinkClass} onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               const target = document.getElementById('process');
               if (target) {
@@ -37,8 +36,8 @@ export default function Navbar() {
               }
             }}>
               Folyamat
-            </StarBorder>
-            <StarBorder thickness={2} speed="3.5s" color="white" as="a" href="#packages" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+            </a>
+            <a href="#packages" className={navLinkClass} onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               const target = document.getElementById('packages');
               if (target) {
@@ -49,17 +48,17 @@ export default function Navbar() {
               }
             }}>
               Árazás
-            </StarBorder>
-            <StarBorder thickness={2} speed="3.5s" color="white" as={Link} href="/blog" className="small text-xs font-medium whitespace-nowrap">
+            </a>
+            <Link href="/blog" className={navLinkClass}>
               Blog
-            </StarBorder>
-            <StarBorder thickness={2} speed="3.5s" color="white" as={Link} href="/rolunk" className="small text-xs font-medium whitespace-nowrap">
+            </Link>
+            <Link href="/rolunk" className={navLinkClass}>
               Rólunk
-            </StarBorder>
-            <StarBorder thickness={2} speed="3.5s" color="white" as={Link} href="/gyik" className="small text-xs font-medium whitespace-nowrap">
+            </Link>
+            <Link href="/gyik" className={navLinkClass}>
               GYIK
-            </StarBorder>
-            <StarBorder thickness={2} speed="3.5s" color="white" as="a" href="/#contact" className="small text-xs font-medium whitespace-nowrap" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+            </Link>
+            <a href="/#contact" className={navLinkClass} onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               const currentPath = window.location.pathname;
               if (currentPath === '/' || currentPath === '') {
@@ -75,12 +74,12 @@ export default function Navbar() {
               }
             }}>
               Kapcsolat
-            </StarBorder>
+            </a>
           </div>
 
           {/* CTA Button - Right */}
-          <div className="hidden md:block flex-shrink-0 ml-auto -mr-2">
-            <Link href="/book" className="px-7 py-3 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] text-white rounded-xl hover:shadow-[0_0_30px_rgba(242,169,59,0.7)] hover:scale-105 transition-all duration-300 font-semibold text-base shadow-lg">
+          <div className="hidden md:block flex-shrink-0 ml-auto">
+            <Link href="/book" className="px-5 py-2.5 bg-[#F2A93B] text-[#0a0a0a] rounded-lg hover:bg-[#f0b658] active:bg-[#d99424] transition-colors duration-200 font-semibold text-sm">
               Időpont Foglalása
             </Link>
           </div>
@@ -88,8 +87,9 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg text-white hover:bg-[rgba(255,255,255,0.1)] transition-colors"
-            aria-label="Menu"
+            className="md:hidden -mr-2 p-3 rounded-lg text-[#F3EFE6] active:bg-white/10 transition-colors"
+            aria-label={isOpen ? "Menü bezárása" : "Menü megnyitása"}
+            aria-expanded={isOpen}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isOpen ? (
@@ -103,11 +103,11 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-3 mt-4">
-            <Link href="/" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#F2A93B] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#F2A93B]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
+          <div className="md:hidden py-3 space-y-1 border-t border-white/10">
+            <Link href="/" className="block px-3 py-3 rounded-lg text-[#F3EFE6] active:bg-white/5 transition-colors text-base font-medium" onClick={() => setIsOpen(false)}>
               Kezdőlap
             </Link>
-            <a href="#process" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#F2A93B] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#F2A93B]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+            <a href="#process" className="block px-3 py-3 rounded-lg text-[#F3EFE6] active:bg-white/5 transition-colors text-base font-medium" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               setIsOpen(false);
               const target = document.getElementById('process');
@@ -120,7 +120,7 @@ export default function Navbar() {
             }}>
               Folyamat
             </a>
-            <a href="#packages" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#F2A93B] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#F2A93B]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+            <a href="#packages" className="block px-3 py-3 rounded-lg text-[#F3EFE6] active:bg-white/5 transition-colors text-base font-medium" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               setIsOpen(false);
               const target = document.getElementById('packages');
@@ -133,16 +133,16 @@ export default function Navbar() {
             }}>
               Árazás
             </a>
-            <Link href="/blog" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#F2A93B] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#F2A93B]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
+            <Link href="/blog" className="block px-3 py-3 rounded-lg text-[#F3EFE6] active:bg-white/5 transition-colors text-base font-medium" onClick={() => setIsOpen(false)}>
               Blog
             </Link>
-            <Link href="/rolunk" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#F2A93B] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#F2A93B]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
+            <Link href="/rolunk" className="block px-3 py-3 rounded-lg text-[#F3EFE6] active:bg-white/5 transition-colors text-base font-medium" onClick={() => setIsOpen(false)}>
               Rólunk
             </Link>
-            <Link href="/gyik" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#F2A93B] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#F2A93B]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={() => setIsOpen(false)}>
+            <Link href="/gyik" className="block px-3 py-3 rounded-lg text-[#F3EFE6] active:bg-white/5 transition-colors text-base font-medium" onClick={() => setIsOpen(false)}>
               GYIK
             </Link>
-            <a href="/#contact" className="block px-4 py-2.5 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-xl text-white hover:text-[#F2A93B] hover:bg-[rgba(255,255,255,0.06)] hover:border-[#F2A93B]/30 hover:scale-105 transition-all duration-300 text-sm font-semibold shadow-lg" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
+            <a href="/#contact" className="block px-3 py-3 rounded-lg text-[#F3EFE6] active:bg-white/5 transition-colors text-base font-medium" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
               e.preventDefault();
               setIsOpen(false);
               const currentPath = window.location.pathname;
@@ -162,7 +162,7 @@ export default function Navbar() {
             }}>
               Kapcsolat
             </a>
-            <Link href="/book" className="block px-5 py-2.5 bg-gradient-to-r from-[#F2A93B] to-[#2DD4BF] text-white rounded-xl hover:shadow-[0_0_25px_rgba(242,169,59,0.6)] hover:scale-105 transition-all duration-300 font-medium text-xs text-center shadow-lg" onClick={() => setIsOpen(false)}>
+            <Link href="/book" className="block mt-2 px-4 py-3 bg-[#F2A93B] text-[#0a0a0a] rounded-lg active:bg-[#d99424] transition-colors font-semibold text-base text-center" onClick={() => setIsOpen(false)}>
               Időpont Foglalása
             </Link>
           </div>

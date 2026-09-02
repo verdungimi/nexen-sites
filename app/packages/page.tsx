@@ -33,16 +33,16 @@ export default function PackagesPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Exclusive Package */}
-            <div className="group relative bg-gradient-to-br from-[#1a0a0a] to-[#2a1a1a] border-2 border-[rgba(220,20,60,0.5)] rounded-3xl p-10 transition-all duration-500 hover:-translate-y-2 hover:border-[#DC143C] hover:shadow-[0_0_60px_rgba(220,20,60,0.5),0_0_120px_rgba(255,215,0,0.3)]">
+            <div className="group relative bg-gradient-to-br from-[#1a0a0a] to-[#2a1a1a] border-2 border-[rgba(220,20,60,0.5)] rounded-3xl p-10 transition-all duration-500 hover:-translate-y-2 hover:border-[#DC143C]">
               <div className="absolute inset-0 bg-gradient-to-br from-[#DC143C]/10 via-[#FFD700]/5 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="absolute -top-4 right-4 bg-gradient-to-r from-[#DC143C] to-[#FFD700] text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">
                 EXCLUSIVE
               </div>
               <div className="relative z-10">
-                <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#DC143C] to-[#FFD700] bg-clip-text text-transparent">
+                <h3 className="text-3xl font-bold mb-4 text-[#FFD700]">
                   Exclusive Csomag
                 </h3>
-                <div className="text-2xl font-bold mb-2 bg-gradient-to-r from-[#DC143C] to-[#FFD700] bg-clip-text text-transparent">
+                <div className="text-2xl font-bold mb-2 text-[#FFD700]">
                   Ár: Egyedi ajánlat
                 </div>
                 <p className="text-[#A69F91] mb-8 text-lg">
@@ -107,7 +107,7 @@ export default function PackagesPage() {
             </div>
 
             {/* Landing Page Package */}
-            <div className="group relative bg-[#17151C] border-2 border-[#2DD4BF]/40 rounded-3xl p-10 transition-all duration-500 hover:-translate-y-2 hover:border-[#2DD4BF] hover:shadow-[0_0_50px_rgba(45,212,191,0.4)]">
+            <div className="group relative bg-[#17151C] border-2 border-[#2DD4BF]/40 rounded-3xl p-10 transition-all duration-500 hover:-translate-y-2 hover:border-[#2DD4BF]">
               <div className="absolute inset-0 bg-gradient-to-br from-[#2DD4BF]/10 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
                 <h3 className="text-3xl font-bold mb-4 text-[#F3EFE6] group-hover:text-[#2DD4BF] transition-colors">

@@ -145,7 +145,7 @@ export default function KapcsolatPage() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-              <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+              <span className="block text-[#F3EFE6]">
                 Kapcsolat
               </span>
             </h1>
@@ -216,7 +216,7 @@ export default function KapcsolatPage() {
               variants={fadeInUp}
               className="space-y-6"
             >
-              <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[#2DD4BF]/30 hover:shadow-[0_0_20px_rgba(45,212,191,0.2)] transition-all duration-500">
+              <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[#2DD4BF]/30 transition-all duration-500">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#2DD4BF]/20 to-[#F2A93B]/20 flex items-center justify-center flex-shrink-0">
                     <Mail className="w-6 h-6 text-[#2DD4BF]" />
@@ -230,7 +230,7 @@ export default function KapcsolatPage() {
                 </div>
               </div>
 
-              <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[#F2A93B]/30 hover:shadow-[0_0_20px_rgba(242,169,59,0.2)] transition-all duration-500">
+              <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[#F2A93B]/30 transition-all duration-500">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#2DD4BF]/20 to-[#F2A93B]/20 flex items-center justify-center flex-shrink-0">
                     <Phone className="w-6 h-6 text-[#2DD4BF]" />
@@ -244,7 +244,7 @@ export default function KapcsolatPage() {
                 </div>
               </div>
 
-              <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[#2DD4BF]/30 hover:shadow-[0_0_20px_rgba(45,212,191,0.2)] transition-all duration-500">
+              <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[#2DD4BF]/30 transition-all duration-500">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#2DD4BF]/20 to-[#F2A93B]/20 flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-6 h-6 text-[#2DD4BF]" />

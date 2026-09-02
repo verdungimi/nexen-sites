@@ -13,10 +13,10 @@ export default function TermsPage() {
       
       <div className="max-w-4xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-12 text-white leading-tight">
-          <span className="block bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+          <span className="block text-[#F3EFE6]">
             Általános
           </span>
-          <span className="block bg-gradient-to-r from-[#F2A93B] via-[#2DD4BF] to-[#F2A93B] bg-clip-text text-transparent mt-2">
+          <span className="block text-[#F2A93B] mt-2">
             Szerződési Feltételek
           </span>
         </h1>
