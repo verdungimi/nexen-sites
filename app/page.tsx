@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import HomePageContent from "@/components/HomePageContent";
 
 export const metadata: Metadata = {
-  title: "NexenSites - Professzionális Weboldal 10 Nap Alatt | Prémium Weboldal Készítés",
-  description: "NexenSites modern, gyors és üzleti célokra optimalizált weboldalakat készít. Professzionális weboldal 10 nap alatt - fizess csak akkor, ha elégedett vagy.",
+  title: "NexenSites - Professzionális Weboldal 3 Nap Alatt | Prémium Weboldal Készítés",
+  description: "NexenSites modern, gyors és üzleti célokra optimalizált weboldalakat készít. Professzionális weboldal 3 nap alatt - fizess csak akkor, ha elégedett vagy.",
   keywords: [
     "nexen",
     "nexen weboldal",
@@ -11,15 +11,15 @@ export const metadata: Metadata = {
     "weboldalak készítése",
     "weboldal fejlesztés",
     "weboldal készítés budapest",
-    "weboldal készítés 10 nap",
+    "weboldal készítés 3 nap",
     "prémium weboldal",
     "modern weboldal",
     "mobilbarát weboldal",
     "nexen sites",
   ],
   openGraph: {
-    title: "Nexen Weboldal - Weboldal Készítés 10 Nap Alatt",
-    description: "Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
+    title: "Nexen Weboldal - Weboldal Készítés 3 Nap Alatt",
+    description: "Prémium weboldal készítés 3 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
     type: "website",
     url: "https://nexensites.hu",
     siteName: "Nexen Sites",
@@ -35,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexen Weboldal - Weboldal Készítés 10 Nap Alatt",
-    description: "Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak.",
+    title: "Nexen Weboldal - Weboldal Készítés 3 Nap Alatt",
+    description: "Prémium weboldal készítés 3 nap alatt. Modern, gyors, mobilbarát weboldalak.",
   },
   alternates: {
     canonical: "https://nexensites.hu",

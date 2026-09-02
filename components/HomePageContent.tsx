@@ -153,15 +153,15 @@ export default function HomePageContent() {
       
       {/* Hero Section - Fin AI Style */}
       <section className="min-h-screen flex items-center justify-center relative pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-6 overflow-hidden">
-        {/* DarkVeil - Only on desktop */}
-        <div className="hidden md:block fixed inset-0 w-full h-full" style={{ zIndex: 1, pointerEvents: 'none' }}>
+        {/* DarkVeil - animated background, mobile included (component auto-scales resolution/DPR on mobile) */}
+        <div className="block fixed inset-0 w-full h-full" style={{ zIndex: 1, pointerEvents: 'none' }}>
           <DarkVeil
             hueShift={0}
             noiseIntensity={0}
             scanlineIntensity={0}
             speed={0.5}
             scanlineFrequency={0}
-            warpAmount={0}
+            warpAmount={0.4}
             resolutionScale={1}
           />
         </div>
@@ -194,7 +194,7 @@ export default function HomePageContent() {
                 weboldal
               </span>
               <span className="block text-white mt-1 md:mt-2 animate-fade-in-delay-2">
-                10 nap alatt
+                3 nap alatt
               </span>
             </h1>
 
@@ -216,7 +216,7 @@ export default function HomePageContent() {
             {/* Trust badges - Enhanced style with animations */}
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-12 mt-12 md:mt-20 px-2">
               <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#7C5CFF]/50 hover:shadow-[0_0_30px_rgba(124,92,255,0.3)] hover:scale-105 transition-all duration-500 animate-float-up group">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 group-hover:text-[#7C5CFF] transition-colors duration-500 group-hover:scale-110 transition-transform duration-300">10</div>
+                <div className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 group-hover:text-[#7C5CFF] transition-colors duration-500 group-hover:scale-110 transition-transform duration-300">3</div>
                 <div className="text-xs md:text-sm lg:text-base text-[#EAF0FF] font-semibold">Napos szállítás</div>
               </div>
               <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.3)] hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
@@ -271,8 +271,8 @@ export default function HomePageContent() {
             {[
               {
                 icon: Clock,
-                title: "10 nap alatt kész projekt",
-                description: "Teljes projekt átadás 10 napon belül – gyors, de nem sietősen.",
+                title: "3 nap alatt kész projekt",
+                description: "Teljes projekt átadás 3 napon belül – gyors, de nem sietősen.",
               },
               {
                 icon: Shield,
@@ -408,7 +408,7 @@ export default function HomePageContent() {
                   "Mobilbarát verzió",
                   "Kapcsolati űrlap",
                   "Alap SEO beállítás",
-                  "10 napos szállítás",
+                  "3 napos szállítás",
                 ],
                 highlighted: false,
               },
@@ -422,7 +422,7 @@ export default function HomePageContent() {
                   "Fejlett SEO",
                   "Analytics beállítás",
                   "Egyedi animációk",
-                  "10 napos szállítás",
+                  "3 napos szállítás",
                 ],
                 highlighted: true,
               },
@@ -435,7 +435,7 @@ export default function HomePageContent() {
                   "Egyedi integrációk",
                   "Prémium animációk",
                   "Folyamatos támogatás",
-                  "10 napos szállítás",
+                  "3 napos szállítás",
                 ],
                 highlighted: false,
               },
@@ -565,7 +565,7 @@ export default function HomePageContent() {
                 },
                 {
                   question: "Mennyi idő alatt készül el a weboldal?",
-                  answer: "A Nexen Sites weboldal készítés 10 nap alatt készül el. Fix határidővel dolgozunk, garantálva a minőséget.",
+                  answer: "A Nexen Sites weboldal készítés 3 nap alatt készül el. Fix határidővel dolgozunk, garantálva a minőséget.",
                 },
                 {
                   question: "Mi van, ha változtatni szeretnék?",

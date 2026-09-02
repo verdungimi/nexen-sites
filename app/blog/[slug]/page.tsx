@@ -4,17 +4,17 @@ import { notFound } from "next/navigation";
 import FinAIHero from "@/components/FinAIHero";
 
 const blogPosts: Record<string, any> = {
-  "10-napos-weboldal-keszites-hogyan-mukodik": {
-    title: "10 Napos Weboldal Készítés: Hogyan Működik a Gyors Szállítási Rendszer?",
+  "3-napos-weboldal-keszites-hogyan-mukodik": {
+    title: "3 Napos Weboldal Készítés: Hogyan Működik a Gyors Szállítási Rendszer?",
     date: "2024-12-15",
     readTime: "8 perc",
     category: "Weboldal Fejlesztés",
-    keywords: ["10 napos weboldal", "weboldal készítés", "gyors weboldal fejlesztés", "prémium weboldal"],
+    keywords: ["3 napos weboldal", "weboldal készítés", "gyors weboldal fejlesztés", "prémium weboldal"],
     content: `
-      <p>A <strong>10 napos weboldal készítés</strong> már nem csak egy ígéret, hanem egy bizonyított, működő rendszer. De hogyan működik ez pontosan? Ebben a cikkben részletesen bemutatjuk a folyamatot.</p>
+      <p>A <strong>3 napos weboldal készítés</strong> már nem csak egy ígéret, hanem egy bizonyított, működő rendszer. De hogyan működik ez pontosan? Ebben a cikkben részletesen bemutatjuk a folyamatot.</p>
       
-      <h2>Miért 10 nap a határidő?</h2>
-      <p>A <strong>10 napos weboldal fejlesztés</strong> nem véletlenül lett a standard. Ez az időszak optimális egy prémium minőségű, de hatékonyan elkészíthető weboldalhoz. A gyorsaság nem a minőség rovására megy, hanem egy jól kidolgozott folyamat eredménye.</p>
+      <h2>Miért 3 nap a határidő?</h2>
+      <p>A <strong>3 napos weboldal fejlesztés</strong> nem véletlenül lett a standard. Ez az időszak optimális egy prémium minőségű, de hatékonyan elkészíthető weboldalhoz. A gyorsaság nem a minőség rovására megy, hanem egy jól kidolgozott folyamat eredménye.</p>
       
       <h2>A folyamat lépései</h2>
       <h3>1. nap: Kickoff és anyaggyűjtés</h3>
@@ -33,9 +33,9 @@ const blogPosts: Record<string, any> = {
       <p>Végső ellenőrzés, telepítés és átadás. A weboldalad élő lesz, időben, minden alkalommal.</p>
       
       <h2>Az eredmény</h2>
-      <p>Az eredmény egy <strong>prémium minőségű weboldal</strong>, amely 10 nap alatt készül el, de nem éri le a minőséget. Ez a rendszer több száz sikeres projekten keresztül lett finomhangolva, és folyamatosan fejlesztjük.</p>
+      <p>Az eredmény egy <strong>prémium minőségű weboldal</strong>, amely 3 nap alatt készül el, de nem éri le a minőséget. Ez a rendszer több száz sikeres projekten keresztül lett finomhangolva, és folyamatosan fejlesztjük.</p>
       
-      <p>Ha szeretnél többet megtudni a <strong>10 napos weboldal készítésről</strong>, vagy szeretnél egy prémium weboldalt, <a href="/book" class="text-[#7C5CFF] hover:text-[#50AEDF] underline">foglalj időpontot</a> velünk!</p>
+      <p>Ha szeretnél többet megtudni a <strong>3 napos weboldal készítésről</strong>, vagy szeretnél egy prémium weboldalt, <a href="/book" class="text-[#7C5CFF] hover:text-[#50AEDF] underline">foglalj időpontot</a> velünk!</p>
     `
   },
   "landing-page-vagy-tobb-oldalas-weboldal-melyiket-valasszam": {
@@ -69,7 +69,7 @@ const blogPosts: Record<string, any> = {
       </ul>
       
       <h2>Az ár és az idő</h2>
-      <p>A <strong>landing page</strong> általában gyorsabban készül el és olcsóbb, mint a több oldalas weboldal. A <strong>10 napos weboldal készítés</strong> mindkét esetben lehetséges, de a landing page esetén még gyorsabb lehet.</p>
+      <p>A <strong>landing page</strong> általában gyorsabban készül el és olcsóbb, mint a több oldalas weboldal. A <strong>3 napos weboldal készítés</strong> mindkét esetben lehetséges, de a landing page esetén még gyorsabb lehet.</p>
       
       <p>Ha bizonytalan vagy, hogy a <strong>landing page</strong> vagy a több oldalas <strong>weboldal</strong> felel meg jobban, <a href="/book" class="text-[#7C5CFF] hover:text-[#50AEDF] underline">beszéljük meg</a> együtt!</p>
     `
@@ -155,13 +155,13 @@ const blogPosts: Record<string, any> = {
       <p>Az <strong>értékteremtés</strong> azt jelenti, hogy többet adsz, mint amennyiért kérsz. A <strong>prémium weboldal készítés</strong> során nem csak egy szép oldalt készítünk, hanem egy működő, eredményes online eszközt.</p>
       
       <h2>A hatékonyság kulcsa</h2>
-      <p>A <strong>10 napos weboldal készítés</strong> lehetővé teszi, hogy hatékonyan dolgozzunk anélkül, hogy a minőség rovására menne. Egy jól kidolgozott folyamat és tapasztalat teszi ezt lehetővé.</p>
+      <p>A <strong>3 napos weboldal készítés</strong> lehetővé teszi, hogy hatékonyan dolgozzunk anélkül, hogy a minőség rovására menne. Egy jól kidolgozott folyamat és tapasztalat teszi ezt lehetővé.</p>
       
       <h2>Miért prémium, ha versenyképes az ár?</h2>
       <p>A <strong>prémium weboldal</strong> nem az áron múlik, hanem:</p>
       <ul>
         <li>A minőségen - professzionális design és fejlesztés</li>
-        <li>A gyorsaságon - 10 nap alatt elkészül</li>
+        <li>A gyorsaságon - 3 nap alatt elkészül</li>
         <li>A szolgáltatáson - átfogó támogatás</li>
         <li>Az eredményen - működő, konverziós weboldal</li>
       </ul>
@@ -229,7 +229,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     "weboldal készítés",
     "weboldal készítő cég",
     "olcsó weboldal",
-    "10 nap alatt kész weboldal",
+    "3 nap alatt kész weboldal",
     "nexen sites"
   ];
 
@@ -280,7 +280,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     "datePublished": post.date,
     "dateModified": post.date,
     "articleSection": post.category,
-    "keywords": [...post.keywords, "weboldal készítés", "weboldal készítő cég", "olcsó weboldal", "10 nap alatt kész weboldal"].join(", "),
+    "keywords": [...post.keywords, "weboldal készítés", "weboldal készítő cég", "olcsó weboldal", "3 nap alatt kész weboldal"].join(", "),
     "url": `https://nexensites.hu/blog/${params.slug}`,
     "author": {
       "@type": "Organization",

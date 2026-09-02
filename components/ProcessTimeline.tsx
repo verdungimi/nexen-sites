@@ -37,11 +37,9 @@ export default function ProcessTimeline() {
   }, []);
 
   const steps = [
-    { day: "1", title: "1. nap: Kickoff + anyagok", desc: "Összegyűjtjük az igényeket, begyűjtjük a márkaanyagokat, és felállítjuk a projekt infrastruktúráját." },
-    { day: "2-3", title: "2-3. nap: Vázlat + szöveg", desc: "Először a struktúra és a tartalom. Vázlatokat készítünk és finomhangoljuk a szövegeket, mielőtt a design elkezdődne." },
-    { day: "4-6", title: "4-6. nap: Vizuális design", desc: "Vizuális design fázis egy javítási körrel, hogy tökéletesítsük a megjelenést és az érzést." },
-    { day: "7-9", title: "7-9. nap: Fejlesztés + tesztelés", desc: "Fejlesztés, tesztelés különböző eszközökön, és végső finomhangolás, hogy minden tökéletesen működjön." },
-    { day: "10", title: "10. nap: Indítás + átadás", desc: "Végső ellenőrzés, telepítés és átadás. A weboldalad élő lesz, időben, minden alkalommal." },
+    { day: "1", title: "1. nap: Kickoff + tervezés", desc: "Összegyűjtjük az igényeket és márkaanyagokat, majd felállítjuk a weboldal struktúráját és vázlatát." },
+    { day: "2", title: "2. nap: Design + fejlesztés", desc: "Elkészítjük az egyedi vizuális designt, és modern technológiákkal felépítjük a weboldaladat." },
+    { day: "3", title: "3. nap: Tesztelés + indítás", desc: "Végigteszteljük minden eszközön, finomhangolunk, és élesítjük a weboldaladat – időben, minden alkalommal." },
   ];
 
   return (

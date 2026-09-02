@@ -3,14 +3,14 @@ import Link from "next/link";
 import FinAIHero from "@/components/FinAIHero";
 
 export const metadata: Metadata = {
-  title: "Weboldal Készítés Blog | 10 Nap Alatt Kész Weboldal | Nexen Sites",
-  description: "Olvass a weboldal készítésről, olcsó weboldal készítő cég szolgáltatásairól és 10 nap alatt kész weboldal készítésről. Hasznos cikkek prémium weboldal fejlesztéshez.",
+  title: "Weboldal Készítés Blog | 3 Nap Alatt Kész Weboldal | Nexen Sites",
+  description: "Olvass a weboldal készítésről, olcsó weboldal készítő cég szolgáltatásairól és 3 nap alatt kész weboldal készítésről. Hasznos cikkek prémium weboldal fejlesztéshez.",
   keywords: [
     "weboldal készítés",
     "weboldal készítő cég",
     "olcsó weboldal",
-    "10 nap alatt kész weboldal",
-    "weboldal készítés 10 nap",
+    "3 nap alatt kész weboldal",
+    "weboldal készítés 3 nap",
     "olcsó weboldal készítés",
     "weboldal készítő",
     "weboldal készítés magyarország",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "mobilbarát weboldal",
     "weboldal fejlesztés",
     "landing page",
-    "10 napos weboldal",
+    "3 napos weboldal",
     "weboldal tervezés",
     "weboldal készítés Budapest",
     "SEO optimalizálás",
@@ -29,8 +29,8 @@ export const metadata: Metadata = {
     "nexen sites"
   ],
   openGraph: {
-    title: "Weboldal Készítés Blog | 10 Nap Alatt Kész Weboldal | Nexen Sites",
-    description: "Olvass a weboldal készítésről, olcsó weboldal készítő cég szolgáltatásairól és 10 nap alatt kész weboldal készítésről.",
+    title: "Weboldal Készítés Blog | 3 Nap Alatt Kész Weboldal | Nexen Sites",
+    description: "Olvass a weboldal készítésről, olcsó weboldal készítő cég szolgáltatásairól és 3 nap alatt kész weboldal készítésről.",
     type: "website",
     url: "https://nexensites.hu/blog",
     siteName: "Nexen Sites",
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Weboldal Készítés Blog | 10 Nap Alatt Kész Weboldal",
-    description: "Olvass a weboldal készítésről és 10 nap alatt kész weboldal készítésről.",
+    title: "Weboldal Készítés Blog | 3 Nap Alatt Kész Weboldal",
+    description: "Olvass a weboldal készítésről és 3 nap alatt kész weboldal készítésről.",
   },
   alternates: {
     canonical: "https://nexensites.hu/blog",
@@ -66,13 +66,13 @@ interface BlogPost {
 
 const blogPosts: BlogPost[] = [
   {
-    slug: "10-napos-weboldal-keszites-hogyan-mukodik",
-    title: "10 Napos Weboldal Készítés: Hogyan Működik a Gyors Szállítási Rendszer?",
-    excerpt: "Ismerd meg, hogyan készítünk prémium weboldalakat 10 nap alatt. Részletes betekintés a folyamatba, a hatékonyság kulcsai és az eredmények garanciája. Megtudod, mit várhatsz el egy 10 napos weboldal fejlesztés során.",
+    slug: "3-napos-weboldal-keszites-hogyan-mukodik",
+    title: "3 Napos Weboldal Készítés: Hogyan Működik a Gyors Szállítási Rendszer?",
+    excerpt: "Ismerd meg, hogyan készítünk prémium weboldalakat 3 nap alatt. Részletes betekintés a folyamatba, a hatékonyság kulcsai és az eredmények garanciája. Megtudod, mit várhatsz el egy 3 napos weboldal fejlesztés során.",
     date: "2024-12-15",
     readTime: "8 perc",
     category: "Weboldal Fejlesztés",
-    keywords: ["10 napos weboldal", "weboldal készítés", "gyors weboldal fejlesztés", "prémium weboldal", "weboldal szállítás"]
+    keywords: ["3 napos weboldal", "weboldal készítés", "gyors weboldal fejlesztés", "prémium weboldal", "weboldal szállítás"]
   },
   {
     slug: "landing-page-vagy-tobb-oldalas-weboldal-melyiket-valasszam",
@@ -127,7 +127,7 @@ export default function BlogPage() {
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "Nexen Sites Blog - Weboldal Készítés",
-    "description": "Weboldal készítés, olcsó weboldal készítő cég szolgáltatásai, 10 nap alatt kész weboldal készítés cikkek és tippek",
+    "description": "Weboldal készítés, olcsó weboldal készítő cég szolgáltatásai, 3 nap alatt kész weboldal készítés cikkek és tippek",
     "url": "https://nexensites.hu/blog",
     "publisher": {
       "@type": "Organization",
@@ -183,7 +183,7 @@ export default function BlogPage() {
               </span>
             </h1>
             <p className="text-lg md:text-xl text-[#A8B3C7] max-w-3xl mx-auto font-light leading-relaxed break-words overflow-wrap-anywhere px-4 mt-4">
-              Hasznos cikkek a <strong className="text-white">weboldal készítésről</strong>, <strong className="text-white">olcsó weboldal készítő cég</strong> szolgáltatásairól és a <strong className="text-white">10 nap alatt kész weboldal</strong> készítésről.
+              Hasznos cikkek a <strong className="text-white">weboldal készítésről</strong>, <strong className="text-white">olcsó weboldal készítő cég</strong> szolgáltatásairól és a <strong className="text-white">3 nap alatt kész weboldal</strong> készítésről.
             </p>
           </div>
 
@@ -258,7 +258,7 @@ export default function BlogPage() {
                 Készen állsz egy <span className="bg-gradient-to-r from-[#7C5CFF] to-[#50AEDF] bg-clip-text text-transparent">prémium weboldalra</span>?
               </h2>
               <p className="text-lg text-[#A8B3C7] mb-6 max-w-2xl mx-auto break-words overflow-wrap-anywhere">
-                Foglalj időpontot és beszéljük meg, hogyan készíthetünk neked egy <strong className="text-white">10 nap alatt elkészülő, prémium minőségű weboldalt</strong> vagy <strong className="text-white">landing page</strong>-et. Olcsó weboldal készítő cégként garantáltan 10 nap alatt kész weboldalt nyújtunk.
+                Foglalj időpontot és beszéljük meg, hogyan készíthetünk neked egy <strong className="text-white">3 nap alatt elkészülő, prémium minőségű weboldalt</strong> vagy <strong className="text-white">landing page</strong>-et. Olcsó weboldal készítő cégként garantáltan 3 nap alatt kész weboldalt nyújtunk.
               </p>
               <Link
                 href="/book"

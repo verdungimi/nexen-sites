@@ -35,11 +35,11 @@ const faqItems = [
   },
   {
     question: "Kinek NEM ajánljuk?",
-    answer: "Ha kiterjedt egyedi fejlesztésre, e-commerce-re több száz termékkel, vagy folyamatos design iterációkra van szükséged, a 10 napos modellünk lehet, hogy nem ideális. Beszéljük meg az igényeidet.",
+    answer: "Ha kiterjedt egyedi fejlesztésre, e-commerce-re több száz termékkel, vagy folyamatos design iterációkra van szükséged, a 3 napos modellünk lehet, hogy nem ideális. Beszéljük meg az igényeidet.",
   },
   {
     question: "Mennyi idő alatt készül el a weboldal?",
-    answer: "A Nexen Sites weboldal készítés 10 nap alatt készül el. Fix határidővel dolgozunk, garantálva a minőséget.",
+    answer: "A Nexen Sites weboldal készítés 3 nap alatt készül el. Fix határidővel dolgozunk, garantálva a minőséget.",
   },
   {
     question: "Mi történik az átadás után?",

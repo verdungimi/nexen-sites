@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Folyamat | Nexen Sites - Weboldal Készítés",
-  description: "Ismerd meg, hogyan dolgozunk: egyszerű, átlátható lépések az eredményig. 10 nap alatt professzionális weboldal.",
+  description: "Ismerd meg, hogyan dolgozunk: egyszerű, átlátható lépések az eredményig. 3 nap alatt professzionális weboldal.",
   keywords: [
     "nexen",
     "nexen weboldal",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Folyamat | Nexen Sites - Weboldal Készítés",
-    description: "Ismerd meg, hogyan dolgozunk: egyszerű, átlátható lépések az eredményig. 10 nap alatt professzionális weboldal.",
+    description: "Ismerd meg, hogyan dolgozunk: egyszerű, átlátható lépések az eredményig. 3 nap alatt professzionális weboldal.",
     type: "website",
     url: "https://nexensites.hu/folyamat",
   },

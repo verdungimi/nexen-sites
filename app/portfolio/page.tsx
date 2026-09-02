@@ -189,7 +189,7 @@ export default function PortfolioPage() {
             Készen állsz a saját weboldaladra?
           </h2>
           <p className="text-lg text-[#A8B3C7] mb-8 max-w-2xl mx-auto">
-            Foglalj időpontot még ma, és 10 nap múlva már élő lesz a prémium weboldalad.
+            Foglalj időpontot még ma, és 3 nap múlva már élő lesz a prémium weboldalad.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <CTAButton href="/book" variant="primary" className="text-base px-10 py-5">

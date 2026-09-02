@@ -5,10 +5,10 @@ import CTAButton from "@/components/CTAButton";
 
 export const metadata: Metadata = {
   title: "Rólunk | Nexen Sites",
-  description: "Ismerd meg a Nexen Sites csapatát és a 10 napos weboldal szállítási rendszerünket.",
+  description: "Ismerd meg a Nexen Sites csapatát és a 3 napos weboldal szállítási rendszerünket.",
   openGraph: {
     title: "Rólunk | Nexen Sites",
-    description: "Ismerd meg a Nexen Sites csapatát és a 10 napos weboldal szállítási rendszerünket.",
+    description: "Ismerd meg a Nexen Sites csapatát és a 3 napos weboldal szállítási rendszerünket.",
     type: "website",
   },
 };
@@ -27,7 +27,7 @@ export default function AboutPage() {
             </span>
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-            A Nexen Sites egy modern weboldal fejlesztő csapat, amely 10 nap alatt prémium minőségű weboldalakat készít.
+            A Nexen Sites egy modern weboldal fejlesztő csapat, amely 3 nap alatt prémium minőségű weboldalakat készít.
           </p>
         </div>
       </section>
@@ -44,7 +44,7 @@ export default function AboutPage() {
               Hiszünk abban, hogy egy modern, gyors és mobilbarát weboldal nem kell, hogy hónapokig tartó projekt legyen.
             </p>
             <p className="text-lg text-[#A8B3C7] leading-relaxed">
-              A 10 napos szállítási rendszerünkkel garantáljuk, hogy ügyfeleink gyorsan online jelenléthez juthassanak, 
+              A 3 napos szállítási rendszerünkkel garantáljuk, hogy ügyfeleink gyorsan online jelenléthez juthassanak, 
               miközben a minőség és a prémium megjelenés mindig az első helyen áll.
             </p>
           </div>
@@ -62,7 +62,7 @@ export default function AboutPage() {
               <div className="text-4xl mb-4">⚡</div>
               <h3 className="text-xl font-bold mb-4 text-[#EAF0FF]">Gyorsaság</h3>
               <p className="text-[#A8B3C7] leading-relaxed">
-                10 nap alatt kész weboldal, fix határidővel. Nincs várakozás, nincs késés.
+                3 nap alatt kész weboldal, fix határidővel. Nincs várakozás, nincs késés.
               </p>
             </div>
             <div className="bg-[#0F1620] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#50AEDF]/50 hover:shadow-[0_0_30px_rgba(80,174,223,0.2)] transition-all duration-300">
@@ -140,7 +140,7 @@ export default function AboutPage() {
             Készen állsz a weboldaladra?
           </h2>
           <p className="text-lg text-[#A8B3C7] mb-8 max-w-2xl mx-auto">
-            Foglalj időpontot még ma, és 10 nap múlva már élő lesz a prémium weboldalad.
+            Foglalj időpontot még ma, és 3 nap múlva már élő lesz a prémium weboldalad.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <CTAButton href="/book" variant="primary" className="text-base px-10 py-5">

@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin } from "lucide-react";
+import FinAIHero from "@/components/FinAIHero";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -139,7 +140,8 @@ export default function KapcsolatPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-[60vh] flex items-center justify-center relative pt-32 pb-12 px-4">
+      <section className="min-h-[60vh] flex items-center justify-center relative pt-32 pb-12 px-4 overflow-hidden">
+        <FinAIHero />
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-12">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">

@@ -38,9 +38,9 @@ export default function TermsPage() {
 
           <section className="bg-[#0F1620]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">2. Határidők és feltételek</h2>
-            <h3 className="text-xl md:text-2xl font-semibold text-white mt-6 mb-4">2.1. 10 napos határidő feltételei</h3>
+            <h3 className="text-xl md:text-2xl font-semibold text-white mt-6 mb-4">2.1. 3 napos határidő feltételei</h3>
             <p className="text-white text-lg leading-relaxed mb-4">
-              A 10 napos szállítási határidő akkor tartható, ha az alábbi feltételek teljesülnek:
+              A 3 napos szállítási határidő akkor tartható, ha az alábbi feltételek teljesülnek:
             </p>
             <ul className="list-disc pl-6 space-y-3 text-white text-lg leading-relaxed">
               <li>Az ügyfél minden szükséges anyagot (logo, szöveg, képek, referenciák) a kickoff meeting után 48 órán belül átad.</li>
@@ -69,14 +69,14 @@ export default function TermsPage() {
           <section className="bg-[#0F1620]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">4. Módosítási körök</h2>
             <p className="text-white text-lg leading-relaxed">
-              A 10 napos csomagokban maximum 2 módosítási kör van beleértve a designon. További módosítások esetén a Szolgáltató külön díjat számol fel, amit előre egyeztetünk az ügyféllel.
+              A 3 napos csomagokban maximum 2 módosítási kör van beleértve a designon. További módosítások esetén a Szolgáltató külön díjat számol fel, amit előre egyeztetünk az ügyféllel.
             </p>
           </section>
 
           <section className="bg-[#0F1620]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">5. Extra funkciók</h2>
             <p className="text-white text-lg leading-relaxed mb-4">
-              Az alábbi funkciók nem tartoznak a 10 napos csomagokhoz, és külön egyeztetés és árazás tárgyát képezik:
+              Az alábbi funkciók nem tartoznak a 3 napos csomagokhoz, és külön egyeztetés és árazás tárgyát képezik:
             </p>
             <ul className="list-disc pl-6 space-y-3 text-white text-lg leading-relaxed">
               <li>Webshop (e-commerce funkciók)</li>

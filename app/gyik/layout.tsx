@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "GYIK | Nexen Sites - Gyakran Ismételt Kérdések",
-  description: "Válaszok a leggyakrabban feltett kérdésekre a weboldal készítésről, folyamatról és szolgáltatásainkról. Nexen Sites - Modern weboldal fejlesztés 10 nap alatt.",
+  description: "Válaszok a leggyakrabban feltett kérdésekre a weboldal készítésről, folyamatról és szolgáltatásainkról. Nexen Sites - Modern weboldal fejlesztés 3 nap alatt.",
   keywords: [
     "gyik",
     "gyakran ismételt kérdések",

@@ -18,7 +18,7 @@ export default function HomePageStructuredData() {
     "@id": "https://nexensites.hu/#organization",
     "name": "Nexen Sites",
     "image": "https://nexensites.hu/logo.png",
-    "description": "Nexen Sites - Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
+    "description": "Nexen Sites - Prémium weboldal készítés 3 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
     "url": "https://nexensites.hu",
     "telephone": "+36-70-576-7845",
     "email": "info@nexensites.hu",
@@ -58,7 +58,7 @@ export default function HomePageStructuredData() {
           "itemOffered": {
             "@type": "Service",
             "name": "Weboldal készítés",
-            "description": "Prémium weboldal készítés 10 nap alatt"
+            "description": "Prémium weboldal készítés 3 nap alatt"
           }
         }
       ]
@@ -74,7 +74,7 @@ export default function HomePageStructuredData() {
         "name": "Mennyi idő alatt készül el a weboldal?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A Nexen Sites weboldal készítés 10 nap alatt készül el. Fix határidővel dolgozunk, garantálva a minőséget."
+          "text": "A Nexen Sites weboldal készítés 3 nap alatt készül el. Fix határidővel dolgozunk, garantálva a minőséget."
         }
       },
       {
