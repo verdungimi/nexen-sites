@@ -8,7 +8,7 @@ import CTAButton from "@/components/CTAButton";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Check, ArrowRight, Clock, Shield, Sparkles, Zap } from "lucide-react";
+import { Check, ArrowRight, Clock, Shield, Sparkles, Zap, AlertCircle, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FinAIHero from "@/components/FinAIHero";
 import HomePageStructuredData from "@/components/HomePageStructuredData";
@@ -229,6 +229,78 @@ export default function HomePageContent() {
         </div>
       </section>
 
+      {/* Fájdalompontok Section */}
+      <section id="problems" className="py-20 relative z-10">
+        <div className="container-custom">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Ismerős ez a helyzet?
+            </h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              A legtöbb vállalkozás ugyanazokkal a problémákkal küzd, amikor weboldalt szeretne
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
+          >
+            {[
+              {
+                title: "Hetekig-hónapokig húzódó fejlesztés",
+                description: "Az ügynökség 4-8 hetet ígér, aztán csúszik. Közben a versenytársad már online van.",
+              },
+              {
+                title: "Sablon weboldal, ami mindenhol ugyanaz",
+                description: "Ugyanaz a WordPress-téma fut a versenytársadnál is, csak más színben és logóval.",
+              },
+              {
+                title: "Rejtett költségek a projekt végén",
+                description: "A karbantartás, a hosting és minden apró módosítás külön díjas – erről csak utólag derül ki.",
+              },
+              {
+                title: "Az oldal törik mobilon",
+                description: "A látogatók többsége telefonon néz rá az oldaladra, de a legtöbb weboldal ott esik szét.",
+              },
+            ].map((problem, index) => (
+              <motion.div key={index} variants={fadeInUp}>
+                <div className="h-full bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 flex gap-4">
+                  <AlertCircle className="w-6 h-6 text-[#F2A93B] flex-shrink-0 mt-1" strokeWidth={1.75} />
+                  <div>
+                    <h3 className="text-lg font-semibold text-white mb-2">{problem.title}</h3>
+                    <p className="text-gray-400 leading-relaxed">{problem.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center mt-12"
+          >
+            <p className="text-xl text-[#F3EFE6] font-semibold mb-6">
+              Ezért csináljuk másképp.
+            </p>
+            <CTAButton href="/#contact" variant="primary" className="text-base px-8 py-4">
+              Kérj ingyenes konzultációt
+            </CTAButton>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Miért válassz minket Section */}
       <section id="why" className="py-20 relative z-10" style={{ position: 'relative' }}>
         <div className="container-custom">
@@ -366,8 +438,74 @@ export default function HomePageContent() {
         </div>
       </section>
 
+      {/* Technológia Section */}
+      <section id="tech-stack" className="py-20 relative z-10">
+        <div className="container-custom">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <div className="inline-flex items-center gap-2 text-[#2DD4BF] mb-4">
+              <Code2 className="w-5 h-5" strokeWidth={1.75} />
+              <span className="text-sm font-semibold uppercase tracking-wide">Technológia</span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Amivel a weboldalad épül
+            </h2>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Nem drag-and-drop sablonrendszerrel dolgozunk – valódi kóddal építjük a weboldalad, ami gyorsabb és tovább bírja
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto"
+          >
+            {[
+              {
+                name: "Next.js",
+                description: "Szerveroldali renderelés a gyors betöltéshez és jobb Google-helyezéshez.",
+              },
+              {
+                name: "React",
+                description: "Komponensalapú felépítés, ami könnyen bővíthető és karbantartható.",
+              },
+              {
+                name: "TypeScript",
+                description: "Típusbiztos kód, ami már fejlesztés közben kiszűri a hibákat.",
+              },
+              {
+                name: "Tailwind CSS",
+                description: "Egyedi design minden projekthez, nem előre gyártott sablon-komponensek.",
+              },
+              {
+                name: "Framer Motion",
+                description: "Finomra hangolt animációk, amik nem lassítják az oldal betöltését.",
+              },
+              {
+                name: "Convex",
+                description: "Valós idejű adatkezelés a dinamikus tartalmakhoz, mint a galéria vagy a foglalások.",
+              },
+            ].map((tech, index) => (
+              <motion.div key={index} variants={fadeInUp}>
+                <div className="h-full bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[#2DD4BF]/50 transition-all duration-300">
+                  <p className="font-mono text-lg font-bold text-[#F3EFE6] mb-2">{tech.name}</p>
+                  <p className="text-sm text-gray-400 leading-relaxed">{tech.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* Csomagok Section */}
-      <section id="packages" className="py-20 relative z-10">
+      <section id="packages" className="py-20 relative bg-gray-900/30 z-10">
         <div className="container-custom">
           <motion.div
             initial="hidden"
@@ -509,12 +647,17 @@ export default function HomePageContent() {
               Rólunk
             </h2>
             <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-              Célunk, hogy vállalkozásod online jelenléte olyan legyen, ami valóban értékes ügyfeleket hoz. 
-              Nem csak weboldalt készítünk – <span className="text-[#2DD4BF] font-semibold">eredményt építünk</span>.
+              Célunk, hogy vállalkozásod online jelenléte olyan legyen, ami valóban értékes ügyfeleket hoz.
+              Nem csak weboldalt készítünk, hanem <span className="text-[#2DD4BF] font-semibold">eredményt építünk</span>.
               <br /><br />
-              Tapasztalt csapatunk minden projektet egyedi figyelemmel kezel, és az üzleti célokra fókuszálva 
+              Tapasztalt csapatunk minden projektet egyedi figyelemmel kezel, és az üzleti célokra fókuszálva
               dolgozik. Megbízható partnere vagyunk a sikeres online megjelenéshez.
             </p>
+            <div className="mt-8">
+              <CTAButton href="/rolunk" variant="secondary" className="text-base px-8 py-4">
+                Ismerd meg a csapatot
+              </CTAButton>
+            </div>
           </motion.div>
         </div>
       </section>
