@@ -1,5 +1,14 @@
 import { MetadataRoute } from 'next';
 
+const blogSlugs = [
+  "3-napos-weboldal-keszites-hogyan-mukodik",
+  "landing-page-vagy-tobb-oldalas-weboldal-melyiket-valasszam",
+  "seo-optimalizalas-modern-weboldalhoz-tippek",
+  "mobilbarat-weboldal-keszites-mi-a-fontos",
+  "premium-weboldal-keszites-aron-belul",
+  "weboldal-keszites-budapest-tippek-es-trendek",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://nexensites.hu';
 
@@ -15,6 +24,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/folyamat`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/gyik`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/kapcsolat`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/portfolio`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/book`,
@@ -34,6 +67,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.7,
     },
+    ...blogSlugs.map((slug) => ({
+      url: `${baseUrl}/blog/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    })),
     {
       url: `${baseUrl}/privacy`,
       lastModified: new Date(),

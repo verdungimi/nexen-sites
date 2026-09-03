@@ -73,10 +73,6 @@ export default function RolunkPage() {
               <div className="text-4xl md:text-5xl font-black text-[#2DD4BF] mb-2">100%</div>
               <div className="text-sm md:text-base text-[#F3EFE6] font-semibold">Prémium minőség</div>
             </div>
-            <div className="text-center px-8 py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#2DD4BF]/50 hover:scale-105 transition-all duration-500 animate-float-up-delay-2 group">
-              <div className="text-4xl md:text-5xl font-black text-[#2DD4BF] mb-2">24/7</div>
-              <div className="text-sm md:text-base text-[#F3EFE6] font-semibold">Támogatás</div>
-            </div>
           </div>
         </div>
       </section>
@@ -89,16 +85,13 @@ export default function RolunkPage() {
           </h2>
           <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-12 mb-12 animate-slide-up hover:border-[#F2A93B]/30 transition-all duration-500">
             <p className="text-lg text-[#A69F91] leading-relaxed mb-6">
-              A Nexen Sites 2024-ben jött létre azzal a céllal, hogy forradalmasítsa a weboldal fejlesztés világát. 
-              Láttuk, hogy sok vállalkozó hónapokig vár egy egyszerű weboldalra, miközben a modern technológiák lehetővé teszik, 
+              A Nexen Sites azért jött létre, hogy máshogy oldjuk meg a weboldal fejlesztést.
+              Láttuk, hogy sok vállalkozó hónapokig vár egy egyszerű weboldalra, miközben a modern technológiák lehetővé teszik,
               hogy ezt sokkal gyorsabban és hatékonyabban megoldjuk.
             </p>
-            <p className="text-lg text-[#A69F91] leading-relaxed mb-6">
-              A 3 napos szállítási rendszerünk nem kompromisszum a minőséggel. Minden weboldalunkat a legmodernebb technológiákkal 
-              készítjük el, prémium designnal és tökéletes működéssel. Hiszünk abban, hogy a gyorsaság és a minőség együtt járhat.
-            </p>
             <p className="text-lg text-[#A69F91] leading-relaxed">
-              Ma már több mint 50 elégedett ügyfelünk van, akik büszkén mutathatják be modern, gyors és konverzióra optimalizált weboldalukat.
+              A 3 napos szállítási rendszerünk nem kompromisszum a minőséggel. Minden weboldalunkat a legmodernebb technológiákkal
+              készítjük el, egyedi designnal és gondos odafigyeléssel a részletekre. Hiszünk abban, hogy a gyorsaság és a minőség együtt járhat.
             </p>
           </div>
         </div>
@@ -210,41 +203,6 @@ export default function RolunkPage() {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Stats Section */}
-      <Section id="stats">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#F3EFE6] animate-fade-in">
-            Számokban
-          </h2>
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center animate-float-up hover:border-[#F2A93B]/50 transition-all duration-500 group">
-              <div className="text-4xl md:text-5xl font-black mb-2 text-[#F2A93B]">
-                50+
-              </div>
-              <p className="text-[#A69F91] text-sm md:text-base">Elégedett ügyfél</p>
-            </div>
-            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center animate-float-up-delay-1 hover:border-[#2DD4BF]/50 transition-all duration-500 group">
-              <div className="text-4xl md:text-5xl font-black mb-2 text-[#F2A93B]">
-                10
-              </div>
-              <p className="text-[#A69F91] text-sm md:text-base">Napos szállítás</p>
-            </div>
-            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center animate-float-up-delay-2 hover:border-[#F2A93B]/50 transition-all duration-500 group">
-              <div className="text-4xl md:text-5xl font-black mb-2 text-[#F2A93B]">
-                100%
-              </div>
-              <p className="text-[#A69F91] text-sm md:text-base">Garantált minőség</p>
-            </div>
-            <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 text-center animate-float-up hover:border-[#2DD4BF]/50 transition-all duration-500 group" style={{ animationDelay: '0.3s', opacity: 0 }}>
-              <div className="text-4xl md:text-5xl font-black mb-2 text-[#F2A93B]">
-                24/7
-              </div>
-              <p className="text-[#A69F91] text-sm md:text-base">Támogatás</p>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Zap, Sparkles, Handshake } from "lucide-react";
 import FinAIHero from "@/components/FinAIHero";
 import Section from "@/components/Section";
 import CTAButton from "@/components/CTAButton";
@@ -6,6 +7,9 @@ import CTAButton from "@/components/CTAButton";
 export const metadata: Metadata = {
   title: "Rólunk | Nexen Sites",
   description: "Ismerd meg a Nexen Sites csapatát és a 3 napos weboldal szállítási rendszerünket.",
+  alternates: {
+    canonical: "https://nexensites.hu/rolunk",
+  },
   openGraph: {
     title: "Rólunk | Nexen Sites",
     description: "Ismerd meg a Nexen Sites csapatát és a 3 napos weboldal szállítási rendszerünket.",
@@ -59,21 +63,21 @@ export default function AboutPage() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#F2A93B]/50 transition-all duration-300">
-              <div className="text-4xl mb-4">⚡</div>
+              <Zap className="w-10 h-10 mb-4 mx-auto text-[#2DD4BF]" strokeWidth={1.5} />
               <h3 className="text-xl font-bold mb-4 text-[#F3EFE6]">Gyorsaság</h3>
               <p className="text-[#A69F91] leading-relaxed">
                 3 nap alatt kész weboldal, fix határidővel. Nincs várakozás, nincs késés.
               </p>
             </div>
             <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#2DD4BF]/50 transition-all duration-300">
-              <div className="text-4xl mb-4">✨</div>
+              <Sparkles className="w-10 h-10 mb-4 mx-auto text-[#2DD4BF]" strokeWidth={1.5} />
               <h3 className="text-xl font-bold mb-4 text-[#F3EFE6]">Minőség</h3>
               <p className="text-[#A69F91] leading-relaxed">
                 Prémium design, modern technológiák, és tökéletes működés minden eszközön.
               </p>
             </div>
             <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 text-center hover:border-[#F2A93B]/50 transition-all duration-300">
-              <div className="text-4xl mb-4">🤝</div>
+              <Handshake className="w-10 h-10 mb-4 mx-auto text-[#2DD4BF]" strokeWidth={1.5} />
               <h3 className="text-xl font-bold mb-4 text-[#F3EFE6]">Megbízhatóság</h3>
               <p className="text-[#A69F91] leading-relaxed">
                 Átlátható kommunikáció, tiszta határidők, és folyamatos támogatás.
@@ -146,7 +150,7 @@ export default function AboutPage() {
             <CTAButton href="/book" variant="primary" className="text-base px-10 py-5">
               Időpont Foglalása
             </CTAButton>
-            <CTAButton href="/#pricing" variant="secondary" className="text-base px-10 py-5">
+            <CTAButton href="/#packages" variant="secondary" className="text-base px-10 py-5">
               Árak Megtekintése
             </CTAButton>
           </div>

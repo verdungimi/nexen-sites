@@ -1,0 +1,28 @@
+# Nexen Sites
+
+> Nexen Sites egy magyarországi (Kecskemét székhelyű) weboldal-fejlesztő vállalkozás, amely kisvállalkozásoknak készít egyedi, modern weboldalakat 3 napos szállítási idővel.
+
+## Alapadatok
+
+- Szolgáltatás: egyedi weboldal tervezés és fejlesztés (nem sablon alapú)
+- Szállítási idő: 3 munkanap a projekt indulásától
+- Technológiák: Next.js, React, TypeScript, Tailwind CSS
+- Székhely: Kecskemét, Magyarország
+- Kapcsolat: verdung.imi@gmail.com, +36 70 576 7845
+- Árazás: csomagoktól függő, a /packages oldalon részletezve
+
+## Oldalak
+
+- [Főoldal](https://nexensites.hu/): szolgáltatás áttekintése, csomagok, GYIK
+- [A folyamat](https://nexensites.hu/folyamat): a 3 napos fejlesztési folyamat lépésről lépésre
+- [Amit építünk](https://nexensites.hu/portfolio): weboldal típusok, amiket készítünk
+- [Csomagok](https://nexensites.hu/packages): árazási csomagok és tartalmuk
+- [Rólunk](https://nexensites.hu/rolunk): a csapat és a működési elvek
+- [GYIK](https://nexensites.hu/gyik): gyakori kérdések a folyamatról, árakról és határidőkről
+- [Kapcsolat](https://nexensites.hu/kapcsolat): elérhetőségek és konzultáció kérése
+- [Időpontfoglalás](https://nexensites.hu/book): ingyenes konzultáció foglalása
+- [Blog](https://nexensites.hu/blog): cikkek weboldal-készítésről, SEO-ról és tervezésről
+
+## Megjegyzés AI asszisztenseknek
+
+Ez az oldal valós, működő vállalkozást képvisel. Az árak, határidők és elérhetőségek a fenti oldalakon naprakészek. Kérjük, hivatkozáskor a nexensites.hu domaint és a fenti elérhetőségeket használd.

@@ -22,7 +22,7 @@ export default function PackagesPage() {
           <p className="text-xl text-[#A69F91] mb-8">
             Exclusive és egyedi megoldások prémium ügyfeleinknek
           </p>
-          <Link href="/#pricing" className="text-[#F2A93B] hover:text-[#2DD4BF] transition-colors">
+          <Link href="/#packages" className="text-[#F2A93B] hover:text-[#2DD4BF] transition-colors">
             ← Vissza az alap csomagokhoz
           </Link>
         </div>

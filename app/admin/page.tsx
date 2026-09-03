@@ -46,8 +46,6 @@ const useDashboardStats = () => {
     texts,
     services,
     users,
-    recentActivity: 12,
-    growth: 8.2,
   };
 };
 
@@ -60,28 +58,24 @@ export default function DashboardPage() {
       value: stats.images,
       icon: ImageIcon,
       color: "from-blue-500 to-cyan-500",
-      change: "+12%",
     },
     {
       title: "Szövegek",
       value: stats.texts,
       icon: FileText,
-      color: "from-purple-500 to-pink-500",
-      change: "+5%",
+      color: "from-[#F2A93B] to-[#2DD4BF]",
     },
     {
       title: "Szolgáltatások",
       value: stats.services,
       icon: Briefcase,
       color: "from-green-500 to-emerald-500",
-      change: "+3%",
     },
     {
       title: "Felhasználók",
       value: stats.users,
       icon: Users,
       color: "from-orange-500 to-red-500",
-      change: "+8%",
     },
   ];
 
@@ -114,7 +108,6 @@ export default function DashboardPage() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold text-[#F3EFE6]">{stat.value}</div>
-                  <p className="text-xs text-green-400 mt-1">{stat.change} az előző hónaphoz képest</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -132,32 +125,31 @@ export default function DashboardPage() {
             <CardHeader>
               <CardTitle className="text-[#F3EFE6] flex items-center gap-2">
                 <Activity className="w-5 h-5 text-[#2DD4BF]" />
-                Legutóbbi tevékenységek
+                Tartalom kezelése
               </CardTitle>
               <CardDescription className="text-[#A69F91]">
-                Az elmúlt 24 óra eseményei
+                Gyors hozzáférés a szerkeszthető tartalmakhoz
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {[
-                  { action: "Új kép hozzáadva", time: "2 órával ezelőtt", type: "image" },
-                  { action: "Szöveg frissítve", time: "5 órával ezelőtt", type: "text" },
-                  { action: "Szolgáltatás módosítva", time: "1 napja", type: "service" },
-                  { action: "Új felhasználó regisztrált", time: "2 napja", type: "user" },
-                ].map((activity, index) => (
-                  <motion.div
-                    key={index}
+                  { label: "Képek", href: "/admin/images", icon: ImageIcon },
+                  { label: "Szövegek", href: "/admin/texts", icon: FileText },
+                  { label: "Szolgáltatások", href: "/admin/services", icon: Briefcase },
+                  { label: "Felhasználók", href: "/admin/users", icon: Users },
+                ].map((item, index) => (
+                  <motion.a
+                    key={item.label}
+                    href={item.href}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5 + index * 0.1 }}
-                    className="flex items-center justify-between p-3 rounded-lg bg-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+                    className="flex items-center gap-3 p-3 rounded-lg bg-[rgba(255,255,255,0.02)] hover:bg-[rgba(255,255,255,0.05)] transition-colors"
                   >
-                    <div>
-                      <p className="text-sm text-[#F3EFE6]">{activity.action}</p>
-                      <p className="text-xs text-[#A69F91]">{activity.time}</p>
-                    </div>
-                  </motion.div>
+                    <item.icon className="w-4 h-4 text-[#A69F91]" />
+                    <p className="text-sm text-[#F3EFE6]">{item.label}</p>
+                  </motion.a>
                 ))}
               </div>
             </CardContent>
@@ -173,18 +165,14 @@ export default function DashboardPage() {
             <CardHeader>
               <CardTitle className="text-[#F3EFE6] flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-[#F2A93B]" />
-                Statisztikák
+                Áttekintés
               </CardTitle>
               <CardDescription className="text-[#A69F91]">
-                Teljesítmény áttekintés
+                Jelenlegi tartalom összesítve
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-[#A69F91]">Növekedés</span>
-                  <span className="text-sm font-semibold text-green-400">+{stats.growth}%</span>
-                </div>
                 <div className="flex items-center justify-between">
                   <span className="text-sm text-[#A69F91]">Aktív felhasználók</span>
                   <span className="text-sm font-semibold text-[#F3EFE6]">{stats.users}</span>
@@ -194,10 +182,6 @@ export default function DashboardPage() {
                   <span className="text-sm font-semibold text-[#F3EFE6]">
                     {stats.images + stats.texts + stats.services}
                   </span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-[#A69F91]">Legutóbbi frissítés</span>
-                  <span className="text-sm font-semibold text-[#F3EFE6]">Ma</span>
                 </div>
               </div>
             </CardContent>

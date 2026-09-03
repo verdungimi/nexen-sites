@@ -4,7 +4,7 @@ interface SectionProps {
   id?: string;
   children: React.ReactNode;
   className?: string;
-  background?: "white" | "gray" | "gradient" | "blue" | "purple" | "pink" | "pattern" | "none";
+  background?: "white" | "gray" | "gradient" | "blue" | "pattern" | "none";
 }
 
 export default function Section({ id, children, className = "", background = "white" }: SectionProps) {
