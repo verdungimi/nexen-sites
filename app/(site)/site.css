@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Nexen Sites — "Grafit & sárgaréz" design tokens.
+   Stored as RGB triplets so Tailwind opacity modifiers work (bg-brass/10). */
+@layer base {
+  :root {
+    --graphite: 26 29 33; /* #1A1D21 page */
+    --graphite-raised: 35 39 44; /* #23272C raised surface */
+    --graphite-strong: 45 50 56; /* #2D3238 hover / active surface */
+    --rule: 58 63 70; /* #3A3F46 1px lines */
+    --bone: 237 232 223; /* #EDE8DF primary text */
+    --fog: 167 161 151; /* #A7A197 secondary text */
+    --brass: 199 162 99; /* #C7A263 the single accent */
+    --brass-hover: 216 182 118; /* #D8B676 */
+    --moss: 134 167 126; /* #86A77E success */
+    --rust: 217 116 91; /* #D9745B error */
+
+    --wdth-display: 78;
+    --wdth-title: 86;
+
+    color-scheme: dark;
+  }
+
+  html {
+    /* framer-motion measures scroll offsets against the document; it must not be static */
+    position: relative;
+    background-color: rgb(var(--graphite));
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background-color: rgb(var(--graphite));
+    color: rgb(var(--bone));
+    font-family: var(--font-archivo), system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: rgb(var(--brass) / 0.35);
+    color: rgb(var(--bone));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--brass));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Leaves room for the floating nav when jumping to an anchor */
+  [id] {
+    scroll-margin-top: 6.5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Type scale: condensed Archivo for display sizes, normal width for reading */
+  .type-display {
+    font-variation-settings: "wdth" var(--wdth-display);
+    font-size: clamp(2.625rem, 1.4rem + 5.2vw, 5.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    font-weight: 600;
+  }
+
+  .type-h2 {
+    font-variation-settings: "wdth" var(--wdth-display);
+    font-size: clamp(2rem, 1.25rem + 3vw, 3.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+  }
+
+  .type-h3 {
+    font-variation-settings: "wdth" var(--wdth-title);
+    font-size: clamp(1.375rem, 1.1rem + 0.9vw, 1.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+  }
+
+  .type-lead {
+    font-size: clamp(1.125rem, 1rem + 0.45vw, 1.3125rem);
+    line-height: 1.55;
+    color: rgb(var(--fog));
+  }
+
+  .type-small {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  .measure {
+    max-width: 38rem;
+  }
+
+  /* Long-form text: blog posts and legal pages */
+  .prose-nexen {
+    max-width: 42rem;
+    color: rgb(var(--bone) / 0.92);
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  .prose-nexen > * + * {
+    margin-top: 1.1em;
+  }
+
+  .prose-nexen h2 {
+    font-variation-settings: "wdth" var(--wdth-title);
+    font-size: 1.75rem;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-top: 2.2em;
+    color: rgb(var(--bone));
+  }
+
+  .prose-nexen h3 {
+    font-variation-settings: "wdth" var(--wdth-title);
+    font-size: 1.3125rem;
+    line-height: 1.25;
+    margin-top: 1.8em;
+    color: rgb(var(--bone));
+  }
+
+  .prose-nexen h2 + *,
+  .prose-nexen h3 + * {
+    margin-top: 0.6em;
+  }
+
+  .prose-nexen ul,
+  .prose-nexen ol {
+    padding-left: 1.25em;
+  }
+
+  .prose-nexen ul {
+    list-style: disc;
+  }
+
+  .prose-nexen ol {
+    list-style: decimal;
+  }
+
+  .prose-nexen li + li {
+    margin-top: 0.4em;
+  }
+
+  .prose-nexen li::marker {
+    color: rgb(var(--brass));
+  }
+
+  .prose-nexen a {
+    color: rgb(var(--brass));
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+
+  .prose-nexen a:hover {
+    color: rgb(var(--brass-hover));
+  }
+
+  .prose-nexen strong {
+    color: rgb(var(--bone));
+    font-weight: 600;
+  }
+
+  .prose-nexen blockquote {
+    border-left: 2px solid rgb(var(--brass));
+    padding-left: 1.25em;
+    color: rgb(var(--fog));
+  }
+}
+
+@layer utilities {
+  .wdth-display {
+    font-variation-settings: "wdth" var(--wdth-display);
+  }
+
+  .wdth-title {
+    font-variation-settings: "wdth" var(--wdth-title);
+  }
+
+  .animate-cookie-banner {
+    animation: cookie-banner-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes cookie-banner-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

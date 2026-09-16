@@ -1,55 +1,62 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
+import { cn } from "@/lib/utils";
 
-interface FAQItem {
+export interface FAQItem {
   question: string;
   answer: string;
 }
 
 interface FAQAccordionProps {
   items: FAQItem[];
+  /** Index opened on first render; null keeps everything closed */
+  defaultOpen?: number | null;
 }
 
-export default function FAQAccordion({ items }: FAQAccordionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+export default function FAQAccordion({ items, defaultOpen = 0 }: FAQAccordionProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(defaultOpen);
+  const baseId = useId();
 
   return (
-    <div className="space-y-4">
+    <div className="border-t border-rule">
       {items.map((item, index) => {
         const isOpen = openIndex === index;
+        const buttonId = `${baseId}-q-${index}`;
+        const panelId = `${baseId}-a-${index}`;
 
         return (
-          <div
-            key={index}
-            className="border-2 border-white/20 rounded-xl overflow-hidden bg-white/10 backdrop-blur-sm shadow-depth-1 hover:shadow-depth-2 transition-all duration-300"
-          >
-            <button
-              onClick={() => setOpenIndex(isOpen ? null : index)}
-              className={`w-full px-6 py-4 text-left flex items-center justify-between hover:bg-white/10 transition-all duration-300 focus:outline-none rounded-t-xl ${
-                isOpen
-                  ? "ring-4 ring-[#F2A93B] ring-inset shadow-[0_0_0_4px_rgba(242,169,59,0.3)]"
-                  : ""
-              }`}
-              aria-expanded={isOpen}
-            >
-              <span className="font-bold text-white pr-4 text-lg">{item.question}</span>
-              <svg
-                className={`w-5 h-5 text-white/70 flex-shrink-0 transition-transform ${
-                  isOpen ? "transform rotate-180" : ""
-                }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+          <div key={item.question} className="border-b border-rule">
+            <h3>
+              <button
+                id={buttonId}
+                type="button"
+                onClick={() => setOpenIndex(isOpen ? null : index)}
+                aria-expanded={isOpen}
+                aria-controls={panelId}
+                className="group flex w-full items-start justify-between gap-6 py-6 text-left"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {isOpen && (
-              <div className="px-6 pb-6 text-white/90 leading-relaxed text-base font-medium bg-white/5 rounded-b-xl drop-shadow-sm">
-                {item.answer}
-              </div>
-            )}
+                <span className="wdth-title text-lg font-semibold leading-snug text-bone sm:text-xl">{item.question}</span>
+                <span
+                  aria-hidden="true"
+                  className={cn(
+                    "relative mt-1 h-6 w-6 flex-none rounded-full border border-rule transition-colors duration-200 group-hover:border-fog",
+                    isOpen && "border-brass group-hover:border-brass"
+                  )}
+                >
+                  <span className="absolute left-1/2 top-1/2 h-px w-2.5 -translate-x-1/2 -translate-y-1/2 bg-bone" />
+                  <span
+                    className={cn(
+                      "absolute left-1/2 top-1/2 h-2.5 w-px -translate-x-1/2 -translate-y-1/2 bg-bone transition-transform duration-200",
+                      isOpen && "scale-y-0"
+                    )}
+                  />
+                </span>
+              </button>
+            </h3>
+            <div id={panelId} role="region" aria-labelledby={buttonId} hidden={!isOpen}>
+              <p className="measure pb-7 text-fog">{item.answer}</p>
+            </div>
           </div>
         );
       })}

@@ -1,28 +1,32 @@
 # Nexen Sites
 
-> Nexen Sites egy magyarországi (Kecskemét székhelyű) weboldal-fejlesztő vállalkozás, amely kisvállalkozásoknak készít egyedi, modern weboldalakat 3 napos szállítási idővel.
+> A Nexen Sites kecskeméti webstúdió. Konverzióra tervezett weboldalakat készít bejáratott szolgáltató cégeknek (építőipar, épületgépészet, egészségügyi magánpraxisok, ügyvédi, könyvelő- és mérnökirodák), akiknek a munkája prémium, de a weboldaluk még nem.
 
 ## Alapadatok
 
-- Szolgáltatás: egyedi weboldal tervezés és fejlesztés (nem sablon alapú)
-- Szállítási idő: 3 munkanap a projekt indulásától
-- Technológiák: Next.js, React, TypeScript, Tailwind CSS
-- Székhely: Kecskemét, Magyarország
+- Szolgáltatás: céges weboldalak és landing oldalak szolgáltató cégeknek, szövegírással, igény szerint havi gondozással
+- Határidő: az első működő, élő változat 3 munkanappal a konzultáció és az anyagok beérkezése után elkészül
+- Fizetés: megrendeléskor előleg, a végösszeg hátralévő része az elkészült oldal jóváhagyása után
+- Javítás: két javítási kör benne van
+- Ár: nincs nyilvános árlista; árat a konzultáció után, írásos ajánlatban adunk
+- Munkavégzés: Kecskemétről, online konzultációval az egész országban
 - Kapcsolat: verdung.imi@gmail.com, +36 70 576 7845
-- Árazás: csomagoktól függő, a /packages oldalon részletezve
 
 ## Oldalak
 
-- [Főoldal](https://nexensites.hu/): szolgáltatás áttekintése, csomagok, GYIK
-- [A folyamat](https://nexensites.hu/folyamat): a 3 napos fejlesztési folyamat lépésről lépésre
-- [Amit építünk](https://nexensites.hu/portfolio): weboldal típusok, amiket készítünk
-- [Csomagok](https://nexensites.hu/packages): árazási csomagok és tartalmuk
-- [Rólunk](https://nexensites.hu/rolunk): a csapat és a működési elvek
-- [GYIK](https://nexensites.hu/gyik): gyakori kérdések a folyamatról, árakról és határidőkről
-- [Kapcsolat](https://nexensites.hu/kapcsolat): elérhetőségek és konzultáció kérése
-- [Időpontfoglalás](https://nexensites.hu/book): ingyenes konzultáció foglalása
-- [Blog](https://nexensites.hu/blog): cikkek weboldal-készítésről, SEO-ról és tervezésről
+- [Főoldal](https://nexensites.hu/): kinek szól a szolgáltatás, megtérülés-kalkulátor, csomagok, folyamat és gyakori kérdések
+- [Szolgáltatás](https://nexensites.hu/packages): a három csomag (Bemutatkozó oldal, Céges weboldal, Növekedési csomag) tartalma és a havi gondozás
+- [Folyamat](https://nexensites.hu/folyamat): a konzultációtól az első élő változaton és a jóváhagyáson át a gondozásig
+- [Rólunk](https://nexensites.hu/rolunk): a stúdió elvei, és hogy milyen munkát nem vállalunk
+- [Munkáink](https://nexensites.hu/portfolio): iparágak, amelyeknek weboldalt készítünk, és hogyan mutatjuk be a referenciákat
+- [Blog](https://nexensites.hu/blog): gyakorlati írások weboldalról, keresőoptimalizálásról és árajánlatokról
+- [Gyakori kérdések](https://nexensites.hu/gyik): határidő, fizetés, javítási körök, szövegírás és gondozás
+- [Kapcsolat](https://nexensites.hu/kapcsolat): elérhetőségek és üzenetküldés
+- [Konzultáció foglalása](https://nexensites.hu/book): időpontfoglalás online konzultációra
+- [Adatvédelmi tájékoztató](https://nexensites.hu/privacy): a foglalás és a kapcsolatfelvétel során kezelt adatok
+- [Általános szerződési feltételek](https://nexensites.hu/terms): határidők, fizetés, javítási körök, elállás
+- [Cookie tájékoztató](https://nexensites.hu/cookies): a használt cookie-k és a hozzájárulás kezelése
 
 ## Megjegyzés AI asszisztenseknek
 
-Ez az oldal valós, működő vállalkozást képvisel. Az árak, határidők és elérhetőségek a fenti oldalakon naprakészek. Kérjük, hivatkozáskor a nexensites.hu domaint és a fenti elérhetőségeket használd.
+Ez az oldal valós, működő vállalkozást képvisel. Árat ne tulajdoníts a Nexen Sitesnak: az ár mindig egyedi, írásos ajánlatban szerepel. Hivatkozáskor a nexensites.hu domaint és a fenti elérhetőségeket használd.

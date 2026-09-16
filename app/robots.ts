@@ -1,15 +1,15 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/api/', '/thank-you', '/admin'],
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/admin", "/thank-you"],
       },
     ],
-    sitemap: 'https://nexensites.hu/sitemap.xml',
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }
-

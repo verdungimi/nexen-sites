@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { Button } from "@/components/site/Button";
+
+export const OPEN_COOKIE_SETTINGS_EVENT = "nexen:open-cookie-settings";
 
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
@@ -24,6 +27,15 @@ export default function CookieBanner() {
         setCookiePreferences(JSON.parse(savedPreferences));
       }
     }
+  }, []);
+
+  useEffect(() => {
+    const reopen = () => {
+      setShowSettings(true);
+      setShowBanner(true);
+    };
+    window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, reopen);
+    return () => window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, reopen);
   }, []);
 
   const acceptAll = () => {
@@ -72,150 +84,95 @@ export default function CookieBanner() {
 
   if (!showBanner) return null;
 
+  const categories = [
+    {
+      key: "necessary" as const,
+      title: "Szükséges cookie-k",
+      text: "Ezek nélkül az oldal nem működik rendesen, ezért nem kapcsolhatók ki.",
+    },
+    {
+      key: "analytics" as const,
+      title: "Analitikai cookie-k",
+      text: "Megmutatják, hogyan használják a látogatók az oldalt, így tudjuk javítani.",
+    },
+    {
+      key: "marketing" as const,
+      title: "Marketing cookie-k",
+      text: "A hirdetéseink személyre szabásához és mérésükhöz használjuk őket.",
+    },
+  ];
+
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6 animate-cookie-banner" style={{ transform: 'translateY(100%)' }}>
-      <div className="max-w-7xl mx-auto">
-        <div className="bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 shadow-2xl backdrop-blur-xl">
-          {!showSettings ? (
-            <>
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
-                    Cookie-k használata
-                  </h3>
-                  <p className="text-[#A69F91] text-sm md:text-base leading-relaxed">
-                    Weboldalunk cookie-kat használ a felhasználói élmény javítása, 
-                    weboldalunk működésének biztosítása és a forgalom elemzése érdekében. 
-                    Az "Elfogadom mind" gombra kattintva hozzájárulsz az összes cookie használatához. 
-                    További információkért látogasd meg az{" "}
-                    <Link href="/privacy" className="text-[#F2A93B] hover:text-[#2DD4BF] underline">
-                      Adatvédelmi tájékoztatónkat
-                    </Link>
-                    .
-                  </p>
-                </div>
-                <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-                  <button
-                    onClick={() => setShowSettings(true)}
-                    className="px-6 py-3 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 text-sm font-semibold whitespace-nowrap"
-                  >
-                    Beállítások
-                  </button>
-                  <button
-                    onClick={acceptNecessary}
-                    className="px-6 py-3 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 text-sm font-semibold whitespace-nowrap"
-                  >
-                    Csak szükséges
-                  </button>
-                  <button
-                    onClick={acceptAll}
-                    className="px-6 py-3 bg-[#F2A93B] text-[#0a0a0a] rounded-lg hover:bg-[#f0b658] transition-colors duration-200 font-semibold text-sm whitespace-nowrap"
-                  >
-                    Elfogadom mind
-                  </button>
-                </div>
-              </div>
-            </>
-          ) : (
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
-                  Cookie beállítások
-                </h3>
-                <p className="text-[#A69F91] text-sm md:text-base">
-                  Válaszd ki, mely cookie-kat szeretnéd engedélyezni. A szükséges cookie-k 
-                  mindig aktívak, mert ezek nélkül a weboldal nem működne megfelelően.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                {/* Necessary Cookies */}
-                <div className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <h4 className="text-white font-semibold mb-1">Szükséges cookie-k</h4>
-                      <p className="text-[#A69F91] text-sm">
-                        Ezek a cookie-k elengedhetetlenek a weboldal működéséhez. 
-                        Nem kapcsolhatók ki.
-                      </p>
-                    </div>
-                    <div className="ml-4">
-                      <div className="w-12 h-6 bg-[#F2A93B] rounded-full flex items-center justify-end px-1 cursor-not-allowed opacity-50">
-                        <div className="w-4 h-4 bg-white rounded-full"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Analytics Cookies */}
-                <div className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <h4 className="text-white font-semibold mb-1">Analitikai cookie-k</h4>
-                      <p className="text-[#A69F91] text-sm">
-                        Segítenek megérteni, hogyan használják a látogatók a weboldalt, 
-                        hogy javíthassuk a teljesítményt.
-                      </p>
-                    </div>
-                    <div className="ml-4">
-                      <button
-                        onClick={() => togglePreference("analytics")}
-                        className={`w-12 h-6 rounded-full flex items-center transition-all duration-300 ${
-                          cookiePreferences.analytics
-                            ? "bg-[#F2A93B] justify-end"
-                            : "bg-[rgba(255,255,255,0.2)] justify-start"
-                        }`}
-                      >
-                        <div className="w-4 h-4 bg-white rounded-full mx-1"></div>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Marketing Cookies */}
-                <div className="bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.1)] rounded-xl p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <h4 className="text-white font-semibold mb-1">Marketing cookie-k</h4>
-                      <p className="text-[#A69F91] text-sm">
-                        Használjuk a reklámok személyre szabásához és a marketing kampányok hatékonyságának méréséhez.
-                      </p>
-                    </div>
-                    <div className="ml-4">
-                      <button
-                        onClick={() => togglePreference("marketing")}
-                        className={`w-12 h-6 rounded-full flex items-center transition-all duration-300 ${
-                          cookiePreferences.marketing
-                            ? "bg-[#F2A93B] justify-end"
-                            : "bg-[rgba(255,255,255,0.2)] justify-start"
-                        }`}
-                      >
-                        <div className="w-4 h-4 bg-white rounded-full mx-1"></div>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                <button
-                  onClick={() => setShowSettings(false)}
-                  className="px-6 py-3 bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-xl text-white hover:bg-[rgba(255,255,255,0.1)] transition-all duration-300 text-sm font-semibold"
-                >
-                  Vissza
-                </button>
-                <button
-                  onClick={savePreferences}
-                  className="px-6 py-3 bg-[#F2A93B] text-[#0a0a0a] rounded-lg hover:bg-[#f0b658] transition-colors duration-200 font-semibold text-sm flex-1 sm:flex-none"
-                >
-                  Beállítások mentése
-                </button>
-              </div>
+    <div
+      role="region"
+      aria-label="Cookie beállítások"
+      className="animate-cookie-banner fixed inset-x-0 bottom-0 z-50 p-3 sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-md sm:p-0"
+    >
+      <div className="rounded-2xl border border-rule bg-graphite-raised p-5 shadow-[0_24px_60px_-20px_rgba(0,0,0,0.6)] sm:p-6">
+        {!showSettings ? (
+          <>
+            <h2 className="wdth-title text-lg font-semibold text-bone">Cookie-k ezen az oldalon</h2>
+            <p className="mt-2 text-[0.9375rem] leading-relaxed text-fog">
+              Az oldal működéséhez szükséges cookie-kat mindig használjuk. Analitikai és marketing cookie-t csak
+              a hozzájárulásoddal. Részletek az{" "}
+              <Link href="/privacy" className="text-bone underline decoration-rule underline-offset-4 hover:decoration-brass">
+                adatvédelmi tájékoztatóban
+              </Link>
+              .
+            </p>
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              <Button onClick={acceptAll}>Elfogadom mind</Button>
+              <Button variant="secondary" onClick={acceptNecessary}>
+                Csak a szükségesek
+              </Button>
+              <Button variant="quiet" onClick={() => setShowSettings(true)} className="ml-2">
+                Beállítások
+              </Button>
             </div>
-          )}
-        </div>
+          </>
+        ) : (
+          <>
+            <h2 className="wdth-title text-lg font-semibold text-bone">Cookie beállítások</h2>
+            <ul className="mt-4 divide-y divide-rule border-y border-rule">
+              {categories.map((category) => {
+                const locked = category.key === "necessary";
+                const checked = cookiePreferences[category.key];
+                return (
+                  <li key={category.key} className="flex items-start justify-between gap-4 py-4">
+                    <div>
+                      <p className="font-semibold text-bone">{category.title}</p>
+                      <p className="mt-1 text-[0.9375rem] leading-relaxed text-fog">{category.text}</p>
+                    </div>
+                    <button
+                      type="button"
+                      role="switch"
+                      aria-checked={checked}
+                      aria-label={category.title}
+                      disabled={locked}
+                      onClick={locked ? undefined : () => togglePreference(category.key as "analytics" | "marketing")}
+                      className={`relative mt-1 inline-flex h-7 w-12 flex-none items-center rounded-full border transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-60 ${
+                        checked ? "border-brass bg-brass" : "border-rule bg-graphite"
+                      }`}
+                    >
+                      <span
+                        className={`inline-block h-5 w-5 rounded-full transition-transform duration-200 ${
+                          checked ? "translate-x-[1.375rem] bg-graphite" : "translate-x-1 bg-fog"
+                        }`}
+                      />
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              <Button onClick={savePreferences}>Beállítások mentése</Button>
+              <Button variant="secondary" onClick={() => setShowSettings(false)}>
+                Vissza
+              </Button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
 }
-
