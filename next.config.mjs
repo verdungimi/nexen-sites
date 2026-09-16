@@ -16,6 +16,10 @@ const nextConfig = {
   experimental: {
     missingSuspenseWithCSRBailout: false,
   },
+  // /about was replaced by /rolunk
+  async redirects() {
+    return [{ source: "/about", destination: "/rolunk", permanent: true }];
+  },
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],
