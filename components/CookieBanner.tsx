@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/site/Button";
 
+export const OPEN_COOKIE_SETTINGS_EVENT = "nexen:open-cookie-settings";
+
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
@@ -25,6 +27,15 @@ export default function CookieBanner() {
         setCookiePreferences(JSON.parse(savedPreferences));
       }
     }
+  }, []);
+
+  useEffect(() => {
+    const reopen = () => {
+      setShowSettings(true);
+      setShowBanner(true);
+    };
+    window.addEventListener(OPEN_COOKIE_SETTINGS_EVENT, reopen);
+    return () => window.removeEventListener(OPEN_COOKIE_SETTINGS_EVENT, reopen);
   }, []);
 
   const acceptAll = () => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Script from "next/script";
 
 declare global {
@@ -16,28 +16,19 @@ declare global {
 
 export default function GoogleAnalytics() {
   const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const [hasConsent, setHasConsent] = useState(false);
 
   useEffect(() => {
-    // Check cookie consent
-    const cookiePreferences = localStorage.getItem("cookiePreferences");
-    if (!cookiePreferences) {
-      return; // Wait for cookie consent
-    }
-
-    const preferences = JSON.parse(cookiePreferences);
-    if (!preferences.analytics) {
-      return; // User didn't consent to analytics
-    }
-
-    // Initialize gtag if available
-    if (typeof window !== "undefined" && window.gtag && GA_MEASUREMENT_ID) {
-      window.gtag("config", GA_MEASUREMENT_ID, {
-        page_path: window.location.pathname,
-      });
+    // CookieBanner stores the visitor's choice; nothing loads from Google before it says yes.
+    try {
+      const saved = localStorage.getItem("cookiePreferences");
+      setHasConsent(Boolean(saved && JSON.parse(saved).analytics));
+    } catch {
+      setHasConsent(false);
     }
   }, []);
 
-  if (!GA_MEASUREMENT_ID) {
+  if (!GA_MEASUREMENT_ID || !hasConsent) {
     return null;
   }
 
@@ -55,22 +46,13 @@ export default function GoogleAnalytics() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            
-            // Check cookie consent before initializing
-            const cookiePreferences = localStorage.getItem('cookiePreferences');
-            if (cookiePreferences) {
-              const preferences = JSON.parse(cookiePreferences);
-              if (preferences.analytics) {
-                gtag('config', '${GA_MEASUREMENT_ID}', {
-                  page_path: window.location.pathname,
-                  anonymize_ip: true,
-                });
-              }
-            }
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+              anonymize_ip: true,
+            });
           `,
         }}
       />
     </>
   );
 }
-

@@ -91,9 +91,10 @@ const SECTIONS: LegalSection[] = [
     content: (
       <>
         <p>
-          A böngésződ beállításaiban bármikor törölheted vagy letilthatod a cookie-kat és az oldal által tárolt
-          adatokat. Ha az oldal adatait törlöd, a cookie-sáv a következő látogatáskor újra megjelenik, és újra
-          dönthetsz. Ha a szükséges cookie-kat tiltod le, az oldal egyes funkciói nem fognak megfelelően működni.
+          A döntésedet bármikor megváltoztathatod az oldal alján található „Cookie-beállítások” gombbal. A
+          böngésződ beállításaiban az oldal által tárolt adatokat törölheted vagy letilthatod is; ilyenkor a
+          cookie-sáv a következő látogatáskor újra megjelenik. Ha a szükséges cookie-kat tiltod le, az oldal egyes
+          funkciói nem fognak megfelelően működni.
         </p>
         <p>
           A legtöbb böngészőben ezeket a beállításokat az Adatvédelem és biztonság menüpontban, a cookie-k és

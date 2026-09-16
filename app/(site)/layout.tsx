@@ -39,18 +39,15 @@ export const metadata: Metadata = {
   authors: [{ name: "Nexen Sites" }],
   creator: "Nexen Sites",
   publisher: "Nexen Sites",
+  // Title and description are left out on purpose: Next.js copies each page's own
+  // title/description into og:* and twitter:* when these objects don't set them.
   openGraph: {
     type: "website",
     locale: "hu_HU",
-    url: SITE_URL,
     siteName: "Nexen Sites",
-    title: "Nexen Sites – Weboldal, ami az áraidhoz illik",
-    description: DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexen Sites – Weboldal, ami az áraidhoz illik",
-    description: DESCRIPTION,
   },
   robots: {
     index: true,
@@ -69,6 +66,8 @@ export const metadata: Metadata = {
   category: "Weboldal készítés",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    // Route groups make Next hash file-based metadata routes (see app/(site)/apple-icon.tsx)
+    apple: [{ url: "/apple-icon-12o0cb", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/site.webmanifest",
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {

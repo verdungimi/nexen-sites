@@ -3,6 +3,7 @@ import Logo from "@/components/site/Logo";
 import Container from "@/components/site/Container";
 import { ButtonLink } from "@/components/site/Button";
 import { CONTACT } from "@/lib/site";
+import CookieSettingsButton from "@/components/site/CookieSettingsButton";
 
 const COLUMNS = [
   {
@@ -65,6 +66,11 @@ export default function Footer() {
                       </Link>
                     </li>
                   ))}
+                  {column.title === "Jogi információk" && (
+                    <li>
+                      <CookieSettingsButton />
+                    </li>
+                  )}
                 </ul>
               </div>
             ))}
