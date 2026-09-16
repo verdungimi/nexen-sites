@@ -1,173 +1,148 @@
 "use client";
 
+import { useEffect, useId, useState } from "react";
 import Link from "next/link";
-import { useState } from "react";
-import { MouseEvent } from "react";
+import { usePathname } from "next/navigation";
+import { motion, useReducedMotion } from "framer-motion";
+import Logo from "@/components/site/Logo";
+import { ButtonLink } from "@/components/site/Button";
+import { cn } from "@/lib/utils";
 
-const navLinkClass =
-  "text-sm font-medium text-[#A69F91] hover:text-[#F3EFE6] transition-colors duration-200 whitespace-nowrap px-3 py-2";
+// Floating pill navigation. The sliding active marker is adapted from the
+// "Tubelight Navbar" pattern on 21st.dev (framer-motion layoutId), without the glow.
+
+export const NAV_ITEMS = [
+  { href: "/packages", label: "Szolgáltatás" },
+  { href: "/folyamat", label: "Folyamat" },
+  { href: "/rolunk", label: "Stúdió" },
+  { href: "/blog", label: "Blog" },
+  { href: "/gyik", label: "GYIK" },
+];
+
+function isActive(pathname: string, href: string) {
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname() ?? "/";
+  const reduceMotion = useReducedMotion();
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuId = useId();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
 
   return (
-    <nav className="sticky top-0 z-50 px-4 md:px-6 border-b border-white/5 bg-[#0a0a0a]/80 backdrop-blur-md">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex items-center h-16 gap-3 relative">
-          <Link href="/" className="flex-shrink-0">
-            <span className="text-xl md:text-2xl font-bold text-[#F3EFE6]">
-              NEXEN
-            </span>
-          </Link>
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
+        scrolled || menuOpen ? "border-b border-rule/60 bg-graphite/85 backdrop-blur-md" : "border-b border-transparent"
+      )}
+    >
+      <a
+        href="#tartalom"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-3 focus:rounded-full focus:bg-brass focus:px-4 focus:py-2 focus:text-graphite"
+      >
+        Ugrás a tartalomra
+      </a>
+      <div className="mx-auto flex h-[4.5rem] w-full max-w-site items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
+        <Logo />
 
-          {/* Desktop Menu - Centered */}
-          <div className="hidden md:flex items-center flex-1 justify-center">
-            <Link href="/" className={navLinkClass}>
-              Kezdőlap
-            </Link>
-            <a href="#process" className={navLinkClass} onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              const target = document.getElementById('process');
-              if (target) {
-                const offset = 100;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-              }
-            }}>
-              Folyamat
-            </a>
-            <a href="#packages" className={navLinkClass} onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              const target = document.getElementById('packages');
-              if (target) {
-                const offset = 100;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-              }
-            }}>
-              Árazás
-            </a>
-            <Link href="/blog" className={navLinkClass}>
-              Blog
-            </Link>
-            <Link href="/rolunk" className={navLinkClass}>
-              Rólunk
-            </Link>
-            <Link href="/gyik" className={navLinkClass}>
-              GYIK
-            </Link>
-            <a href="/#contact" className={navLinkClass} onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              const currentPath = window.location.pathname;
-              if (currentPath === '/' || currentPath === '') {
-                const target = document.getElementById('contact');
-                if (target) {
-                  const offset = 100;
-                  const elementPosition = target.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - offset;
-                  window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                }
-              } else {
-                window.location.href = '/#contact';
-              }
-            }}>
-              Kapcsolat
-            </a>
-          </div>
+        <nav aria-label="Fő menü" className="hidden lg:block">
+          <ul className="flex items-center gap-1 rounded-full border border-rule bg-graphite-raised/80 p-1">
+            {NAV_ITEMS.map((item) => {
+              const active = isActive(pathname, item.href);
+              return (
+                <li key={item.href} className="relative">
+                  <Link
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "relative z-10 flex min-h-10 items-center rounded-full px-4 text-[0.9375rem] font-medium transition-colors duration-200",
+                      active ? "text-bone" : "text-fog hover:text-bone"
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                  {active && (
+                    <motion.span
+                      layoutId="nav-active-pill"
+                      aria-hidden="true"
+                      className="absolute inset-0 rounded-full border border-rule bg-graphite-strong"
+                      transition={reduceMotion ? { duration: 0 } : { type: "spring", stiffness: 380, damping: 32 }}
+                    />
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
 
-          {/* CTA Button - Right */}
-          <div className="hidden md:block flex-shrink-0 ml-auto">
-            <Link href="/book" className="px-5 py-2.5 bg-[#F2A93B] text-[#0a0a0a] rounded-lg hover:bg-[#f0b658] active:bg-[#d99424] transition-colors duration-200 font-semibold text-sm">
-              Időpont Foglalása
-            </Link>
-          </div>
-
-          {/* Mobile Menu Button */}
+        <div className="flex items-center gap-2">
+          <ButtonLink href="/book" className="hidden sm:inline-flex">
+            Konzultációt foglalok
+          </ButtonLink>
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden -mr-2 p-3 rounded-lg text-[#F3EFE6] active:bg-white/10 transition-colors"
-            aria-label={isOpen ? "Menü bezárása" : "Menü megnyitása"}
-            aria-expanded={isOpen}
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-expanded={menuOpen}
+            aria-controls={menuId}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-rule text-bone transition-colors hover:bg-graphite-strong lg:hidden"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <span className="sr-only">{menuOpen ? "Menü bezárása" : "Menü megnyitása"}</span>
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+              {menuOpen ? (
+                <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path d="M4 8h16M4 16h16" strokeLinecap="round" />
               )}
             </svg>
           </button>
         </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden py-3 space-y-1 border-t border-white/10">
-            <Link href="/" className="block px-3 py-3 rounded-lg text-[#F3EFE6] active:bg-white/5 transition-colors text-base font-medium" onClick={() => setIsOpen(false)}>
-              Kezdőlap
-            </Link>
-            <a href="#process" className="block px-3 py-3 rounded-lg text-[#F3EFE6] active:bg-white/5 transition-colors text-base font-medium" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              setIsOpen(false);
-              const target = document.getElementById('process');
-              if (target) {
-                const offset = 100;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-              }
-            }}>
-              Folyamat
-            </a>
-            <a href="#packages" className="block px-3 py-3 rounded-lg text-[#F3EFE6] active:bg-white/5 transition-colors text-base font-medium" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              setIsOpen(false);
-              const target = document.getElementById('packages');
-              if (target) {
-                const offset = 100;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-              }
-            }}>
-              Árazás
-            </a>
-            <Link href="/blog" className="block px-3 py-3 rounded-lg text-[#F3EFE6] active:bg-white/5 transition-colors text-base font-medium" onClick={() => setIsOpen(false)}>
-              Blog
-            </Link>
-            <Link href="/rolunk" className="block px-3 py-3 rounded-lg text-[#F3EFE6] active:bg-white/5 transition-colors text-base font-medium" onClick={() => setIsOpen(false)}>
-              Rólunk
-            </Link>
-            <Link href="/gyik" className="block px-3 py-3 rounded-lg text-[#F3EFE6] active:bg-white/5 transition-colors text-base font-medium" onClick={() => setIsOpen(false)}>
-              GYIK
-            </Link>
-            <a href="/#contact" className="block px-3 py-3 rounded-lg text-[#F3EFE6] active:bg-white/5 transition-colors text-base font-medium" onClick={(e: MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault();
-              setIsOpen(false);
-              const currentPath = window.location.pathname;
-              if (currentPath === '/' || currentPath === '') {
-                setTimeout(() => {
-                  const target = document.getElementById('contact');
-                  if (target) {
-                    const offset = 100;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - offset;
-                    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-                  }
-                }, 100);
-              } else {
-                window.location.href = '/#contact';
-              }
-            }}>
-              Kapcsolat
-            </a>
-            <Link href="/book" className="block mt-2 px-4 py-3 bg-[#F2A93B] text-[#0a0a0a] rounded-lg active:bg-[#d99424] transition-colors font-semibold text-base text-center" onClick={() => setIsOpen(false)}>
-              Időpont Foglalása
-            </Link>
-          </div>
-        )}
       </div>
-    </nav>
+
+      <div id={menuId} hidden={!menuOpen} className="border-t border-rule/60 lg:hidden">
+        <nav aria-label="Mobil menü" className="mx-auto w-full max-w-site px-4 pb-8 pt-4 sm:px-6">
+          <ul className="divide-y divide-rule/60">
+            {[{ href: "/", label: "Főoldal" }, ...NAV_ITEMS, { href: "/kapcsolat", label: "Kapcsolat" }].map((item) => {
+              const active = item.href === "/" ? pathname === "/" : isActive(pathname, item.href);
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      "wdth-title flex min-h-14 items-center justify-between text-2xl font-semibold",
+                      active ? "text-brass" : "text-bone"
+                    )}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <ButtonLink href="/book" size="lg" className="mt-6 w-full">
+            Konzultációt foglalok
+          </ButtonLink>
+        </nav>
+      </div>
+    </header>
   );
 }
