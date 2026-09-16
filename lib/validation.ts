@@ -1,9 +1,23 @@
-// Validation utilities
+// Validation utilities (shared by the API routes and the client-side form checks)
+
+import { BUDGET_OPTIONS, REVENUE_OPTIONS, isOptionValue, isTimeSlot } from "./booking-options";
 
 export interface ValidationResult {
   isValid: boolean;
   errors: Record<string, string>;
 }
+
+export const BOOKING_ERRORS = {
+  nameRequired: "Add meg a neved.",
+  nameTooShort: "A név legalább 2 karakter legyen.",
+  emailRequired: "Add meg az e-mail-címed.",
+  emailInvalid: "Ez nem tűnik érvényes e-mail-címnek.",
+  phoneRequired: "Add meg a telefonszámod.",
+  phoneInvalid: "Ez nem tűnik érvényes telefonszámnak.",
+  choiceRequired: "Válassz egy lehetőséget.",
+  timeslot: "Válassz napot és időpontot.",
+  privacy: "A foglaláshoz el kell fogadnod az adatkezelési tájékoztatót.",
+} as const;
 
 export function validateEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -19,32 +33,57 @@ export function validatePhone(phone: string): boolean {
   return phoneRegex.test(cleaned) && cleaned.length >= 8;
 }
 
+/** Accepts a calendar date or a full ISO 8601 timestamp (what Date#toISOString produces). */
+export function isValidIsoDate(value: unknown): boolean {
+  if (typeof value !== "string") return false;
+  const isoPattern = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d{1,3})?)?(Z|[+-]\d{2}:\d{2})?)?$/;
+  return isoPattern.test(value) && !Number.isNaN(Date.parse(value));
+}
+
 export function validateBookingData(data: {
   name?: string;
   email?: string;
   phone?: string;
   privacyAccepted?: boolean;
+  revenue?: string;
+  budget?: string;
+  selectedDate?: string;
+  selectedTime?: string;
 }): ValidationResult {
   const errors: Record<string, string> = {};
 
-  if (!data.name || data.name.trim().length < 2) {
-    errors.name = "A név kötelező és legalább 2 karakter hosszú kell legyen";
+  if (!data.name) {
+    errors.name = BOOKING_ERRORS.nameRequired;
+  } else if (data.name.trim().length < 2) {
+    errors.name = BOOKING_ERRORS.nameTooShort;
   }
 
   if (!data.email) {
-    errors.email = "Az email cím kötelező";
+    errors.email = BOOKING_ERRORS.emailRequired;
   } else if (!validateEmail(data.email)) {
-    errors.email = "Érvénytelen email cím formátum";
+    errors.email = BOOKING_ERRORS.emailInvalid;
   }
 
   if (!data.phone) {
-    errors.phone = "A telefonszám kötelező";
+    errors.phone = BOOKING_ERRORS.phoneRequired;
   } else if (!validatePhone(data.phone)) {
-    errors.phone = "Érvénytelen telefonszám formátum";
+    errors.phone = BOOKING_ERRORS.phoneInvalid;
+  }
+
+  if (!isOptionValue(REVENUE_OPTIONS, data.revenue)) {
+    errors.revenue = BOOKING_ERRORS.choiceRequired;
+  }
+
+  if (!isOptionValue(BUDGET_OPTIONS, data.budget)) {
+    errors.budget = BOOKING_ERRORS.choiceRequired;
+  }
+
+  if (!isValidIsoDate(data.selectedDate) || !isTimeSlot(data.selectedTime)) {
+    errors.timeslot = BOOKING_ERRORS.timeslot;
   }
 
   if (!data.privacyAccepted) {
-    errors.privacy = "Az adatvédelmi tájékoztató elfogadása kötelező";
+    errors.privacy = BOOKING_ERRORS.privacy;
   }
 
   return {
@@ -61,4 +100,3 @@ export function sanitizeText(input: string | undefined): string {
   if (!input) return "";
   return input.trim().replace(/[<>]/g, "");
 }
-

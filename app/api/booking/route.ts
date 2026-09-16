@@ -1,22 +1,35 @@
 import { NextRequest, NextResponse } from "next/server";
 import { validateBookingData, sanitizeString, sanitizeText } from "@/lib/validation";
 import { sendEmail, formatBookingEmail } from "@/lib/email";
+import { DEADLINE_OPTIONS, PURPOSE_OPTIONS, isOptionValue } from "@/lib/booking-options";
+
+/** Non-string JSON values (numbers, objects, null) are treated as empty instead of crashing the sanitizers. */
+function asString(value: unknown): string {
+  return typeof value === "string" ? value : "";
+}
 
 export async function POST(request: NextRequest) {
   try {
-    const data = await request.json();
+    const body: unknown = await request.json();
+    const data = (body && typeof body === "object" ? body : {}) as Record<string, unknown>;
+
+    const purpose = sanitizeText(asString(data.purpose));
+    const deadline = sanitizeText(asString(data.deadline));
 
     // Sanitize input data
     const bookingData = {
-      name: sanitizeString(data.name || ""),
-      company: sanitizeText(data.company),
-      email: sanitizeString(data.email || ""),
-      phone: sanitizeString(data.phone || ""),
-      purpose: sanitizeText(data.purpose),
-      deadline: sanitizeText(data.deadline),
-      description: sanitizeText(data.description),
-      selectedDate: data.selectedDate || undefined,
-      selectedTime: data.selectedTime || undefined,
+      name: sanitizeString(asString(data.name)),
+      company: sanitizeText(asString(data.company)),
+      email: sanitizeString(asString(data.email)),
+      phone: sanitizeString(asString(data.phone)),
+      revenue: sanitizeText(asString(data.revenue)),
+      budget: sanitizeText(asString(data.budget)),
+      // Optional choices: anything outside the whitelist is dropped, not rejected
+      purpose: isOptionValue(PURPOSE_OPTIONS, purpose) ? purpose : "",
+      deadline: isOptionValue(DEADLINE_OPTIONS, deadline) ? deadline : "",
+      description: sanitizeText(asString(data.description)),
+      selectedDate: asString(data.selectedDate).trim() || undefined,
+      selectedTime: asString(data.selectedTime).trim() || undefined,
       privacyAccepted: data.privacyAccepted === true,
     };
 
@@ -26,6 +39,10 @@ export async function POST(request: NextRequest) {
       email: bookingData.email,
       phone: bookingData.phone,
       privacyAccepted: bookingData.privacyAccepted,
+      revenue: bookingData.revenue,
+      budget: bookingData.budget,
+      selectedDate: bookingData.selectedDate,
+      selectedTime: bookingData.selectedTime,
     });
 
     if (!validation.isValid) {
@@ -87,7 +104,7 @@ export async function GET(request: NextRequest) {
   try {
     // TODO: Add authentication
     // TODO: Fetch from database
-    
+
     return NextResponse.json(
       {
         success: true,
@@ -107,4 +124,3 @@ export async function GET(request: NextRequest) {
     );
   }
 }
-

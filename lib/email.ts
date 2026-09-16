@@ -1,3 +1,5 @@
+import { BUDGET_OPTIONS, DEADLINE_OPTIONS, PURPOSE_OPTIONS, REVENUE_OPTIONS, optionLabel } from "./booking-options";
+
 // Email service using Resend (or fallback to console in development)
 
 interface EmailData {
@@ -100,123 +102,190 @@ export async function sendEmail(data: EmailData): Promise<{ success: boolean; me
   }
 }
 
+const NOT_GIVEN = "Nincs megadva";
+
+/** Escapes user-provided values before they are placed into the HTML template. */
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+/** Formats the booked day in Hungarian time, so a UTC server cannot shift it by a day. */
+function formatBookingDate(isoDate?: string): string {
+  if (!isoDate) return NOT_GIVEN;
+  const date = new Date(isoDate);
+  if (Number.isNaN(date.getTime())) return NOT_GIVEN;
+  return date.toLocaleDateString("hu-HU", {
+    timeZone: "Europe/Budapest",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    weekday: "long",
+  });
+}
+
+// E-mail palette (hex is fine here: e-mail clients do not see the site's CSS tokens)
+const C = {
+  graphite: "#1A1D21",
+  bone: "#EDE8DF",
+  paper: "#F8F5EF",
+  brass: "#C7A263",
+  brassTint: "#F3EBDC",
+  fog: "#A7A197",
+  label: "#5E5A53",
+  rule: "#E2DBCF",
+};
+
+const FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+
+function htmlRow(label: string, valueHtml: string): string {
+  return `<tr>
+              <td style="padding:12px 16px 12px 0;border-top:1px solid ${C.rule};width:40%;vertical-align:top;color:${C.label};font-size:14px;line-height:1.4;">${label}</td>
+              <td style="padding:12px 0;border-top:1px solid ${C.rule};vertical-align:top;color:${C.graphite};font-size:15px;line-height:1.4;font-weight:600;">${valueHtml}</td>
+            </tr>`;
+}
+
+function htmlSection(title: string, rowsHtml: string): string {
+  return `<tr>
+          <td style="padding:28px 32px 0 32px;">
+            <h2 style="margin:0 0 8px 0;font-size:16px;line-height:1.3;color:${C.graphite};font-weight:700;">${title}</h2>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
+            ${rowsHtml}
+            </table>
+          </td>
+        </tr>`;
+}
+
 export function formatBookingEmail(data: {
   name: string;
   company?: string;
   email: string;
   phone: string;
+  revenue?: string;
+  budget?: string;
   purpose?: string;
   deadline?: string;
   description?: string;
   selectedDate?: string;
   selectedTime?: string;
 }) {
-  const formattedDate = data.selectedDate 
-    ? new Date(data.selectedDate).toLocaleDateString('hu-HU', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        weekday: 'long'
-      })
-    : "Nincs megadva";
+  const revenue = optionLabel(REVENUE_OPTIONS, data.revenue) ?? NOT_GIVEN;
+  const budget = optionLabel(BUDGET_OPTIONS, data.budget) ?? NOT_GIVEN;
+  const purpose = optionLabel(PURPOSE_OPTIONS, data.purpose) ?? NOT_GIVEN;
+  const deadline = optionLabel(DEADLINE_OPTIONS, data.deadline) ?? NOT_GIVEN;
+  const formattedDate = formatBookingDate(data.selectedDate);
+  const slot = `${formattedDate}${data.selectedTime ? `, ${data.selectedTime}` : ""}`;
 
   const subject = `Új érdeklődő - ${data.name}`;
 
   const text = `
-ÚJ ÉRDEKLŐDŐ
+ÚJ KONZULTÁCIÓS FOGLALÁS
 
 ═══════════════════════════════════════
-ÜGYFÉL ADATOK
+AZ ÉRDEKLŐDŐ CÉGE ÉS PROJEKTJE
+═══════════════════════════════════════
+
+Éves árbevétel: ${revenue}
+Weboldal-keret: ${budget}
+Mire van szüksége: ${purpose}
+Mikor indulna: ${deadline}
+
+═══════════════════════════════════════
+KÉRT IDŐPONT
+═══════════════════════════════════════
+
+${slot}
+
+═══════════════════════════════════════
+KAPCSOLAT
 ═══════════════════════════════════════
 
 Név: ${data.name}
-${data.company ? `Cégnév: ${data.company}` : ""}
-Email: ${data.email}
+${data.company ? `Cégnév: ${data.company}\n` : ""}E-mail: ${data.email}
 Telefonszám: ${data.phone}
-
+${data.description ? `\n═══════════════════════════════════════\nMIT SZERETNE ELÉRNI\n═══════════════════════════════════════\n\n${data.description}\n` : ""}
 ═══════════════════════════════════════
-PROJEKT RÉSZLETEI
-═══════════════════════════════════════
-
-Weboldal célja: ${data.purpose || "Nincs megadva"}
-Határidő: ${data.deadline || "Nincs megadva"}
-${data.description ? `Leírás:\n${data.description}` : ""}
-
-═══════════════════════════════════════
-ELŐNYBEN RÉSZESÍTETT IDŐPONT
+KÖVETKEZŐ LÉPÉS
 ═══════════════════════════════════════
 
-${formattedDate}${data.selectedTime ? `, ${data.selectedTime}` : ""}
-
-═══════════════════════════════════════
-KÖVETKEZŐ LÉPÉSEK
-═══════════════════════════════════════
-
-Felvesszük a kapcsolatot az ügyféllel a megadott elérhetőségeken.
-
-═══════════════════════════════════════
+Igazold vissza az időpontot e-mailben vagy telefonon, és küldd el a konzultáció linkjét.
 `;
 
-  const html = `
-<!DOCTYPE html>
-<html>
+  const name = escapeHtml(data.name);
+  const company = data.company ? escapeHtml(data.company) : "";
+  const email = escapeHtml(data.email);
+  const phone = escapeHtml(data.phone);
+  const phoneHref = escapeHtml(data.phone.replace(/[^\d+]/g, ""));
+  const linkStyle = `color:${C.graphite};text-decoration:underline;text-decoration-color:${C.brass};`;
+
+  const leadRows = [
+    htmlRow("Éves árbevétel", escapeHtml(revenue)),
+    htmlRow("Weboldal-keret", escapeHtml(budget)),
+    htmlRow("Mire van szüksége", escapeHtml(purpose)),
+    htmlRow("Mikor indulna", escapeHtml(deadline)),
+  ].join("");
+
+  const contactRows = [
+    htmlRow("Név", name),
+    company ? htmlRow("Cégnév", company) : "",
+    htmlRow("E-mail", `<a href="mailto:${email}" style="${linkStyle}">${email}</a>`),
+    htmlRow("Telefonszám", `<a href="tel:${phoneHref}" style="${linkStyle}">${phone}</a>`),
+  ].join("");
+
+  const descriptionHtml = data.description
+    ? `<tr>
+          <td style="padding:28px 32px 0 32px;">
+            <h2 style="margin:0 0 8px 0;font-size:16px;line-height:1.3;color:${C.graphite};font-weight:700;">Mit szeretne elérni</h2>
+            <div style="border-top:1px solid ${C.rule};padding-top:12px;color:${C.graphite};font-size:15px;line-height:1.6;white-space:pre-wrap;">${escapeHtml(data.description)}</div>
+          </td>
+        </tr>`
+    : "";
+
+  const html = `<!DOCTYPE html>
+<html lang="hu">
 <head>
   <meta charset="utf-8">
-  <style>
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    .header { background: linear-gradient(135deg, #F2A93B 0%, #2DD4BF 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; text-align: center; }
-    .content { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-top: none; }
-    .section { margin-bottom: 20px; padding: 15px; background: white; border-radius: 5px; border-left: 4px solid #F2A93B; }
-    .section-title { font-weight: bold; color: #F2A93B; margin-bottom: 10px; font-size: 16px; }
-    .info-row { margin: 8px 0; }
-    .label { font-weight: bold; color: #555; }
-    .datetime { font-size: 18px; color: #F2A93B; font-weight: bold; }
-    .footer { margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #888; font-size: 12px; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${escapeHtml(subject)}</title>
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1>Új Érdeklődő</h1>
-    </div>
-    <div class="content">
-      <div class="section">
-        <div class="section-title">👤 ÜGYFÉL ADATOK</div>
-        <div class="info-row"><span class="label">Név:</span> ${data.name}</div>
-        ${data.company ? `<div class="info-row"><span class="label">Cégnév:</span> ${data.company}</div>` : ""}
-        <div class="info-row"><span class="label">Email:</span> <a href="mailto:${data.email}">${data.email}</a></div>
-        <div class="info-row"><span class="label">Telefonszám:</span> <a href="tel:${data.phone}">${data.phone}</a></div>
-      </div>
-
-      <div class="section">
-        <div class="section-title">💼 PROJEKT RÉSZLETEI</div>
-        <div class="info-row"><span class="label">Weboldal célja:</span> ${data.purpose || "Nincs megadva"}</div>
-        <div class="info-row"><span class="label">Határidő:</span> ${data.deadline || "Nincs megadva"}</div>
-        ${data.description ? `<div class="info-row" style="margin-top: 10px;"><span class="label">Leírás:</span><br><div style="margin-top: 5px; padding: 10px; background: #f0f0f0; border-radius: 4px; white-space: pre-wrap;">${data.description}</div></div>` : ""}
-      </div>
-
-      <div class="section" style="background: linear-gradient(135deg, rgba(242,169,59,0.1) 0%, rgba(45,212,191,0.1) 100%); border-left-color: #F2A93B;">
-        <div class="section-title">📅 ELŐNYBEN RÉSZESÍTETT IDŐPONT</div>
-        <p class="datetime">${formattedDate}${data.selectedTime ? `, ${data.selectedTime}` : ""}</p>
-      </div>
-
-      <div class="section" style="background: linear-gradient(135deg, rgba(242,169,59,0.1) 0%, rgba(45,212,191,0.1) 100%); border-left-color: #F2A93B;">
-        <div class="section-title">📞 KÖVETKEZŐ LÉPÉSEK</div>
-        <div class="info-row" style="margin-top: 15px;">
-          <p style="margin-bottom: 10px; font-weight: bold; color: #F2A93B;">Felvesszük a kapcsolatot az ügyféllel a megadott elérhetőségeken.</p>
-        </div>
-      </div>
-
-      <div class="footer">
-        <p>Ez az email automatikusan generálva lett a Nexen Sites weboldalról.</p>
-      </div>
-    </div>
-  </div>
+<body style="margin:0;padding:0;background-color:${C.bone};font-family:${FONT};color:${C.graphite};">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:${C.bone};">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;background-color:${C.paper};border-collapse:collapse;">
+          <tr>
+            <td style="background-color:${C.graphite};padding:28px 32px;border-bottom:3px solid ${C.brass};">
+              <p style="margin:0;font-size:14px;line-height:1.4;color:${C.fog};">Nexen Sites</p>
+              <h1 style="margin:6px 0 0 0;font-size:24px;line-height:1.2;color:${C.bone};font-weight:700;">Új konzultációs foglalás</h1>
+              <p style="margin:8px 0 0 0;font-size:16px;line-height:1.4;color:${C.bone};">${name}${company ? `, ${company}` : ""}</p>
+            </td>
+          </tr>
+          ${htmlSection("Az érdeklődő cége és projektje", leadRows)}
+          <tr>
+            <td style="padding:28px 32px 0 32px;">
+              <h2 style="margin:0 0 8px 0;font-size:16px;line-height:1.3;color:${C.graphite};font-weight:700;">Kért időpont</h2>
+              <div style="background-color:${C.brassTint};border-left:3px solid ${C.brass};padding:14px 16px;font-size:18px;line-height:1.4;font-weight:700;color:${C.graphite};">${escapeHtml(slot)}</div>
+            </td>
+          </tr>
+          ${htmlSection("Kapcsolat", contactRows)}
+          ${descriptionHtml}
+          <tr>
+            <td style="padding:28px 32px 32px 32px;">
+              <p style="margin:0;border-top:1px solid ${C.rule};padding-top:16px;font-size:15px;line-height:1.5;color:${C.graphite};">Következő lépés: igazold vissza az időpontot e-mailben vagy telefonon, és küldd el a konzultáció linkjét.</p>
+            </td>
+          </tr>
+        </table>
+        <p style="margin:16px 0 0 0;font-size:12px;line-height:1.5;color:${C.label};">A levél automatikusan készült a nexensites.hu foglalási űrlapjából.</p>
+      </td>
+    </tr>
+  </table>
 </body>
 </html>
 `;
 
   return { subject, text, html };
 }
-
