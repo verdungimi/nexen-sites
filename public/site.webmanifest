@@ -1,7 +1,7 @@
 {
-  "name": "Nexen Sites - Prémium Weboldal Készítés 10 Nap Alatt",
+  "name": "Nexen Sites",
   "short_name": "Nexen Sites",
-  "description": "Prémium weboldal készítés 10 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
+  "description": "Weboldalak bejáratott szolgáltató cégeknek. Az első működő változatot 3 munkanap alatt látod, a végösszeg hátralévő részét a jóváhagyás után fizeted.",
   "icons": [
     {
       "src": "/favicon.svg",
@@ -9,20 +9,14 @@
       "type": "image/svg+xml"
     },
     {
-      "src": "/favicon.ico",
-      "sizes": "16x16 32x32 48x48",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "/apple-touch-icon.png",
+      "src": "/apple-icon-12o0cb",
       "sizes": "180x180",
       "type": "image/png"
     }
   ],
-  "theme_color": "#7C5CFF",
-  "background_color": "#0a0a0a",
+  "theme_color": "#1A1D21",
+  "background_color": "#1A1D21",
   "display": "standalone",
   "start_url": "/",
   "scope": "/"
 }
-

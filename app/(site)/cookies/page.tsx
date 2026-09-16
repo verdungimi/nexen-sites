@@ -1,159 +1,134 @@
 import type { Metadata } from "next";
-import FinAIHero from "@/components/FinAIHero";
-import Section from "@/components/Section";
+import { CONTACT } from "@/lib/site";
+import LegalDocument, { type LegalSection } from "../privacy/LegalDocument";
 
 export const metadata: Metadata = {
-  title: "Cookie tájékoztató | Nexen Sites",
-  description: "Nexen Sites cookie tájékoztatója - információ a weboldal által használt cookie-król",
+  title: "Cookie tájékoztató",
+  description:
+    "Milyen cookie-kat használ a Nexen Sites weboldala, melyek kapcsolnak be csak a hozzájárulásoddal, hol tároljuk a döntésedet, és hogyan módosíthatod.",
+  alternates: {
+    canonical: "/cookies",
+  },
 };
 
+const SECTIONS: LegalSection[] = [
+  {
+    id: "mi-a-cookie",
+    title: "Mi az a cookie?",
+    content: (
+      <p>
+        A cookie-k kis szöveges fájlok, amelyeket a weboldal a böngésződben helyez el, amikor meglátogatod. Segítenek
+        az oldalnak megjegyezni a beállításaidat, és biztosítják, hogy az oldal megfelelően működjön.
+      </p>
+    ),
+  },
+  {
+    id: "cookie-tipusok",
+    title: "Milyen cookie-kat használunk?",
+    content: (
+      <>
+        <h3>Szükséges cookie-k</h3>
+        <p>
+          Ezek nélkül az oldal nem működik rendesen, ezért mindig be vannak kapcsolva, és nem kapcsolhatók ki. Ide
+          tartozik például:
+        </p>
+        <ul>
+          <li>a munkamenet kezelése,</li>
+          <li>a biztonsági funkciók,</li>
+          <li>az oldal alapvető működése.</li>
+        </ul>
+
+        <h3>Analitikai cookie-k</h3>
+        <p>
+          Megmutatják, hogyan használják a látogatók az oldalt, így tudjuk javítani. Csak akkor kapcsolnak be, ha
+          hozzájárulsz. Ehhez a Google Analytics szolgáltatást használjuk, amely csak az analitikai cookie-k
+          elfogadása után kezd mérni, anonimizált IP-címmel. Ide tartozik:
+        </p>
+        <ul>
+          <li>a látogatottsági statisztika,</li>
+          <li>az oldalhasználati adatok,</li>
+          <li>a teljesítménymérés.</li>
+        </ul>
+
+        <h3>Marketing cookie-k</h3>
+        <p>
+          A hirdetéseink személyre szabásához és mérésükhöz használjuk őket. Ezek is csak a hozzájárulásoddal kapcsolnak
+          be. Ide tartozik:
+        </p>
+        <ul>
+          <li>a hirdetések személyre szabása,</li>
+          <li>a kampányok mérése,</li>
+          <li>a visszatérő látogatók felismerése.</li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "dontes-tarolasa",
+    title: "Hol tároljuk a döntésedet?",
+    content: (
+      <>
+        <p>
+          Amikor a cookie-sávon döntesz, a választásodat a böngésződ helyi tárhelyén (localStorage) tároljuk, két
+          bejegyzésben:
+        </p>
+        <ul>
+          <li>
+            <strong>cookieConsent</strong>: azt jelzi, hogy már döntöttél, ezért a cookie-sáv nem jelenik meg újra,
+          </li>
+          <li>
+            <strong>cookiePreferences</strong>: azt rögzíti, hogy a szükségeseken kívül engedélyezted-e az analitikai és
+            a marketing cookie-kat.
+          </li>
+        </ul>
+        <p>Ezek az adatok csak a te böngésződben vannak, hozzánk nem kerülnek el.</p>
+      </>
+    ),
+  },
+  {
+    id: "kezeles",
+    title: "Cookie-k kezelése",
+    content: (
+      <>
+        <p>
+          A böngésződ beállításaiban bármikor törölheted vagy letilthatod a cookie-kat és az oldal által tárolt
+          adatokat. Ha az oldal adatait törlöd, a cookie-sáv a következő látogatáskor újra megjelenik, és újra
+          dönthetsz. Ha a szükséges cookie-kat tiltod le, az oldal egyes funkciói nem fognak megfelelően működni.
+        </p>
+        <p>
+          A legtöbb böngészőben ezeket a beállításokat az Adatvédelem és biztonság menüpontban, a cookie-k és
+          webhelyadatok között találod.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "harmadik-felek",
+    title: "Harmadik felek cookie-jai",
+    content: (
+      <p>
+        Az analitikai és marketing célú külső szolgáltatások, például a Google Analytics, saját cookie-kat helyezhetnek
+        el, és saját adatvédelmi szabályaikat követik. További információt az{" "}
+        <a href="/privacy">adatvédelmi tájékoztatóban</a> találsz.
+      </p>
+    ),
+  },
+  {
+    id: "kapcsolat",
+    title: "Kapcsolat",
+    content: (
+      <>
+        <p>Ha kérdésed van a cookie-kkal kapcsolatban, itt érsz el minket:</p>
+        <p>
+          <strong>E-mail:</strong> <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+          <br />
+          <strong>Telefon:</strong> <a href={`tel:${CONTACT.phoneHref}`}>{CONTACT.phone}</a>
+        </p>
+      </>
+    ),
+  },
+];
+
 export default function CookiesPage() {
-  return (
-    <>
-      <section className="min-h-screen relative pt-24 pb-16 px-4 overflow-hidden">
-        <FinAIHero />
-        
-        <div className="max-w-4xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-12 text-white leading-tight">
-            <span className="block text-[#F3EFE6]">
-              Cookie
-            </span>
-            <span className="block text-[#F2A93B] mt-2">
-              Tájékoztató
-            </span>
-          </h1>
-
-          <div className="space-y-10">
-            <Section>
-              <div className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Mi az a cookie?</h2>
-                <p className="text-[#A69F91] text-lg leading-relaxed mb-4">
-                  A cookie-k kis szöveges fájlok, amelyeket a weboldal a böngésződbe helyez el, 
-                  amikor meglátogatod. Ezek segítenek a weboldalnak megjegyezni a beállításaidat 
-                  és biztosítják a weboldal megfelelő működését.
-                </p>
-                <p className="text-[#A69F91] text-lg leading-relaxed">
-                  A cookie-k lehetővé teszik, hogy a weboldal emlékezzen a bejelentkezési adataidra, 
-                  a nyelvi beállításaidra, és más preferenciákra, így nem kell minden alkalommal 
-                  újra beállítanod őket.
-                </p>
-              </div>
-            </Section>
-
-            <Section>
-              <div className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Milyen cookie-kat használunk?</h2>
-                
-                <div className="space-y-6">
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3">1. Szükséges cookie-k</h3>
-                    <p className="text-[#A69F91] text-lg leading-relaxed mb-2">
-                      Ezek a cookie-k elengedhetetlenek a weboldal működéséhez. Nem kapcsolhatók ki, 
-                      mert a weboldal ezek nélkül nem működne megfelelően.
-                    </p>
-                    <ul className="list-disc list-inside text-[#A69F91] space-y-2 ml-4">
-                      <li>Munkamenet kezelés</li>
-                      <li>Biztonsági funkciók</li>
-                      <li>Alapvető weboldal funkciók</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3">2. Analitikai cookie-k</h3>
-                    <p className="text-[#A69F91] text-lg leading-relaxed mb-2">
-                      Ezek a cookie-k segítenek megérteni, hogyan használják a látogatók a weboldalt. 
-                      Anonim adatokat gyűjtenek, hogy javíthassuk a weboldal teljesítményét és felhasználói élményét.
-                    </p>
-                    <ul className="list-disc list-inside text-[#A69F91] space-y-2 ml-4">
-                      <li>Látogatottsági statisztikák</li>
-                      <li>Oldalhasználati adatok</li>
-                      <li>Teljesítmény mérések</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3">3. Marketing cookie-k</h3>
-                    <p className="text-[#A69F91] text-lg leading-relaxed mb-2">
-                      Ezek a cookie-k a reklámok személyre szabásához és a marketing kampányok 
-                      hatékonyságának méréséhez használatosak.
-                    </p>
-                    <ul className="list-disc list-inside text-[#A69F91] space-y-2 ml-4">
-                      <li>Reklám személyre szabás</li>
-                      <li>Kampány követés</li>
-                      <li>Visszatérő látogatók azonosítása</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </Section>
-
-            <Section>
-              <div className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Cookie-k kezelése</h2>
-                <p className="text-[#A69F91] text-lg leading-relaxed mb-4">
-                  A böngésződ beállításaiban bármikor módosíthatod vagy törölheted a cookie-kat. 
-                  Azonban fontos tudni, hogy ha letiltod a szükséges cookie-kat, 
-                  a weboldal egyes funkciói nem fognak megfelelően működni.
-                </p>
-                <p className="text-[#A69F91] text-lg leading-relaxed mb-4">
-                  A weboldal cookie banner-jén keresztül is kezelheted a cookie beállításaidat. 
-                  Bármikor visszatérhetsz a beállításokhoz, és módosíthatod a preferenciáidat.
-                </p>
-                <div className="bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.1)] rounded-xl p-4 mt-4">
-                  <p className="text-[#A69F91] text-sm">
-                    <strong className="text-white">Tipp:</strong> A legtöbb böngészőben a Beállítások → 
-                    Adatvédelem és biztonság → Cookie-k menüpontban találod a cookie beállításokat.
-                  </p>
-                </div>
-              </div>
-            </Section>
-
-            <Section>
-              <div className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Harmadik fél cookie-k</h2>
-                <p className="text-[#A69F91] text-lg leading-relaxed mb-4">
-                  Weboldalunk esetleg harmadik fél szolgáltatásokat is használhat, amelyek saját cookie-kat 
-                  helyeznek el. Ezek a szolgáltatások saját adatvédelmi irányelveiket követik.
-                </p>
-                <p className="text-[#A69F91] text-lg leading-relaxed">
-                  További információkért látogasd meg az{" "}
-                  <a href="/privacy" className="text-[#F2A93B] hover:text-[#2DD4BF] underline">
-                    Adatvédelmi tájékoztatónkat
-                  </a>
-                  .
-                </p>
-              </div>
-            </Section>
-
-            <Section>
-              <div className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10">
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Kapcsolat</h2>
-                <p className="text-[#A69F91] text-lg leading-relaxed mb-4">
-                  Ha kérdésed van a cookie-kkal kapcsolatban, kérjük, vedd fel velünk a kapcsolatot:
-                </p>
-                <div className="space-y-2 text-[#A69F91]">
-                  <p>
-                    <strong className="text-white">Email:</strong>{" "}
-                    <a href="mailto:verdung.imi@gmail.com" className="text-[#F2A93B] hover:text-[#2DD4BF] underline">
-                      verdung.imi@gmail.com
-                    </a>
-                  </p>
-                  <p>
-                    <strong className="text-white">Telefon:</strong> +36 70 576 7845
-                  </p>
-                </div>
-              </div>
-            </Section>
-
-            <div className="text-center pt-8">
-              <p className="text-[#A69F91] text-sm">
-                Utolsó frissítés: {new Date().toLocaleDateString("hu-HU", { year: "numeric", month: "long", day: "numeric" })}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+  return <LegalDocument title="Cookie tájékoztató" effectiveDate="2026. szeptember 16." sections={SECTIONS} />;
 }
-

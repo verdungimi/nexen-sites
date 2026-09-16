@@ -1,77 +1,82 @@
+import { CONTACT, SITE_URL } from "@/lib/site";
+
+/**
+ * Raster logo for JSON-LD, rendered by app/(site)/apple-icon.tsx.
+ * Next.js appends a hash suffix ("-12o0cb") to metadata image routes that live inside a route group,
+ * so the file is served at /apple-icon-12o0cb, not /apple-icon.
+ */
+export const LOGO_URL = `${SITE_URL}/apple-icon-12o0cb`;
+
+/**
+ * Social share image rendered by app/(site)/opengraph-image.tsx (same route-group suffix as above).
+ * Pages inherit it automatically; only pages that define their own `openGraph` must pass it explicitly.
+ */
+export const OG_IMAGE = {
+  url: "/opengraph-image-12o0cb",
+  width: 1200,
+  height: 630,
+  alt: "Nexen Sites – Weboldal, ami az áraidhoz illik",
+};
+
+export const ORGANIZATION_DESCRIPTION =
+  "Kecskeméti webstúdió, amely konverzióra tervezett weboldalakat készít bejáratott szolgáltató cégeknek. Az első működő változat 3 munkanappal a konzultáció és az anyagok beérkezése után elkészül, a végösszeg hátralévő részét az ügyfél a jóváhagyás után fizeti.";
+
+/** Serialises JSON-LD safely for a <script> tag. */
+export function jsonLd(data: object) {
+  return { __html: JSON.stringify(data).replace(/</g, "\\u003c") };
+}
+
 export default function StructuredData() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Nexen Sites",
-    "url": "https://nexensites.hu",
-    "logo": "https://nexensites.hu/logo.png",
-    "description": "Prémium weboldal készítés 3 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
-    "address": {
+    "@id": `${SITE_URL}/#organization`,
+    name: "Nexen Sites",
+    url: SITE_URL,
+    logo: LOGO_URL,
+    description: ORGANIZATION_DESCRIPTION,
+    address: {
       "@type": "PostalAddress",
-      "addressLocality": "Kecskemét",
-      "addressCountry": "HU"
+      addressLocality: CONTACT.city,
+      addressCountry: "HU",
     },
-    "contactPoint": {
+    contactPoint: {
       "@type": "ContactPoint",
-      "telephone": "+36-70-576-7845",
-      "contactType": "customer service",
-      "email": "verdung.imi@gmail.com",
-      "availableLanguage": "Hungarian"
+      telephone: CONTACT.phone,
+      contactType: "customer service",
+      email: CONTACT.email,
+      availableLanguage: "Hungarian",
     },
-    "sameAs": [
-      "https://www.facebook.com/profile.php?id=61585984076838"
-    ]
+    sameAs: [CONTACT.facebook],
   };
 
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "Weboldal készítés",
-    "provider": {
-      "@type": "Organization",
-      "name": "Nexen Sites"
-    },
-    "areaServed": {
+    serviceType: "Weboldal készítés",
+    provider: { "@id": `${SITE_URL}/#organization` },
+    areaServed: {
       "@type": "Country",
-      "name": "Hungary"
+      name: "Hungary",
     },
-    "description": "Prémium weboldal készítés 3 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
-    "offers": {
-      "@type": "Offer",
-      "priceCurrency": "HUF",
-      "availability": "https://schema.org/InStock"
-    }
+    description:
+      "Weboldalak építőipari, épületgépészeti, egészségügyi és szakértői szolgáltató cégeknek: szerkezet és szöveg, design, fejlesztés, két javítási kör és igény szerint havi gondozás.",
   };
 
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Nexen Sites",
-    "url": "https://nexensites.hu",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://nexensites.hu/search?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }
+    name: "Nexen Sites",
+    url: SITE_URL,
+    inLanguage: "hu-HU",
+    publisher: { "@id": `${SITE_URL}/#organization` },
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(organizationSchema)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(serviceSchema)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(websiteSchema)} />
     </>
   );
 }

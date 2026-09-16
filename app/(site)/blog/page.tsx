@@ -1,276 +1,81 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import FinAIHero from "@/components/FinAIHero";
+import PageHero from "@/components/site/PageHero";
+import Section from "@/components/site/Section";
+import ClosingCta from "@/components/site/ClosingCta";
+import { LOGO_URL, jsonLd } from "@/components/StructuredData";
+import { BLOG_POSTS, formatPostDate } from "@/lib/blog";
+import { SITE_URL } from "@/lib/site";
+
+const LEAD = "Rövid, gyakorlati írások arról, hogyan hozhat több jó ügyfelet egy szolgáltató cég weboldala.";
 
 export const metadata: Metadata = {
-  title: "Weboldal Készítés Blog | 3 Nap Alatt Kész Weboldal | Nexen Sites",
-  description: "Olvass a weboldal készítésről, olcsó weboldal készítő cég szolgáltatásairól és 3 nap alatt kész weboldal készítésről. Hasznos cikkek prémium weboldal fejlesztéshez.",
-  keywords: [
-    "weboldal készítés",
-    "weboldal készítő cég",
-    "olcsó weboldal",
-    "3 nap alatt kész weboldal",
-    "weboldal készítés 3 nap",
-    "olcsó weboldal készítés",
-    "weboldal készítő",
-    "weboldal készítés magyarország",
-    "prémium weboldal",
-    "modern weboldal",
-    "mobilbarát weboldal",
-    "weboldal fejlesztés",
-    "landing page",
-    "3 napos weboldal",
-    "weboldal tervezés",
-    "weboldal készítés Budapest",
-    "SEO optimalizálás",
-    "weboldal árazás",
-    "gyors weboldal készítés",
-    "professzionális weboldal",
-    "nexen sites"
-  ],
-  openGraph: {
-    title: "Weboldal Készítés Blog | 3 Nap Alatt Kész Weboldal | Nexen Sites",
-    description: "Olvass a weboldal készítésről, olcsó weboldal készítő cég szolgáltatásairól és 3 nap alatt kész weboldal készítésről.",
-    type: "website",
-    url: "https://nexensites.hu/blog",
-    siteName: "Nexen Sites",
-    images: [
-      {
-        url: "https://nexensites.hu/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Nexen Sites - Weboldal készítés blog",
-      },
-    ],
-    locale: "hu_HU",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Weboldal Készítés Blog | 3 Nap Alatt Kész Weboldal",
-    description: "Olvass a weboldal készítésről és 3 nap alatt kész weboldal készítésről.",
-  },
+  title: "Blog",
+  description:
+    "Rövid, gyakorlati írások arról, hogyan hozhat több jó ügyfelet egy szolgáltató cég weboldala: folyamat, szerkezet, mobilnézet, keresőoptimalizálás és árajánlatok.",
   alternates: {
-    canonical: "https://nexensites.hu/blog",
+    canonical: "/blog",
   },
 };
 
-interface BlogPost {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  category: string;
-  keywords: string[];
-}
-
-const blogPosts: BlogPost[] = [
-  {
-    slug: "3-napos-weboldal-keszites-hogyan-mukodik",
-    title: "3 Napos Weboldal Készítés: Hogyan Működik a Gyors Szállítási Rendszer?",
-    excerpt: "Ismerd meg, hogyan készítünk prémium weboldalakat 3 nap alatt. Részletes betekintés a folyamatba, a hatékonyság kulcsai és az eredmények garanciája. Megtudod, mit várhatsz el egy 3 napos weboldal fejlesztés során.",
-    date: "2024-12-15",
-    readTime: "8 perc",
-    category: "Weboldal Fejlesztés",
-    keywords: ["3 napos weboldal", "weboldal készítés", "gyors weboldal fejlesztés", "prémium weboldal", "weboldal szállítás"]
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Nexen Sites blog",
+  description: LEAD,
+  url: `${SITE_URL}/blog`,
+  inLanguage: "hu-HU",
+  publisher: {
+    "@type": "Organization",
+    name: "Nexen Sites",
+    url: SITE_URL,
+    logo: { "@type": "ImageObject", url: LOGO_URL },
   },
-  {
-    slug: "landing-page-vagy-tobb-oldalas-weboldal-melyiket-valasszam",
-    title: "Landing Page vagy Több Oldalas Weboldal: Melyiket Válasszam?",
-    excerpt: "Segítünk eldönteni, hogy az egyoldalas landing page vagy a több oldalas weboldal felel meg jobban a vállalkozásodnak. Áttekintjük az előnyöket, hátrányokat és a legjobb választást különböző üzleti célokhoz.",
-    date: "2024-12-10",
-    readTime: "6 perc",
-    category: "Weboldal Tervezés",
-    keywords: ["landing page", "weboldal tervezés", "egyoldalas weboldal", "weboldal struktúra", "weboldal készítés"]
-  },
-  {
-    slug: "seo-optimalizalas-modern-weboldalhoz-tippek",
-    title: "SEO Optimalizálás Modern Weboldalhoz: Alapvető Tippek és Best Practices",
-    excerpt: "Tanuld meg a modern weboldal SEO optimalizálásának alapjait. Technikai SEO, tartalmi optimalizálás, mobile-first megközelítés és gyorsaság - minden, amire szükséged van a keresőmotorok tetejére kerüléshez.",
-    date: "2024-12-05",
-    readTime: "10 perc",
-    category: "SEO",
-    keywords: ["SEO optimalizálás", "weboldal SEO", "keresőoptimalizálás", "modern weboldal SEO", "SEO tippek"]
-  },
-  {
-    slug: "mobilbarat-weboldal-keszites-mi-a-fontos",
-    title: "Mobilbarát Weboldal Készítés: Mi a Fontos?",
-    excerpt: "A mobilfelhasználók már több mint 60%-ot tesznek ki az internetes forgalomból. Ismerd meg, miért kritikus a mobilbarát weboldal készítés és milyen elemei vannak egy professzionális mobiloptimalizált weboldalnak.",
-    date: "2024-11-28",
-    readTime: "7 perc",
-    category: "Weboldal Fejlesztés",
-    keywords: ["mobilbarát weboldal", "responsive design", "mobil optimalizálás", "weboldal készítés", "mobile-first"]
-  },
-  {
-    slug: "premium-weboldal-keszites-aron-belul",
-    title: "Prémium Weboldal Készítés Áron Belül: Értékteremtés és Minőség",
-    excerpt: "Fedezd fel, hogyan készítünk prémium minőségű weboldalokat versenyképes áron. A minőség, a hatékonyság és a gyorsaság kombinációja, amely lehetővé teszi a hozzáférhető luxust minden vállalkozás számára.",
-    date: "2024-11-20",
-    readTime: "5 perc",
-    category: "Weboldal Árazás",
-    keywords: ["prémium weboldal", "weboldal árazás", "értékteremtés", "weboldal készítés ár", "minőségi weboldal"]
-  },
-  {
-    slug: "weboldal-keszites-budapest-tippek-es-trendek",
-    title: "Weboldal Készítés Budapest: Helyi Trendek és Legjobb Gyakorlatok",
-    excerpt: "A budapesti vállalkozások egyedi igényei és a helyi piaci trendek áttekintése. Tanuld meg, mi működik a magyar piacon weboldal készítés során és hogyan lehet kiugrani a tömegből.",
-    date: "2024-11-15",
-    readTime: "6 perc",
-    category: "Trendek",
-    keywords: ["weboldal készítés Budapest", "magyar weboldal trendek", "helyi SEO", "weboldal fejlesztés", "Budapest"]
-  }
-];
+  blogPost: BLOG_POSTS.map((post) => ({
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    url: `${SITE_URL}/blog/${post.slug}`,
+    keywords: post.keywords.join(", "),
+  })),
+};
 
 export default function BlogPage() {
-  // Schema.org JSON-LD for Blog
-  const blogSchema = {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Nexen Sites Blog - Weboldal Készítés",
-    "description": "Weboldal készítés, olcsó weboldal készítő cég szolgáltatásai, 3 nap alatt kész weboldal készítés cikkek és tippek",
-    "url": "https://nexensites.hu/blog",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Nexen Sites - Weboldal Készítő Cég",
-      "alternateName": "Nexen Sites",
-      "url": "https://nexensites.hu",
-      "logo": "https://nexensites.hu/logo.png"
-    },
-    "about": {
-      "@type": "Thing",
-      "name": "Weboldal készítés"
-    }
-  };
-
-  const blogPostSchemas = blogPosts.map(post => ({
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.excerpt,
-    "datePublished": post.date,
-    "articleSection": post.category,
-    "keywords": post.keywords.join(", "),
-    "url": `https://nexensites.hu/blog/${post.slug}`
-  }));
-
   return (
     <>
-      {/* Schema.org JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
-      />
-      {blogPostSchemas.map((schema, idx) => (
-        <script
-          key={idx}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      ))}
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(blogSchema)} />
 
-      <section className="min-h-screen relative pt-24 pb-16 px-4 overflow-hidden">
-        <FinAIHero />
-        
-        <div className="max-w-6xl mx-auto relative z-10" style={{ pointerEvents: 'auto' }}>
-          {/* Header */}
-          <div className="text-center mb-16 pb-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-8 pb-4 text-white leading-[1.15] break-words overflow-wrap-anywhere px-4" style={{ lineHeight: '1.15', paddingBottom: '1rem' }}>
-              <span className="block text-[#F3EFE6]">
-                Blog
-              </span>
-              <span className="block text-[#F2A93B] mt-2">
-                Weboldal Készítés & SEO Tippek
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-[#A69F91] max-w-3xl mx-auto font-light leading-relaxed break-words overflow-wrap-anywhere px-4 mt-4">
-              Hasznos cikkek a <strong className="text-white">weboldal készítésről</strong>, <strong className="text-white">olcsó weboldal készítő cég</strong> szolgáltatásairól és a <strong className="text-white">3 nap alatt kész weboldal</strong> készítésről.
-            </p>
-          </div>
+      <PageHero title="Blog" lead={LEAD} />
 
-          {/* Blog Posts Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <article
-                key={post.slug}
-                className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 md:p-8 transition-all duration-300 hover:border-[#F2A93B]/50 hover:-translate-y-1 group flex flex-col blog-card"
-              >
-                {/* Category Badge */}
-                <div className="mb-4">
-                  <span className="inline-block px-3 py-1 bg-[rgba(242,169,59,0.2)] border border-[rgba(242,169,59,0.3)] text-[#F2A93B] text-xs font-semibold rounded-full">
-                    {post.category}
-                  </span>
+      <Section>
+        <ol className="border-b border-rule">
+          {BLOG_POSTS.map((post) => (
+            <li key={post.slug}>
+              {/* The title link stretches over the whole row, so the full row is clickable. */}
+              <article className="group relative grid gap-3 border-t border-rule py-8 sm:py-10 lg:grid-cols-12 lg:gap-8">
+                <time dateTime={post.date} className="text-fog lg:col-span-3 lg:pt-1.5">
+                  {formatPostDate(post.date)}
+                </time>
+                <div className="lg:col-span-6">
+                  <h2 className="type-h3">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="transition-colors duration-200 after:absolute after:inset-0 group-hover:text-brass"
+                    >
+                      {post.title}
+                    </Link>
+                  </h2>
+                  <p className="measure mt-3 text-fog">{post.excerpt}</p>
                 </div>
-
-                {/* Date and Read Time */}
-                <div className="flex items-center gap-4 text-xs text-[#A69F91] mb-4 flex-wrap">
-                  <time dateTime={post.date} className="break-words">
-                    {new Date(post.date).toLocaleDateString('hu-HU', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric'
-                    })}
-                  </time>
-                  <span>•</span>
-                  <span className="break-words">{post.readTime} olvasás</span>
-                </div>
-
-                {/* Title */}
-                <h2 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-[#F2A93B] transition-all duration-300 leading-tight break-words overflow-wrap-anywhere">
-                  {post.title}
-                </h2>
-
-                {/* Excerpt */}
-                <div className="relative mb-6 blog-excerpt-wrapper">
-                  <p className="text-[#A69F91] leading-relaxed break-words overflow-wrap-anywhere blog-excerpt-text">
-                    {post.excerpt}
-                  </p>
-                </div>
-
-                {/* Read More Link */}
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="inline-flex items-center gap-2 text-[#F2A93B] hover:text-[#2DD4BF] font-semibold text-sm group-hover:gap-3 transition-all duration-300"
-                >
-                  Tovább olvasás
-                  <svg
-                    className="w-4 h-4 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-label="Tovább olvasás ikon"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Link>
+                <p className="text-fog lg:col-span-3 lg:pt-1.5">{post.readMinutes} perc olvasás</p>
               </article>
-            ))}
-          </div>
+            </li>
+          ))}
+        </ol>
+      </Section>
 
-          {/* CTA Section */}
-          <div className="mt-16 text-center">
-            <div className="bg-[#17151C]/80 backdrop-blur-xl border border-[rgba(255,255,255,0.1)] rounded-2xl p-8 md:p-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 break-words overflow-wrap-anywhere">
-                Készen állsz egy <span className="text-[#F2A93B]">prémium weboldalra</span>?
-              </h2>
-              <p className="text-lg text-[#A69F91] mb-6 max-w-2xl mx-auto break-words overflow-wrap-anywhere">
-                Foglalj időpontot és beszéljük meg, hogyan készíthetünk neked egy <strong className="text-white">3 nap alatt elkészülő, prémium minőségű weboldalt</strong> vagy <strong className="text-white">landing page</strong>-et. Olcsó weboldal készítő cégként garantáltan 3 nap alatt kész weboldalt nyújtunk.
-              </p>
-              <Link
-                href="/book"
-                className="inline-block px-8 py-4 bg-[#F2A93B] text-[#0a0a0a] rounded-lg hover:bg-[#f0b658] transition-colors duration-200 font-semibold text-base"
-              >
-                Időpont Foglalása
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ClosingCta />
     </>
   );
 }
-
