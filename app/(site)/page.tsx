@@ -1,48 +1,21 @@
 import type { Metadata } from "next";
 import HomePageContent from "@/components/HomePageContent";
+import HomePageStructuredData from "@/components/HomePageStructuredData";
 
 export const metadata: Metadata = {
-  title: "NexenSites - Professzionális Weboldal 3 Nap Alatt | Prémium Weboldal Készítés",
-  description: "NexenSites modern, gyors és üzleti célokra optimalizált weboldalakat készít. Professzionális weboldal 3 nap alatt - fizess csak akkor, ha elégedett vagy.",
-  keywords: [
-    "nexen",
-    "nexen weboldal",
-    "weboldal készítés",
-    "weboldalak készítése",
-    "weboldal fejlesztés",
-    "weboldal készítés budapest",
-    "weboldal készítés 3 nap",
-    "prémium weboldal",
-    "modern weboldal",
-    "mobilbarát weboldal",
-    "nexen sites",
-  ],
-  openGraph: {
-    title: "Nexen Weboldal - Weboldal Készítés 3 Nap Alatt",
-    description: "Prémium weboldal készítés 3 nap alatt. Modern, gyors, mobilbarát weboldalak vállalkozásoknak.",
-    type: "website",
-    url: "https://nexensites.hu",
-    siteName: "Nexen Sites",
-    images: [
-      {
-        url: "https://nexensites.hu/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Nexen Sites - Weboldal Készítés",
-      },
-    ],
-    locale: "hu_HU",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Nexen Weboldal - Weboldal Készítés 3 Nap Alatt",
-    description: "Prémium weboldal készítés 3 nap alatt. Modern, gyors, mobilbarát weboldalak.",
-  },
+  title: { absolute: "Nexen Sites – Weboldal, ami az áraidhoz illik" },
+  description:
+    "Weboldal bejáratott szolgáltató cégeknek, amitől a jó ügyfél már az első hívás előtt téged választ. Az első működő változat 3 munkanap alatt kész, a végösszeget a jóváhagyás után fizeted.",
   alternates: {
-    canonical: "https://nexensites.hu",
+    canonical: "/",
   },
 };
 
 export default function HomePage() {
-  return <HomePageContent />;
+  return (
+    <>
+      <HomePageStructuredData />
+      <HomePageContent />
+    </>
+  );
 }

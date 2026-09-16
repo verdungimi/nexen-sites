@@ -1,805 +1,220 @@
-"use client";
-
-import { useState } from "react";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import Section from "@/components/Section";
-import CTAButton from "@/components/CTAButton";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Check, ArrowRight, Clock, Shield, Sparkles, Zap, AlertCircle, Code2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import FinAIHero from "@/components/FinAIHero";
-import HomePageStructuredData from "@/components/HomePageStructuredData";
 import FAQAccordion from "@/components/FAQAccordion";
+import BuildTimelapse from "@/components/home/BuildTimelapse";
+import ContactForm from "@/components/home/ContactForm";
+import { ButtonLink } from "@/components/site/Button";
+import Container from "@/components/site/Container";
+import PricingTiers from "@/components/site/PricingTiers";
+import ProcessTimeline from "@/components/site/ProcessTimeline";
+import RoiCalculator from "@/components/site/RoiCalculator";
+import Section from "@/components/site/Section";
+import SectionIntro from "@/components/site/SectionIntro";
+import { FAQ_ITEMS, PRINCIPLES, PROCESS_STEPS } from "@/lib/content";
+import { CONTACT } from "@/lib/site";
 
-// Animation variants
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
+const HERO_FACTS = ["Az első működő változat 3 munkanap alatt", "A végösszeget a jóváhagyás után fizeted"];
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
+const PROBLEMS = [
+  {
+    title: "Ajánlásból jön a munka, de az ajánlott ügyfél is rád keres.",
+    text: "Amit ott talál, az dönti el, felhív-e. Egy tíz éve készült vagy sablonos oldal azt üzeni, hogy a munkád is átlagos, pedig nem az.",
   },
-};
+  {
+    title: "Hirdetésre költesz, de kevés az ajánlatkérés.",
+    text: "A kattintást kifizeted, aztán a látogató egy olyan oldalra érkezik, ami nem mondja meg, miért éppen te, és nem könnyíti meg, hogy időpontot kérjen.",
+  },
+  {
+    title: "Sok a rossz érdeklődő, kevés a jó.",
+    text: "Ha az oldal nem szűr, azok is hívnak, akiknek nincs rád kerete. Az idő, amit velük töltesz, a jó ügyfelektől megy el.",
+  },
+];
 
-function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: "success" | "error" | null;
-    message: string;
-  }>({ type: null, message: "" });
+const contactLinkClasses =
+  "wdth-title inline-flex min-h-11 items-center rounded-md text-lg font-semibold text-bone underline decoration-rule underline-offset-[6px] transition-colors hover:decoration-brass sm:text-xl";
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: "" });
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        setSubmitStatus({
-          type: "success",
-          message: "Üzenet sikeresen elküldve! Hamarosan felvesszük veled a kapcsolatot.",
-        });
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setSubmitStatus({
-          type: "error",
-          message: data.error || "Hiba történt. Kérjük, próbáld újra.",
-        });
-      }
-    } catch (error) {
-      setSubmitStatus({
-        type: "error",
-        message: "Hiba történt az üzenet küldése során. Kérjük, próbáld később.",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
+function Hero() {
   return (
-    <Card className="border-gray-800 hover:border-gray-700 transition-colors">
-      <CardHeader>
-        <CardTitle>Küldj üzenetet</CardTitle>
-        <CardDescription>Írj nekünk, és hamarosan válaszolunk!</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <Input
-              type="text"
-              name="name"
-              placeholder="Neved"
-              value={formData.name}
-              onChange={(e) =>
-                setFormData({ ...formData, name: e.target.value })
-              }
-              required
-            />
-          </div>
-          <div>
-            <Input
-              type="email"
-              name="email"
-              placeholder="Email címed"
-              value={formData.email}
-              onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
-              }
-              required
-            />
-          </div>
-          <div>
-            <Textarea
-              name="message"
-              placeholder="Üzeneted"
-              rows={6}
-              value={formData.message}
-              onChange={(e) =>
-                setFormData({ ...formData, message: e.target.value })
-              }
-              required
-            />
-          </div>
-          {submitStatus.message && (
-            <div
-              className={`p-3 rounded-lg text-sm ${
-                submitStatus.type === "success"
-                  ? "bg-green-500/20 text-green-400 border border-green-500/30"
-                  : "bg-red-500/20 text-red-400 border border-red-500/30"
-              }`}
-            >
-              {submitStatus.message}
+    <section className="bg-graphite pb-20 pt-32 sm:pb-24 sm:pt-40 lg:pb-28">
+      <Container>
+        <h1 className="type-display max-w-5xl">Olyan weboldal, ami az áraidhoz illik.</h1>
+
+        <div className="mt-10 grid gap-14 sm:mt-12 lg:grid-cols-12 lg:gap-8 xl:gap-12">
+          <div className="lg:col-span-5">
+            <p className="type-lead measure">
+              A jól fizető ügyfél rád keres, mielőtt felhívna. Ha az oldalad olcsóbbnak mutat, mint amilyen a munkád, a
+              versenytársat hívja. Bejáratott szolgáltató cégeknek építünk weboldalt, amitől a jó ügyfél már az első
+              hívás előtt téged választ.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3">
+              <ButtonLink href="/book" size="lg">
+                Konzultációt foglalok
+              </ButtonLink>
+              <ButtonLink href="/folyamat" variant="quiet">
+                Megnézem a folyamatot
+              </ButtonLink>
             </div>
-          )}
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting ? "Küldés..." : "Küldés"}
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
+            <ul className="mt-10 space-y-3">
+              {HERO_FACTS.map((fact) => (
+                <li key={fact} className="flex items-center gap-3 text-bone/90">
+                  <span aria-hidden="true" className="h-px w-4 flex-none bg-brass" />
+                  {fact}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-7">
+            <BuildTimelapse />
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 }
 
 export default function HomePageContent() {
   return (
     <>
-      <HomePageStructuredData />
-      
-      {/* Hero Section - Fin AI Style */}
-      <section className="min-h-screen flex items-center justify-center relative pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-6 overflow-hidden">
-        <FinAIHero />
-        
-        <div className="max-w-7xl mx-auto relative z-10 w-full" style={{ pointerEvents: 'auto' }}>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center">
-            {/* Left side info - Hidden on mobile, visible on lg+ */}
-            <div className="hidden lg:block lg:col-span-3 relative pr-4" style={{ minHeight: '600px' }}>
-              <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '8%', right: '12%', animationDelay: '0s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#2DD4BF] drop-" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '52%', right: '-5%', animationDelay: '1.5s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#F2A93B] drop-" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-            </div>
+      <Hero />
 
-            {/* Center content */}
-            <div className="lg:col-span-6 text-center">
-            {/* Large Typography - Fin AI Style */}
-            <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 md:mb-8 leading-[1.1] tracking-tight break-words">
-              <span className="inline-block text-[#F3EFE6] animate-fade-in whitespace-nowrap">
-                Professzionális
-              </span>
-              <span className="block text-[#F2A93B] mt-1 md:mt-2 animate-fade-in-delay">
-                weboldal
-              </span>
-              <span className="block text-white mt-1 md:mt-2 animate-fade-in-delay-2">
-                3 nap alatt
-              </span>
-            </h1>
-
-            {/* Subheadline - Minimal */}
-            <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 md:mb-12 max-w-3xl mx-auto font-light leading-relaxed animate-fade-in-delay-2 px-2">
-              Modern, gyors és eredményorientált weboldalakat készítünk vállalkozásoknak – ha nem tetszik, nem fizetsz.
-            </p>
-
-            {/* CTAs - Minimal */}
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mb-12 md:mb-16 animate-fade-in-delay-2 px-2">
-              <CTAButton href="/#contact" variant="primary" className="text-sm md:text-base px-8 md:px-10 py-4 md:py-5 w-full sm:w-auto min-w-[180px] md:min-w-[200px]">
-                Kérj ingyenes konzultációt
-              </CTAButton>
-              <CTAButton href="/packages" variant="secondary" className="text-sm md:text-base px-8 md:px-10 py-4 md:py-5 w-full sm:w-auto min-w-[180px] md:min-w-[200px]">
-                Csomagok Megtekintése
-              </CTAButton>
-            </div>
-
-            {/* Trust badges - Enhanced style with animations */}
-            <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-12 mt-12 md:mt-20 px-2">
-              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#F2A93B]/50 hover:scale-105 transition-all duration-500 animate-float-up group">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-2 group-hover:text-[#F2A93B] transition-colors duration-500">3</div>
-                <div className="text-xs md:text-sm lg:text-base text-[#F3EFE6] font-semibold">Napos szállítás</div>
-              </div>
-              <div className="text-center px-6 py-4 md:px-8 md:py-6 backdrop-blur-2xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.08)] rounded-2xl shadow-lg hover:border-[#2DD4BF]/50 hover:scale-105 transition-all duration-500 animate-float-up-delay-1 group">
-                <div className="text-3xl md:text-4xl lg:text-5xl font-black text-[#F2A93B] mb-2 transition-all duration-500">100%</div>
-                <div className="text-xs md:text-sm lg:text-base text-[#F3EFE6] font-semibold">Prémium minőség</div>
-              </div>
-            </div>
-            </div>
-
-            {/* Right side info - Hidden on mobile, visible on lg+ */}
-            <div className="hidden lg:block lg:col-span-3 relative pl-4" style={{ minHeight: '600px' }}>
-              <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '10%', left: '12%', animationDelay: '0.75s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#F2A93B] drop-" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-              </div>
-              <div className="absolute flex items-center justify-center w-40 h-40 animate-float" style={{ top: '55%', left: '-5%', animationDelay: '2.25s' }}>
-                <svg className="absolute inset-0 w-full h-full text-[#2DD4BF] drop-" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
+      <Section id="problems" aria-labelledby="problems-title">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-5">
+            <div className="lg:sticky lg:top-28">
+              <SectionIntro
+                id="problems-title"
+                title="Ahol most ügyfelet veszítesz"
+                lead="Ezt a hármat halljuk a legtöbbször a konzultációkon."
+              />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Fájdalompontok Section */}
-      <section id="problems" className="py-20 relative z-10">
-        <div className="container-custom">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ismerős ez a helyzet?
-            </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              A legtöbb vállalkozás ugyanazokkal a problémákkal küzd, amikor weboldalt szeretne
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
-          >
-            {[
-              {
-                title: "Hetekig-hónapokig húzódó fejlesztés",
-                description: "Az ügynökség 4-8 hetet ígér, aztán csúszik. Közben a versenytársad már online van.",
-              },
-              {
-                title: "Sablon weboldal, ami mindenhol ugyanaz",
-                description: "Ugyanaz a WordPress-téma fut a versenytársadnál is, csak más színben és logóval.",
-              },
-              {
-                title: "Rejtett költségek a projekt végén",
-                description: "A karbantartás, a hosting és minden apró módosítás külön díjas – erről csak utólag derül ki.",
-              },
-              {
-                title: "Az oldal törik mobilon",
-                description: "A látogatók többsége telefonon néz rá az oldaladra, de a legtöbb weboldal ott esik szét.",
-              },
-            ].map((problem, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <div className="h-full bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.08)] rounded-2xl p-6 flex gap-4">
-                  <AlertCircle className="w-6 h-6 text-[#F2A93B] flex-shrink-0 mt-1" strokeWidth={1.75} />
-                  <div>
-                    <h3 className="text-lg font-semibold text-white mb-2">{problem.title}</h3>
-                    <p className="text-gray-400 leading-relaxed">{problem.description}</p>
-                  </div>
-                </div>
-              </motion.div>
+          <ul className="lg:col-span-6 lg:col-start-7">
+            {PROBLEMS.map((problem) => (
+              <li key={problem.title} className="border-t border-rule pb-12 pt-8 last:pb-0 sm:pb-14 sm:pt-10">
+                <h3 className="type-h3">{problem.title}</h3>
+                <p className="measure mt-4 text-fog">{problem.text}</p>
+              </li>
             ))}
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="text-center mt-12"
-          >
-            <p className="text-xl text-[#F3EFE6] font-semibold mb-6">
-              Ezért csináljuk másképp.
-            </p>
-            <CTAButton href="/#contact" variant="primary" className="text-base px-8 py-4">
-              Kérj ingyenes konzultációt
-            </CTAButton>
-          </motion.div>
+          </ul>
         </div>
-      </section>
+      </Section>
 
-      {/* Miért válassz minket Section */}
-      <section id="why" className="py-20 relative z-10" style={{ position: 'relative' }}>
-        <div className="container-custom">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Miért a NexenSites?
-            </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Amiért számos vállalkozás bízik bennünk
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-          >
-            {[
-              {
-                icon: Clock,
-                title: "3 nap alatt kész projekt",
-                description: "Teljes projekt átadás 3 napon belül – gyors, de nem sietősen.",
-              },
-              {
-                icon: Shield,
-                title: "Elégedettségi garancia",
-                description: "Fizess csak akkor, ha elégedett vagy az eredménnyel.",
-              },
-              {
-                icon: Sparkles,
-                title: "Teljesen egyedi design",
-                description: "Minden weboldal egyedi, üzletedre szabott megjelenéssel.",
-              },
-              {
-                icon: Zap,
-                title: "SEO & mobiloptimalizált",
-                description: "Kész a teljesítésre az első naptól, minden eszközön.",
-              },
-            ].map((feature, index) => {
-              const IconComponent = feature.icon;
-              return (
-                <motion.div key={index} variants={fadeInUp}>
-                  <Card className="h-full border-gray-800 hover:border-[#2DD4BF]/50 hover:shadow-lg hover:shadow-[#2DD4BF]/10 transition-all duration-300">
-                    <CardHeader>
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#2DD4BF]/20 to-[#F2A93B]/20 flex items-center justify-center mb-4">
-                        <IconComponent className="w-6 h-6 text-[#2DD4BF]" />
-                      </div>
-                      <CardTitle className="text-xl">{feature.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-base text-gray-400">
-                        {feature.description}
-                      </CardDescription>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+      <Section id="kalkulator" tone="raised" aria-labelledby="kalkulator-title">
+        <SectionIntro
+          id="kalkulator-title"
+          title="Mennyit ér neked egy jobb weboldal?"
+          lead="Írd be a saját számaidat. A kalkulátor megmutatja, mennyi bevétel marad most az asztalon, ha az oldalad kevesebb látogatóból csinál ajánlatkérést, mint amennyiből tudna."
+        />
+        <div className="mt-12 lg:mt-14">
+          <RoiCalculator />
         </div>
-      </section>
+      </Section>
 
-      {/* A folyamat Section */}
-      <section id="process" className="py-20 relative bg-gray-900/30 z-10">
-        <div className="container-custom">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              A folyamat
-            </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Egyszerű, átlátható lépések az eredményig
-            </p>
-          </motion.div>
+      <Section id="packages" aria-labelledby="packages-title">
+        <SectionIntro
+          id="packages-title"
+          title="Három módon dolgozhatunk együtt"
+          lead="Árat a konzultáció után adunk, írásban, mert a terjedelem a céged helyzetétől függ. A csomagok azt mutatják meg, mekkora munkáról beszélünk."
+        />
+        <div className="mt-14 lg:mt-24">
+          <PricingTiers />
+        </div>
+        <ButtonLink href="/packages" variant="quiet" className="mt-6">
+          A csomagok részletesen
+        </ButtonLink>
+      </Section>
 
-          <div className="relative max-w-5xl mx-auto">
-            {/* Connection line - hidden on mobile */}
-            <div className="hidden md:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#2DD4BF]/50 to-transparent" />
-            
-            <div className="grid md:grid-cols-4 gap-8 relative">
-              {[
-                {
-                  step: "01",
-                  title: "Konzultáció",
-                  description: "Megbeszéljük a célokat, vállalkozásod arculatát és igényeidet, hogy tökéletesen megértsük a víziódat.",
-                },
-                {
-                  step: "02",
-                  title: "Tervezés és fejlesztés",
-                  description: "Csapatunk egyedi dizájnt készít és modern technológiákkal építi fel a weboldaladat.",
-                },
-                {
-                  step: "03",
-                  title: "Tesztelés és visszajelzés",
-                  description: "Átnézed a weboldalt, visszajelzést adsz, mi pedig finomítjuk a részleteket.",
-                },
-                {
-                  step: "04",
-                  title: "Indítás és támogatás",
-                  description: "Elindítjuk a weboldaladat és biztosítjuk, hogy minden tökéletesen működjön.",
-                },
-              ].map((process, index) => (
-                <motion.div
-                  key={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-100px" }}
-                  variants={fadeInUp}
-                  className="text-center relative"
-                >
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#2DD4BF] to-[#F2A93B] text-white flex items-center justify-center text-xl font-bold mx-auto mb-4 relative z-10 shadow-lg shadow-[#2DD4BF]/30">
-                    {process.step}
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-2">
-                    {process.title}
-                  </h3>
-                  <p className="text-gray-400">{process.description}</p>
-                </motion.div>
-              ))}
+      <Section id="process" tone="raised" aria-labelledby="process-title">
+        <SectionIntro
+          id="process-title"
+          title="Három munkanap az első élő változatig"
+          lead="Gyorsan dolgozunk, de nem kapkodva: a konzultáción mindent összegyűjtünk, ami kell, így a munkanapokat építésre fordítjuk, nem várakozásra."
+        />
+        <div className="mt-14 lg:mt-16">
+          <ProcessTimeline steps={PROCESS_STEPS} showDetails={false} />
+        </div>
+        <ButtonLink href="/folyamat" variant="quiet" className="mt-12">
+          A teljes folyamat
+        </ButtonLink>
+      </Section>
+
+      <Section id="about" aria-labelledby="about-title">
+        <SectionIntro
+          id="about-title"
+          title="Stúdió, nem futószalag"
+          lead="Kis csapatként dolgozunk, szándékosan. Így minden projektet ugyanazok visznek végig a konzultációtól az élesítésig."
+        />
+        <ul className="mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:mt-16 lg:gap-x-16 lg:gap-y-14">
+          {PRINCIPLES.map((principle) => (
+            <li key={principle.title} className="border-t border-rule pt-6">
+              <h3 className="type-h3">{principle.title}</h3>
+              <p className="measure mt-3 text-fog">{principle.text}</p>
+            </li>
+          ))}
+        </ul>
+        <ButtonLink href="/rolunk" variant="quiet" className="mt-12">
+          Bővebben a stúdióról
+        </ButtonLink>
+      </Section>
+
+      <Section id="faq" tone="raised" aria-labelledby="faq-title">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-28">
+              <h2 id="faq-title" className="type-h2">
+                Gyakori kérdések
+              </h2>
+              <ButtonLink href="/gyik" variant="quiet" className="mt-6">
+                Az összes kérdés
+              </ButtonLink>
             </div>
           </div>
+          <div className="lg:col-span-7 lg:col-start-6">
+            <FAQAccordion items={FAQ_ITEMS.slice(0, 5)} />
+          </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Technológia Section */}
-      <section id="tech-stack" className="py-20 relative z-10">
-        <div className="container-custom">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 text-[#2DD4BF] mb-4">
-              <Code2 className="w-5 h-5" strokeWidth={1.75} />
-              <span className="text-sm font-semibold uppercase tracking-wide">Technológia</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Amivel a weboldalad épül
+      <Section id="contact" aria-labelledby="contact-title">
+        <div className="grid gap-14 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-6 lg:pr-10">
+            <h2 id="contact-title" className="type-h2">
+              Beszéljünk a te weboldaladról.
             </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Nem drag-and-drop sablonrendszerrel dolgozunk – valódi kóddal építjük a weboldalad, ami gyorsabb és tovább bírja
+            <p className="type-lead measure mt-5">
+              Foglalj egy online konzultációt, vagy írj pár sort, és egy munkanapon belül válaszolunk.
             </p>
-          </motion.div>
+            <ButtonLink href="/book" size="lg" className="mt-9">
+              Konzultációt foglalok
+            </ButtonLink>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto"
-          >
-            {[
-              {
-                name: "Next.js",
-                description: "Szerveroldali renderelés a gyors betöltéshez és jobb Google-helyezéshez.",
-              },
-              {
-                name: "React",
-                description: "Komponensalapú felépítés, ami könnyen bővíthető és karbantartható.",
-              },
-              {
-                name: "TypeScript",
-                description: "Típusbiztos kód, ami már fejlesztés közben kiszűri a hibákat.",
-              },
-              {
-                name: "Tailwind CSS",
-                description: "Egyedi design minden projekthez, nem előre gyártott sablon-komponensek.",
-              },
-              {
-                name: "Framer Motion",
-                description: "Finomra hangolt animációk, amik nem lassítják az oldal betöltését.",
-              },
-              {
-                name: "Convex",
-                description: "Valós idejű adatkezelés a dinamikus tartalmakhoz, mint a galéria vagy a foglalások.",
-              },
-            ].map((tech, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <div className="h-full bg-[#17151C] border border-[rgba(255,255,255,0.1)] rounded-2xl p-6 hover:border-[#2DD4BF]/50 transition-all duration-300">
-                  <p className="font-mono text-lg font-bold text-[#F3EFE6] mb-2">{tech.name}</p>
-                  <p className="text-sm text-gray-400 leading-relaxed">{tech.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Csomagok Section */}
-      <section id="packages" className="py-20 relative bg-gray-900/30 z-10">
-        <div className="container-custom">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Válaszd ki a csomagod
-            </h2>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-              Minden vállalkozásnak megfelelő megoldás
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                name: "Starter",
-                description: "Kisebb vállalkozásoknak és egyéni vállalkozóknak.",
-                features: [
-                  "Egy oldalas design",
-                  "Mobilbarát verzió",
-                  "Kapcsolati űrlap",
-                  "Alap SEO beállítás",
-                  "3 napos szállítás",
-                ],
-                highlighted: false,
-              },
-              {
-                name: "Profi",
-                description: "Növekvő vállalkozásoknak, akik több oldalra és funkcióra van szükségük.",
-                features: [
-                  "3-5 oldalas weboldal",
-                  "Egyedi design",
-                  "CMS integráció",
-                  "Fejlett SEO",
-                  "Analytics beállítás",
-                  "Egyedi animációk",
-                  "3 napos szállítás",
-                ],
-                highlighted: true,
-              },
-              {
-                name: "Prémium",
-                description: "Kialakult vállalkozásoknak, akik komplex megoldást keresnek.",
-                features: [
-                  "7-10 oldalas weboldal",
-                  "Teljes SEO optimalizálás",
-                  "Egyedi integrációk",
-                  "Prémium animációk",
-                  "Folyamatos támogatás",
-                  "3 napos szállítás",
-                ],
-                highlighted: false,
-              },
-            ].map((pkg, index) => (
-              <motion.div
-                key={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                variants={fadeInUp}
-              >
-                <Card
-                  className={`h-full transition-all duration-500 group relative overflow-hidden ${
-                    pkg.highlighted
-                      ? "border-2 border-[#2DD4BF] shadow-xl shadow-[#2DD4BF]/20"
-                      : "border-gray-800"
-                  } hover:-translate-y-2 hover:border-[#2DD4BF]`}
-                >
-                  {pkg.highlighted && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#2DD4BF]/10 via-transparent to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  )}
-                  {!pkg.highlighted && (
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#2DD4BF]/5 via-transparent to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  )}
-                  <div className="relative z-10">
-                    <CardHeader>
-                      <CardTitle className={`text-2xl ${!pkg.highlighted ? 'group-hover:text-[#2DD4BF] transition-colors' : ''}`}>{pkg.name}</CardTitle>
-                      <CardDescription className="text-base mt-2">
-                        {pkg.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                    <ul className="space-y-3 mb-6">
-                      {pkg.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <Check className="w-5 h-5 text-[#2DD4BF] flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-300">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <CTAButton
-                      href="/kapcsolat"
-                      variant={pkg.highlighted ? "primary" : "secondary"}
-                      className="w-full"
-                    >
-                      Érdekel ez a csomag
-                    </CTAButton>
-                    </CardContent>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+            <dl className="mt-12 border-t border-rule">
+              <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 border-b border-rule py-4">
+                <dt className="text-fog">Telefon</dt>
+                <dd>
+                  <a href={`tel:${CONTACT.phoneHref}`} className={contactLinkClasses}>
+                    {CONTACT.phone}
+                  </a>
+                </dd>
+              </div>
+              <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-1 border-b border-rule py-4">
+                <dt className="text-fog">E-mail</dt>
+                <dd>
+                  <a href={`mailto:${CONTACT.email}`} className={contactLinkClasses}>
+                    {CONTACT.email}
+                  </a>
+                </dd>
+              </div>
+            </dl>
           </div>
 
-          {/* További csomagok gomb */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="text-center mt-12"
-          >
-            <CTAButton
-              href="/packages"
-              variant="secondary"
-              className="text-base px-8 py-4"
-            >
-              További csomagok megtekintése
-            </CTAButton>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Rólunk Section */}
-      <section id="about" className="py-20 relative z-10">
-        <div className="container-custom max-w-4xl">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="text-center"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Rólunk
-            </h2>
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-              Célunk, hogy vállalkozásod online jelenléte olyan legyen, ami valóban értékes ügyfeleket hoz.
-              Nem csak weboldalt készítünk, hanem <span className="text-[#2DD4BF] font-semibold">eredményt építünk</span>.
-              <br /><br />
-              Tapasztalt csapatunk minden projektet egyedi figyelemmel kezel, és az üzleti célokra fókuszálva
-              dolgozik. Megbízható partnere vagyunk a sikeres online megjelenéshez.
-            </p>
-            <div className="mt-8">
-              <CTAButton href="/rolunk" variant="secondary" className="text-base px-8 py-4">
-                Ismerd meg a csapatot
-              </CTAButton>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* GYIK Section */}
-      <section id="faq" className="py-20 relative bg-gray-900/30 z-10">
-        <div className="container-custom max-w-4xl">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Gyakran Ismételt Kérdések
-            </h2>
-            <p className="text-lg text-gray-400">
-              Válaszok a leggyakrabban feltett kérdésekre
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-          >
-            <FAQAccordion
-              items={[
-                {
-                  question: "Mi kell tőled?",
-                  answer: "Logo fájlok, márkaszinvek (ha vannak), szövegek/tartalom, és bármilyen specifikus követelmény. Szükség esetén segítünk tartalmat szerezni is.",
-                },
-                {
-                  question: "Mennyi idő alatt készül el a weboldal?",
-                  answer: "A Nexen Sites weboldal készítés 3 nap alatt készül el. Fix határidővel dolgozunk, garantálva a minőséget.",
-                },
-                {
-                  question: "Mi van, ha változtatni szeretnék?",
-                  answer: "Egy javítási kört tartalmazunk a design fázisban, és ésszerű változtatásokat tudunk alkalmazni a fejlesztés során. Nagyobb scope változások meghosszabbíthatják a határidőt.",
-                },
-                {
-                  question: "Foglalkoztok a szövegekkel?",
-                  answer: "Igen, finomhangoljuk és optimalizáljuk a szövegeidet a wireframe fázisban. Ha még nincsenek szövegeid, veled együtt készítjük el őket.",
-                },
-                {
-                  question: "Integrálhattok eszközöket?",
-                  answer: "Igen, integrálhatunk gyakori eszközöket, mint kapcsolati űrlapok, analytics, foglalási rendszerek stb. Összetett integrációk kiegészítőként elérhetőek.",
-                },
-              ]}
-            />
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="text-center mt-12"
-          >
-            <CTAButton
-              href="/gyik"
-              variant="secondary"
-              className="text-base px-8 py-4"
-            >
-              További kérdések megtekintése
-            </CTAButton>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Kapcsolat Section */}
-      <section id="contact" className="py-20 pb-32 relative bg-gray-900/30 z-10">
-        <div className="container-custom max-w-4xl">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeInUp}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Lépj kapcsolatba velünk
-            </h2>
-            <p className="text-lg text-gray-400">
-              Készen állsz a projekted elkezdésére? Beszéljük meg!
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={fadeInUp}
-            >
+          <div className="lg:col-span-6 lg:col-start-7">
+            <div className="rounded-[1.25rem] border border-rule bg-graphite-raised p-6 sm:p-8 lg:p-10">
+              <h3 className="type-h3">Írj pár sort</h3>
               <ContactForm />
-            </motion.div>
-
-            {/* Contact Info */}
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={fadeInUp}
-              className="space-y-6"
-            >
-              <div>
-                <h3 className="text-xl font-semibold text-white mb-4">
-                  Elérhetőségek
-                </h3>
-                <div className="space-y-4 text-gray-300">
-                  <div>
-                    <p className="font-semibold mb-1 text-white">Email</p>
-                    <a
-                      href="mailto:verdung.imi@gmail.com"
-                      className="text-[#2DD4BF] hover:text-[#4098cc] transition-colors"
-                    >
-                      verdung.imi@gmail.com
-                    </a>
-                  </div>
-                  <div>
-                    <p className="font-semibold mb-1 text-white">Telefon</p>
-                    <a
-                      href="tel:+36705767845"
-                      className="text-[#2DD4BF] hover:text-[#4098cc] transition-colors"
-                    >
-                      +36 70 576 7845
-                    </a>
-                  </div>
-                  <div>
-                    <p className="font-semibold mb-1 text-white">Helyszín</p>
-                    <p className="text-gray-400">Kecskemét, Magyarország</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            </div>
           </div>
         </div>
-      </section>
+      </Section>
     </>
   );
 }
