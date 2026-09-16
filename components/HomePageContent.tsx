@@ -33,11 +33,11 @@ const contactLinkClasses =
 
 function Hero() {
   return (
-    <section className="bg-graphite pb-20 pt-32 sm:pb-24 sm:pt-40 lg:pb-28">
+    <section className="bg-graphite pb-20 pt-32 sm:pb-24 sm:pt-40 lg:pb-28 lg:pt-32">
       <Container>
         <h1 className="type-display max-w-5xl">Olyan weboldal, ami az áraidhoz illik.</h1>
 
-        <div className="mt-10 grid gap-14 sm:mt-12 lg:grid-cols-12 lg:gap-8 xl:gap-12">
+        <div className="mt-10 grid gap-14 sm:mt-12 lg:mt-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
           <div className="lg:col-span-5">
             <p className="type-lead measure">
               A jól fizető ügyfél rád keres, mielőtt felhívna. Ha az oldalad olcsóbbnak mutat, mint amilyen a munkád, a

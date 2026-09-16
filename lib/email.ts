@@ -289,3 +289,84 @@ Igazold vissza az időpontot e-mailben vagy telefonon, és küldd el a konzultá
 
   return { subject, text, html };
 }
+
+/** Contact form e-mail (nexensites.hu /kapcsolat and the home page contact block). */
+export function formatContactEmail(data: {
+  name: string;
+  email: string;
+  phone?: string;
+  message: string;
+  subject?: string;
+}) {
+  const source = "Nexen Sites weboldal";
+  const subject = data.subject || `Kapcsolatfelvétel - ${data.name}`;
+
+  const text = `
+KAPCSOLATFELVÉTEL (${source})
+
+═══════════════════════════════════════
+KÜLDŐ
+═══════════════════════════════════════
+
+Név: ${data.name}
+E-mail: ${data.email}
+${data.phone ? `Telefonszám: ${data.phone}\n` : ""}
+═══════════════════════════════════════
+ÜZENET
+═══════════════════════════════════════
+
+${data.message}
+`;
+
+  const name = escapeHtml(data.name);
+  const email = escapeHtml(data.email);
+  const linkStyle = `color:${C.graphite};text-decoration:underline;text-decoration-color:${C.brass};`;
+
+  const senderRows = [
+    htmlRow("Név", name),
+    htmlRow("E-mail", `<a href="mailto:${email}" style="${linkStyle}">${email}</a>`),
+    data.phone
+      ? htmlRow(
+          "Telefonszám",
+          `<a href="tel:${escapeHtml(data.phone.replace(/[^\d+]/g, ""))}" style="${linkStyle}">${escapeHtml(data.phone)}</a>`
+        )
+      : "",
+  ].join("");
+
+  const html = `<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${escapeHtml(subject)}</title>
+</head>
+<body style="margin:0;padding:0;background-color:${C.bone};font-family:${FONT};color:${C.graphite};">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:${C.bone};">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;background-color:${C.paper};border-collapse:collapse;">
+          <tr>
+            <td style="background-color:${C.graphite};padding:28px 32px;border-bottom:3px solid ${C.brass};">
+              <p style="margin:0;font-size:14px;line-height:1.4;color:${C.fog};">${escapeHtml(source)}</p>
+              <h1 style="margin:6px 0 0 0;font-size:24px;line-height:1.2;color:${C.bone};font-weight:700;">Új üzenet</h1>
+              <p style="margin:8px 0 0 0;font-size:16px;line-height:1.4;color:${C.bone};">${name}</p>
+            </td>
+          </tr>
+          ${htmlSection("Küldő", senderRows)}
+          <tr>
+            <td style="padding:28px 32px 32px 32px;">
+              <h2 style="margin:0 0 8px 0;font-size:16px;line-height:1.3;color:${C.graphite};font-weight:700;">Üzenet</h2>
+              <div style="border-top:1px solid ${C.rule};padding-top:12px;color:${C.graphite};font-size:15px;line-height:1.6;white-space:pre-wrap;">${escapeHtml(data.message)}</div>
+            </td>
+          </tr>
+        </table>
+        <p style="margin:16px 0 0 0;font-size:12px;line-height:1.5;color:${C.label};">A levél automatikusan készült a nexensites.hu kapcsolati űrlapjából.</p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+`;
+
+  return { subject, text, html };
+}

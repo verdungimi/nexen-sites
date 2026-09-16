@@ -74,6 +74,12 @@ const SECTIONS: LegalSection[] = [
           végzi el.
         </p>
         <p>
+          Ha a Megrendelő az első működő változat átadását követő 14 napon belül sem javítást nem kér, sem a weboldalt
+          nem hagyja jóvá, a Szolgáltató e-mailben felszólítja a nyilatkozattételre. Ha a Megrendelő a felszólítást
+          követő 8 napon belül sem nyilatkozik, a weboldal jóváhagyottnak minősül, és a végösszeg hátralévő része
+          esedékessé válik.
+        </p>
+        <p>
           A fizetés banki átutalással vagy számlafizetéssel történik. A számlát a Szolgáltató elektronikusan állítja ki
           és küldi meg.
         </p>
@@ -144,12 +150,15 @@ const SECTIONS: LegalSection[] = [
     content: (
       <>
         <p>
-          A Megrendelő a szerződés megkötését követő 14 napon belül indoklás nélkül elállhat a szerződéstől. Ebben az
-          esetben a Szolgáltató a már kifizetett előleget visszatéríti.
+          A Megrendelő a szerződés megkötését követő 14 napon belül indoklás nélkül elállhat a szerződéstől. Ha a munka
+          ekkor még nem kezdődött meg, a Szolgáltató a már kifizetett előleget visszatéríti.
         </p>
         <p>
-          Ha a munka a Megrendelő kérésére már megkezdődött, a Szolgáltató a már elvégzett munkáért arányosan
-          számlázhat.
+          Ha a munka a Megrendelő kérésére már megkezdődött, a megfizetett előleg nem jár vissza.
+        </p>
+        <p>
+          Fogyasztónak minősülő Megrendelő esetén a fogyasztó és a vállalkozás közötti szerződésekre vonatkozó
+          jogszabályok kötelező rendelkezései az irányadók.
         </p>
       </>
     ),

@@ -84,10 +84,31 @@ const SECTIONS: LegalSection[] = [
     id: "adatfeldolgozok",
     title: "5. Adattovábbítás és adatfeldolgozók",
     content: (
-      <p>
-        Az adatokat harmadik félnek nem továbbítjuk, kivéve, ha azt jogszabály írja elő. Az adatok tárolásához
-        adatfeldolgozókat vehetünk igénybe (például tárhelyszolgáltatót), akikkel adatfeldolgozási szerződést kötöttünk.
-      </p>
+      <>
+        <p>
+          Az adataidat nem adjuk el, és harmadik félnek csak akkor továbbítjuk, ha azt jogszabály írja elő. Az oldal
+          működtetéséhez az alábbi adatfeldolgozókat vesszük igénybe:
+        </p>
+        <ul>
+          <li>
+            <strong>Vercel Inc.</strong> (vercel.com): tárhely és az oldal kiszolgálása. A kérésekhez tartozó technikai
+            adatok, például az IP-cím, átmenetileg a szervernaplókban jelennek meg.
+          </li>
+          <li>
+            <strong>Resend</strong> (resend.com): a foglalási és a kapcsolati űrlapon megadott adatokat e-mailben
+            továbbítja nekünk.
+          </li>
+          <li>
+            <strong>Google Ireland Limited</strong> (Google Analytics): csak akkor, ha az analitikai cookie-khoz
+            hozzájárultál. Névtelenített IP-címmel mért látogatási statisztikákat kapunk.
+          </li>
+        </ul>
+        <p>
+          Ha valamelyik szolgáltató az Európai Gazdasági Térségen kívül kezel adatot, az adatok védelmét az adott
+          szolgáltató adatfeldolgozási feltételei (például az Európai Bizottság által elfogadott általános szerződési
+          feltételek) biztosítják.
+        </p>
+      </>
     ),
   },
   {
