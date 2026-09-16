@@ -60,7 +60,7 @@ export default function BookPage() {
                     {CONTACT.phone}
                   </a>{" "}
                   számon, vagy írj a{" "}
-                  <a href={`mailto:${CONTACT.email}`} className={`${linkClass} break-all`}>
+                  <a href={`mailto:${CONTACT.email}`} className={`${linkClass} whitespace-nowrap`}>
                     {CONTACT.email}
                   </a>{" "}
                   címre.

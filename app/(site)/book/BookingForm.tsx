@@ -404,14 +404,14 @@ export default function BookingForm() {
                       setSelectedTime(null);
                     }}
                     className={cn(
-                      "flex min-h-14 shrink-0 flex-col items-center justify-center rounded-full border px-4 py-2 text-center transition-colors duration-200",
+                      "flex min-h-16 min-w-[5.5rem] shrink-0 flex-col items-center justify-center gap-0.5 rounded-xl border px-3 py-2 text-center transition-colors duration-200",
                       isSelected
                         ? "border-brass bg-brass text-graphite"
                         : "border-rule bg-graphite text-bone hover:border-fog/60 hover:bg-graphite-strong"
                     )}
                   >
                     <span className="text-[0.8125rem] leading-tight">{dayWeekday(day)}</span>
-                    <span className="font-semibold leading-tight tabular-nums">{dayDate(day)}</span>
+                    <span className="whitespace-nowrap font-semibold leading-tight tabular-nums">{dayDate(day)}</span>
                   </button>
                 );
               })}

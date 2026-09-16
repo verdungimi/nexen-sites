@@ -11,7 +11,7 @@ const COLUMNS = [
       { href: "/packages", label: "Szolgáltatás" },
       { href: "/folyamat", label: "Folyamat" },
       { href: "/portfolio", label: "Munkáink" },
-      { href: "/#kalkulator", label: "Megtérülés-kalkulátor" },
+      { href: "/#kalkulator", label: "Kalkulátor" },
     ],
   },
   {
@@ -19,7 +19,7 @@ const COLUMNS = [
     links: [
       { href: "/rolunk", label: "Rólunk" },
       { href: "/blog", label: "Blog" },
-      { href: "/gyik", label: "Gyakori kérdések" },
+      { href: "/gyik", label: "GYIK" },
       { href: "/kapcsolat", label: "Kapcsolat" },
     ],
   },
@@ -50,7 +50,7 @@ export default function Footer() {
             </ButtonLink>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-3 lg:col-span-5">
+          <div className="grid gap-10 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-4 lg:gap-8">
             {COLUMNS.map((column) => (
               <div key={column.title}>
                 <h2 className="text-[0.9375rem] font-semibold text-bone">{column.title}</h2>
@@ -68,27 +68,27 @@ export default function Footer() {
                 </ul>
               </div>
             ))}
-          </div>
 
-          <div className="lg:col-span-3">
-            <h2 className="text-[0.9375rem] font-semibold text-bone">Elérhetőség</h2>
-            <address className="mt-4 space-y-1 not-italic">
-              <a href={`tel:${CONTACT.phoneHref}`} className="flex min-h-10 items-center text-fog transition-colors hover:text-bone">
-                {CONTACT.phone}
-              </a>
-              <a href={`mailto:${CONTACT.email}`} className="flex min-h-10 items-center break-all text-fog transition-colors hover:text-bone">
-                {CONTACT.email}
-              </a>
-              <p className="flex min-h-10 items-center text-fog">{CONTACT.city}</p>
-              <a
-                href={CONTACT.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex min-h-10 items-center text-fog transition-colors hover:text-bone"
-              >
-                Facebook
-              </a>
-            </address>
+            <div>
+              <h2 className="text-[0.9375rem] font-semibold text-bone">Elérhetőség</h2>
+              <address className="mt-4 space-y-1 not-italic">
+                <a href={`tel:${CONTACT.phoneHref}`} className="flex min-h-10 items-center whitespace-nowrap text-fog transition-colors hover:text-bone">
+                  {CONTACT.phone}
+                </a>
+                <a href={`mailto:${CONTACT.email}`} className="flex min-h-10 items-center text-fog transition-colors [overflow-wrap:anywhere] hover:text-bone">
+                  {CONTACT.email}
+                </a>
+                <p className="flex min-h-10 items-center text-fog">{CONTACT.city}</p>
+                <a
+                  href={CONTACT.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex min-h-10 items-center text-fog transition-colors hover:text-bone"
+                >
+                  Facebook
+                </a>
+              </address>
+            </div>
           </div>
         </div>
 
