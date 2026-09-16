@@ -29,6 +29,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nexensites.hu"),
+  title: "Nexen Sites",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },

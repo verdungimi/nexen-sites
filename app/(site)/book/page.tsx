@@ -33,8 +33,8 @@ export default function BookPage() {
   return (
     <section className="bg-graphite pb-20 pt-32 sm:pb-24 sm:pt-40 lg:pb-32">
       <Container>
-        <div className="grid gap-14 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-16">
-          <div className="lg:col-span-5">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-x-10 xl:gap-x-16">
+          <div className="min-w-0 lg:col-span-5">
             <div className="lg:[@media(min-height:50rem)]:sticky lg:[@media(min-height:50rem)]:top-32">
               <h1 className="type-h2">Foglalj egy online konzultációt</h1>
               <p className="type-lead measure mt-5">
@@ -69,7 +69,7 @@ export default function BookPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-6 lg:col-start-7">
+          <div className="min-w-0 lg:col-span-6 lg:col-start-7">
             <BookingForm />
           </div>
         </div>

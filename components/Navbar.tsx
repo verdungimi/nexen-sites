@@ -52,7 +52,11 @@ export default function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
-        scrolled || menuOpen ? "border-b border-rule/60 bg-graphite/85 backdrop-blur-md" : "border-b border-transparent"
+        menuOpen
+          ? "h-dvh overflow-y-auto border-b border-rule/60 bg-graphite lg:h-auto lg:overflow-visible"
+          : scrolled
+            ? "border-b border-rule/60 bg-graphite/85 backdrop-blur-md"
+            : "border-b border-transparent"
       )}
     >
       <a
