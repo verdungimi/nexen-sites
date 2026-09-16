@@ -51,7 +51,7 @@ export default function Footer() {
             </ButtonLink>
           </div>
 
-          <div className="grid gap-10 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-4 lg:gap-8">
+          <div className="grid gap-10 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-[repeat(3,minmax(0,1fr))_minmax(0,1.45fr)] lg:gap-8">
             {COLUMNS.map((column) => (
               <div key={column.title}>
                 <h2 className="text-[0.9375rem] font-semibold text-bone">{column.title}</h2>
@@ -81,7 +81,7 @@ export default function Footer() {
                 <a href={`tel:${CONTACT.phoneHref}`} className="flex min-h-10 items-center whitespace-nowrap text-fog transition-colors hover:text-bone">
                   {CONTACT.phone}
                 </a>
-                <a href={`mailto:${CONTACT.email}`} className="flex min-h-10 items-center text-fog transition-colors [overflow-wrap:anywhere] hover:text-bone">
+                <a href={`mailto:${CONTACT.email}`} className="flex min-h-10 items-center text-fog transition-colors hover:text-bone">
                   {CONTACT.email}
                 </a>
                 <p className="flex min-h-10 items-center text-fog">{CONTACT.city}</p>

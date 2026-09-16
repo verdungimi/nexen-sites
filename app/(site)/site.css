@@ -24,6 +24,8 @@
   }
 
   html {
+    /* framer-motion measures scroll offsets against the document; it must not be static */
+    position: relative;
     background-color: rgb(var(--graphite));
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
