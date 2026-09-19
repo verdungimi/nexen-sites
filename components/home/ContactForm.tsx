@@ -4,6 +4,8 @@ import { useId, useRef, useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import Link from "next/link";
 import { Button } from "@/components/site/Button";
+import EmailSuggestion from "@/components/site/EmailSuggestion";
+import { validateEmail } from "@/lib/validation";
 
 type Field = "name" | "email" | "message";
 type Values = Record<Field, string>;
@@ -11,7 +13,6 @@ type Errors = Partial<Record<Field, string>>;
 
 const FIELDS: Field[] = ["name", "email", "message"];
 const EMPTY: Values = { name: "", email: "", message: "" };
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Same clean-up and limits as app/api/contact/route.ts, so the form catches mistakes before sending.
 const clean = (value: string) => value.trim().replace(/[<>]/g, "");
@@ -21,7 +22,7 @@ function validateField(field: Field, values: Values): string | undefined {
   if (field === "name" && value.length < 2) return "Add meg a neved, legalább 2 karakterrel.";
   if (field === "email") {
     if (!value) return "Add meg az e-mail címed, hogy válaszolni tudjunk.";
-    if (!EMAIL_PATTERN.test(value)) return "Ez nem tűnik érvényes e-mail címnek.";
+    if (!validateEmail(value)) return "Adj meg érvényes e-mail-címet, például nev@cegnev.hu.";
   }
   if (field === "message" && value.length < 10) return "Írj legalább 10 karaktert, hogy tudjuk, miben segíthetünk.";
   return undefined;
@@ -45,6 +46,7 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
   const [serverError, setServerError] = useState("");
+  const [emailLeft, setEmailLeft] = useState(false);
   const refs = {
     name: useRef<HTMLInputElement>(null),
     email: useRef<HTMLInputElement>(null),
@@ -144,7 +146,14 @@ export default function ContactForm() {
           autoComplete="email"
           required
           value={values.email}
-          onChange={handleChange}
+          onChange={(event) => {
+            setEmailLeft(false);
+            handleChange(event);
+          }}
+          onBlur={() => {
+            setEmailLeft(true);
+            if (values.email.trim()) setErrors((current) => ({ ...current, email: validateField("email", values) }));
+          }}
           aria-invalid={errors.email ? true : undefined}
           aria-describedby={describedBy("email")}
           className={fieldClasses}
@@ -154,6 +163,14 @@ export default function ContactForm() {
             {errors.email}
           </p>
         )}
+        <EmailSuggestion
+          email={values.email}
+          visible={emailLeft && !errors.email}
+          onApply={(corrected) => {
+            setValues((current) => ({ ...current, email: corrected }));
+            setEmailLeft(false);
+          }}
+        />
       </div>
 
       <div>

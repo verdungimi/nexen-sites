@@ -55,7 +55,7 @@ export default function PortfolioPage() {
         />
         <ul className="mt-14 grid gap-x-12 md:grid-cols-2 lg:grid-cols-3">
           {SECTORS.map((sector) => (
-            <li key={sector.title} className="border-t border-rule py-8">
+            <li key={sector.title} className="reveal border-t border-rule py-8">
               <h3 className="wdth-title text-xl font-semibold leading-snug">{sector.title}</h3>
               <p className="mt-3 text-fog">{sector.text}</p>
             </li>

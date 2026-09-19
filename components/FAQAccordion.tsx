@@ -26,7 +26,7 @@ export default function FAQAccordion({ items, defaultOpen = 0 }: FAQAccordionPro
         const panelId = `${baseId}-a-${index}`;
 
         return (
-          <div key={item.question} className="border-b border-rule">
+          <div key={item.question} className="reveal border-b border-rule">
             <h3>
               <button
                 id={buttonId}

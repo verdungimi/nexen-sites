@@ -69,7 +69,7 @@ export default function RolunkPage() {
         <SectionIntro id="ahogy-dolgozunk" title="Ahogy dolgozunk" />
         <ul className="mt-14 grid gap-x-12 md:grid-cols-2 lg:gap-x-20">
           {PRINCIPLES.map((principle) => (
-            <li key={principle.title} className="border-t border-rule py-8">
+            <li key={principle.title} className="reveal border-t border-rule py-8">
               <h3 className="type-h3">{principle.title}</h3>
               <p className="measure mt-3 text-fog">{principle.text}</p>
             </li>
@@ -84,7 +84,7 @@ export default function RolunkPage() {
           </div>
           <ul className="border-b border-rule lg:col-span-6 lg:col-start-7">
             {NOT_FOR_US.map((item) => (
-              <li key={item.title} className="border-t border-rule py-7">
+              <li key={item.title} className="reveal border-t border-rule py-7">
                 <h3 className="type-h3">{item.title}</h3>
                 <p className="mt-3 text-fog">{item.text}</p>
               </li>

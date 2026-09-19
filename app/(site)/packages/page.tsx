@@ -65,7 +65,7 @@ export default function PackagesPage() {
           </h2>
           <dl className="grid gap-x-10 sm:grid-cols-2 lg:col-span-7 lg:col-start-6">
             {INCLUDED.map((item) => (
-              <div key={item.term} className="border-t border-rule pb-8 pt-6">
+              <div key={item.term} className="reveal border-t border-rule pb-8 pt-6">
                 <dt className="wdth-title text-xl font-semibold leading-snug">{item.term}</dt>
                 <dd className="mt-2 text-fog">{item.text}</dd>
               </div>

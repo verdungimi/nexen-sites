@@ -81,7 +81,7 @@ export default function KapcsolatPage() {
               {rows.map((row) => (
                 <div
                   key={row.term}
-                  className="grid gap-x-6 border-t border-rule py-3 sm:grid-cols-[8rem_1fr] sm:items-baseline lg:grid-cols-1 xl:grid-cols-[8rem_1fr]"
+                  className="reveal grid gap-x-6 border-t border-rule py-3 sm:grid-cols-[8rem_1fr] sm:items-baseline lg:grid-cols-1 xl:grid-cols-[8rem_1fr]"
                 >
                   <dt className="pt-2 text-fog sm:pt-0 lg:pt-2 xl:pt-0">{row.term}</dt>
                   <dd className="min-w-0">{row.detail}</dd>

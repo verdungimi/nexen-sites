@@ -91,6 +91,7 @@ export default function SiteRootLayout({
     <html lang="hu" className={archivo.variable}>
       <body className="flex min-h-screen flex-col">
         <ConvexProviderWrapper>
+          <div className="scroll-progress" aria-hidden="true" />
           <GoogleAnalytics />
           <StructuredData />
           <Navbar />

@@ -76,7 +76,7 @@ export default function FolyamatPage() {
         />
         <ul className="mt-14 grid gap-x-12 sm:grid-cols-2 lg:gap-x-20">
           {WHAT_WE_NEED.map((item) => (
-            <li key={item.title} className="border-t border-rule py-8">
+            <li key={item.title} className="reveal border-t border-rule py-8">
               <h3 className="type-h3">{item.title}</h3>
               <p className="measure mt-3 text-fog">{item.text}</p>
             </li>
@@ -94,7 +94,7 @@ export default function FolyamatPage() {
           <div className="lg:col-span-7 lg:col-start-6">
             <div className="grid gap-x-12 sm:grid-cols-2">
               {PAYMENT.map((item) => (
-                <div key={item.title} className="border-t border-rule py-8">
+                <div key={item.title} className="reveal border-t border-rule py-8">
                   <h3 className="type-h3">{item.title}</h3>
                   <p className="mt-3 text-fog">{item.text}</p>
                 </div>

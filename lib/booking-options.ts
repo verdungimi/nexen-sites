@@ -5,14 +5,17 @@
 export interface BookingOption {
   value: string;
   label: string;
+  /** Short explanation shown under the label when the option is rendered as a card */
+  description?: string;
 }
 
-/** Visitor's annual company revenue (qualifying question). */
+/** Visitor's annual company revenue (qualifying question). Bands are small on purpose: most clients are small firms. */
 export const REVENUE_OPTIONS = [
-  { value: "under-50m", label: "50 millió Ft alatt" },
-  { value: "50-200m", label: "50–200 millió Ft" },
-  { value: "200m-1b", label: "200 millió – 1 milliárd Ft" },
-  { value: "over-1b", label: "1 milliárd Ft felett" },
+  { value: "under-10m", label: "10 millió Ft alatt" },
+  { value: "10-30m", label: "10–30 millió Ft" },
+  { value: "30-100m", label: "30–100 millió Ft" },
+  { value: "100-300m", label: "100–300 millió Ft" },
+  { value: "over-300m", label: "300 millió Ft felett" },
   { value: "no-answer", label: "Nem szeretném megadni" },
 ] as const satisfies readonly BookingOption[];
 
@@ -26,17 +29,17 @@ export const BUDGET_OPTIONS = [
 ] as const satisfies readonly BookingOption[];
 
 export const PURPOSE_OPTIONS = [
-  { value: "new-site", label: "Új weboldal (most nincs, vagy teljesen elavult)" },
-  { value: "redesign", label: "A mostani oldal újratervezése" },
-  { value: "landing", label: "Landing oldal hirdetéshez vagy szolgáltatáshoz" },
-  { value: "growth", label: "Folyamatos ügyfélszerzés (oldal, landingek, gondozás)" },
-  { value: "unknown", label: "Még nem tudom" },
+  { value: "new-site", label: "Új weboldal", description: "Most nincs, vagy teljesen elavult az oldalad." },
+  { value: "redesign", label: "A mostani oldal újratervezése", description: "Van oldalad, de nem hoz annyi ajánlatkérést, mint kellene." },
+  { value: "landing", label: "Landing oldal", description: "Egy szolgáltatásra vagy hirdetésre épített, egyoldalas weboldal." },
+  { value: "growth", label: "Folyamatos ügyfélszerzés", description: "Oldal, hirdetésekhez illő landingek és havi gondozás együtt." },
+  { value: "unknown", label: "Még nem tudom", description: "A konzultáción együtt kitaláljuk." },
 ] as const satisfies readonly BookingOption[];
 
 export const DEADLINE_OPTIONS = [
-  { value: "asap", label: "Amint lehet" },
-  { value: "1-2weeks", label: "1–2 héten belül" },
-  { value: "1month+", label: "Egy hónapon belül vagy később" },
+  { value: "asap", label: "Amint lehet", description: "A következő hetekben szeretnél élesíteni." },
+  { value: "1-2weeks", label: "1–2 héten belül", description: "Van egy célnap, de van néhány napod előkészülni." },
+  { value: "1month+", label: "Egy hónapon belül vagy később", description: "Először csak tájékozódsz, nem sürgős." },
 ] as const satisfies readonly BookingOption[];
 
 /** Consultation start times offered on every weekday (Hungarian time). */
