@@ -7,6 +7,7 @@ import PricingTiers from "@/components/site/PricingTiers";
 import ProcessTimeline from "@/components/site/ProcessTimeline";
 import RoiCalculator from "@/components/site/RoiCalculator";
 import Section from "@/components/site/Section";
+import { FloatingPaths } from "@/components/ui/floating-paths";
 import SectionIntro from "@/components/site/SectionIntro";
 import { FAQ_ITEMS, PRINCIPLES, PROCESS_STEPS } from "@/lib/content";
 import { CONTACT, CTA } from "@/lib/site";
@@ -33,8 +34,13 @@ const contactLinkClasses =
 
 function Hero() {
   return (
-    <section className="bg-graphite pb-20 pt-32 sm:pb-24 sm:pt-40 lg:pb-28 lg:pt-32">
-      <Container>
+    <section className="relative isolate overflow-hidden bg-graphite pb-20 pt-32 sm:pb-24 sm:pt-40 lg:pb-28 lg:pt-32">
+      {/* Decorative lines; they fade out toward the bottom so the hero blends into the next section */}
+      <FloatingPaths
+        position={1}
+        className="-z-10 [-webkit-mask-image:linear-gradient(to_bottom,black_55%,transparent)] [mask-image:linear-gradient(to_bottom,black_55%,transparent)]"
+      />
+      <Container className="relative">
         <h1 className="type-display max-w-5xl">Weboldalkészítés szolgáltató cégeknek</h1>
 
         <div className="mt-10 grid gap-14 sm:mt-12 lg:mt-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
