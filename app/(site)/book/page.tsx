@@ -6,7 +6,7 @@ import BookingForm from "./BookingForm";
 export const metadata: Metadata = {
   title: "Konzultáció foglalása",
   description:
-    "Foglalj egy online konzultációt: átnézzük a céged helyzetét és a mostani weboldaladat. A beszélgetés után írásos ajánlatot kapsz, ha van értelme együtt dolgozni.",
+    "Foglalj online konzultációt: átnézzük a céged helyzetét és a mostani weboldaladat, utána írásos ajánlatot kapsz, ha van értelme.",
   alternates: {
     canonical: "/book",
   },

@@ -17,12 +17,12 @@ const archivo = Archivo({
 });
 
 const DESCRIPTION =
-  "Weboldalak bejáratott szolgáltató cégeknek, akiknek a munkája prémium, de a weboldaluk még nem. Az első működő változatot 3 munkanap alatt látod, a végösszeget jóváhagyás után fizeted.";
+  "Weboldalkészítés bejáratott szolgáltató cégeknek: az első működő változat 3 munkanap alatt kész, a végösszeget jóváhagyás után fizeted.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Nexen Sites – Weboldal, ami az áraidhoz illik",
+    default: "Weboldalkészítés szolgáltató cégeknek | Nexen Sites",
     template: "%s | Nexen Sites",
   },
   description: DESCRIPTION,

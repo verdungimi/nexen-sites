@@ -4,6 +4,8 @@
 export interface BlogPost {
   slug: string;
   title: string;
+  /** Shorter text for the <title> tag (the site adds " | Nexen Sites", so keep this under ~44 characters) */
+  seoTitle?: string;
   /** Short summary for the list page and the meta description */
   excerpt: string;
   /** ISO date (YYYY-MM-DD) */
@@ -17,6 +19,7 @@ const POSTS: Omit<BlogPost, "readMinutes">[] = [
   {
     slug: "3-napos-weboldal-keszites-hogyan-mukodik",
     title: "3 napos weboldal-készítés: így néz ki a folyamat a gyakorlatban",
+    seoTitle: "3 napos weboldalkészítés: így zajlik",
     excerpt:
       "Konzultáció, szerkezet és szöveg, design, első élő változat, jóváhagyás. Megmutatjuk, mi történik a 3 munkanap alatt, és mi kell hozzá tőled.",
     date: "2024-12-15",
@@ -64,8 +67,9 @@ const POSTS: Omit<BlogPost, "readMinutes">[] = [
   {
     slug: "landing-page-vagy-tobb-oldalas-weboldal-melyiket-valasszam",
     title: "Landing page vagy több oldalas weboldal: melyiket válaszd?",
+    seoTitle: "Landing page vagy többoldalas weboldal?",
     excerpt:
-      "Egyetlen oldal egyetlen céllal, vagy teljes céges bemutatkozás több aloldallal? Megmutatjuk, mikor melyik hoz több ajánlatkérést egy szolgáltató cégnek.",
+      "Egyetlen oldal egyetlen céllal, vagy teljes céges bemutatkozás több aloldallal? Megmutatjuk, mikor melyik hoz több ajánlatkérést.",
     date: "2024-12-10",
     keywords: ["landing page", "több oldalas weboldal", "egyoldalas weboldal", "céges weboldal", "weboldal tervezés"],
     content: `
@@ -105,8 +109,9 @@ const POSTS: Omit<BlogPost, "readMinutes">[] = [
   {
     slug: "seo-optimalizalas-modern-weboldalhoz-tippek",
     title: "SEO-alapok céges weboldalhoz: amire tényleg érdemes figyelni",
+    seoTitle: "SEO-alapok céges weboldalhoz",
     excerpt:
-      "Gyors betöltés, jó mobilnézet, átlátható szerkezet, érthető szöveg és pontos Google cégprofil. Ezek az SEO-alapok számítanak egy szolgáltató cégnél, trükkök nélkül.",
+      "Gyors betöltés, jó mobilnézet, átlátható szerkezet, érthető szöveg és pontos Google cégprofil: az SEO-alapok egy szolgáltató cégnél, trükkök nélkül.",
     date: "2024-12-05",
     keywords: ["SEO optimalizálás", "weboldal SEO", "keresőoptimalizálás", "helyi SEO", "Google cégprofil"],
     content: `
@@ -149,8 +154,9 @@ const POSTS: Omit<BlogPost, "readMinutes">[] = [
   {
     slug: "mobilbarat-weboldal-keszites-mi-a-fontos",
     title: "Mobilbarát weboldal: mitől kérnek ajánlatot telefonról is?",
+    seoTitle: "Mobilbarát weboldal: ajánlatkérés telefonról",
     excerpt:
-      "Sok ügyfeled telefonon találkozik először a céged oldalával. Mitől lesz egy weboldal valóban kényelmes mobilon, és miért múlik ezen az ajánlatkérések száma?",
+      "Sok ügyfeled telefonon találkozik először a céged oldalával. Mitől lesz egy weboldal kényelmes mobilon, és miért múlik ezen az ajánlatkérések száma?",
     date: "2024-11-28",
     keywords: ["mobilbarát weboldal", "reszponzív weboldal", "mobil optimalizálás", "weboldal készítés"],
     content: `
@@ -202,8 +208,9 @@ const POSTS: Omit<BlogPost, "readMinutes">[] = [
   {
     slug: "premium-weboldal-keszites-aron-belul",
     title: "Mitől ér meg egy weboldal annyit, és mit kérdezz az árajánlatban?",
+    seoTitle: "Mitől ér meg egy weboldal annyit?",
     excerpt:
-      "Két weboldal-ajánlat között ritkán a design a valódi különbség. Megmutatjuk, mitől lesz egy weboldal befektetés, és mit érdemes megkérdezni, mielőtt döntesz.",
+      "Két weboldal-ajánlat között ritkán a design a valódi különbség. Megmutatjuk, mitől lesz egy weboldal befektetés, és mit kérdezz döntés előtt.",
     date: "2024-11-20",
     keywords: ["prémium weboldal", "weboldal árajánlat", "weboldal készítés", "weboldal megtérülése", "céges weboldal"],
     content: `
@@ -251,8 +258,9 @@ const POSTS: Omit<BlogPost, "readMinutes">[] = [
   {
     slug: "weboldal-keszites-budapest-tippek-es-trendek",
     title: "Weboldal-készítés budapesti cégeknek: mi működik a helyi piacon?",
+    seoTitle: "Weboldalkészítés budapesti cégeknek",
     excerpt:
-      "Nagy verseny, sok hasonló ajánlat, gyorsan döntő ügyfelek. Gyakorlati tanácsok budapesti szolgáltató cégeknek, hogy a weboldaluk kiemelkedjen a helyi keresésekben.",
+      "Nagy verseny, sok hasonló ajánlat, gyorsan döntő ügyfelek. Gyakorlati tanácsok budapesti szolgáltató cégeknek a helyi keresésekhez.",
     date: "2024-11-15",
     keywords: ["weboldal készítés Budapest", "helyi SEO", "budapesti cégek weboldala", "Google cégprofil", "céges weboldal"],
     content: `

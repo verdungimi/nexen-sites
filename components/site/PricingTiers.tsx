@@ -44,7 +44,7 @@ export default function PricingTiers({ headingLevel = "h3" }: { headingLevel?: "
               variant={tier.recommended ? "primary" : "secondary"}
               className="mt-8 w-full"
             >
-              Konzultációt foglalok
+              {tier.cta}
             </ButtonLink>
           </li>
         ))}

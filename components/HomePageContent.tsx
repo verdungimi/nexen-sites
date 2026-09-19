@@ -9,7 +9,7 @@ import RoiCalculator from "@/components/site/RoiCalculator";
 import Section from "@/components/site/Section";
 import SectionIntro from "@/components/site/SectionIntro";
 import { FAQ_ITEMS, PRINCIPLES, PROCESS_STEPS } from "@/lib/content";
-import { CONTACT } from "@/lib/site";
+import { CONTACT, CTA } from "@/lib/site";
 
 const HERO_FACTS = ["Az első működő változat 3 munkanap alatt", "A végösszeget a jóváhagyás után fizeted"];
 
@@ -35,7 +35,7 @@ function Hero() {
   return (
     <section className="bg-graphite pb-20 pt-32 sm:pb-24 sm:pt-40 lg:pb-28 lg:pt-32">
       <Container>
-        <h1 className="type-display max-w-5xl">Olyan weboldal, ami az áraidhoz illik.</h1>
+        <h1 className="type-display max-w-5xl">Weboldalkészítés szolgáltató cégeknek</h1>
 
         <div className="mt-10 grid gap-14 sm:mt-12 lg:mt-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
           <div className="lg:col-span-5">
@@ -46,7 +46,7 @@ function Hero() {
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3">
               <ButtonLink href="/book" size="lg">
-                Konzultációt foglalok
+                {CTA.hero}
               </ButtonLink>
               <ButtonLink href="/folyamat" variant="quiet">
                 Megnézem a folyamatot
@@ -141,7 +141,7 @@ export default function HomePageContent() {
         <SectionIntro
           id="about-title"
           title="Stúdió, nem futószalag"
-          lead="Kis csapatként dolgozunk, szándékosan. Így minden projektet ugyanazok visznek végig a konzultációtól az élesítésig."
+          lead="Kis csapatként végezzük a weboldalkészítést, szándékosan. Így minden projektet ugyanazok visznek végig a konzultációtól az élesítésig."
         />
         <ul className="mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:mt-16 lg:gap-x-16 lg:gap-y-14">
           {PRINCIPLES.map((principle) => (
@@ -184,7 +184,7 @@ export default function HomePageContent() {
               Foglalj egy online konzultációt, vagy írj pár sort, és egy munkanapon belül válaszolunk.
             </p>
             <ButtonLink href="/book" size="lg" className="mt-9">
-              Konzultációt foglalok
+              {CTA.contact}
             </ButtonLink>
 
             <dl className="mt-12 border-t border-rule">
@@ -209,7 +209,7 @@ export default function HomePageContent() {
 
           <div className="lg:col-span-6 lg:col-start-7">
             <div className="reveal-pop rounded-[1.25rem] border border-rule bg-graphite-raised p-6 sm:p-8 lg:p-10">
-              <h3 className="type-h3">Írj pár sort</h3>
+              <p className="type-h3">Írj pár sort</p>
               <ContactForm />
             </div>
           </div>

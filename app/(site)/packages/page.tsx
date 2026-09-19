@@ -6,9 +6,9 @@ import PricingTiers from "@/components/site/PricingTiers";
 import Section from "@/components/site/Section";
 
 export const metadata: Metadata = {
-  title: "Szolgáltatás",
+  title: "Weboldal csomagok szolgáltató cégeknek",
   description:
-    "Három módon dolgozhatunk együtt: bemutatkozó oldal, céges weboldal vagy növekedési csomag. Mindegyikben benne van a szövegírás, a mobilra tervezett design és az első élő változat 3 munkanap alatt. Árat a konzultáció után, írásban adunk.",
+    "Bemutatkozó oldal, céges weboldal vagy növekedési csomag: szövegírással, mobilra tervezve, az árajánlatot a konzultáció után kapod.",
   alternates: {
     canonical: "/packages",
   },
@@ -49,7 +49,7 @@ export default function PackagesPage() {
         lead="Mindhárom ugyanarra épül: szöveg a te ügyfeleid kérdéseire, a céged arculatára szabott design és első élő változat három munkanap alatt. A különbség a terjedelem."
         actions={
           <ButtonLink href="/book" size="lg">
-            Konzultációt foglalok
+            Ajánlatot kérek
           </ButtonLink>
         }
       />

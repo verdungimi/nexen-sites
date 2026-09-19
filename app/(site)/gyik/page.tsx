@@ -7,9 +7,9 @@ import FAQAccordion from "@/components/FAQAccordion";
 import { FAQ_ITEMS } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Gyakori kérdések",
+  title: "Gyakori kérdések a weboldalkészítésről",
   description:
-    "Válaszok a leggyakoribb kérdésekre: mennyi idő alatt készül el a weboldal, hogyan működik a fizetés, ki írja a szövegeket, és mi történik az átadás után.",
+    "Válaszok a leggyakoribb kérdésekre: mennyi idő alatt készül el a weboldal, hogyan működik a fizetés, és mi történik az átadás után.",
   alternates: {
     canonical: "/gyik",
   },
@@ -60,7 +60,7 @@ export default function GyikPage() {
               <p className="wdth-title text-xl font-semibold text-bone">Nem találod a választ?</p>
               <p className="mt-3 text-fog">A konzultáción minden kérdésedre válaszolunk, mielőtt bármiről döntenél.</p>
               <ButtonLink href="/book" variant="secondary" className="mt-6">
-                Konzultációt foglalok
+                Rákérdezek a konzultáción
               </ButtonLink>
             </div>
           </aside>

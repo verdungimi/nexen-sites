@@ -15,7 +15,7 @@ export const OG_IMAGE = {
   url: "/opengraph-image-12o0cb",
   width: 1200,
   height: 630,
-  alt: "Nexen Sites – Weboldal, ami az áraidhoz illik",
+  alt: "Nexen Sites – Weboldalkészítés szolgáltató cégeknek",
 };
 
 export const ORGANIZATION_DESCRIPTION =

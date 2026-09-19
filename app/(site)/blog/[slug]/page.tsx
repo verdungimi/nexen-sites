@@ -21,7 +21,7 @@ export function generateMetadata({ params }: BlogPostPageProps): Metadata {
 
   const path = `/blog/${post.slug}`;
   return {
-    title: post.title,
+    title: post.seoTitle ?? post.title,
     description: post.excerpt,
     keywords: post.keywords,
     alternates: { canonical: path },

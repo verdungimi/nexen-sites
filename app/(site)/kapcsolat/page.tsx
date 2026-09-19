@@ -66,7 +66,7 @@ export default function KapcsolatPage() {
         lead="Ha már tudod, hogy új weboldalt szeretnél, a leggyorsabb egy konzultáció. Ha csak kérdésed van, írj vagy hívj, egy munkanapon belül válaszolunk."
         actions={
           <ButtonLink href="/book" size="lg">
-            Konzultációt foglalok
+            Konzultációt kérek
           </ButtonLink>
         }
       />

@@ -792,7 +792,7 @@ function Phone({ t }: { t: Timing }) {
           Hőszivattyú telepítés, ahogy a házad megérdemli.
         </div>
         <div className="absolute isolate overflow-hidden" style={{ ...rect(9, 114, 94, 60, 6), backgroundColor: SAMPLE.navy }}>
-          <Image src={PHOTO_SRC} alt="" fill sizes="(min-width: 1024px) 96px, 16vw" className="object-cover" />
+          <Image src={PHOTO_SRC} alt="Hőszivattyú kültéri egysége a minta hőszivattyú-telepítő cég oldalának mobilnézetén" fill sizes="(min-width: 1024px) 96px, 16vw" className="object-cover" />
         </div>
         <span
           className="absolute flex items-center justify-center whitespace-nowrap font-semibold leading-none"

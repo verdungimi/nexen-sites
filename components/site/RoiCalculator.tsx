@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { animate, useReducedMotion } from "framer-motion";
+import { CTA } from "@/lib/site";
 import { ButtonLink } from "./Button";
 
 const huf = new Intl.NumberFormat("hu-HU", { style: "currency", currency: "HUF", maximumFractionDigits: 0 });
@@ -205,7 +206,7 @@ export default function RoiCalculator() {
             forgalomtól is függ. A konzultáción a te számaiddal nézzük meg.
           </p>
           <ButtonLink href="/book" className="mt-7 w-full">
-            Konzultációt foglalok
+            {CTA.calculator}
           </ButtonLink>
         </div>
       </div>

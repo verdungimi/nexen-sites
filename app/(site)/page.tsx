@@ -3,9 +3,9 @@ import HomePageContent from "@/components/HomePageContent";
 import HomePageStructuredData from "@/components/HomePageStructuredData";
 
 export const metadata: Metadata = {
-  title: { absolute: "Nexen Sites – Weboldal, ami az áraidhoz illik" },
+  title: { absolute: "Weboldalkészítés szolgáltató cégeknek | Nexen Sites" },
   description:
-    "Weboldal bejáratott szolgáltató cégeknek, amitől a jó ügyfél már az első hívás előtt téged választ. Az első működő változat 3 munkanap alatt kész, a végösszeget a jóváhagyás után fizeted.",
+    "Weboldalkészítés bejáratott szolgáltató cégeknek: az első működő változat 3 munkanap alatt kész, a végösszeget jóváhagyás után fizeted.",
   alternates: {
     canonical: "/",
   },
