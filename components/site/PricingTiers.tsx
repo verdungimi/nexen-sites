@@ -14,6 +14,7 @@ export default function PricingTiers({ headingLevel = "h3" }: { headingLevel?: "
             key={tier.name}
             className={cn(
               "flex flex-col rounded-[1.25rem] p-7 sm:p-8",
+              tier.recommended ? "reveal-pop" : "reveal",
               tier.recommended
                 ? "relative z-10 border border-brass/70 bg-graphite-strong lg:-my-6 lg:py-14"
                 : "border border-rule",

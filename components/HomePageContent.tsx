@@ -62,7 +62,7 @@ function Hero() {
             </ul>
           </div>
 
-          <div className="lg:col-span-7">
+          <div className="hero-drift lg:col-span-7">
             <BuildTimelapse />
           </div>
         </div>
@@ -89,7 +89,7 @@ export default function HomePageContent() {
           </div>
           <ul className="lg:col-span-6 lg:col-start-7">
             {PROBLEMS.map((problem) => (
-              <li key={problem.title} className="border-t border-rule pb-12 pt-8 last:pb-0 sm:pb-14 sm:pt-10">
+              <li key={problem.title} className="reveal border-t border-rule pb-12 pt-8 last:pb-0 sm:pb-14 sm:pt-10">
                 <h3 className="type-h3">{problem.title}</h3>
                 <p className="measure mt-4 text-fog">{problem.text}</p>
               </li>
@@ -145,7 +145,7 @@ export default function HomePageContent() {
         />
         <ul className="mt-14 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:mt-16 lg:gap-x-16 lg:gap-y-14">
           {PRINCIPLES.map((principle) => (
-            <li key={principle.title} className="border-t border-rule pt-6">
+            <li key={principle.title} className="reveal border-t border-rule pt-6">
               <h3 className="type-h3">{principle.title}</h3>
               <p className="measure mt-3 text-fog">{principle.text}</p>
             </li>
@@ -208,7 +208,7 @@ export default function HomePageContent() {
           </div>
 
           <div className="lg:col-span-6 lg:col-start-7">
-            <div className="rounded-[1.25rem] border border-rule bg-graphite-raised p-6 sm:p-8 lg:p-10">
+            <div className="reveal-pop rounded-[1.25rem] border border-rule bg-graphite-raised p-6 sm:p-8 lg:p-10">
               <h3 className="type-h3">Írj pár sort</h3>
               <ContactForm />
             </div>

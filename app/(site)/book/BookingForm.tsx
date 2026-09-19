@@ -4,16 +4,17 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "rea
 import { useRouter } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/site/Button";
+import OptionCards from "@/components/site/OptionCards";
 import { cn } from "@/lib/utils";
 import {
   BUDGET_OPTIONS,
   DEADLINE_OPTIONS,
   PURPOSE_OPTIONS,
   REVENUE_OPTIONS,
-  TIME_SLOTS,
   type BookingOption,
 } from "@/lib/booking-options";
-import { BOOKING_ERRORS, validateEmail, validatePhone } from "@/lib/validation";
+import { BOOKING_ERRORS, suggestEmailDomain, validateEmail, validatePhone } from "@/lib/validation";
+import SchedulePicker from "./SchedulePicker";
 
 type SelectName = "revenue" | "budget" | "purpose" | "deadline";
 type Errors = Record<string, string>;
@@ -141,6 +142,7 @@ export default function BookingForm() {
   const [availableDays, setAvailableDays] = useState<Date[]>([]);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const [emailSuggestion, setEmailSuggestion] = useState<string | undefined>();
   const dayGroupRef = useRef<HTMLDivElement>(null);
   const timeGroupRef = useRef<HTMLDivElement>(null);
 
@@ -161,6 +163,37 @@ export default function BookingForm() {
   const handleChoice = (name: SelectName, value: string) => {
     setChoices((current) => ({ ...current, [name]: value }));
     clearError(name);
+  };
+
+  /** Checks email and phone as soon as the visitor leaves the field, so a typo is caught before the submit button. */
+  const checkEmail = (value: string) => {
+    const trimmed = value.trim();
+    if (!trimmed) {
+      setEmailSuggestion(undefined);
+      return;
+    }
+    if (!validateEmail(trimmed)) {
+      setErrors((current) => ({ ...current, email: BOOKING_ERRORS.emailInvalid }));
+      setEmailSuggestion(undefined);
+      return;
+    }
+    setEmailSuggestion(suggestEmailDomain(trimmed));
+  };
+
+  const checkPhone = (value: string) => {
+    const trimmed = value.trim();
+    if (trimmed && !validatePhone(trimmed)) {
+      setErrors((current) => ({ ...current, phone: BOOKING_ERRORS.phoneInvalid }));
+    }
+  };
+
+  const applyEmailSuggestion = () => {
+    const input = document.getElementById("email") as HTMLInputElement | null;
+    if (!input || !emailSuggestion) return;
+    input.value = emailSuggestion;
+    setEmailSuggestion(undefined);
+    clearError("email");
+    input.focus();
   };
 
   const focusFirstError = (found: Errors) => {
@@ -251,10 +284,6 @@ export default function BookingForm() {
     }
   };
 
-  const dayWeekday = (day: Date) => day.toLocaleDateString("hu-HU", { weekday: "long" });
-  const dayDate = (day: Date) => day.toLocaleDateString("hu-HU", { month: "short", day: "numeric" });
-  const timeslotDescription = describedBy("timeslot", "hint", errors.timeslot);
-
   return (
     <form
       noValidate
@@ -301,9 +330,26 @@ export default function BookingForm() {
                 placeholder="anna@kovacsepito.hu"
                 aria-invalid={errors.email ? true : undefined}
                 aria-describedby={describedBy("email", undefined, errors.email)}
-                onChange={() => clearError("email")}
+                onChange={() => {
+                  clearError("email");
+                  setEmailSuggestion(undefined);
+                }}
+                onBlur={(event) => checkEmail(event.target.value)}
                 className={controlClass(Boolean(errors.email))}
               />
+              {emailSuggestion && !errors.email && (
+                <p className="mt-2 text-[0.9375rem] text-fog">
+                  Erre gondoltál:{" "}
+                  <button
+                    type="button"
+                    onClick={applyEmailSuggestion}
+                    className="font-semibold text-bone underline decoration-brass underline-offset-4"
+                  >
+                    {emailSuggestion}
+                  </button>
+                  ?
+                </p>
+              )}
             </Field>
             <Field id="phone" label="Telefonszám" error={errors.phone}>
               <input
@@ -316,6 +362,7 @@ export default function BookingForm() {
                 aria-invalid={errors.phone ? true : undefined}
                 aria-describedby={describedBy("phone", undefined, errors.phone)}
                 onChange={() => clearError("phone")}
+                onBlur={(event) => checkPhone(event.target.value)}
                 className={controlClass(Boolean(errors.phone))}
               />
             </Field>
@@ -349,19 +396,21 @@ export default function BookingForm() {
         <fieldset className={fieldsetClass}>
           <legend className={legendClass}>A projektről</legend>
           <div className="clear-left grid gap-6 pt-5">
-            <SelectField
+            <OptionCards
               name="purpose"
               label="Mire van szükséged?"
               options={PURPOSE_OPTIONS}
               value={choices.purpose}
-              onChange={handleChoice}
+              onChange={(value) => handleChoice("purpose", value)}
+              optional
             />
-            <SelectField
+            <OptionCards
               name="deadline"
               label="Mikor indulnál?"
               options={DEADLINE_OPTIONS}
               value={choices.deadline}
-              onChange={handleChoice}
+              onChange={(value) => handleChoice("deadline", value)}
+              optional
             />
             <Field id="description" label="Mit szeretnél elérni az új weboldallal?" optional hint="Pár mondat is elég.">
               <textarea
@@ -376,84 +425,26 @@ export default function BookingForm() {
           </div>
         </fieldset>
 
-        <fieldset className={fieldsetClass} aria-describedby={timeslotDescription}>
+        <fieldset className={fieldsetClass}>
           <legend className={legendClass}>Időpont</legend>
-          <div className="clear-left pt-2">
-            <p id="timeslot-hint" className="text-[0.9375rem] text-fog">
-              Az időpontot e-mailben vagy telefonon visszaigazoljuk.
-            </p>
-
-            <p id="day-label" className="mt-5 font-medium text-bone">
-              Nap
-            </p>
-            <div
+          <div className="clear-left pt-5">
+            <SchedulePicker
               ref={dayGroupRef}
-              role="group"
-              aria-labelledby="day-label"
-              className="-mx-5 mt-2 flex min-h-[4.25rem] gap-2 overflow-x-auto px-5 py-1.5 sm:mx-0 sm:grid sm:grid-cols-5 sm:overflow-visible sm:px-0 lg:grid-cols-4 xl:grid-cols-5"
-            >
-              {availableDays.map((day) => {
-                const isSelected = selectedDate?.toDateString() === day.toDateString();
-                return (
-                  <button
-                    key={day.toISOString()}
-                    type="button"
-                    aria-pressed={isSelected}
-                    onClick={() => {
-                      setSelectedDate(day);
-                      setSelectedTime(null);
-                    }}
-                    className={cn(
-                      "flex min-h-16 min-w-[5.5rem] shrink-0 flex-col items-center justify-center gap-0.5 rounded-xl border px-3 py-2 text-center transition-colors duration-200",
-                      isSelected
-                        ? "border-brass bg-brass text-graphite"
-                        : "border-rule bg-graphite text-bone hover:border-fog/60 hover:bg-graphite-strong"
-                    )}
-                  >
-                    <span className="text-[0.8125rem] leading-tight">{dayWeekday(day)}</span>
-                    <span className="whitespace-nowrap font-semibold leading-tight tabular-nums">{dayDate(day)}</span>
-                  </button>
-                );
-              })}
-            </div>
-
-            {selectedDate && (
-              <>
-                <p id="time-label" className="mt-6 font-medium text-bone">
-                  Kezdés
-                </p>
-                <div ref={timeGroupRef} role="group" aria-labelledby="time-label" className="mt-2 flex flex-wrap gap-2 py-1.5">
-                  {TIME_SLOTS.map((slot) => {
-                    const isSelected = selectedTime === slot;
-                    return (
-                      <button
-                        key={slot}
-                        type="button"
-                        aria-pressed={isSelected}
-                        onClick={() => {
-                          setSelectedTime(slot);
-                          clearError("timeslot");
-                        }}
-                        className={cn(
-                          "min-h-11 min-w-[5.5rem] rounded-full border px-5 font-semibold tabular-nums transition-colors duration-200",
-                          isSelected
-                            ? "border-brass bg-brass text-graphite"
-                            : "border-rule bg-graphite text-bone hover:border-fog/60 hover:bg-graphite-strong"
-                        )}
-                      >
-                        {slot}
-                      </button>
-                    );
-                  })}
-                </div>
-              </>
-            )}
-
-            {errors.timeslot && (
-              <p id="timeslot-error" className="mt-3 text-[0.9375rem] text-rust">
-                {errors.timeslot}
-              </p>
-            )}
+              timeRef={timeGroupRef}
+              days={availableDays}
+              selectedDate={selectedDate}
+              selectedTime={selectedTime}
+              error={errors.timeslot}
+              describedBy={errors.timeslot ? "timeslot-error" : undefined}
+              onSelectDate={(day) => {
+                setSelectedDate(day);
+                setSelectedTime(null);
+              }}
+              onSelectTime={(time) => {
+                setSelectedTime(time);
+                clearError("timeslot");
+              }}
+            />
           </div>
         </fieldset>
 

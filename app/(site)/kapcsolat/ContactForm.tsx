@@ -2,6 +2,7 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Button } from "@/components/site/Button";
+import EmailSuggestion from "@/components/site/EmailSuggestion";
 import { cn } from "@/lib/utils";
 import { sanitizeText, validateEmail } from "@/lib/validation";
 
@@ -23,7 +24,7 @@ function validate(values: Values): Errors {
   else if (name.length < 2) errors.name = "A név legalább 2 karakter legyen.";
 
   if (!email) errors.email = "Add meg az e-mail-címed.";
-  else if (!validateEmail(email)) errors.email = "Ez nem tűnik érvényes e-mail-címnek.";
+  else if (!validateEmail(email)) errors.email = "Adj meg érvényes e-mail-címet, például nev@cegnev.hu.";
 
   if (!message) errors.message = "Írd meg az üzeneted.";
   else if (message.length < 10) errors.message = "Az üzenet legalább 10 karakter legyen.";
@@ -44,8 +45,10 @@ export default function ContactForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
+  const [emailLeft, setEmailLeft] = useState(false);
 
   const update = (field: FieldName, value: string) => {
+    if (field === "email") setEmailLeft(false);
     setValues((current) => ({ ...current, [field]: value }));
     setErrors((current) => (current[field] ? { ...current, [field]: undefined } : current));
     setStatus(null);
@@ -148,8 +151,22 @@ export default function ContactForm() {
             inputMode="email"
             autoComplete="email"
             placeholder="anna@kovacsepito.hu"
+            onBlur={() => {
+              setEmailLeft(true);
+              const email = values.email.trim();
+              if (email && !validateEmail(email)) {
+                setErrors((current) => ({ ...current, email: "Adj meg érvényes e-mail-címet, például nev@cegnev.hu." }));
+              }
+            }}
           />
           {errorText("email")}
+          <EmailSuggestion
+            email={values.email}
+            visible={emailLeft && !errors.email}
+            onApply={(corrected) => {
+              update("email", corrected);
+            }}
+          />
         </div>
 
         <div>

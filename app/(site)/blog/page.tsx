@@ -53,7 +53,7 @@ export default function BlogPage() {
           {BLOG_POSTS.map((post) => (
             <li key={post.slug}>
               {/* The title link stretches over the whole row, so the full row is clickable. */}
-              <article className="group relative grid gap-3 border-t border-rule py-8 sm:py-10 lg:grid-cols-12 lg:gap-8">
+              <article className="reveal group relative grid gap-3 border-t border-rule py-8 sm:py-10 lg:grid-cols-12 lg:gap-8">
                 <time dateTime={post.date} className="text-fog lg:col-span-3 lg:pt-1.5">
                   {formatPostDate(post.date)}
                 </time>
