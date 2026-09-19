@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo } from "next/font/google";
 import "./site.css";
-import Navbar from "@/components/Navbar";
+import SiteHeader from "@/components/ui/header-2";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import StructuredData from "@/components/StructuredData";
@@ -94,7 +94,7 @@ export default function SiteRootLayout({
           <div className="scroll-progress" aria-hidden="true" />
           <GoogleAnalytics />
           <StructuredData />
-          <Navbar />
+          <SiteHeader />
           <main id="tartalom" className="flex-grow">
             {children}
           </main>

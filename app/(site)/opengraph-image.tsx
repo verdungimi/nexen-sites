@@ -51,16 +51,11 @@ export default async function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <svg width="56" height="56" viewBox="0 0 24 24">
-            <rect width="24" height="24" rx="6" fill="#C7A263" />
-            <path
-              d="M7 17V7l10 10V7"
-              fill="none"
-              stroke="#1A1D21"
-              strokeWidth="2.4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
+          <svg width="64" height="64" viewBox="0 0 32 32">
+            <rect width="32" height="32" rx="9" fill="#2D3238" />
+            <rect x="8" y="8" width="4" height="16" rx="1.1" fill="#EDE8DF" />
+            <rect x="20" y="8" width="4" height="16" rx="1.1" fill="#EDE8DF" />
+            <path d="M8 8h4.4L24 24h-4.4z" fill="#C7A263" />
           </svg>
           <div style={{ fontFamily: "Archivo Display", fontWeight: 600, fontSize: 44, color: "#EDE8DF" }}>{BRAND}</div>
         </div>
