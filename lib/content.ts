@@ -45,6 +45,8 @@ export const PROCESS_STEPS: ProcessStep[] = [
 
 export interface Tier {
   name: string;
+  /** Button text; differs per tier so the three links are not identical for search engines */
+  cta: string;
   summary: string;
   features: string[];
   recommended?: boolean;
@@ -53,6 +55,7 @@ export interface Tier {
 export const TIERS: Tier[] = [
   {
     name: "Bemutatkozó oldal",
+    cta: "Bemutatkozó oldalt kérek",
     summary: "Egy szolgáltatásra vagy kampányra, amikor az oldalnak egyetlen dolga van: ajánlatkérést vagy időpontot szerezni.",
     features: [
       "Egy hosszú, jól tagolt oldal",
@@ -64,6 +67,7 @@ export const TIERS: Tier[] = [
   },
   {
     name: "Céges weboldal",
+    cta: "Céges weboldalt kérek",
     summary: "A céged teljes bemutatkozása, amikor a jó ügyfél több oldalt is megnéz, mielőtt dönt.",
     features: [
       "5–8 aloldal, szolgáltatásonként külön",
@@ -77,6 +81,7 @@ export const TIERS: Tier[] = [
   },
   {
     name: "Növekedési csomag",
+    cta: "Növekedési csomagot kérek",
     summary: "Ha hirdetésekkel is építed az ügyfélszerzést, és minden szolgáltatásodnak saját, a hirdetéshez illő oldal kell.",
     features: [
       "Minden, ami a Céges weboldalban",

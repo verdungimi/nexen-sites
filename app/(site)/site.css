@@ -97,6 +97,13 @@
     font-weight: 600;
   }
 
+  /* Very narrow phones (320px): the long single word "Weboldalkészítés" in the home H1 must still fit */
+  @media (max-width: 22rem) {
+    .type-display {
+      font-size: 2.15rem;
+    }
+  }
+
   .type-h2 {
     font-variation-settings: "wdth" var(--wdth-display);
     font-size: clamp(2rem, 1.25rem + 3vw, 3.5rem);

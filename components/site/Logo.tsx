@@ -21,3 +21,15 @@ export default function Logo({ className }: { className?: string }) {
     </Link>
   );
 }
+
+/** Brand mark without a link, for places where a second link to the home page would only repeat the header's. */
+export function LogoStatic({ className }: { className?: string }) {
+  return (
+    <span className={cn("inline-flex items-center gap-2.5", className)}>
+      <Monogram />
+      <span className="wdth-display text-[1.3125rem] font-semibold leading-none tracking-[-0.01em] text-bone">
+        Nexen Sites
+      </span>
+    </span>
+  );
+}

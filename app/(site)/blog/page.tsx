@@ -10,9 +10,9 @@ import { SITE_URL } from "@/lib/site";
 const LEAD = "Rövid, gyakorlati írások arról, hogyan hozhat több jó ügyfelet egy szolgáltató cég weboldala.";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Blog: weboldal és ügyfélszerzés",
   description:
-    "Rövid, gyakorlati írások arról, hogyan hozhat több jó ügyfelet egy szolgáltató cég weboldala: folyamat, szerkezet, mobilnézet, keresőoptimalizálás és árajánlatok.",
+    "Rövid, gyakorlati írások arról, hogyan hozhat több jó ügyfelet egy szolgáltató cég weboldala: folyamat, mobilnézet, SEO, árajánlat.",
   alternates: {
     canonical: "/blog",
   },

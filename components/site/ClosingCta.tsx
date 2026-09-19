@@ -1,4 +1,4 @@
-import { CONTACT } from "@/lib/site";
+import { CONTACT, CTA } from "@/lib/site";
 import { ButtonLink } from "./Button";
 import Container from "./Container";
 
@@ -22,7 +22,7 @@ export default function ClosingCta({
           </div>
           <div className="flex flex-col items-start gap-4 lg:col-span-4 lg:items-end">
             <ButtonLink href="/book" size="lg">
-              Konzultációt foglalok
+              {CTA.closing}
             </ButtonLink>
             <p className="text-fog">
               Vagy hívj:{" "}

@@ -1,12 +1,12 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Nexen Sites – Weboldal, ami az áraidhoz illik";
+export const alt = "Nexen Sites – Weboldalkészítés szolgáltató cégeknek";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const BRAND = "Nexen Sites";
-const HEADLINE = "Olyan weboldal, ami az áraidhoz illik.";
-const SUBLINE = "Weboldalak bejáratott szolgáltató cégeknek";
+const HEADLINE = "Weboldalkészítés szolgáltató cégeknek";
+const SUBLINE = "A jó ügyfél már az első hívás előtt téged választ.";
 
 /**
  * Loads an Archivo cut from Google Fonts, subset to the given text.

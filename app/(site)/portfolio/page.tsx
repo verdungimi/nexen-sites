@@ -6,9 +6,9 @@ import { ButtonLink } from "@/components/site/Button";
 import PortfolioContent from "./PortfolioContent";
 
 export const metadata: Metadata = {
-  title: "Munkáink",
+  title: "Munkáink: weboldalak szolgáltató cégeknek",
   description:
-    "Weboldalak építőipari, épületgépészeti, egészségügyi és szakértői cégeknek. A munkáinkat ügyfeleink nevét elhagyva mutatjuk meg, a konzultáción pedig az iparágadhoz közel álló példákat is.",
+    "Weboldalak építőipari, épületgépészeti, egészségügyi és szakértői cégeknek. A konzultáción az iparágadhoz közel álló példákat mutatunk.",
   alternates: {
     canonical: "/portfolio",
   },
@@ -73,7 +73,7 @@ export default function PortfolioPage() {
             mi működött bennük.
           </p>
           <ButtonLink href="/book" size="lg" className="mt-9">
-            Konzultációt foglalok
+            Példákat kérek az iparágamból
           </ButtonLink>
         </div>
       </Section>

@@ -1,16 +1,16 @@
 import Link from "next/link";
-import Logo from "@/components/site/Logo";
+import { LogoStatic } from "@/components/site/Logo";
 import Container from "@/components/site/Container";
 import { ButtonLink } from "@/components/site/Button";
-import { CONTACT } from "@/lib/site";
+import { CONTACT, CTA } from "@/lib/site";
 import CookieSettingsButton from "@/components/site/CookieSettingsButton";
 
 const COLUMNS = [
   {
     title: "Együttműködés",
     links: [
-      { href: "/packages", label: "Szolgáltatás" },
-      { href: "/folyamat", label: "Folyamat" },
+      { href: "/packages", label: "Csomagok" },
+      { href: "/folyamat", label: "Hogyan dolgozunk" },
       { href: "/portfolio", label: "Munkáink" },
       { href: "/#kalkulator", label: "Kalkulátor" },
     ],
@@ -19,9 +19,9 @@ const COLUMNS = [
     title: "Stúdió",
     links: [
       { href: "/rolunk", label: "Rólunk" },
-      { href: "/blog", label: "Blog" },
-      { href: "/gyik", label: "GYIK" },
-      { href: "/kapcsolat", label: "Kapcsolat" },
+      { href: "/blog", label: "Cikkek" },
+      { href: "/gyik", label: "Gyakori kérdések" },
+      { href: "/kapcsolat", label: "Elérhetőségek" },
     ],
   },
   {
@@ -42,19 +42,19 @@ export default function Footer() {
       <Container className="py-16 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Logo />
+            <LogoStatic />
             <p className="mt-5 max-w-xs text-fog">
               Weboldalak bejáratott szolgáltató cégeknek. Kecskemétről dolgozunk, az egész országnak.
             </p>
             <ButtonLink href="/book" variant="secondary" className="mt-7">
-              Konzultációt foglalok
+              {CTA.footer}
             </ButtonLink>
           </div>
 
           <div className="grid gap-10 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-[repeat(3,minmax(0,1fr))_minmax(0,1.45fr)] lg:gap-8">
             {COLUMNS.map((column) => (
               <div key={column.title}>
-                <h2 className="text-[0.9375rem] font-semibold text-bone">{column.title}</h2>
+                <p className="text-[0.9375rem] font-semibold text-bone">{column.title}</p>
                 <ul className="mt-4 space-y-1">
                   {column.links.map((link) => (
                     <li key={link.href}>
@@ -76,7 +76,7 @@ export default function Footer() {
             ))}
 
             <div>
-              <h2 className="text-[0.9375rem] font-semibold text-bone">Elérhetőség</h2>
+              <p className="text-[0.9375rem] font-semibold text-bone">Elérhetőség</p>
               <address className="mt-4 space-y-1 not-italic">
                 <a href={`tel:${CONTACT.phoneHref}`} className="flex min-h-10 items-center whitespace-nowrap text-fog transition-colors hover:text-bone">
                   {CONTACT.phone}

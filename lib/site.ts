@@ -9,3 +9,17 @@ export const CONTACT = {
   city: "Kecskemét",
   facebook: "https://www.facebook.com/profile.php?id=61585984076838",
 };
+
+/**
+ * Link texts for the booking page (/book). The nav keeps the primary label; the other spots vary on purpose,
+ * because repeating one anchor text many times on a page is flagged by SEO tools.
+ */
+export const CTA = {
+  nav: "Konzultációt foglalok",
+  navMobile: "Időpontot foglalok",
+  hero: "Foglalj konzultációt",
+  calculator: "Átnézzük a számaidat",
+  contact: "Időpontot kérek",
+  footer: "Konzultáció foglalása",
+  closing: "Beszéljünk a projektedről",
+} as const;

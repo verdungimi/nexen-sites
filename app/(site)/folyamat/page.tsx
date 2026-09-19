@@ -8,9 +8,9 @@ import { ButtonLink } from "@/components/site/Button";
 import { PROCESS_STEPS } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Folyamat",
+  title: "Weboldalkészítés folyamata: 3 munkanap",
   description:
-    "Az első élő változatot 3 munkanappal a konzultáció és az anyagok beérkezése után látod, a végösszeg hátralévő részét pedig a jóváhagyás után fizeted. Így dolgozunk lépésről lépésre.",
+    "Konzultáció, szerkezet, design és az első élő változat 3 munkanap alatt. A végösszeg hátralévő részét jóváhagyás után fizeted.",
   alternates: {
     canonical: "/folyamat",
   },
@@ -54,7 +54,7 @@ export default function FolyamatPage() {
         lead="Gyorsan dolgozunk, de nem kapkodva. A konzultáción összegyűjtünk mindent, ami kell, így a munkanapokat építésre fordítjuk, nem várakozásra. Minden lépésnél tudod, hol tartunk."
         actions={
           <ButtonLink href="/book" size="lg">
-            Konzultációt foglalok
+            Elindítom a folyamatot
           </ButtonLink>
         }
       />

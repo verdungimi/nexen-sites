@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
 import Logo from "@/components/site/Logo";
 import { ButtonLink } from "@/components/site/Button";
+import { CTA } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 // Floating pill navigation. The sliding active marker is adapted from the
@@ -100,13 +101,13 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <ButtonLink href="/book" className="hidden sm:inline-flex">
-            Konzultációt foglalok
+            {CTA.nav}
           </ButtonLink>
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
             aria-expanded={menuOpen}
-            aria-controls={menuId}
+            aria-controls={menuOpen ? menuId : undefined}
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-rule text-bone transition-colors hover:bg-graphite-strong lg:hidden"
           >
             <span className="sr-only">{menuOpen ? "Menü bezárása" : "Menü megnyitása"}</span>
@@ -121,7 +122,8 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div id={menuId} hidden={!menuOpen} className="border-t border-rule/60 lg:hidden">
+      {menuOpen && (
+      <div id={menuId} className="border-t border-rule/60 lg:hidden">
         <nav aria-label="Mobil menü" className="mx-auto w-full max-w-site px-4 pb-8 pt-4 sm:px-6">
           <ul className="divide-y divide-rule/60">
             {[{ href: "/", label: "Főoldal" }, ...NAV_ITEMS, { href: "/kapcsolat", label: "Kapcsolat" }].map((item) => {
@@ -143,10 +145,11 @@ export default function Navbar() {
             })}
           </ul>
           <ButtonLink href="/book" size="lg" className="mt-6 w-full">
-            Konzultációt foglalok
+            {CTA.navMobile}
           </ButtonLink>
         </nav>
       </div>
+      )}
     </header>
   );
 }
