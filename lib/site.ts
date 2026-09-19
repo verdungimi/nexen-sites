@@ -23,3 +23,12 @@ export const CTA = {
   footer: "Konzultáció foglalása",
   closing: "Beszéljünk a projektedről",
 } as const;
+
+/** Main navigation, used by the header (components/ui/header-2.tsx). */
+export const NAV_ITEMS = [
+  { href: "/packages", label: "Szolgáltatás" },
+  { href: "/folyamat", label: "Folyamat" },
+  { href: "/rolunk", label: "Stúdió" },
+  { href: "/blog", label: "Blog" },
+  { href: "/gyik", label: "GYIK" },
+] as const;
