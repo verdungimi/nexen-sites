@@ -2,80 +2,50 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/site/PageHero";
 import Section from "@/components/site/Section";
-import ClosingCta from "@/components/site/ClosingCta";
-import { LOGO_URL, jsonLd } from "@/components/StructuredData";
-import { BLOG_POSTS, formatPostDate } from "@/lib/blog";
-import { SITE_URL } from "@/lib/site";
-
-const LEAD = "Rövid, gyakorlati írások arról, hogyan hozhat több jó ügyfelet egy szolgáltató cég weboldala.";
+import { BLOG_POSTS, formatPostDate, postUpdated } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog: weboldal és ügyfélszerzés",
+  title: "Blog: weboldal, keresők, AI, árak",
   description:
-    "Rövid, gyakorlati írások arról, hogyan hozhat több jó ügyfelet egy szolgáltató cég weboldala: folyamat, mobilnézet, SEO, árajánlat.",
-  alternates: {
-    canonical: "/blog",
-  },
-};
-
-const blogSchema = {
-  "@context": "https://schema.org",
-  "@type": "Blog",
-  name: "Nexen Sites blog",
-  description: LEAD,
-  url: `${SITE_URL}/blog`,
-  inLanguage: "hu-HU",
-  publisher: {
-    "@type": "Organization",
-    name: "Nexen Sites",
-    url: SITE_URL,
-    logo: { "@type": "ImageObject", url: LOGO_URL },
-  },
-  blogPost: BLOG_POSTS.map((post) => ({
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.excerpt,
-    datePublished: post.date,
-    url: `${SITE_URL}/blog/${post.slug}`,
-    keywords: post.keywords.join(", "),
-  })),
+    "Gyakorlati írások cégvezetőknek weboldalkészítésről, keresőoptimalizálásról, GEO-ról és arról, mennyibe kerül egy weboldal.",
+  alternates: { canonical: "/blog" },
 };
 
 export default function BlogPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(blogSchema)} />
+      <PageHero
+        title="Blog"
+        crumbs={[{ href: "/blog", label: "Blog" }]}
+        answer="Gyakorlati írások cégvezetőknek arról, hogyan készül egy weboldal, mennyibe kerül, hogyan talál rá a Google és az AI, és mit érdemes megkérdezni, mielőtt megrendeled. Minden cikk egyenes válasszal kezdődik, és mindegyiken ott a megjelenés és az utolsó frissítés dátuma."
+      />
 
-      <PageHero title="Blog" lead={LEAD} />
-
-      <Section>
-        <ol className="border-b border-rule">
-          {BLOG_POSTS.map((post) => (
-            <li key={post.slug}>
-              {/* The title link stretches over the whole row, so the full row is clickable. */}
-              <article className="reveal group relative grid gap-3 border-t border-rule py-8 sm:py-10 lg:grid-cols-12 lg:gap-8">
-                <time dateTime={post.date} className="text-fog lg:col-span-3 lg:pt-1.5">
-                  {formatPostDate(post.date)}
-                </time>
-                <div className="lg:col-span-6">
-                  <h2 className="type-h3">
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="transition-colors duration-200 after:absolute after:inset-0 group-hover:text-brass"
-                    >
+      <Section aria-labelledby="cikkek-cim">
+        <h2 id="cikkek-cim" className="sr-only">
+          Cikkek
+        </h2>
+        <ul className="border-b border-line">
+          {BLOG_POSTS.map((post, index) => (
+            <li key={post.slug} className="border-t border-line" data-reveal style={{ "--i": Math.min(index, 4) } as React.CSSProperties}>
+              <article className="grid gap-x-10 gap-y-3 py-8 lg:grid-cols-12">
+                <p className="text-[0.9375rem] text-muted lg:col-span-3 lg:pt-2">
+                  <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+                  <span className="block">Frissítve: {formatPostDate(postUpdated(post))}</span>
+                  <span className="block">{post.readMinutes} perc olvasás</span>
+                </p>
+                <div className="lg:col-span-9">
+                  <h3 className="type-h3 !text-[clamp(1.5rem,1.3rem+1vw,2rem)]">
+                    <Link href={`/blog/${post.slug}`} className="transition-colors hover:text-mid">
                       {post.title}
                     </Link>
-                  </h2>
-                  <p className="measure mt-3 text-fog">{post.excerpt}</p>
+                  </h3>
+                  <p className="measure mt-3 text-muted">{post.excerpt}</p>
                 </div>
-                <p className="text-fog lg:col-span-3 lg:pt-1.5">{post.readMinutes} perc olvasás</p>
               </article>
             </li>
           ))}
-        </ol>
+        </ul>
       </Section>
-
-      <ClosingCta />
     </>
   );
 }

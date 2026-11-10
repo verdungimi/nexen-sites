@@ -1,21 +1,22 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Nexen Sites – Weboldalkészítés szolgáltató cégeknek";
+export const alt = "Nexen Sites – Weboldalkészítés ingyenes demóval. Előbb megnézed, utána fizetsz.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const BRAND = "Nexen Sites";
-const HEADLINE = "Weboldalkészítés szolgáltató cégeknek";
-const SUBLINE = "A jó ügyfél már az első hívás előtt téged választ.";
+const LINE_1 = "Előbb megnézed.";
+const LINE_2 = "Utána fizetsz.";
+const SUBLINE = "Weboldalkészítés ingyenes demóval, az egész országban";
 
 /**
- * Loads an Archivo cut from Google Fonts, subset to the given text.
- * The default ImageResponse font has no ő/ű, and Archivo is the site's typeface anyway.
- * Returns null when the network is unavailable, so the image still renders with the fallback font.
+ * Loads one cut of a Google font, subset to the given text.
+ * The default ImageResponse font has no ő/ű. Returns null when the network is unavailable,
+ * so the image still renders with the fallback font.
  */
-async function loadArchivo(axes: string, text: string): Promise<ArrayBuffer | null> {
+async function loadFont(family: string, axes: string, text: string): Promise<ArrayBuffer | null> {
   try {
-    const cssUrl = `https://fonts.googleapis.com/css2?family=Archivo:${axes}&text=${encodeURIComponent(text)}`;
+    const cssUrl = `https://fonts.googleapis.com/css2?family=${family}:${axes}&text=${encodeURIComponent(text)}`;
     const css = await (await fetch(cssUrl)).text();
     const fontUrl = css.match(/src: url\((.+?)\) format\('(?:truetype|opentype|woff)'\)/)?.[1];
     if (!fontUrl) return null;
@@ -28,13 +29,13 @@ async function loadArchivo(axes: string, text: string): Promise<ArrayBuffer | nu
 
 export default async function OpengraphImage() {
   const [display, text] = await Promise.all([
-    loadArchivo("wdth,wght@75,600", BRAND + HEADLINE),
-    loadArchivo("wght@400", SUBLINE),
+    loadFont("Fraunces", "opsz,wght@144,600", BRAND + LINE_1 + LINE_2),
+    loadFont("Instrument+Sans", "wght@500", SUBLINE),
   ]);
 
   const fonts = [
-    ...(display ? [{ name: "Archivo Display", data: display, weight: 600 as const, style: "normal" as const }] : []),
-    ...(text ? [{ name: "Archivo", data: text, weight: 400 as const, style: "normal" as const }] : []),
+    ...(display ? [{ name: "Fraunces", data: display, weight: 600 as const, style: "normal" as const }] : []),
+    ...(text ? [{ name: "Instrument Sans", data: text, weight: 500 as const, style: "normal" as const }] : []),
   ];
 
   return new ImageResponse(
@@ -46,37 +47,26 @@ export default async function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "72px 80px 80px",
-          background: "#1A1D21",
+          padding: "68px 80px 76px",
+          background: "#0B1E3F",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <svg width="64" height="64" viewBox="0 0 32 32">
-            <rect width="32" height="32" rx="9" fill="#2D3238" />
-            <rect x="8" y="8" width="4" height="16" rx="1.1" fill="#EDE8DF" />
-            <rect x="20" y="8" width="4" height="16" rx="1.1" fill="#EDE8DF" />
-            <path d="M8 8h4.4L24 24h-4.4z" fill="#C7A263" />
+        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+          <svg width="68" height="68" viewBox="0 0 32 32">
+            <rect width="32" height="32" rx="8" fill="#5EC2FF" />
+            <rect x="7" y="7" width="5" height="18" rx="1.2" fill="#0B1E3F" />
+            <rect x="20" y="7" width="5" height="18" rx="1.2" fill="#0B1E3F" />
+            <path d="M7 7h5.5L25 25h-5.5z" fill="#FFFFFF" />
           </svg>
-          <div style={{ fontFamily: "Archivo Display", fontWeight: 600, fontSize: 44, color: "#EDE8DF" }}>{BRAND}</div>
+          <div style={{ fontFamily: "Fraunces", fontWeight: 600, fontSize: 44, color: "#FFFFFF" }}>{BRAND}</div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div
-            style={{
-              fontFamily: "Archivo Display",
-              fontWeight: 600,
-              fontSize: 112,
-              lineHeight: 0.98,
-              letterSpacing: -2.5,
-              color: "#EDE8DF",
-              maxWidth: 940,
-            }}
-          >
-            {HEADLINE}
+          <div style={{ display: "flex", flexDirection: "column", fontFamily: "Fraunces", fontWeight: 600, fontSize: 124, lineHeight: 1, letterSpacing: -3, color: "#FFFFFF" }}>
+            <div>{LINE_1}</div>
+            <div>{LINE_2}</div>
           </div>
-          <div style={{ fontFamily: "Archivo", fontWeight: 400, fontSize: 38, color: "#A7A197", marginTop: 36 }}>
-            {SUBLINE}
-          </div>
+          <div style={{ fontFamily: "Instrument Sans", fontWeight: 500, fontSize: 36, color: "#5EC2FF", marginTop: 34 }}>{SUBLINE}</div>
         </div>
       </div>
     ),

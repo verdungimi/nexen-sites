@@ -1,73 +1,85 @@
 import type { Metadata } from "next";
+import { ButtonLink } from "@/components/site/Button";
+import ComparisonTable from "@/components/site/ComparisonTable";
+import Faq from "@/components/site/Faq";
+import JsonLd from "@/components/site/JsonLd";
 import PageHero from "@/components/site/PageHero";
 import Section from "@/components/site/Section";
-import ClosingCta from "@/components/site/ClosingCta";
-import { ButtonLink } from "@/components/site/Button";
-import FAQAccordion from "@/components/FAQAccordion";
-import { FAQ_ITEMS } from "@/lib/content";
+import { SectionHeading } from "@/components/site/Words";
+import { ALL_FAQ, CUSTOM_VS_WORDPRESS, FAQ_GROUPS, LANDING_VS_MULTI } from "@/lib/content";
+import { CTA_HREF, CTA_LABEL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Gyakori kérdések a weboldalkészítésről",
   description:
-    "Válaszok a leggyakoribb kérdésekre: mennyi idő alatt készül el a weboldal, hogyan működik a fizetés, és mi történik az átadás után.",
-  alternates: {
-    canonical: "/gyik",
-  },
+    "Mennyi idő alatt készül el egy weboldal? Tényleg ingyenes a demo? Mi az a GEO? Egyedi kód vagy WordPress? Egyenes válaszok a Nexen Sitestól.",
+  alternates: { canonical: "/gyik" },
 };
 
-// Built from the same FAQ_ITEMS the accordion renders, so the markup never drifts from the page.
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQ_ITEMS.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
-
-export default function GyikPage() {
+export default function FaqPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c") }}
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: ALL_FAQ.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
+        }}
       />
 
       <PageHero
-        title="Gyakori kérdések"
-        lead="Amit a konzultáció előtt a legtöbben megkérdeznek. Ha a te kérdésed nincs köztük, tedd fel a konzultáción vagy írj nekünk."
-        actions={
-          <ButtonLink href="/kapcsolat" variant="quiet">
-            Kapcsolat
-          </ButtonLink>
-        }
+        title="Gyakori kérdések a weboldalkészítésről"
+        crumbs={[{ href: "/gyik", label: "Gyakori kérdések" }]}
+        answer="A legfontosabbak röviden: a Nexen Sites demo weboldala ingyenes, és egy napon belül elkészül. A kész oldalt az anyagok átadása után három munkanapon belül élesítjük. Fizetni csak akkor kell, ha a demo tetszik: előleg a szerződéskor, végszámla az átadáskor. A kód a teljes díj kifizetésével a tiéd."
       />
 
-      <Section aria-labelledby="kerdesek">
-        <h2 id="kerdesek" className="sr-only">
-          Kérdések és válaszok
-        </h2>
-        <div className="grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-8">
-            <FAQAccordion items={FAQ_ITEMS} />
-          </div>
-          <aside className="lg:col-span-3 lg:col-start-10">
-            <div className="lg:sticky lg:top-28">
-              <p className="wdth-title text-xl font-semibold text-bone">Nem találod a választ?</p>
-              <p className="mt-3 text-fog">A konzultáción minden kérdésedre válaszolunk, mielőtt bármiről döntenél.</p>
-              <ButtonLink href="/book" variant="secondary" className="mt-6">
-                Rákérdezek a konzultáción
-              </ButtonLink>
+      {FAQ_GROUPS.map((group, index) => (
+        <Section key={group.title} tone={index % 2 === 0 ? "white" : "mist"} aria-labelledby={`gyik-${index}`} className="!py-14 sm:!py-20">
+          <div className="grid gap-8 lg:grid-cols-12 lg:gap-8">
+            <div className="lg:col-span-4">
+              <SectionHeading id={`gyik-${index}`} title={group.title} />
             </div>
-          </aside>
+            <div className="lg:col-span-7 lg:col-start-6">
+              <Faq items={group.items} />
+            </div>
+          </div>
+        </Section>
+      ))}
+
+      <Section aria-labelledby="osszehasonlitas-cim">
+        <SectionHeading
+          id="osszehasonlitas-cim"
+          title="Egyedi kód vagy WordPress?"
+          lead="Mindkettővel lehet jó weboldalt építeni. A különbség abban van, hogyan készül, és mi kell hozzá utána."
+        />
+        <div className="mt-10">
+          <ComparisonTable comparison={CUSTOM_VS_WORDPRESS} />
+        </div>
+        <h2 className="type-h2 mt-16 max-w-3xl" data-reveal>
+          Landing oldal vagy többoldalas weboldal?
+        </h2>
+        <div className="mt-10">
+          <ComparisonTable comparison={LANDING_VS_MULTI} />
         </div>
       </Section>
 
-      <ClosingCta />
+      <Section tone="navy" aria-labelledby="gyik-zaro-cim">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHeading
+            id="gyik-zaro-cim"
+            title="A legjobb válasz a saját demód"
+            lead="Kérd el ingyen, és egy napon belül megmutatjuk, hogyan nézne ki a céged új weboldala."
+            onNavy
+          />
+          <ButtonLink href={CTA_HREF} size="lg" className="self-start lg:self-auto">
+            {CTA_LABEL}
+          </ButtonLink>
+        </div>
+      </Section>
     </>
   );
 }

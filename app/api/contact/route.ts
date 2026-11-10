@@ -1,55 +1,56 @@
 import { NextRequest, NextResponse } from "next/server";
-import { validateEmail, sanitizeString, sanitizeText } from "@/lib/validation";
-import { formatContactEmail, sendEmail } from "@/lib/email";
+import { ADMIN_EMAIL, formatContactEmail, sendEmail } from "@/lib/email";
+import { saveLead } from "@/lib/leads";
+import { allowRequest, asString, clientIp, looksLikeBot } from "@/lib/spam";
+import { sanitizeString, sanitizeText, validateContactData } from "@/lib/validation";
 
-type ContactInput = { name: string; email: string; phone: string; subject: string; message: string };
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
-function validate(input: ContactInput): string | null {
-  if (!input.name || input.name.length < 2) return "A név kötelező és legalább 2 karakter hosszú";
-  if (!input.email || !validateEmail(input.email)) return "Érvénytelen email cím";
-  if (!input.message || input.message.length < 10) return "Az üzenet kötelező és legalább 10 karakter hosszú";
-  return null;
-}
+const FAILED = "Most nem sikerült elküldeni az üzenetet. Próbáld újra, vagy hívj minket: +36 70 576 7845.";
 
-async function deliver(input: ContactInput) {
-  const { subject, text, html } = formatContactEmail({
-    name: input.name,
-    email: input.email,
-    phone: input.phone || undefined,
-    message: input.message,
-    subject: input.subject || undefined,
-  });
-  return sendEmail({ to: process.env.ADMIN_EMAIL || "verdung.imi@gmail.com", subject, text, html });
-}
-
+/** Contact form on /kapcsolat. */
 export async function POST(request: NextRequest) {
   try {
-    const data = await request.json();
-    const input: ContactInput = {
-      name: sanitizeString(data.name || ""),
-      email: sanitizeString(data.email || ""),
-      phone: sanitizeString(data.phone || ""),
-      subject: sanitizeString(data.subject || ""),
-      message: sanitizeText(data.message),
+    const body: unknown = await request.json();
+    const data = (body && typeof body === "object" ? body : {}) as Record<string, unknown>;
+
+    if (looksLikeBot(data)) {
+      return NextResponse.json({ success: true });
+    }
+
+    if (!allowRequest(clientIp(request))) {
+      return NextResponse.json(
+        { success: false, error: "Túl sok beküldés érkezett rövid idő alatt. Próbáld újra pár perc múlva, vagy hívj minket." },
+        { status: 429 }
+      );
+    }
+
+    const message = {
+      name: sanitizeString(asString(data.name, 120)),
+      email: sanitizeString(asString(data.email, 254)).toLowerCase(),
+      phone: sanitizeString(asString(data.phone, 40)),
+      message: sanitizeText(asString(data.message, 4000)),
     };
 
-    const error = validate(input);
-    if (error) {
-      return NextResponse.json({ success: false, error }, { status: 400 });
+    const validation = validateContactData(message);
+    if (!validation.isValid) {
+      return NextResponse.json({ success: false, errors: validation.errors }, { status: 400 });
     }
 
-    const emailResult = await deliver(input);
-    if (!emailResult.success) {
-      console.error("Email sending failed:", emailResult.error);
-      return NextResponse.json({ success: false, error: "Hiba történt az email küldése során" }, { status: 500 });
+    const [saved, email] = await Promise.all([
+      saveLead({ source: "contact", ...message, page: "/kapcsolat" }),
+      sendEmail({ to: ADMIN_EMAIL, replyTo: message.email, ...formatContactEmail(message) }),
+    ]);
+
+    if (!saved.saved && !email.success) {
+      console.error("Message lost: neither Supabase nor e-mail worked", { supabase: saved.error, email: email.error });
+      return NextResponse.json({ success: false, error: FAILED }, { status: 500 });
     }
 
-    return NextResponse.json(
-      { success: true, message: "Üzenet sikeresen elküldve", messageId: emailResult.messageId },
-      { status: 200 }
-    );
+    return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Error processing contact form:", error);
-    return NextResponse.json({ success: false, error: "Hiba történt a feldolgozás során" }, { status: 500 });
+    console.error("Error processing contact message:", error);
+    return NextResponse.json({ success: false, error: FAILED }, { status: 500 });
   }
 }

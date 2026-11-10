@@ -8,14 +8,124 @@ export interface BlogPost {
   seoTitle?: string;
   /** Short summary for the list page and the meta description */
   excerpt: string;
-  /** ISO date (YYYY-MM-DD) */
+  /** ISO date (YYYY-MM-DD) of first publication */
   date: string;
+  /** ISO date of the last content change. Defaults to `date`. Shown on the post and used in the sitemap. */
+  updated?: string;
   readMinutes: number;
   keywords: string[];
   content: string;
 }
 
 const POSTS: Omit<BlogPost, "readMinutes">[] = [
+  {
+    slug: "mi-az-a-geo-es-miert-kell-a-weboldaladnak",
+    title: "Mi az a GEO, és miért kell a weboldaladnak?",
+    seoTitle: "Mi az a GEO? AI-keresőkre optimalizálás",
+    excerpt:
+      "A GEO azt jelenti, hogy a weboldalad az AI-keresőknek is érthető. Megmutatjuk, mi kell hozzá, mit tehetsz magad, és mit nem ígérhet senki.",
+    date: "2026-11-10",
+    keywords: ["GEO", "generative engine optimization", "AI kereső optimalizálás", "ChatGPT weboldal", "AI SEO"],
+    content: `
+<p>A GEO (Generative Engine Optimization) azt jelenti, hogy a weboldaladat az AI-keresőkre is felkészíted: úgy épül fel, hogy a ChatGPT, a Gemini, a Perplexity és a Claude megtalálja, megértse és idézni tudja. Nem a keresőoptimalizálás helyett van, hanem mellette. Garanciát senki nem adhat rá, hogy egy AI ajánlani fog, de az esélyedet lehet javítani.</p>
+
+<h2>Miért lett ez most fontos?</h2>
+<p>Egyre többen nem kulcsszavakat írnak a keresőbe, hanem megkérdeznek egy AI-asszisztenst: „Ki tud nekem hőszivattyút telepíteni Szegeden?" Az asszisztens ilyenkor weboldalakat olvas el, és azokból állítja össze a választ. Aki a forrásai között van, azt megemlíti. Aki nincs, az kimarad, akármilyen jó a munkája.</p>
+<p>Egy kisvállalkozásnak ez azt jelenti, hogy a weboldalnak már nem csak az embereknek és a Google-nek kell érthetőnek lennie, hanem egy harmadik olvasónak is.</p>
+
+<h2>Miben más a GEO, mint a SEO?</h2>
+<table>
+<thead><tr><th></th><th>SEO</th><th>GEO</th></tr></thead>
+<tbody>
+<tr><th>Cél</th><td>Jó hely a Google találati listáján</td><td>Megjelenés az AI válaszaiban</td></tr>
+<tr><th>Ki olvassa az oldalt</th><td>A Google robotja</td><td>Az AI-keresők robotjai</td></tr>
+<tr><th>Mi számít leginkább</th><td>Kulcsszavak, sebesség, hivatkozások</td><td>Egyértelmű, idézhető válaszok és következetes cégadatok</td></tr>
+<tr><th>Mit lát az ügyfél</th><td>Egy linket, amire rákattinthat</td><td>Egy kész választ, benne a cég nevével</td></tr>
+</tbody>
+</table>
+<p>A kettő egymásra épül. A gyors, jól szerkesztett, világosan megírt oldal mindkettőnek jó, a GEO ehhez tesz hozzá néhány lépést.</p>
+
+<h2>Mi kell ahhoz, hogy az AI megtalálja az oldaladat?</h2>
+<h3>Be kell engedni a robotjait</h3>
+<p>Az AI-keresők saját robotokkal olvassák a weboldalakat. Ha a weboldal robots.txt fájlja vagy a tárhely botvédelme kitiltja őket, az oldalad számukra nem létezik. Ezt érdemes ellenőrizni, mert sok oldalon véletlenül van tiltva.</p>
+<h3>A szövegnek ott kell lennie az oldalban</h3>
+<p>Az AI-robotok többsége nem futtat JavaScriptet. Ha a szöveged csak a szkriptek lefutása után jelenik meg, a robot üres oldalt lát. Ezért a fontos tartalomnak a letöltött HTML-ben kell lennie.</p>
+<h3>Egyenes válaszokat kell adni</h3>
+<p>Az AI kérdésekre keres választ. Az az oldal, amelyik az első bekezdésben megmondja a lényeget, könnyen idézhető. Az, amelyik három bekezdésnyi bevezetővel indít, nem. Ugyanezért működnek jól a kérdés formájú alcímek és a gyakori kérdések.</p>
+<h3>Gépnek is olvasható adatok</h3>
+<p>A strukturált adat egy rövid, a látogató számára láthatatlan leírás az oldal kódjában: ki a cég, mit csinál, hol dolgozik, mikor érhető el. Ettől az AI-nak nem kell találgatnia.</p>
+<h3>Mindenhol ugyanazok a cégadatok</h3>
+<p>Az AI több forrásból rakja össze a képet. Ha a weboldaladon, a Google cégprofilodban és a Facebook-oldaladon más a cégnév, a cím vagy a telefonszám, bizonytalanná válik. Legyen mindenhol szóról szóra ugyanaz.</p>
+
+<h2>Mit tehetsz meg te magad?</h2>
+<ul>
+<li>Kérj Google-értékelést az elégedett ügyfeleidtől.</li>
+<li>Nézd át, hogy a cégneved, a címed és a telefonszámod mindenhol egyforma-e.</li>
+<li>Regisztrálj szakmai katalógusokba és a Bing Places-re is.</li>
+<li>Havonta kérdezd meg az AI-asszisztenseket azokról a szolgáltatásokról, amiket kínálsz, és jegyezd fel, megemlítenek-e.</li>
+</ul>
+
+<h2>Mit nem ígérhet senki?</h2>
+<p>Azt, hogy az AI ajánlani fog. Az asszisztensek maguk döntik el, mit idéznek, és ez változik. Aki garantált megjelenést ígér, az olyat ígér, ami nem rajta múlik. A GEO-val azt lehet elérni, hogy semmi ne álljon az útjában annak, hogy megtaláljanak.</p>
+
+<h2>Hogyan csináljuk mi?</h2>
+<p>A Nexen Sitesnál a GEO alapjai minden csomagban benne vannak: beengedjük és ellenőrizzük az AI-robotokat, strukturált adatokat adunk meg, és válasz-első szövegeket írunk. A részleteket a <a href="/geo">GEO szolgáltatás oldalán</a> találod. Ha látnád, hogyan nézne ki ez a te cégeden, <a href="/demo">kérj ingyenes demót</a>.</p>
+`,
+  },
+  {
+    slug: "mennyibe-kerul-egy-weboldal-magyarorszagon",
+    title: "Mennyibe kerül egy weboldal Magyarországon 2026-ban?",
+    seoTitle: "Mennyibe kerül egy weboldal 2026-ban?",
+    excerpt:
+      "Általános ársávok a magyar piacról: landing oldal, bemutatkozó oldal, céges weboldal, webshop. Mitől függ az ár, és mit kérdezz az ajánlatkérés előtt.",
+    date: "2026-11-10",
+    keywords: ["weboldal készítés árak", "mennyibe kerül egy weboldal", "weboldal ár 2026", "webshop készítés ár", "landing oldal ár"],
+    content: `
+<p>Egy weboldal ára Magyarországon 2026-ban nagyjából 90 ezer forinttól több millió forintig terjed. Egy landing oldal jellemzően 90–250 ezer, egy többoldalas céges weboldal 250–700 ezer, egy webshop 300–900 ezer forint, összetett esetben ennél jóval több. A különbséget a terjedelem, az egyedi tervezés és az adja, hogy ki írja a szöveget.</p>
+
+<h2>Honnan vannak ezek a számok?</h2>
+<p>Több hazai weboldalkészítő nyilvánosan közzétett, 2026-os árlistáját néztük át 2026 novemberében. A sávok tájékoztató jellegűek: nem hivatalos statisztika, hanem annak összefoglalása, amit a készítők maguk kiírnak. A Nexen Sites saját árát ez a cikk szándékosan nem tartalmazza, mert nálunk az ár a demo után, írásos ajánlatban szerepel.</p>
+
+<h2>Mennyi a jellemző ár típusonként?</h2>
+<table>
+<thead><tr><th>Típus</th><th>Jellemző ársáv</th><th>Mire való</th></tr></thead>
+<tbody>
+<tr><th>Landing oldal</th><td>kb. 90–250 ezer Ft</td><td>Egy szolgáltatás vagy kampány, egyetlen cél</td></tr>
+<tr><th>Bemutatkozó oldal</th><td>kb. 150–350 ezer Ft</td><td>Néhány oldalas, egyszerű online jelenlét</td></tr>
+<tr><th>Többoldalas céges weboldal</th><td>kb. 250–700 ezer Ft</td><td>Több szolgáltatás, referenciák, komolyabb keresőoptimalizálás</td></tr>
+<tr><th>Webshop</th><td>kb. 300–900 ezer Ft, összetett esetben milliós</td><td>Online értékesítés fizetéssel és szállítással</td></tr>
+</tbody>
+</table>
+<p>A piacon ennél olcsóbb és jóval drágább ajánlat is van. A legolcsóbbak jellemzően kész sablonra épülnek, a milliós tételek mögött többnyire nagyobb csapat és egyedi fejlesztés áll.</p>
+
+<h2>Mitől függ az ár?</h2>
+<ul>
+<li><strong>Terjedelem.</strong> Egy egyoldalas landing és egy nyolc aloldalas céges weboldal között természetes a különbség: több szöveg, több tervezés, több tesztelés.</li>
+<li><strong>Sablon vagy egyedi.</strong> A kész sablonból összeállított oldal olcsóbb. Az egyedileg tervezett és megírt oldal drágább, cserébe nem hasonlít száz másikra.</li>
+<li><strong>Ki írja a szöveget.</strong> Sok ajánlat azt feltételezi, hogy a szöveget te adod. Ha a készítő írja, az munka, és benne kell lennie az árban.</li>
+<li><strong>Funkciók.</strong> Időpontfoglalás, webshop, többnyelvűség, egyedi kalkulátor: mind külön tétel lehet.</li>
+<li><strong>Keresőoptimalizálás és mérés.</strong> Van, ahol az alapok az ár részei, van, ahol külön kell kérni.</li>
+</ul>
+
+<h2>Milyen folyamatos költségekkel számolj?</h2>
+<p>A weboldal az elkészülte után is pénzbe kerül, csak sokkal kevesebbe. A .hu domain évente néhány ezer forint, a tárhely jellemzően évi néhány tízezer. A karbantartás választható, a díja attól függ, mit tartalmaz: frissítést, biztonsági figyelést, kisebb módosításokat.</p>
+
+<h2>Mit kérdezz, mielőtt ajánlatot kérsz?</h2>
+<ul>
+<li>Pontosan hány oldal és milyen funkciók vannak az árban?</li>
+<li>Ki írja a szövegeket?</li>
+<li>Hány módosítási kört tartalmaz az ár?</li>
+<li>Kié lesz a kód és a dizájn, ha kifizettem?</li>
+<li>Mikor kell fizetni: mekkora az előleg, és mikor esedékes a többi?</li>
+<li>Mi történik, ha menet közben felmondanám?</li>
+<li>Mennyi a fenntartás évente, és mit tartalmaz a karbantartás?</li>
+</ul>
+<p>Ha ezekre írásban kapsz választ, az ajánlatok összehasonlíthatók lesznek. Az árról és az ajánlatkérésről bővebben egy korábbi írásunkban is olvashatsz: <a href="/blog/premium-weboldal-keszites-aron-belul">mitől ér meg egy weboldal annyit, és mit kérdezz az árajánlatban</a>.</p>
+
+<h2>Hogyan döntsd el, megéri-e?</h2>
+<p>A legbiztosabb, ha fizetés előtt látod, mit kapsz. Mi ezért dolgozunk úgy, hogy előbb <a href="/demo">ingyenes demo weboldalt</a> készítünk a saját cégedre, és csak akkor fizetsz, ha tetszik. Árat ezután adunk, írásban, a pontos tartalommal.</p>
+`,
+  },
   {
     slug: "3-napos-weboldal-keszites-hogyan-mukodik",
     title: "3 napos weboldal-készítés: így néz ki a folyamat a gyakorlatban",
@@ -308,7 +418,12 @@ function estimateReadMinutes(html: string): number {
 export const BLOG_POSTS: BlogPost[] = POSTS.map((post) => ({
   ...post,
   readMinutes: estimateReadMinutes(post.content),
-})).sort((a, b) => b.date.localeCompare(a.date));
+})).sort((a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug));
+
+/** Date of the last content change (falls back to the publication date). */
+export function postUpdated(post: BlogPost): string {
+  return post.updated ?? post.date;
+}
 
 export function getBlogPost(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find((post) => post.slug === slug);

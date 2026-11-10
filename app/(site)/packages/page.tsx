@@ -1,116 +1,121 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ButtonLink } from "@/components/site/Button";
-import ClosingCta from "@/components/site/ClosingCta";
+import ComparisonTable from "@/components/site/ComparisonTable";
+import JsonLd from "@/components/site/JsonLd";
 import PageHero from "@/components/site/PageHero";
-import PricingTiers from "@/components/site/PricingTiers";
 import Section from "@/components/site/Section";
+import { CareBand, InEveryPackage, TierCards } from "@/components/site/Tiers";
+import { SectionHeading } from "@/components/site/Words";
+import { CARE, LANDING_VS_MULTI, NO_PRICE_NOTE, TIERS, WEBSHOP_NOTE } from "@/lib/content";
+import { CTA_HREF, CTA_LABEL, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Weboldal csomagok szolgáltató cégeknek",
+  title: "Weboldal csomagok szövegírással",
   description:
-    "Bemutatkozó oldal, céges weboldal vagy növekedési csomag: szövegírással, mobilra tervezve, az árajánlatot a konzultáció után kapod.",
-  alternates: {
-    canonical: "/packages",
-  },
+    "Három weboldal csomag kis- és középvállalkozásoknak, mindegyikben szövegírás, SEO- és GEO-alapok. Előbb ingyenes demót kapsz, utána írásos ajánlatot.",
+  alternates: { canonical: "/packages" },
 };
 
-const INCLUDED = [
-  {
-    term: "Szövegírás",
-    text: "A konzultáció alapján, a te szakmai nyelveden írjuk meg. Tőled csak a szakmai ellenőrzést kérjük.",
-  },
-  {
-    term: "Mobilra tervezve",
-    text: "A telefonos nézet ugyanannyi figyelmet kap, mint az asztali, mert az ügyfeleid többsége ott néz meg először.",
-  },
-  {
-    term: "Gyors betöltés",
-    text: "Tömörített képek és takarékos felépítés, hogy az oldal mobilneten se várakoztassa a látogatót.",
-  },
-  {
-    term: "Mérés",
-    text: "Látod, honnan jönnek az ajánlatkérések, és melyik oldalad hozza őket.",
-  },
-  {
-    term: "Két javítási kör",
-    text: "Az első élő változat után két körben kérhetsz módosításokat, ezek benne vannak az ajánlatban.",
-  },
-  {
-    term: "Élesítés a saját domaineden",
-    text: "A jóváhagyás után a saját domaineden indítjuk el az oldalt, a technikai beállításokat mi intézzük.",
-  },
-];
+const provider = { "@id": `${SITE_URL}/#business` };
 
 export default function PackagesPage() {
   return (
     <>
-      <PageHero
-        title="Három módon dolgozhatunk együtt"
-        lead="Mindhárom ugyanarra épül: szöveg a te ügyfeleid kérdéseire, a céged arculatára szabott design és első élő változat három munkanap alatt. A különbség a terjedelem."
-        actions={
-          <ButtonLink href="/book" size="lg">
-            Ajánlatot kérek
-          </ButtonLink>
-        }
+      <JsonLd
+        data={[
+          ...TIERS.map((tier) => ({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: tier.name,
+            serviceType: "Weboldalkészítés",
+            description: `${tier.summary} ${tier.bestFor}`,
+            url: `${SITE_URL}/packages#${tier.id}`,
+            provider,
+            areaServed: { "@type": "Country", name: "Magyarország" },
+          })),
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: CARE.name,
+            serviceType: "Weboldal karbantartás",
+            description: `${CARE.summary} ${CARE.features.join(", ")}.`,
+            url: `${SITE_URL}/packages#havi-gondozas`,
+            provider,
+            areaServed: { "@type": "Country", name: "Magyarország" },
+          },
+        ]}
       />
 
-      <Section className="lg:py-36">
-        <PricingTiers headingLevel="h2" />
-      </Section>
+      <PageHero
+        title="Weboldal csomagok"
+        crumbs={[{ href: "/packages", label: "Csomagok" }]}
+        answer="A Nexen Sites három csomagban készít weboldalt: Bemutatkozó oldal egy szolgáltatásra, Céges weboldal több aloldallal, és Növekedési csomag hirdetésekhez illő landing oldalakkal. Mindegyikben benne van a szövegírás, a SEO-alapok és a GEO-alapok. Árat nem írunk ki: előbb ingyenes demót kapsz, utána írásos ajánlatot."
+      >
+        <ButtonLink href={CTA_HREF} size="lg">
+          {CTA_LABEL}
+        </ButtonLink>
+      </PageHero>
 
-      <Section tone="raised" aria-labelledby="included-title">
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
-          <h2 id="included-title" className="type-h2 lg:col-span-4">
-            Ami mindegyikben benne van
-          </h2>
-          <dl className="grid gap-x-10 sm:grid-cols-2 lg:col-span-7 lg:col-start-6">
-            {INCLUDED.map((item) => (
-              <div key={item.term} className="reveal border-t border-rule pb-8 pt-6">
-                <dt className="wdth-title text-xl font-semibold leading-snug">{item.term}</dt>
-                <dd className="mt-2 text-fog">{item.text}</dd>
-              </div>
-            ))}
-          </dl>
+      <Section aria-labelledby="csomagok-cim">
+        <SectionHeading id="csomagok-cim" title="Melyik csomag való neked?" lead={NO_PRICE_NOTE} />
+        <div className="mt-12">
+          <TierCards headingLevel="h3" />
+          <div id="havi-gondozas" className="scroll-mt-28">
+            <CareBand />
+          </div>
         </div>
+        <p className="measure mt-8 text-muted" data-reveal>
+          {WEBSHOP_NOTE}
+        </p>
+        <p className="measure mt-3 text-muted" data-reveal>
+          Nem tudod, melyik kell? A{" "}
+          <Link href="/demo#kerdessor" className="link">
+            kérdéssor
+          </Link>{" "}
+          öt kérdés után megmondja, melyiket ajánljuk, és miért.
+        </p>
       </Section>
 
-      <Section aria-labelledby="care-title">
-        <div className="grid gap-8 lg:grid-cols-12 lg:gap-8">
-          <h2 id="care-title" className="type-h2 lg:col-span-4">
-            Havi gondozás
-          </h2>
-          <div className="lg:col-span-7 lg:col-start-6">
-            <p className="type-lead measure">
-              Bármelyik csomag mellé kérhetsz havi gondozást. Ilyenkor mi frissítjük az oldalt, figyeljük a biztonságát
-              és a sebességét, és elvégezzük a kisebb módosításokat, például egy új szolgáltatás vagy egy megváltozott
-              nyitvatartás felvételét.
-            </p>
-            <p className="measure mt-5 text-fog">
-              Így az oldal az átadás után is ugyanúgy dolgozik, mint az első napon, és nem neked kell foglalkoznod vele.
-            </p>
+      <Section tone="mist" aria-labelledby="minden-csomagban-cim">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-5">
+            <SectionHeading
+              id="minden-csomagban-cim"
+              title="Mi van benne minden csomagban?"
+              lead="Ezeket a szerződés minden projektnél tartalmazza, akármelyik csomagot választod."
+            />
+          </div>
+          <div className="lg:col-span-7">
+            <InEveryPackage />
           </div>
         </div>
       </Section>
 
-      <Section tone="raised" aria-labelledby="pricing-title">
-        <div className="grid gap-8 lg:grid-cols-12 lg:gap-8">
-          <h2 id="pricing-title" className="type-h2 lg:col-span-4">
-            Miért nincs ár az oldalon?
-          </h2>
-          <div className="lg:col-span-7 lg:col-start-6">
-            <p className="type-lead measure">
-              Egy bemutatkozó oldal és egy többoldalas céges weboldal között nagy a különbség, és hogy neked melyik kell,
-              az a céged helyzetétől függ. Egy kiírt szám ezt nem tudná figyelembe venni.
-            </p>
-            <p className="measure mt-5 text-fog">
-              Ezért a konzultáció után írásos ajánlatot kapsz, amiben a terjedelem mellett az előleg mértéke is szerepel.
-              Megrendeléskor az előleget fizeted, a végösszeg hátralévő részét pedig a jóváhagyás után.
-            </p>
-          </div>
+      <Section aria-labelledby="landing-vagy-tobboldalas-cim">
+        <SectionHeading
+          id="landing-vagy-tobboldalas-cim"
+          title="Landing oldal vagy többoldalas weboldal?"
+          lead="Ha egy szolgáltatásod van, vagy egy kampányhoz kell oldal, elég a landing. Ha az ügyfél alaposan utánad néz, mielőtt megkeres, többoldalas weboldal kell."
+        />
+        <div className="mt-10">
+          <ComparisonTable comparison={LANDING_VS_MULTI} />
         </div>
       </Section>
 
-      <ClosingCta />
+      <Section tone="navy" aria-labelledby="csomagok-zaro-cim">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHeading
+            id="csomagok-zaro-cim"
+            title="Előbb nézd meg, utána dönts"
+            lead="A demo a saját cégedre készül, egy napon belül. A demóért és a demóig semmit nem kell fizetned."
+            onNavy
+          />
+          <ButtonLink href={CTA_HREF} size="lg" className="self-start lg:self-auto">
+            {CTA_LABEL}
+          </ButtonLink>
+        </div>
+      </Section>
     </>
   );
 }

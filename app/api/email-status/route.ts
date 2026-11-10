@@ -1,22 +1,17 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function GET(request: NextRequest) {
-  const RESEND_API_KEY = process.env.RESEND_API_KEY;
-  const EMAIL_FROM = process.env.EMAIL_FROM || "onboarding@resend.dev";
-  const ADMIN_EMAIL = process.env.ADMIN_EMAIL || "verdung.imi@gmail.com";
+export const dynamic = "force-dynamic";
 
-  return NextResponse.json(
-    {
-      resendApiKey: RESEND_API_KEY ? "✓ Beállítva" : "✗ Nincs beállítva",
-      emailFrom: EMAIL_FROM,
-      adminEmail: ADMIN_EMAIL,
-      nodeEnv: process.env.NODE_ENV || "not set",
-      status: RESEND_API_KEY ? "ready" : "development_mode",
-      message: RESEND_API_KEY 
-        ? "Resend API kulcs beállítva - email küldés aktív" 
-        : "Resend API kulcs nincs beállítva - development mód (console log)",
-    },
-    { status: 200 }
-  );
+/** Shows which integrations are configured. Reports only whether a value is set, never the value itself. */
+export async function GET() {
+  const set = (value: string | undefined) => (value ? "beállítva" : "nincs beállítva");
+  return NextResponse.json({
+    resendApiKey: set(process.env.RESEND_API_KEY),
+    emailFrom: process.env.EMAIL_FROM ? "beállítva" : "nincs beállítva (alapértelmezés: onboarding@resend.dev, csak a fióktulajdonosnak kézbesít)",
+    adminEmail: set(process.env.ADMIN_EMAIL),
+    supabase: process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY ? "beállítva" : "nincs beállítva (a beküldések csak e-mailben érkeznek meg)",
+    googleAnalytics: set(process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID),
+    metaPixel: set(process.env.NEXT_PUBLIC_META_PIXEL_ID),
+    googleReviewLink: set(process.env.NEXT_PUBLIC_GOOGLE_REVIEW_URL),
+  });
 }
-

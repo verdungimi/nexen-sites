@@ -1,126 +1,78 @@
 import { NextRequest, NextResponse } from "next/server";
-import { validateBookingData, sanitizeString, sanitizeText } from "@/lib/validation";
-import { sendEmail, formatBookingEmail } from "@/lib/email";
-import { DEADLINE_OPTIONS, PURPOSE_OPTIONS, isOptionValue } from "@/lib/booking-options";
+import { PURPOSE_OPTIONS, isOptionValue } from "@/lib/booking-options";
+import { ADMIN_EMAIL, formatBookingConfirmation, formatBookingEmail, sendEmail } from "@/lib/email";
+import { saveLead } from "@/lib/leads";
+import { allowRequest, asString, clientIp, looksLikeBot, sanitizeUtm } from "@/lib/spam";
+import { sanitizeString, sanitizeText, validateBookingData } from "@/lib/validation";
 
-/** Non-string JSON values (numbers, objects, null) are treated as empty instead of crashing the sanitizers. */
-function asString(value: unknown): string {
-  return typeof value === "string" ? value : "";
-}
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
+const FAILED = "Most nem sikerült elküldeni a foglalást. Próbáld újra, vagy hívj minket: +36 70 576 7845.";
+
+/** Consultation booking: saved to Supabase, e-mailed to Imi, confirmed to the visitor. */
 export async function POST(request: NextRequest) {
   try {
     const body: unknown = await request.json();
     const data = (body && typeof body === "object" ? body : {}) as Record<string, unknown>;
 
-    const purpose = sanitizeText(asString(data.purpose));
-    const deadline = sanitizeText(asString(data.deadline));
+    if (looksLikeBot(data)) {
+      return NextResponse.json({ success: true });
+    }
 
-    // Sanitize input data
-    const bookingData = {
-      name: sanitizeString(asString(data.name)),
-      company: sanitizeText(asString(data.company)),
-      email: sanitizeString(asString(data.email)),
-      phone: sanitizeString(asString(data.phone)),
-      revenue: sanitizeText(asString(data.revenue)),
-      budget: sanitizeText(asString(data.budget)),
-      // Optional choices: anything outside the whitelist is dropped, not rejected
+    if (!allowRequest(clientIp(request))) {
+      return NextResponse.json(
+        { success: false, error: "Túl sok beküldés érkezett rövid idő alatt. Próbáld újra pár perc múlva, vagy hívj minket." },
+        { status: 429 }
+      );
+    }
+
+    const purpose = asString(data.purpose, 40);
+    const booking = {
+      name: sanitizeString(asString(data.name, 120)),
+      company: sanitizeText(asString(data.company, 160)),
+      email: sanitizeString(asString(data.email, 254)).toLowerCase(),
+      phone: sanitizeString(asString(data.phone, 40)),
+      // Optional choice: anything outside the whitelist is dropped, not rejected
       purpose: isOptionValue(PURPOSE_OPTIONS, purpose) ? purpose : "",
-      deadline: isOptionValue(DEADLINE_OPTIONS, deadline) ? deadline : "",
-      description: sanitizeText(asString(data.description)),
-      selectedDate: asString(data.selectedDate).trim() || undefined,
-      selectedTime: asString(data.selectedTime).trim() || undefined,
+      description: sanitizeText(asString(data.description, 2000)),
+      selectedDate: asString(data.selectedDate, 40).trim() || undefined,
+      selectedTime: asString(data.selectedTime, 10).trim() || undefined,
       privacyAccepted: data.privacyAccepted === true,
     };
 
-    // Validate data
-    const validation = validateBookingData({
-      name: bookingData.name,
-      email: bookingData.email,
-      phone: bookingData.phone,
-      privacyAccepted: bookingData.privacyAccepted,
-      revenue: bookingData.revenue,
-      budget: bookingData.budget,
-      selectedDate: bookingData.selectedDate,
-      selectedTime: bookingData.selectedTime,
-    });
-
+    const validation = validateBookingData(booking);
     if (!validation.isValid) {
-      return NextResponse.json(
-        {
-          success: false,
-          errors: validation.errors,
-        },
-        { status: 400 }
-      );
+      return NextResponse.json({ success: false, errors: validation.errors }, { status: 400 });
     }
 
-    // Format and send email
-    const emailContent = formatBookingEmail(bookingData);
-    const emailResult = await sendEmail({
-      to: process.env.ADMIN_EMAIL || "verdung.imi@gmail.com",
-      subject: emailContent.subject,
-      text: emailContent.text,
-      html: emailContent.html,
-    });
+    const [saved, email] = await Promise.all([
+      saveLead({
+        source: "booking",
+        name: booking.name,
+        company: booking.company,
+        email: booking.email,
+        phone: booking.phone,
+        message: [booking.purpose && `Téma: ${booking.purpose}`, booking.description].filter(Boolean).join("\n"),
+        booking_date: booking.selectedDate?.slice(0, 10),
+        booking_time: booking.selectedTime,
+        page: "/book",
+        utm: sanitizeUtm(data.utm),
+      }),
+      sendEmail({ to: ADMIN_EMAIL, replyTo: booking.email, ...formatBookingEmail(booking) }),
+    ]);
 
-    if (!emailResult.success) {
-      console.error("Email sending failed:", emailResult.error);
-      return NextResponse.json(
-        {
-          success: false,
-          error: "Hiba történt az email küldése során",
-        },
-        { status: 500 }
-      );
+    if (!saved.saved && !email.success) {
+      console.error("Booking lost: neither Supabase nor e-mail worked", { supabase: saved.error, email: email.error });
+      return NextResponse.json({ success: false, error: FAILED }, { status: 500 });
     }
 
-    // TODO: Save to database when database is set up
-    // await saveBookingToDatabase(bookingData);
+    const confirmed = await sendEmail({ to: booking.email, replyTo: ADMIN_EMAIL, ...formatBookingConfirmation(booking) });
+    if (!confirmed.success) console.warn("Booking confirmation e-mail not sent:", confirmed.error);
 
-    return NextResponse.json(
-      {
-        success: true,
-        message: "Időpontfoglalás sikeresen elküldve",
-        messageId: emailResult.messageId,
-      },
-      { status: 200 }
-    );
+    return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Error processing booking:", error);
-    return NextResponse.json(
-      {
-        success: false,
-        error: "Hiba történt a feldolgozás során",
-        details: error instanceof Error ? error.message : "Unknown error",
-      },
-      { status: 500 }
-    );
-  }
-}
-
-// GET endpoint to retrieve bookings (for admin - add authentication later)
-export async function GET(request: NextRequest) {
-  try {
-    // TODO: Add authentication
-    // TODO: Fetch from database
-
-    return NextResponse.json(
-      {
-        success: true,
-        bookings: [],
-        message: "Database integration pending",
-      },
-      { status: 200 }
-    );
-  } catch (error) {
-    console.error("Error fetching bookings:", error);
-    return NextResponse.json(
-      {
-        success: false,
-        error: "Hiba történt az adatok lekérése során",
-      },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: FAILED }, { status: 500 });
   }
 }

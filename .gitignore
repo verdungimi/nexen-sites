@@ -46,3 +46,6 @@ temp-clone/
 public/uploads/*
 !public/uploads/.gitkeep
 .env*
+
+# The example file documents variable names only (no values)
+!.env.example

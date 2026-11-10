@@ -1,196 +1,164 @@
 "use client";
 
-import { useState, type ChangeEvent, type FormEvent } from "react";
-import { Button } from "@/components/site/Button";
-import EmailSuggestion from "@/components/site/EmailSuggestion";
-import { cn } from "@/lib/utils";
-import { sanitizeText, validateEmail } from "@/lib/validation";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { Check, Loader2 } from "lucide-react";
+import { buttonClasses } from "@/components/site/Button";
+import { CONTACT } from "@/lib/site";
+import { trackLead } from "@/lib/track";
+import { suggestEmailDomain, validateContactData } from "@/lib/validation";
 
-type FieldName = "name" | "email" | "message";
-type Values = Record<FieldName, string>;
-type Errors = Partial<Record<FieldName, string>>;
+type FieldName = "name" | "email" | "phone" | "message";
+const ORDER: FieldName[] = ["name", "email", "phone", "message"];
+const EMPTY: Record<FieldName, string> = { name: "", email: "", phone: "", message: "" };
 
-const EMPTY: Values = { name: "", email: "", message: "" };
-const FIELD_ORDER: FieldName[] = ["name", "email", "message"];
-
-/** Mirrors the rules of POST /api/contact (the server trims and strips < and > before checking). */
-function validate(values: Values): Errors {
-  const errors: Errors = {};
-  const name = sanitizeText(values.name);
-  const email = values.email.trim();
-  const message = sanitizeText(values.message);
-
-  if (!name) errors.name = "Add meg a neved.";
-  else if (name.length < 2) errors.name = "A név legalább 2 karakter legyen.";
-
-  if (!email) errors.email = "Add meg az e-mail-címed.";
-  else if (!validateEmail(email)) errors.email = "Adj meg érvényes e-mail-címet, például nev@cegnev.hu.";
-
-  if (!message) errors.message = "Írd meg az üzeneted.";
-  else if (message.length < 10) errors.message = "Az üzenet legalább 10 karakter legyen.";
-
-  return errors;
-}
-
-/** Focus ring comes from the global brass :focus-visible rule in site.css. */
-function controlClass(hasError: boolean) {
-  return cn(
-    "block min-h-12 w-full rounded-xl border bg-graphite px-4 py-3 text-bone placeholder:text-fog transition-colors duration-200",
-    hasError ? "border-rust" : "border-rule hover:border-fog/60"
-  );
-}
-
+/** General message form on /kapcsolat. Phone is optional here, but must be a real Hungarian number when given. */
 export default function ContactForm() {
-  const [values, setValues] = useState<Values>(EMPTY);
-  const [errors, setErrors] = useState<Errors>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null);
-  const [emailLeft, setEmailLeft] = useState(false);
+  const [values, setValues] = useState(EMPTY);
+  const [errors, setErrors] = useState<Partial<Record<FieldName, string>>>({});
+  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [serverError, setServerError] = useState("");
+  const startedAt = useRef(0);
+  const honeypot = useRef<HTMLInputElement>(null);
+  const successRef = useRef<HTMLDivElement>(null);
 
-  const update = (field: FieldName, value: string) => {
-    if (field === "email") setEmailLeft(false);
-    setValues((current) => ({ ...current, [field]: value }));
-    setErrors((current) => (current[field] ? { ...current, [field]: undefined } : current));
-    setStatus(null);
+  useEffect(() => {
+    startedAt.current = Date.now();
+  }, []);
+
+  useEffect(() => {
+    if (status === "sent") successRef.current?.focus();
+  }, [status]);
+
+  const set = (name: FieldName) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setValues((current) => ({ ...current, [name]: event.target.value }));
+
+  const blur = (name: FieldName) => () => {
+    if (!values[name]) return;
+    setErrors((current) => ({ ...current, [name]: validateContactData(values).errors[name] }));
   };
 
-  const fieldProps = (field: FieldName, className?: string) => ({
-    id: `contact-${field}`,
-    name: field,
-    value: values[field],
-    required: true,
-    "aria-invalid": errors[field] ? true : undefined,
-    "aria-describedby": errors[field] ? `contact-${field}-error` : undefined,
-    onChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => update(field, event.target.value),
-    className: cn(controlClass(Boolean(errors[field])), "mt-2", className),
-  });
+  const emailSuggestion = values.email && !errors.email ? suggestEmailDomain(values.email.trim()) : undefined;
 
-  const errorText = (field: FieldName) =>
-    errors[field] && (
-      <p id={`contact-${field}-error`} className="mt-2 text-[0.9375rem] text-rust">
-        {errors[field]}
-      </p>
-    );
-
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    setStatus(null);
+    if (status === "sending") return;
+    setServerError("");
 
-    const found = validate(values);
-    if (Object.keys(found).length > 0) {
-      setErrors(found);
-      const first = FIELD_ORDER.find((field) => found[field]);
-      if (first) document.getElementById(`contact-${first}`)?.focus();
+    const result = validateContactData(values);
+    setErrors(result.errors);
+    if (!result.isValid) {
+      const firstInvalid = ORDER.find((name) => result.errors[name]);
+      if (firstInvalid) document.getElementById(`kapcsolat-${firstInvalid}`)?.focus();
       return;
     }
 
-    setErrors({});
-    setIsSubmitting(true);
-
+    setStatus("sending");
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: values.name.trim(),
-          email: values.email.trim(),
-          message: values.message.trim(),
-        }),
+        body: JSON.stringify({ ...values, fax: honeypot.current?.value ?? "", elapsedMs: Date.now() - startedAt.current }),
       });
-      const data = await response.json();
-
+      const data = (await response.json().catch(() => ({}))) as { success?: boolean; error?: string; errors?: Record<string, string> };
       if (response.ok && data.success) {
-        setValues(EMPTY);
-        setStatus({ type: "success", message: "Megkaptuk az üzeneted. Egy munkanapon belül válaszolunk." });
-      } else {
-        setStatus({ type: "error", message: data.error || "Hiba történt az üzenet küldése közben. Kérjük, próbáld újra." });
+        trackLead("contact");
+        setStatus("sent");
+        return;
       }
-    } catch (error) {
-      console.error("Error submitting contact form:", error);
-      setStatus({
-        type: "error",
-        message: "Hiba történt az üzenet küldése közben. Kérjük, próbáld újra, vagy hívj minket telefonon.",
-      });
-    } finally {
-      setIsSubmitting(false);
+      if (data.errors) setErrors(data.errors);
+      setServerError(data.error ?? (data.errors ? "" : `Most nem sikerült elküldeni. Próbáld újra, vagy hívj minket: ${CONTACT.phone}.`));
+    } catch {
+      setServerError(`Nincs kapcsolat a szerverrel. Ellenőrizd az internetet, vagy hívj minket: ${CONTACT.phone}.`);
     }
+    setStatus("idle");
   };
 
-  return (
-    <form
-      noValidate
-      onSubmit={handleSubmit}
-      aria-labelledby="contact-form-title"
-      className="rounded-[1.25rem] border border-rule bg-graphite-raised p-5 sm:p-8 lg:p-10"
-    >
-      <h2 id="contact-form-title" className="type-h3">
-        Írj nekünk
-      </h2>
-
-      <div className="mt-8 grid gap-6">
-        <div>
-          <label htmlFor="contact-name" className="block font-medium text-bone">
-            Név
-          </label>
-          <input
-            {...fieldProps("name")}
-            type="text"
-            autoComplete="name"
-            placeholder="Kovács Anna"
-          />
-          {errorText("name")}
-        </div>
-
-        <div>
-          <label htmlFor="contact-email" className="block font-medium text-bone">
-            E-mail
-          </label>
-          <input
-            {...fieldProps("email")}
-            type="email"
-            inputMode="email"
-            autoComplete="email"
-            placeholder="anna@kovacsepito.hu"
-            onBlur={() => {
-              setEmailLeft(true);
-              const email = values.email.trim();
-              if (email && !validateEmail(email)) {
-                setErrors((current) => ({ ...current, email: "Adj meg érvényes e-mail-címet, például nev@cegnev.hu." }));
-              }
-            }}
-          />
-          {errorText("email")}
-          <EmailSuggestion
-            email={values.email}
-            visible={emailLeft && !errors.email}
-            onApply={(corrected) => {
-              update("email", corrected);
-            }}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="contact-message" className="block font-medium text-bone">
-            Üzenet
-          </label>
-          <textarea
-            {...fieldProps("message", "min-h-40 resize-y")}
-            rows={6}
-            placeholder="Például: a mostani oldalunkat érdemes átalakítani, vagy inkább újat építeni?"
-          />
-          {errorText("message")}
-        </div>
-
-        <div aria-live="polite" aria-atomic="true">
-          {status && <p className={status.type === "success" ? "text-moss" : "text-rust"}>{status.message}</p>}
-        </div>
-
-        <div>
-          <Button type="submit" size="lg" disabled={isSubmitting} className="w-full sm:w-auto">
-            {isSubmitting ? "Küldés…" : "Üzenet küldése"}
-          </Button>
-        </div>
+  if (status === "sent") {
+    return (
+      <div ref={successRef} tabIndex={-1} role="status" className="rounded-3xl bg-mist p-7 outline-none sm:p-9">
+        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-sky text-navy">
+          <Check aria-hidden="true" strokeWidth={3} className="h-6 w-6" />
+        </span>
+        <h3 className="type-h3 mt-5 !text-[1.75rem]">Köszönjük, megkaptuk az üzeneted.</h3>
+        <p className="mt-3 text-muted">Egy munkanapon belül válaszolunk erre a címre: {values.email.trim()}</p>
       </div>
+    );
+  }
+
+  const describe = (name: FieldName) => (errors[name] ? `kapcsolat-${name}-error` : undefined);
+
+  return (
+    <form onSubmit={handleSubmit} noValidate aria-label="Üzenet küldése" className="space-y-4">
+      <div>
+        <label htmlFor="kapcsolat-name" className="field-label">
+          Neved
+        </label>
+        <input id="kapcsolat-name" name="name" type="text" autoComplete="name" required value={values.name} onChange={set("name")} onBlur={blur("name")} aria-invalid={errors.name ? true : undefined} aria-describedby={describe("name")} className="field-input" />
+        {errors.name && <p id="kapcsolat-name-error" className="field-error">{errors.name}</p>}
+      </div>
+
+      <div>
+        <label htmlFor="kapcsolat-email" className="field-label">
+          E-mail-cím
+        </label>
+        <input id="kapcsolat-email" name="email" type="email" inputMode="email" autoComplete="email" placeholder="nev@cegnev.hu" required value={values.email} onChange={set("email")} onBlur={blur("email")} aria-invalid={errors.email ? true : undefined} aria-describedby={describe("email")} className="field-input" />
+        {errors.email && <p id="kapcsolat-email-error" className="field-error">{errors.email}</p>}
+        {emailSuggestion && (
+          <p className="mt-1.5 text-[0.9375rem] text-muted">
+            Erre gondoltál?{" "}
+            <button type="button" className="link" onClick={() => setValues((current) => ({ ...current, email: emailSuggestion }))}>
+              {emailSuggestion}
+            </button>
+          </p>
+        )}
+      </div>
+
+      <div>
+        <label htmlFor="kapcsolat-phone" className="field-label">
+          Telefonszám <span className="font-normal text-muted">(nem kötelező)</span>
+        </label>
+        <input id="kapcsolat-phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="+36 30 123 4567" value={values.phone} onChange={set("phone")} onBlur={blur("phone")} aria-invalid={errors.phone ? true : undefined} aria-describedby={describe("phone")} className="field-input" />
+        {errors.phone && <p id="kapcsolat-phone-error" className="field-error">{errors.phone}</p>}
+      </div>
+
+      <div>
+        <label htmlFor="kapcsolat-message" className="field-label">
+          Miben segíthetünk?
+        </label>
+        <textarea id="kapcsolat-message" name="message" rows={5} required value={values.message} onChange={set("message")} onBlur={blur("message")} aria-invalid={errors.message ? true : undefined} aria-describedby={describe("message")} className="field-input resize-y" />
+        {errors.message && <p id="kapcsolat-message-error" className="field-error">{errors.message}</p>}
+      </div>
+
+      <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+        <label htmlFor="kapcsolat-fax">Fax (hagyd üresen)</label>
+        <input ref={honeypot} id="kapcsolat-fax" name="fax" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+      </div>
+
+      {serverError && (
+        <p role="alert" className="rounded-xl border-[1.5px] border-danger px-4 py-3 font-medium text-danger">
+          {serverError}
+        </p>
+      )}
+
+      <button type="submit" disabled={status === "sending"} className={buttonClasses("navy", "lg", "w-full")}>
+        {status === "sending" ? (
+          <>
+            <Loader2 aria-hidden="true" className="h-5 w-5 animate-spin" />
+            Küldés…
+          </>
+        ) : (
+          "Elküldöm az üzenetet"
+        )}
+      </button>
+
+      <p className="text-[0.9375rem] leading-snug text-muted">
+        Az adataidat csak a válaszadáshoz használjuk, az{" "}
+        <Link href="/privacy" className="link">
+          adatkezelési tájékoztató
+        </Link>{" "}
+        szerint.
+      </p>
     </form>
   );
 }

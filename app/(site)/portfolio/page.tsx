@@ -1,79 +1,57 @@
 import type { Metadata } from "next";
+import { ButtonLink } from "@/components/site/Button";
 import PageHero from "@/components/site/PageHero";
 import Section from "@/components/site/Section";
-import SectionIntro from "@/components/site/SectionIntro";
-import { ButtonLink } from "@/components/site/Button";
-import PortfolioContent from "./PortfolioContent";
+import { SectionHeading } from "@/components/site/Words";
+import WorksGrid from "@/components/site/WorksGrid";
+import { INDUSTRIES } from "@/lib/content";
+import { CTA_HREF, CTA_LABEL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Munkáink: weboldalak szolgáltató cégeknek",
+  title: "Munkáink: elkészült weboldalak",
   description:
-    "Weboldalak építőipari, épületgépészeti, egészségügyi és szakértői cégeknek. A konzultáción az iparágadhoz közel álló példákat mutatunk.",
-  alternates: {
-    canonical: "/portfolio",
-  },
+    "A Nexen Sites elkészült weboldalai építőipari, épületgépészeti, egészségügyi és szakértői cégeknek. Nézd meg őket, aztán kérj demót a saját cégedre.",
+  alternates: { canonical: "/portfolio" },
 };
-
-const SECTORS = [
-  {
-    title: "Építőipar és felújítás",
-    text: "Az oldalnak meg kell mutatnia a korábbi munkáidat, és egyszerűen el kell vinnie a látogatót a helyszíni felmérés kéréséig.",
-  },
-  {
-    title: "Épületgépészet és hőszivattyú",
-    text: "Az ügyfél a rendszerekről, a telepítés menetéről és a támogatásokról kérdez. Ha az oldal előre válaszol, a felmérést kérők már tudják, mit szeretnének.",
-  },
-  {
-    title: "Egészségügyi magánpraxisok",
-    text: "A páciens bizalmat és gyors időpontot keres. Az oldalnak be kell mutatnia a rendelést és a szakembereket, és néhány lépésben el kell juttatnia az időpontfoglalásig.",
-  },
-  {
-    title: "Ügyvédi, könyvelő- és mérnökirodák",
-    text: "Itt a szakértelem maga a szolgáltatás. Az oldalnak érthetően le kell írnia a szakterületeket, és könnyű első kapcsolatfelvételt kell kínálnia.",
-  },
-  {
-    title: "Szakértői és tanácsadó cégek",
-    text: "A döntéshozó több ajánlatot vet össze. Az oldalnak már az első egyeztetés előtt meg kell mutatnia, hogyan dolgozol, és milyen problémát oldasz meg.",
-  },
-];
 
 export default function PortfolioPage() {
   return (
     <>
       <PageHero
         title="Munkáink"
-        lead="Ügyfeleink nevét csak az engedélyükkel mutatjuk meg, ezért itt név nélkül szerepelnek a munkák. A konzultáción szívesen megmutatunk a te iparágadhoz közel álló példákat is."
+        crumbs={[{ href: "/portfolio", label: "Munkáink" }]}
+        answer="Itt a Nexen Sites elkészült weboldalait látod, asztali és mobilnézetben. Mindegyik egyedi kódból épült, sablon nélkül, a cégre írt szövegekkel. Ha szeretnéd látni, hogyan nézne ki a te cégedre, kérj ingyenes demót: egy napon belül elkészül, és csak akkor fizetsz, ha tetszik."
       />
 
-      <PortfolioContent />
+      <Section aria-labelledby="munkak-cim">
+        <h2 id="munkak-cim" className="sr-only">
+          Elkészült weboldalak
+        </h2>
+        <WorksGrid />
+      </Section>
 
-      <Section tone="raised" aria-labelledby="kiknek">
-        <SectionIntro
-          id="kiknek"
-          title="Kiknek dolgozunk"
-          lead="Bejáratott szolgáltató cégeknek, ahol egy új ügyfél értéke miatt megéri, hogy a weboldal komolyan dolgozzon."
-        />
-        <ul className="mt-14 grid gap-x-12 md:grid-cols-2 lg:grid-cols-3">
-          {SECTORS.map((sector) => (
-            <li key={sector.title} className="reveal border-t border-rule py-8">
-              <h3 className="wdth-title text-xl font-semibold leading-snug">{sector.title}</h3>
-              <p className="mt-3 text-fog">{sector.text}</p>
+      <Section tone="mist" aria-labelledby="iparagak-cim">
+        <SectionHeading id="iparagak-cim" title="Milyen cégeknek építünk?" lead="Minden iparágban más kérdésre kell válaszolnia az oldalnak, mielőtt az ügyfél megkeres." />
+        <ul className="mt-10 grid gap-x-12 md:grid-cols-2 lg:grid-cols-3">
+          {INDUSTRIES.map((industry, index) => (
+            <li key={industry.title} className="border-t border-line-strong py-6" data-reveal style={{ "--i": index % 3 } as React.CSSProperties}>
+              <h3 className="type-h3">{industry.title}</h3>
+              <p className="mt-2 text-muted">{industry.text}</p>
             </li>
           ))}
         </ul>
       </Section>
 
-      <Section aria-labelledby="referencia">
-        <div className="max-w-3xl">
-          <h2 id="referencia" className="type-h2">
-            Referenciát szeretnél látni?
-          </h2>
-          <p className="type-lead measure mt-5">
-            A konzultáción megmutatjuk azokat a munkáinkat, amelyek a te helyzetedhez a legközelebb állnak, és elmondjuk,
-            mi működött bennük.
-          </p>
-          <ButtonLink href="/book" size="lg" className="mt-9">
-            Példákat kérek az iparágamból
+      <Section tone="navy" aria-labelledby="portfolio-zaro-cim">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHeading
+            id="portfolio-zaro-cim"
+            title="A következő a te oldalad lehet"
+            lead="Kérj demót a saját cégedre. Ingyenes, egy napon belül elkészül, és semmire nem kötelez."
+            onNavy
+          />
+          <ButtonLink href={CTA_HREF} size="lg" className="self-start lg:self-auto">
+            {CTA_LABEL}
           </ButtonLink>
         </div>
       </Section>

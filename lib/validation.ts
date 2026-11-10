@@ -1,12 +1,13 @@
 // Validation utilities (shared by the API routes and the client-side form checks)
 
-import { BUDGET_OPTIONS, REVENUE_OPTIONS, isOptionValue, isTimeSlot } from "./booking-options";
+import { isTimeSlot } from "./booking-options";
 
 export interface ValidationResult {
   isValid: boolean;
   errors: Record<string, string>;
 }
 
+/** Error texts for every form on the site (the name is historical). */
 export const BOOKING_ERRORS = {
   nameRequired: "Add meg a neved.",
   nameTooShort: "A név legalább 2 karakter legyen.",
@@ -14,7 +15,9 @@ export const BOOKING_ERRORS = {
   emailInvalid: "Adj meg érvényes e-mail-címet, például nev@cegnev.hu.",
   phoneRequired: "Add meg a telefonszámod.",
   phoneInvalid: "Adj meg magyar telefonszámot, +36 vagy 06 kezdettel, például +36 30 123 4567.",
-  choiceRequired: "Válassz egy lehetőséget.",
+  companyRequired: "Add meg a céged nevét.",
+  linkInvalid: "Ez nem tűnik linknek. Például: cegnev.hu vagy facebook.com/cegnev.",
+  messageRequired: "Írd le röviden, miben segíthetünk.",
   timeslot: "Válassz napot és időpontot.",
   privacy: "A foglaláshoz el kell fogadnod az adatkezelési tájékoztatót.",
 } as const;
@@ -101,8 +104,6 @@ export function validateBookingData(data: {
   email?: string;
   phone?: string;
   privacyAccepted?: boolean;
-  revenue?: string;
-  budget?: string;
   selectedDate?: string;
   selectedTime?: string;
 }): ValidationResult {
@@ -126,14 +127,6 @@ export function validateBookingData(data: {
     errors.phone = BOOKING_ERRORS.phoneInvalid;
   }
 
-  if (!isOptionValue(REVENUE_OPTIONS, data.revenue)) {
-    errors.revenue = BOOKING_ERRORS.choiceRequired;
-  }
-
-  if (!isOptionValue(BUDGET_OPTIONS, data.budget)) {
-    errors.budget = BOOKING_ERRORS.choiceRequired;
-  }
-
   if (!isValidIsoDate(data.selectedDate) || !isTimeSlot(data.selectedTime)) {
     errors.timeslot = BOOKING_ERRORS.timeslot;
   }
@@ -155,4 +148,83 @@ export function sanitizeString(input: string): string {
 export function sanitizeText(input: string | undefined): string {
   if (!input) return "";
   return input.trim().replace(/[<>]/g, "");
+}
+
+/** Loose check for "cegnev.hu", "www.cegnev.hu/oldal" or a full URL. Empty is fine: the field is optional. */
+export function validateLink(link: string): boolean {
+  const value = link.trim();
+  if (!value) return true;
+  if (value.length > 300 || /\s/.test(value)) return false;
+  return /^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\/\S*)?$/i.test(value);
+}
+
+/** Demo request form (home page, /demo). Shared by the client and /api/lead. */
+export function validateLeadData(data: {
+  name?: string;
+  company?: string;
+  phone?: string;
+  email?: string;
+  link?: string;
+}): ValidationResult {
+  const errors: Record<string, string> = {};
+
+  if (!data.name?.trim()) {
+    errors.name = BOOKING_ERRORS.nameRequired;
+  } else if (data.name.trim().length < 2) {
+    errors.name = BOOKING_ERRORS.nameTooShort;
+  }
+
+  if (!data.company?.trim()) {
+    errors.company = BOOKING_ERRORS.companyRequired;
+  }
+
+  if (!data.phone?.trim()) {
+    errors.phone = BOOKING_ERRORS.phoneRequired;
+  } else if (!validatePhone(data.phone)) {
+    errors.phone = BOOKING_ERRORS.phoneInvalid;
+  }
+
+  if (!data.email?.trim()) {
+    errors.email = BOOKING_ERRORS.emailRequired;
+  } else if (!validateEmail(data.email.trim())) {
+    errors.email = BOOKING_ERRORS.emailInvalid;
+  }
+
+  if (data.link && !validateLink(data.link)) {
+    errors.link = BOOKING_ERRORS.linkInvalid;
+  }
+
+  return { isValid: Object.keys(errors).length === 0, errors };
+}
+
+/** Contact form (/kapcsolat). Phone is optional there, but must be valid when given. */
+export function validateContactData(data: {
+  name?: string;
+  email?: string;
+  phone?: string;
+  message?: string;
+}): ValidationResult {
+  const errors: Record<string, string> = {};
+
+  if (!data.name?.trim()) {
+    errors.name = BOOKING_ERRORS.nameRequired;
+  } else if (data.name.trim().length < 2) {
+    errors.name = BOOKING_ERRORS.nameTooShort;
+  }
+
+  if (!data.email?.trim()) {
+    errors.email = BOOKING_ERRORS.emailRequired;
+  } else if (!validateEmail(data.email.trim())) {
+    errors.email = BOOKING_ERRORS.emailInvalid;
+  }
+
+  if (data.phone?.trim() && !validatePhone(data.phone)) {
+    errors.phone = BOOKING_ERRORS.phoneInvalid;
+  }
+
+  if (!data.message?.trim() || data.message.trim().length < 5) {
+    errors.message = BOOKING_ERRORS.messageRequired;
+  }
+
+  return { isValid: Object.keys(errors).length === 0, errors };
 }

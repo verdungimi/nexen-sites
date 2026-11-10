@@ -1,113 +1,96 @@
 import type { Metadata } from "next";
-import PageHero from "@/components/site/PageHero";
-import Section from "@/components/site/Section";
-import SectionIntro from "@/components/site/SectionIntro";
-import ClosingCta from "@/components/site/ClosingCta";
-import ProcessTimeline from "@/components/site/ProcessTimeline";
 import { ButtonLink } from "@/components/site/Button";
+import PageHero from "@/components/site/PageHero";
+import ProcessList from "@/components/site/ProcessList";
+import Section from "@/components/site/Section";
+import { SectionHeading } from "@/components/site/Words";
 import { PROCESS_STEPS } from "@/lib/content";
+import { CTA_HREF, CTA_LABEL } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Weboldalkészítés folyamata: 3 munkanap",
+  title: "Hogyan készül a weboldalad? 6 lépésben",
   description:
-    "Konzultáció, szerkezet, design és az első élő változat 3 munkanap alatt. A végösszeg hátralévő részét jóváhagyás után fizeted.",
-  alternates: {
-    canonical: "/folyamat",
-  },
+    "Kérdéssor, ingyenes demo 1 napon belül, rövid online hívás, szerződés, élesítés 3 munkanapon belül. Így dolgozik a Nexen Sites.",
+  alternates: { canonical: "/folyamat" },
 };
 
-const WHAT_WE_NEED = [
-  {
-    title: "Egy online beszélgetés",
-    text: "A konzultáción megismerjük a cégedet, az ügyfeleidet és azt, mit kellene elérnie az oldalnak.",
-  },
-  {
-    title: "Logó és képek, ha vannak",
-    text: "Ha nincsenek, a konzultáción megbeszéljük, honnan lesznek.",
-  },
-  {
-    title: "Szakmai ellenőrzés",
-    text: "A szövegeket mi írjuk. Tőled azt kérjük, hogy nézd át, szakmailag pontosak-e.",
-  },
-  {
-    title: "Gyors visszajelzés",
-    text: "Minél hamarabb mondod el az első élő változatnál, mit módosítsunk, annál hamarabb élesíthetünk.",
-  },
+const FROM_YOU = [
+  { title: "A demóhoz", text: "A kérdéssor öt válasza, az elérhetőséged, és ha van, a mostani weboldalad vagy Facebook-oldalad linkje." },
+  { title: "A kész oldalhoz", text: "A logód, a képeid, és azok a szakmai részletek, amiket csak te tudsz. A szövegeket mi írjuk meg." },
+  { title: "Az élesítéshez", text: "Hozzáférés a domainhez és a tárhelyhez. Ha még nincs, segítünk beüzemelni." },
+  { title: "Menet közben", text: "Visszajelzés a tervre és a kész oldalra. Ha az anyagok vagy a válaszok késnek, a határidő ugyanennyivel kitolódik." },
 ];
 
 const PAYMENT = [
-  {
-    title: "Megrendeléskor",
-    text: "Előleget fizetsz. A mértékét az írásos ajánlat rögzíti, amit a konzultáció után küldünk.",
-  },
-  {
-    title: "Jóváhagyás után",
-    text: "A végösszeg hátralévő részét akkor fizeted, amikor az elkészült oldalt jóváhagytad.",
-  },
+  { title: "A demóig", text: "Semmit nem kell fizetned. A demo ingyenes, és semmire nem kötelez." },
+  { title: "Szerződéskor", text: "Ha a demo tetszik, a szerződés aláírásakor előleget fizetsz." },
+  { title: "Átadáskor", text: "A végszámlát az átadáskor kapod. A számlák fizetési határideje 8 nap." },
+  { title: "Ha meggondolnád magad", text: "Bármikor felmondhatod. Ilyenkor az elvégzett munka szerint számolunk el: 25%, 50% vagy 100%. Fogyasztóként 14 napon belül indoklás nélkül is felmondhatsz." },
 ];
 
-export default function FolyamatPage() {
+export default function ProcessPage() {
   return (
     <>
       <PageHero
-        title="Három munkanap az első élő változatig"
-        lead="Gyorsan dolgozunk, de nem kapkodva. A konzultáción összegyűjtünk mindent, ami kell, így a munkanapokat építésre fordítjuk, nem várakozásra. Minden lépésnél tudod, hol tartunk."
-        actions={
-          <ButtonLink href="/book" size="lg">
-            Elindítom a folyamatot
-          </ButtonLink>
-        }
-      />
+        title="Hogyan készül el a weboldalad?"
+        crumbs={[{ href: "/folyamat", label: "Folyamat" }]}
+        answer="Kitöltöd a rövid kérdéssort, és egy napon belül ingyenes demo weboldalt kapsz a saját cégedre. Egy rövid online hívásban megmutatjuk. Ha tetszik, szerződünk, és az anyagaid átadása után három munkanapon belül élesítjük az oldalt, két-két módosítási körrel. Ha nem tetszik, nem fizetsz semmit."
+      >
+        <ButtonLink href={CTA_HREF} size="lg">
+          {CTA_LABEL}
+        </ButtonLink>
+      </PageHero>
 
-      <Section aria-labelledby="lepesek">
-        <h2 id="lepesek" className="type-h3 text-fog">
-          Lépésről lépésre
-        </h2>
-        <div className="mt-6">
-          <ProcessTimeline steps={PROCESS_STEPS} showDetails />
+      <Section aria-labelledby="lepesek-cim">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-5">
+            <div className="lg:sticky lg:top-28">
+              <SectionHeading id="lepesek-cim" title="Mi történik lépésről lépésre?" lead="Hat lépés, ebben a sorrendben. Az első háromért nem fizetsz." />
+            </div>
+          </div>
+          <div className="lg:col-span-6 lg:col-start-7">
+            <ProcessList steps={PROCESS_STEPS} />
+          </div>
         </div>
       </Section>
 
-      <Section tone="raised" aria-labelledby="mit-kerunk">
-        <SectionIntro
-          id="mit-kerunk"
-          title="Mit kérünk tőled"
-          lead="A három munkanap akkor tartható, ha ezek időben megvannak."
-        />
-        <ul className="mt-14 grid gap-x-12 sm:grid-cols-2 lg:gap-x-20">
-          {WHAT_WE_NEED.map((item) => (
-            <li key={item.title} className="reveal border-t border-rule py-8">
+      <Section tone="mist" aria-labelledby="toled-cim">
+        <SectionHeading id="toled-cim" title="Mi kell tőled?" lead="Kevés, de az időben. A három munkanap attól számít, hogy minden anyag megérkezett." />
+        <ul className="mt-10 grid gap-x-12 md:grid-cols-2">
+          {FROM_YOU.map((item, index) => (
+            <li key={item.title} className="border-t border-line-strong py-6" data-reveal style={{ "--i": index % 2 } as React.CSSProperties}>
               <h3 className="type-h3">{item.title}</h3>
-              <p className="measure mt-3 text-fog">{item.text}</p>
+              <p className="measure mt-2 text-muted">{item.text}</p>
             </li>
           ))}
         </ul>
       </Section>
 
-      <Section aria-labelledby="fizetes">
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <h2 id="fizetes" className="type-h2">
-              Hogyan fizetsz
-            </h2>
-          </div>
-          <div className="lg:col-span-7 lg:col-start-6">
-            <div className="grid gap-x-12 sm:grid-cols-2">
-              {PAYMENT.map((item) => (
-                <div key={item.title} className="reveal border-t border-rule py-8">
-                  <h3 className="type-h3">{item.title}</h3>
-                  <p className="mt-3 text-fog">{item.text}</p>
-                </div>
-              ))}
-            </div>
-            <p className="measure mt-4 text-bone/90">
-              Az árban két javítási kör benne van, így az első élő változat után is van mozgástered.
-            </p>
-          </div>
-        </div>
+      <Section aria-labelledby="fizetes-cim">
+        <SectionHeading id="fizetes-cim" title="Mikor kell fizetni?" lead="A demóért soha. Utána a szerződés szerint, két részletben." />
+        <ol className="mt-10 grid gap-x-10 md:grid-cols-2 lg:grid-cols-4">
+          {PAYMENT.map((item, index) => (
+            <li key={item.title} className="border-t border-line py-6" data-reveal style={{ "--i": index } as React.CSSProperties}>
+              <h3 className="type-h3">{item.title}</h3>
+              <p className="mt-2 text-muted">{item.text}</p>
+            </li>
+          ))}
+        </ol>
       </Section>
 
-      <ClosingCta />
+      <Section tone="navy" aria-labelledby="folyamat-zaro-cim">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHeading
+            id="folyamat-zaro-cim"
+            title="Az első lépés egy perc"
+            lead="Öt kérdés és az elérhetőséged. Egy napon belül látod, hogyan nézne ki a céged új weboldala."
+            onNavy
+          />
+          <ButtonLink href={CTA_HREF} size="lg" className="self-start lg:self-auto">
+            {CTA_LABEL}
+          </ButtonLink>
+        </div>
+      </Section>
     </>
   );
 }
