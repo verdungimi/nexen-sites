@@ -12,7 +12,14 @@ import DemoForm from "./DemoForm";
  * At the end it names the recommended package with a one-sentence reason and shows the demo request form;
  * the answers travel with the form automatically.
  */
-export default function Quiz({ surface = "mist", idPrefix = "kerdessor" }: { surface?: "mist" | "white"; idPrefix?: string }) {
+interface QuizProps {
+  surface?: "mist" | "white";
+  idPrefix?: string;
+  /** Use "h2" where the quiz sits directly under the page's h1, so the heading order stays correct */
+  headingLevel?: "h2" | "h3";
+}
+
+export default function Quiz({ surface = "mist", idPrefix = "kerdessor", headingLevel: Heading = "h3" }: QuizProps) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<QuizAnswers>({});
   const [picked, setPicked] = useState<string | null>(null);
@@ -100,9 +107,9 @@ export default function Quiz({ surface = "mist", idPrefix = "kerdessor" }: { sur
             </div>
           </div>
 
-          <h3 ref={headingRef} tabIndex={-1} className="type-h3 mt-4 !text-[1.625rem] outline-none sm:!text-[1.875rem]">
+          <Heading ref={headingRef} tabIndex={-1} className="type-h3 mt-4 !text-[1.625rem] outline-none sm:!text-[1.875rem]">
             {question.question}
-          </h3>
+          </Heading>
 
           <div className={cn("mt-5 grid gap-2.5", question.twoColumns ? "grid-cols-2 sm:grid-cols-1" : "grid-cols-1")}>
             {question.options.map((option) => {
@@ -143,9 +150,9 @@ export default function Quiz({ surface = "mist", idPrefix = "kerdessor" }: { sur
       ) : (
         <div className="quiz-step">
           <p className="text-[0.9375rem] font-semibold text-mid">Neked ezt ajánljuk</p>
-          <h3 ref={headingRef} tabIndex={-1} className="type-h2 mt-2 outline-none">
+          <Heading ref={headingRef} tabIndex={-1} className="type-h2 mt-2 outline-none">
             {recommendation?.name}
-          </h3>
+          </Heading>
           <p className="mt-3 text-lg leading-snug">{recommendation?.reason}</p>
           <div className="mt-6 border-t border-line-strong pt-6">
             <p className="mb-4 font-semibold">Kérd el ingyen a demót, és egy napon belül megmutatjuk, hogyan nézne ki a te cégedre.</p>

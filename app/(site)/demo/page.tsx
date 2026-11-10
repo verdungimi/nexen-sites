@@ -54,7 +54,7 @@ export default function DemoPage() {
               <span className="hero-line">Előbb megnézed.</span>
               <span className="hero-line">Utána fizetsz.</span>
             </p>
-            <p className="hero-fade type-lead mt-6 max-w-[32rem] text-cloud" style={{ "--d": "0.5s" } as React.CSSProperties}>
+            <p className="hero-slide type-lead mt-6 max-w-[32rem] text-cloud">
               A Nexen Sites egy napon belül elkészíti a céged demo weboldalát, ingyen és kötelezettség nélkül. A demóért és a demóig semmit nem
               kell fizetned. Ha tetszik, szerződünk, és az anyagaid átadása után három munkanapon belül élesítjük. Ha nem tetszik, nem fizetsz semmit.
             </p>
@@ -68,7 +68,7 @@ export default function DemoPage() {
             </ul>
           </div>
           <div id="kerdessor" className="hero-fade scroll-mt-24 lg:col-span-6" style={{ "--d": "0.3s" } as React.CSSProperties}>
-            <Quiz surface="white" />
+            <Quiz surface="white" headingLevel="h2" />
           </div>
         </Container>
       </section>

@@ -2,7 +2,6 @@ import Link from "next/link";
 import { SITE_URL } from "@/lib/site";
 import Container from "./Container";
 import JsonLd from "./JsonLd";
-import Words from "./Words";
 
 interface Crumb {
   href: string;
@@ -59,14 +58,11 @@ export default function PageHero({ title, answer, crumbs, children }: PageHeroPr
             })}
           </ol>
         </nav>
-        <h1 className="type-h1 mt-6 max-w-4xl" data-reveal-words>
-          <Words text={title} />
-        </h1>
-        <p className="type-lead mt-6 max-w-[42rem] text-cloud" data-reveal style={{ "--i": 2 } as React.CSSProperties}>
-          {answer}
-        </p>
+        {/* The title and the answer glide in but are never invisible: they are the first thing painted */}
+        <h1 className="type-h1 hero-line mt-6 max-w-4xl">{title}</h1>
+        <p className="hero-slide type-lead mt-6 max-w-[42rem] text-cloud">{answer}</p>
         {children && (
-          <div className="mt-9" data-reveal style={{ "--i": 3 } as React.CSSProperties}>
+          <div className="hero-fade mt-9" style={{ "--d": "0.35s" } as React.CSSProperties}>
             {children}
           </div>
         )}

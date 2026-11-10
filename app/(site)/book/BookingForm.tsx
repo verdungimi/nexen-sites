@@ -197,13 +197,14 @@ export default function BookingForm() {
                       key={day.toISOString()}
                       type="button"
                       aria-pressed={selected}
-                      aria-label={capitalize(day.toLocaleDateString("hu-HU", { weekday: "long", month: "long", day: "numeric" }))}
                       onClick={() => {
                         setDate(day);
                         setErrors((current) => ({ ...current, timeslot: "" }));
                       }}
                       className={cn(chip(selected), "flex min-h-14 flex-col items-center justify-center px-1 leading-tight")}
                     >
+                      {/* The weekday is in the column header for sighted users; screen readers get it here */}
+                      <span className="sr-only">{day.toLocaleDateString("hu-HU", { weekday: "long" })}, </span>
                       <span className="text-lg tabular-nums">{day.getDate()}</span>
                       <span className={cn("text-[0.6875rem] font-medium", selected ? "text-cloud" : "text-muted")}>
                         {day.toLocaleDateString("hu-HU", { month: "short" })}

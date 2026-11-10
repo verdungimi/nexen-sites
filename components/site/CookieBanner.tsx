@@ -71,12 +71,11 @@ export default function CookieBanner() {
       <h2 id="cookie-title" className="font-display text-xl font-semibold">
         Cookie-k az oldalon
       </h2>
-      <p className="mt-2 text-[0.9375rem] leading-relaxed text-muted">
-        A működéshez szükséges cookie-kon túl statisztikai és marketing célú cookie-kat csak akkor használunk, ha hozzájárulsz. Részletek a{" "}
+      <p className="mt-1.5 text-[0.9375rem] leading-snug text-muted">
+        Statisztikai és marketing cookie-kat csak a hozzájárulásoddal használunk.{" "}
         <Link href="/cookies" className="link">
-          cookie tájékoztatóban
+          Részletek
         </Link>
-        .
       </p>
 
       {settingsOpen && (

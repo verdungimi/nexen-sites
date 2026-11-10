@@ -34,7 +34,7 @@ function Hero() {
             <span className="hero-line">Előbb megnézed.</span>
             <span className="hero-line">Utána fizetsz.</span>
           </p>
-          <p className="hero-fade type-lead mt-7 max-w-[34rem] text-cloud" style={{ "--d": "0.55s" } as React.CSSProperties}>
+          <p className="hero-slide type-lead mt-7 max-w-[34rem] text-cloud">
             Egy napon belül elkészítjük a céged demo weboldalát, ingyen. Ha tetszik, szerződünk. Ha nem, nem fizetsz semmit.
           </p>
           <div className="hero-fade mt-9 flex flex-col gap-x-7 gap-y-4 sm:flex-row sm:items-center" style={{ "--d": "0.7s" } as React.CSSProperties}>
