@@ -28,3 +28,8 @@ create table if not exists public.leads (
 alter table public.leads enable row level security;
 
 create index if not exists leads_created_at_idx on public.leads (created_at desc);
+
+-- The website reaches this table only through the service role key on the server.
+-- Take away the default grants of the public-facing roles, so the table is not even
+-- discoverable through the REST or GraphQL API with the public key.
+revoke all on table public.leads from anon, authenticated;
